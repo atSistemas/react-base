@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: 'bundle.js',
-    publichPath : '/'
+    publichPath : '/build'
   },
   proxy: {
    "*": "http://localhost:3000"
