@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": "airbnb",
+  "globals": {
+    "__DEV__": true
+  },
+  "env": {
+    "browser": true,                 
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "react/jsx-quotes": 0,
+    "jsx-quotes": [2, "prefer-double"]
+  }
+}
