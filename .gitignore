@@ -1,0 +1,7 @@
+*.log
+.idea
+*.vimrc
+.DS_STORE
+node_modules/
+bower_components/
+coverage/
