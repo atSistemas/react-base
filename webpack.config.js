@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js',
@@ -8,18 +8,16 @@ module.exports = {
     filename: 'bundle.js',
     publichPath : '/'
   },
+  proxy: {
+   "*": "http://localhost:3000"
+ },
   devServer: {
     inLine: true,
     contentBase: './build'
   },
   module: {
     loaders: [
-      {
-        test: /.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
+      { test: /.jsx?$/, loader: 'babel-loader', exclude: /node_modules/, query: { presets: ['es2015', 'react']
         }
       }
     ]
