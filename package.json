@@ -1,8 +1,8 @@
 {
-  "name": "ReactBase",
-  "version": "0.1.0",
+  "name": "ReactSeed",
+  "version": "1.0.0",
   "author": "Pablo Magaz",
-  "description": "atSistemas React Development Platform",
+  "description": "ReactSeed",
   "main": "main.js",
   "dependencies": {
     "history": "^2.0.0",
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atsistemas/react-base"
+    "url": "https://github.com/pmagaz/react-seed"
   },
   "keywords": [
-    "ReactBase"
+    "ReactSeed"
   ],
   "license": "ISC"
 }
