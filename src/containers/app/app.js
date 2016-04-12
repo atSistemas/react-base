@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 import Routes from '../../routes'
-import Logo from '../logo'
-import Home from '../../pages/home'
+import store from '../../store/mainStore/mainStore'
 import { syncHistoryWithStore } from 'react-router-redux'
-import store from '../../stores/mainStore/mainStore'
 import { Router, Route, browserHistory} from 'react-router'
 
 class App extends Component {
 
   render() {
     return (
-      <Router history={browserHistory}>
-        {Routes}
-      </Router>
+      <Provider store={ store }>
+        <Router history={ browserHistory }>
+          {Routes}
+        </Router>
+      </Provider>
     );
   }
 
