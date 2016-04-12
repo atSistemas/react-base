@@ -1,20 +1,26 @@
 import { fromJS } from 'immutable'
-import { ADD_ITEM, REMOVE_ITEM } from '../constants'
+import { ADD_ITEM, REMOVE_ITEM } from '../actions'
 
 const INITIAL_STATE = fromJS({items: 0});
 
-function basicReducer(state = INITIAL_STATE, action = {}) {
+function itemHandler(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
 
     case ADD_ITEM:
-      return state.update('item', (value) => value + 1);
+      return Object.assign({}, state, {
+        items: state.items +1,
+        text: action.text
+      })
 
-      case REMOVE_ITEM:
-      return state.update('item', (value) => value - 1);
+    case REMOVE_ITEM:
+      return Object.assign({}, state, {
+        items: state.items -1,
+        text: action.text
+      })
 
-      default:
+    default:
       return state;
   }
 }
 
-export default basicReducer
+export default itemHandler

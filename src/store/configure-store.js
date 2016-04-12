@@ -2,11 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import loggerMiddleware from 'redux-logger'
 import DevTools from 'redux-devtools'
-import basicReducer from '../reducers/basic'
+import * as reducers from '../reducers/'
 
 function configureStore(initialState) {
   return createStore(
-    basicReducer,
+    combineReducers(reducers),
     initialState,
     compose(
       applyMiddleware(thunkMiddleware,loggerMiddleware())
