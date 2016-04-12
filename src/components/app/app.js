@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { syncHistoryWithStore } from 'react-router-redux'
-
 import Routes from '../../routes'
-import configureStore from '../../shared/configure-store'
-import { Router, Route, browserHistory } from '../../shared/route-helper'
-
-const store = configureStore({})
+import store from '../../stores/mainStore/mainStore'
+import { Router, Route, browserHistory} from 'react-router'
 
 class App extends Component {
 
