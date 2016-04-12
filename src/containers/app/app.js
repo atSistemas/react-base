@@ -10,15 +10,15 @@ const store = configureStore({})
 
 class App extends Component {
 
-  render() {
-    return (
-      <Provider store={ store }>
-        <Router history={ browserHistory }>
-          {Routes}
-        </Router>
-      </Provider>
-    );
-  }
+ render() {
+   return (
+     <Provider store={ store }>
+       <Router history={ browserHistory }>
+         {Routes}
+       </Router>
+     </Provider>
+   );
+ }
 
 }
 
