@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Router, Route } from 'react-router'
+import Routes from '../../routes'
 import Logo from '../logo'
 import Home from '../../pages/home'
+import { syncHistoryWithStore } from 'react-router-redux'
+import store from '../../stores/mainStore/mainStore'
+import { Router, Route, browserHistory} from 'react-router'
 
 class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Route path="/" component={Logo} />
-        <Route path="/home" component={Home} />
+      <Router history={browserHistory}>
+        {Routes}
       </Router>
     );
   }

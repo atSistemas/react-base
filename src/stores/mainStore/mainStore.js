@@ -1,3 +1,6 @@
-import Constants from '../constants/'
-import {dispatch, register} from '../dispatchers/dispatcher.js'
-import { EventEmitter } from 'events';
+import { createStore } from 'redux'
+import basicReducer from '../../reducers/basic'
+
+let store = createStore(basicReducer, [ 'Use Redux' ])
+
+export default store

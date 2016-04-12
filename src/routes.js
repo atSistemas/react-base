@@ -1,6 +1,13 @@
-import React from 'react';
-import Router from 'react-routing/src/Router';
-import HomePage from './components/HomePage';
+import React from 'react'
+import App from './components/app'
+import HomePage from './pages/home'
+import { IndexRoute, Route } from 'react-router'
 
+export default (
 
-export default router;
+  <Route path="/" component={ App }>
+    <IndexRoute component={ HomePage }/>
+    <Route path="/home" component={ HomePage } />
+  </Route>
+
+)
