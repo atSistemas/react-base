@@ -4,6 +4,9 @@ import Logo from '../logo'
 import Home from '../../pages/home'
 
 class App extends Component {
+  componentWillMount() {
+    return false;
+  }
   render() {
     return (
       <Router>

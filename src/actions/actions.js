@@ -11,7 +11,7 @@ export default {
   },
 
   removeItem ( item ) {
-    Dispatcher({
+    mainDispatcher({
       actionType: Constants.REMOVE_ITEM,
       data: item
     });

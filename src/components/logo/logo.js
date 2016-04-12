@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ReactBaseActions from '../../actions';
 
-class ReactBaseLogo extends React.Component {
+class ReactBaseLogo extends Component {
+  componentWillMount() {
+    return false;
+  }
 
   render() {
     return (
