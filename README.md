@@ -1,6 +1,6 @@
 ![React-Base logo](./build/react-base-logo.png)
 
-# React-base: modular platform for your Flux Isomorphic apps
+# React-base: modular platform for Redux Isomorphic apps
 
 This repository is a modular abstraction to build a typical [ReactJS](https://facebook.github.io/react/) web application.
 You can use it to quickly scaffold your React web app projects and dev environment for these projects.
