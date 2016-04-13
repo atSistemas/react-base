@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactBaseLogo from '../components/logo/'
 
 class Home extends Component {
   componentWillMount() {
@@ -8,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>HomePage</h1>
+        <ReactBaseLogo />
       </div>
     )
   }

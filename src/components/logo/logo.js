@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactBaseActions from '../../actions';
+import Actions from '../../actions';
 
 class ReactBaseLogo extends Component {
   componentWillMount() {
@@ -8,7 +8,7 @@ class ReactBaseLogo extends Component {
 
   render() {
     return (
-        <img onClick={ReactBaseActions.addItem.bind(null,'hola')} src="./react-base-logo.png" alt="ReactBase" width="300" />
+        <img src="./react-base-logo.png" alt="ReactBase" width="500" />
     );
   }
 
