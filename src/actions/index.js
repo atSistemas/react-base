@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, SET_VISIBILITY_FILTER } from '../constants';
+import { ADD_ITEM, REMOVE_ITEM, SET_VISIBILITY_FILTER } from '../constants/action-types';
 import { createAction } from '../shared/action-creator'
 
   export function addItem(text) {

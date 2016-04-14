@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <ReactBaseLogo />
+        <ReactBaseLogo alt="Logo"/>
       </div>
     )
   }
