@@ -1,14 +1,18 @@
-import React from 'react'
+import RootContainer from './containers/root'
 import HomeContainer from './containers/home'
-import { createDevTools } from './containers/dev-tools'
-import {IndexRoute, Route } from './shared/route-helper'
+import ListContainer from './containers/list'
+import App from './containers/app'
+import React from 'react'
+import { Route, IndexRoute, Link } from 'react-router'
 
-export default (
+const routes = (
 
-  <Route path="/" component={ HomeContainer }>
-    <IndexRoute component={ createDevTools } />
-    <Route path="/home" component={ HomeContainer } />
-    <Route path="/dev" component={ createDevTools } />
+  <Route path="/" component={App}>
+    <IndexRoute component={HomeContainer}/>
+    <Route path="home" component={HomeContainer}/>
+    <Route path="list" component={ListContainer}/>
   </Route>
 
 )
+
+export default routes
