@@ -3,7 +3,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 
 import * as rootReducer from '../reducers'
-import DevTools from '../containers/dev-tools';
+import DevTools from '../containers/DevTools';
 
 const initialState = {}
 

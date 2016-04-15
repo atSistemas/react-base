@@ -1,10 +1,5 @@
-import * as types from '../constants/action-types';
-import { createAction } from '../shared/action-creator'
+import * as Types from '../constants/action-types';
+import createAction from '../shared/action-creator'
 
-  export function addItem(text) {
-    return {type: types.ADD_ITEM, text}
-  }
-
-  export function removeItem(id) {
-    return {type: types.REMOVE_ITEM, id}
-  }
+export const addItem = createAction(Types.ADD_ITEM, 'text')
+export const removeItem = createAction(Types.REMOVE_ITEM, 'id')

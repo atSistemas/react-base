@@ -1,7 +1,6 @@
-import { fromJS } from 'immutable'
 import * as actions from '../actions'
 
-const INITIAL_STATE = fromJS({text: 'Use Redux', completed: false, id: 0});
+const INITIAL_STATE = {}//fromJS({text: 'Use Redux', completed: false, id: 0});
 
 function update(state = INITIAL_STATE, action) {
   switch (action.type) {

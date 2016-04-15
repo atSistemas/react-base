@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import ReactBaseLogo from '../components/logo'
+
+import ReactBaseLogo from '../../components/Logo'
 
 function App({ pushPath, children }) {
   return (

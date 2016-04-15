@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+class List extends Component {
   componentWillMount() {
     return false;
   }
@@ -8,13 +8,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-      Home!!
-
-      go to <a href="/list">list</a>
+      List!!
       </div>
     )
   }
 
 }
 
-export default Home
+export default List

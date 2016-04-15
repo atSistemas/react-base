@@ -8,26 +8,34 @@
     "__DEV__": true
   },
   "env": {
-    "browser": true,                 
+    "browser": true,
     "node": true
   },
   "parserOptions": {
     "ecmaVersion": 6
   },
   "rules": {
+    "react/jsx-pascal-case": 2,
+    "react/prefer-stateless-function": 2,
+    "react/prefer-es6-class": 2,
+    "react/no-multi-comp": 2,
+    "react/jsx-boolean-value": 2,
     "react/jsx-quotes": 0,
+    "require-render-return": 2,
+    "react/no-is-mounted": 2,
+    "react/wrap-multilines": 2,
+    "react/jsx-no-bind": 2,
     "jsx-quotes": [2, "prefer-double"],
-    "react/no-multi-comp": 0,
     "import/default": 0,
     "import/no-duplicates": 0,
     "import/named": 0,
     "import/namespace": 0,
     "import/no-unresolved": 0,
-    "import/no-named-as-default": 0,    
-    "comma-dangle": 0, 
+    "import/no-named-as-default": 0,
+    "comma-dangle": 0,
     "indent": [2, 2, {"SwitchCase": 1}],
     "no-console": 0,
     "no-alert": 0,
-    "semi": 0 
+    "semi": 0
   }
 }
