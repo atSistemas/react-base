@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
     publichPath : '/build'
   },
@@ -13,7 +13,8 @@ module.exports = {
  },
   devServer: {
     inLine: true,
-    contentBase: './build'
+    contentBase: './build',
+    historyApiFallback: true
   },
   module: {
     loaders: [

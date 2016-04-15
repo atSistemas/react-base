@@ -1,38 +1,28 @@
-import React from 'react'
-
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 
-import * as reducers from '../reducers/itemsReducer'
+import * as rootReducer from '../reducers'
+import DevTools from '../containers/dev-tools';
+
+const initialState = {}
 
 function configureStore(history, initialState) {
 
-    const reducer = combineReducers({
-    ...reducers,
+  const reducer = combineReducers({
+    ...rootReducer,
     routing: routerReducer
   })
 
-  const store = createStore(
-    reducer,
-    initialState,
-    compose(
-      applyMiddleware(
-        thunkMiddleware,
-        routerMiddleware(history)
-      )
-    )
+  const enchancer = compose(
+    DevTools.instrument(),
+    applyMiddleware(thunkMiddleware, routerMiddleware(history))
   )
+
+  const store = createStore(reducer, initialState, enchancer)
 
   return store
 
 }
-/*
-const store = compose(
-  applyMiddleware(thunkMiddleware,loggerMiddleware()),
-  reduxReactRouter({
-    routes
-  })
-)(createStore)(rootReducer);
-*/
+
 export default configureStore
