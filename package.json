@@ -48,7 +48,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "scripts": {
-    "logo": "node .react-base/lib/logo.js",
+    "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
