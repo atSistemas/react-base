@@ -47,7 +47,7 @@
     "webpack": "node_modules/webpack/bin/webpack.js",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "npm run logo && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors",
+    "start": "npm run logo && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
     "postinstall": "npm run start"
   },
   "jest": {
