@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import ReactBaseLogo from '../../components/Logo'
+import Header from '../../components/Header'
 
 function App({ pushPath, children }) {
   return (
     <div>
 
-      <ReactBaseLogo />
+      <Header />
 
       <main>
         {children}

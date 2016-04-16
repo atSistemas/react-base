@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 
 class Home extends Component {
-  componentWillMount() {
-    return false;
-  }
 
   render() {
     return (
       <div>
       Home!!
-
-      go to <a href="/list">list</a>
+      Go to <Link to="/list">
+        <span>list</span>
+      </Link>
       </div>
     )
   }
