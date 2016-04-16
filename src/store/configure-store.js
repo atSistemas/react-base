@@ -1,9 +1,9 @@
+import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 
 import * as rootReducer from '../reducers'
-import DevTools from '../containers/DevTools';
 
 const initialState = {}
 
@@ -14,9 +14,14 @@ function configureStore(history, initialState) {
     routing: routerReducer
   })
 
+  const loggerMiddleware = createLogger()
+
   const enchancer = compose(
-    DevTools.instrument(),
-    applyMiddleware(thunkMiddleware, routerMiddleware(history))
+    applyMiddleware(
+      thunkMiddleware,
+      loggerMiddleware,
+      routerMiddleware(history)
+    )
   )
 
   const store = createStore(reducer, initialState, enchancer)
