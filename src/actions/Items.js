@@ -1,5 +1,27 @@
-import * as Types from '../constants/action-types';
-import createAction from '../shared/action-creator'
+import fetch from 'isomorphic-fetch'
+import * as constants from '../constants'
 
-export const addItem = createAction(Types.ADD_ITEM, 'text')
-export const removeItem = createAction(Types.REMOVE_ITEM, 'id')
+function fetchItems() {
+  return {
+    type: constants.FETCH_ITEMS
+  }
+}
+
+function receiveItems(json) {
+  return {
+    type: constants.RECEIVE_ITEMS,
+    data: json,
+    timeStamp: Date.now()
+  }
+}
+
+function requestItems(url) {
+  return dispatch => {
+    dispatch(fetchItems())
+    return fetch(url + name )
+      .then(req => req.json())
+      .then(json => dispatch(receiveItems(json)))
+  }
+}
+
+export default requestItems

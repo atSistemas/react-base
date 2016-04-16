@@ -5,7 +5,6 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { Router, browserHistory, useRouterHistory } from 'react-router'
 
 import routes from '../../routes'
-import DevTools from '../DevTools'
 import configureStore from '../../store/configure-store'
 
 const store = configureStore(browserHistory)
@@ -18,7 +17,6 @@ class Root extends Component {
       <Provider store={ store }>
       <div>
         <Router history={ history } routes={ routes } />
-        <DevTools />
         </div>
       </Provider>
     )
