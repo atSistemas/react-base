@@ -21,11 +21,9 @@ class List extends Component {
 
      if( items ){
        list = (
-         items.map(function (item) {
+         items.map(function (item, index) {
            return (
-             <li key={ item.id }>
-                <p>{ item.title }</p>
-             </li>
+             <Row { ...item } key={ index } />
            )
          })
        )
