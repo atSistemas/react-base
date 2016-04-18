@@ -14,12 +14,10 @@ function configureStore(history, initialState) {
     routing: routerReducer
   })
 
-  const loggerMiddleware = createLogger()
-
   const enchancer = compose(
     applyMiddleware(
+      createLogger(),
       thunkMiddleware,
-      loggerMiddleware,
       routerMiddleware(history)
     )
   )

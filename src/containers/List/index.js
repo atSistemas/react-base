@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import requestItems from '../../actions/Items'
+import fetchItems from '../../actions/Items'
 import Row from '../../components/Row'
 
 class List extends Component {
@@ -10,8 +10,7 @@ class List extends Component {
   }
 
   componentDidMount () {
-    let url = 'http://jsonplaceholder.typicode.com/posts';
-     this.props.dispatch(requestItems(url))
+     this.props.dispatch(fetchItems())
    }
 
    render () {

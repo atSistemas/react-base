@@ -1,12 +1,12 @@
-import * as constants from '../constants'
+import { RECEIVE_ITEMS } from '../constants'
 
 const initialState = []
 
-function update(state = initialState, action) {
+function items(state = initialState, action) {
 
 	switch (action.type) {
 
-		case constants.RECEIVE_ITEMS:
+		case RECEIVE_ITEMS:
 
 			const items = []
 			action.data.map(function (item, id) {
@@ -25,4 +25,4 @@ function update(state = initialState, action) {
   }
 }
 
-module.exports = update;
+export default items

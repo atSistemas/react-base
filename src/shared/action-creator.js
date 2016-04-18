@@ -4,6 +4,7 @@ function createAction(type, ...argNames) {
     argNames.forEach((arg, index) => {
       action[argNames[index]] = args[index]
     })
+    action.timeStamp = Date.now()
     return action
   }
 }

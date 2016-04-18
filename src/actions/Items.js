@@ -1,27 +1,12 @@
-import fetch from 'isomorphic-fetch'
-import * as constants from '../constants'
+import { RECEIVE_ITEMS} from '../constants'
+import fetchData from '../shared/fetch-data'
+import createAction from '../shared/action-creator'
 
-function fetchItems() {
-  return {
-    type: constants.FETCH_ITEMS
-  }
+const receiveItems = createAction(RECEIVE_ITEMS, 'data')
+
+function fetchItems(){
+  let url = 'http://jsonplaceholder.typicode.com/posts'
+  return fetchData(url, receiveItems)
 }
 
-function receiveItems(json) {
-  return {
-    type: constants.RECEIVE_ITEMS,
-    data: json,
-    timeStamp: Date.now()
-  }
-}
-
-function requestItems(url) {
-  return dispatch => {
-    dispatch(fetchItems())
-    return fetch(url + name )
-      .then(req => req.json())
-      .then(json => dispatch(receiveItems(json)))
-  }
-}
-
-export default requestItems
+export default fetchItems
