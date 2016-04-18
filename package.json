@@ -14,6 +14,7 @@
     "babel-preset-jest": "*",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
+    "css-modules-require-hook": "^4.0.0",
     "eslint": "2.8.0",
     "eslint-config-airbnb": "^7.0.0",
     "eslint-loader": "^1.3.0",
@@ -38,6 +39,7 @@
     "redux-slider-monitor": "^1.0.5",
     "redux-thunk": "^2.0.1",
     "scroll-behavior": "^0.4.0",
+    "serialize-javascript": "^1.2.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"

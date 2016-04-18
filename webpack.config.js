@@ -2,16 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  devtool: 'inline-source-map',	
-  entry: './src/main.js',
+  devtool: 'inline-source-map',
+  entry: ['./src/main.js'],
   output: {
-    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publichPath : '/build'
+    publichPath : '/build/',
+    path: path.join(__dirname, 'build')
   },
-  proxy: {
-   "*": "http://localhost:3000"
- },
   devServer: {
     inLine: true,
     contentBase: './build',
