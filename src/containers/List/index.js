@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import fetchItems from '../../actions/Items'
+import setVisibilityFilter from '../../actions/Filters'
 import Row from '../../components/Row'
 
 class List extends Component {
@@ -16,13 +18,13 @@ class List extends Component {
    render () {
 
      let list = null
-     const { items } = this.props
-
+     const { items, actions } = this.props
      if( items ){
        list = (
          items.map(function (item, index) {
            return (
-             <Row { ...item } key={ index } />
+             <Row { ...item } key={ index } onClick={() => onRowClick(item.id)} />
+
            )
          })
        )
@@ -34,6 +36,12 @@ class List extends Component {
    }
 }
 
+List.propTypes = {
+  fetchItems: React.PropTypes.func,
+  onRowClick: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
 
 function mapStateToProps(state) {
   return {
@@ -41,4 +49,17 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(List)
+//THAT WAS THE PROBLEM... MISSING DISPATCH :)
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    onRowClick: (id) => {
+      dispatch(setVisibilityFilter(id))
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List)

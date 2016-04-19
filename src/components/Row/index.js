@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-let Row = ({ id, title }) => {
+const Row = ({ id, title, onClick }) => {
 
     return (
       <li key={ id }>
-         <p>{ title }</p>
+      <a href="#"
+        onClick={e => {
+          e.preventDefault()
+          onClick()
+        }}
+     >
+       {title}
+     </a>
       </li>
     )
+}
+
+Row.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 export default Row
