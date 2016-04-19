@@ -3,10 +3,14 @@ import { Link } from 'react-router'
 
 class Home extends Component {
 
+  constructor (props) {
+    super(props)
+  }
+
   render() {
     return (
       <div>
-      Home!!
+      Home!!!!
       Go to <Link to="/list">
         <span>list</span>
       </Link>

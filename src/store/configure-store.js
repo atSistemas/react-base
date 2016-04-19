@@ -5,8 +5,6 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 
 import * as rootReducer from '../reducers'
 
-const initialState = {}
-
 function configureStore(history, initialState) {
 
   const reducer = combineReducers({

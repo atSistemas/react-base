@@ -7,7 +7,8 @@ import { Router, browserHistory, useRouterHistory } from 'react-router'
 import routes from '../../routes'
 import configureStore from '../../store/configure-store'
 
-const store = configureStore(browserHistory)
+let state = window.__INITIALSTATE__
+const store = configureStore(browserHistory, state)
 const history = syncHistoryWithStore(browserHistory, store)
 
 class Root extends Component {
@@ -15,9 +16,7 @@ class Root extends Component {
   render() {
     return (
       <Provider store={ store }>
-      <div>
         <Router history={ history } routes={ routes } />
-        </div>
       </Provider>
     )
   }
