@@ -1,10 +1,10 @@
-import * as constants from '../constants'
+import { SET_VISIBILITY_FILTER } from '../constants'
 
 function update(state = 'SHOW_ALL', action) {
   switch (action.type) {
 
-    case constants.SHOW_ALL:
-    return Object.assign({}, state )
+    case SET_VISIBILITY_FILTER:
+    return action.filter
 
     default:
       return state

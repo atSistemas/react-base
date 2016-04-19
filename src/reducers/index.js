@@ -1,2 +1,2 @@
 export items from './Items'
-//export filtersReducer from './filterReducer'
+export filters from './Filters'
