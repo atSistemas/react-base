@@ -1,53 +1,59 @@
-import qs from 'qs'
-import { renderToString } from 'react-dom/server'
-import path from 'path'
-import Express from 'express'
+
+import express from 'express'
+import serialize from 'serialize-javascript'
 import React from 'react'
-import { createStore } from 'redux'
+import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
-import counterApp from '../src/reducers'
-import App from '../src/containers/App'
+import { createMemoryHistory, match, RouterContext } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import configureStore  from '../src/store/configure-store'
+import routes from '../src/routes'
+import path from 'path'
+const app = express()
 
-const app = Express()
-const port = 8000
+app.use('/build', express.static(path.join(__dirname, '../build')))
 
-app.use(handleRender)
+const HTML = ({ content, store }) => (
+  <html>
+    <head>
+    </head>
+    <body>
+      <div id='root' dangerouslySetInnerHTML={{ __html: content }}/>
+      <script dangerouslySetInnerHTML={{ __html: `window.__INITIALSTATE__=${serialize(store.getState())};` }}/>
+      <script src='/build/vendor.js' />
+      <script src='/build/bundle.js' />
+    </body>
+  </html>
+)
 
-function handleRender(req, res) {
-  const params = qs.parse(req.query)
-  const counter = parseInt(params.counter, 10) || 0
-  let initialState = { counter }
+app.use(function (req, res) {
 
-  const store = createStore(counterApp, initialState)
+  const memoryHistory = createMemoryHistory(req.path)
+  let store = configureStore(memoryHistory )
+  const history = syncHistoryWithStore(memoryHistory, store)
 
-  const html = renderToString(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  )
+  match({ history, routes , location: req.url }, (error, redirectLocation, renderProps) => {
+    if (error) {
+      res.status(500).send(error.message)
+    } else if (renderProps) {
 
-  const finalState = store.getState()
+      store = configureStore(memoryHistory, store.getState())
+      const content = renderToString(
+        <Provider store={store}>
+          <RouterContext {...renderProps}/>
+        </Provider>
+      )
+      res.end('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
+    }
+  })
 
-  res.send(renderFullPage(html, finalState))
-}
+})
 
 
-function renderFullPage(html, initialState) {
-  return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>Redux Universal Example</title>
-      </head>
-      <body>
-        <div id="root">${html}</div>
-        <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
-        </script>
-        <script src="/static/bundle.js"></script>
-      </body>
-    </html>
-    `
-}
-
-app.listen(port)
+app.listen(8000, 'localhost', function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('[SERVER UP] on http://127.0.0.1:3000')
+})

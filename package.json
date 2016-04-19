@@ -5,6 +5,7 @@
   "description": "ReactSeed",
   "main": "main.js",
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^11.0.1",
@@ -20,6 +21,7 @@
     "eslint-loader": "^1.3.0",
     "eslint-plugin-jsx-a11y": "^0.6.2",
     "eslint-plugin-react": "^4.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "flux": "^2.1.1",
     "history": "^2.0.2",
     "install": "^0.6.1",
@@ -47,9 +49,12 @@
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
+    "build": "npm run clean && webpack --config webpack.config.prod.js",
+    "clean": "rm build/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "npm run logo && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
+    "start": "npm run logo && npm run clean && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
+    "start:prod": "NODE_ENV=prod npm run logo && npm run build && node server/",
     "postinstall": "npm run start"
   },
   "jest": {
@@ -67,7 +72,7 @@
     ],
     "preprocessorIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/build/"
+      "<rootDir>/dist/"
     ],
     "scriptPreprocessor": "preprocessor.js"
   },
