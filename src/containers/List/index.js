@@ -12,19 +12,23 @@ class List extends Component {
   }
 
   componentDidMount () {
-     this.props.dispatch(fetchItems())
+    const { dispatch } = this.props
+    dispatch(fetchItems())
+   }
+
+   onRowClick(id) {
+     const { dispatch } = this.props
+     dispatch(setVisibilityFilter(id))
    }
 
    render () {
-
      let list = null
      const { items, actions } = this.props
      if( items ){
        list = (
-         items.map(function (item, index) {
+         items.map((item, index) => {
            return (
-             <Row { ...item } key={ index } onClick={() => onRowClick(item.id)} />
-
+             <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
            )
          })
        )
@@ -38,10 +42,7 @@ class List extends Component {
 
 List.propTypes = {
   fetchItems: React.PropTypes.func,
-  onRowClick: PropTypes.func.isRequired,
-  actions: PropTypes.object.isRequired
 };
-
 
 function mapStateToProps(state) {
   return {
@@ -49,17 +50,6 @@ function mapStateToProps(state) {
   }
 }
 
-//THAT WAS THE PROBLEM... MISSING DISPATCH :)
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-    onRowClick: (id) => {
-      dispatch(setVisibilityFilter(id))
-    }
-  }
-}
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(List)
