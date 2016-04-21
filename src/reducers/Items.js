@@ -1,4 +1,4 @@
-import { RECEIVE_ITEMS, CHANGE_REMOVED_STATE_ITEM } from '../constants'
+import { RECEIVE_ITEMS, CHANGE_ITEM_STATE } from '../constants'
 
 const initialState = []
 
@@ -9,28 +9,19 @@ function items(state = initialState, action) {
 	switch (action.type) {
 
 		case RECEIVE_ITEMS:
-			action.data.map(function (item, id) {
-				items.push(
-			    {
-		        id: item.id,
-		        title: item.title,
-		        removed : false
-			    }
-				)
-			})
 
-		return  Object.assign({}, state,  { list: items } )
+		return  Object.assign({}, state,  { data: action.data })
 
-		case CHANGE_REMOVED_STATE_ITEM:
-			state.list.map(function (item, id) {
+		case CHANGE_ITEM_STATE:
+			state.data.map(function (item, id) {
 				if (item.id === action.id) {
 			    item.removed = !item.removed
-					} 
-					items.push(item)          
+					}
+					items.push(item)
 				})
 
-		return Object.assign({}, state, { list: items } )
-		
+		return Object.assign({}, state, { data: items } )
+
 			default:
 				return state
 	  }

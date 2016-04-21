@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Row = ({ id, title, removed,  onClick }) => {
+const Row = ({ id, title, removed = false,  onClick }) => {
 
     var action = removed ? 'active' :'remove'
     return (
@@ -11,7 +11,7 @@ const Row = ({ id, title, removed,  onClick }) => {
             onClick()
           }}>
           click to {action}
-       </a>    
+       </a>
        <span>   {title}  </span>
       </li>
     )
@@ -20,8 +20,8 @@ const Row = ({ id, title, removed,  onClick }) => {
 Row.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  removed: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  removed: PropTypes.bool
 }
 
 export default Row

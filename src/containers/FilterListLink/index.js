@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import {setVisibilityFilter }from '../../actions/Filters'
-//import Link from '../components/Link'
-
+import { setVisibilityFilter } from '../../actions/Filters'
 
 class FilterListLink extends Component {
+
   constructor (props) {
     super(props)
   }
@@ -39,6 +38,5 @@ const mapStateToProps = (state, ownProps) => {
     active: ownProps.filter === state.filters
   }
 }
+
 export default connect(mapStateToProps)(FilterListLink)
-
-

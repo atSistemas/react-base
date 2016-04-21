@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import {fetchItems, changeRemovedStateItem} from '../../actions/Items'
-import {setVisibilityFilter }from '../../actions/Filters'
+import React, { Component, PropTypes } from 'react'
+import { setVisibilityFilter }from '../../actions/Filters'
+import { fetchItems, changeItemState } from '../../actions/Items'
+
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
 
@@ -18,7 +19,7 @@ class List extends Component {
 
    onRowClick(id) {
      const { dispatch } = this.props
-     dispatch(changeRemovedStateItem(id))
+     dispatch(changeItemState(id))
    }
 
    render () {
@@ -26,10 +27,10 @@ class List extends Component {
      const { items, actions } = this.props
      if( items ){
        list = (
-         items.map((item, index) => {        
+         items.map((item, index) => {
             return  (
                <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
-             )          
+             )
          })
        )
      }
@@ -42,8 +43,8 @@ class List extends Component {
      )
    }
 }
-const getVisibleItems = (items, filter) => {
 
+const getVisibleItems = (items, filter) => {
   if (items == undefined)
     return null
 
@@ -62,7 +63,7 @@ const getVisibleItems = (items, filter) => {
 
 function mapStateToProps(state) {
   return {
-    items: getVisibleItems(state.items.list, state.filters)
+    items: getVisibleItems(state.items.data, state.filter)
   }
 }
 
