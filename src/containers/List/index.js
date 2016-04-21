@@ -42,7 +42,6 @@ class List extends Component {
      )
    }
 }
-
 const getVisibleItems = (items, filter) => {
 
   if (items == undefined)

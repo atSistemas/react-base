@@ -21,11 +21,15 @@ function items(state = initialState, action) {
 			return items 
 
     case CHANGE_REMOVED_STATE_ITEM:
+
       return state.map(function (item, id) {
-      	  if (item.id === action.id) {
-      	  	item.removed = !item.removed
-      	  } 
-      	  return item      	
+      	  if (item.id !== action.id) {
+		        return item
+		      }
+
+		      return Object.assign({}, item, {
+		        removed: !item.removed
+		      })
       })
 
 		default:
