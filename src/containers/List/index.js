@@ -24,13 +24,13 @@ class List extends Component {
 
    render () {
      let list = null
-     const { items, actions } = this.props
+     const { items } = this.props
      if( items ){
        list = (
          items.map((item, index) => {
             return  (
-               <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
-             )
+              <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
+            )
          })
        )
      }

@@ -7,15 +7,11 @@ import Header from '../../components/Header'
 function App({ pushPath, children }) {
   return (
     <div>
-
       <Header />
-
       <main>
         {children}
       </main>
-
     </div>
-
   );
 };
 

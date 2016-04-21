@@ -10,7 +10,7 @@ function items(state = initialState, action) {
 
 		case RECEIVE_ITEMS:
 
-		return  Object.assign({}, state,  { data: action.data })
+		return { ...state, data: action.data }
 
 		case CHANGE_ITEM_STATE:
 			state.data.map(function (item, id) {
@@ -20,7 +20,7 @@ function items(state = initialState, action) {
 					items.push(item)
 				})
 
-		return Object.assign({}, state, { data: items } )
+		return { ...state, data: items }
 
 			default:
 				return state
