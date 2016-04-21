@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import fetchItems from '../../actions/Items'
-import setVisibilityFilter from '../../actions/Filters'
+import {fetchItems, changeRemovedStateItem} from '../../actions/Items'
+import {setVisibilityFilter }from '../../actions/Filters'
 import Row from '../../components/Row'
+import HeaderList from '../../components/HeaderList'
 
 class List extends Component {
 
@@ -18,7 +18,7 @@ class List extends Component {
 
    onRowClick(id) {
      const { dispatch } = this.props
-     dispatch(setVisibilityFilter(id))
+     dispatch(changeRemovedStateItem(id))
    }
 
    render () {
@@ -26,27 +26,44 @@ class List extends Component {
      const { items, actions } = this.props
      if( items ){
        list = (
-         items.map((item, index) => {
-           return (
-             <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
-           )
+         items.map((item, index) => {        
+            return  (
+               <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
+             )          
          })
        )
      }
 
      return (
+      <div>
+        <HeaderList />
         <ul>{ list }</ul>
+      </div>
      )
    }
 }
 
-List.propTypes = {
-  fetchItems: React.PropTypes.func,
-};
+const getVisibleItems = (items, filter) => {
+
+  if (items == undefined)
+    return null
+
+  switch (filter) {
+    case 'SHOW_ALL':
+      return items
+    case 'SHOW_REMOVED':
+      return items.filter(t => t.removed)
+    case 'SHOW_ACTIVE':
+      return items.filter(t => !t.removed)
+    default:
+      return items
+  }
+}
+
 
 function mapStateToProps(state) {
   return {
-    items: state.items.list
+    items: getVisibleItems(state.items, state.filters)
   }
 }
 

@@ -1,12 +1,10 @@
 import { SET_VISIBILITY_FILTER } from '../constants'
 
-function update(state = 'SHOW_ALL', action) {
-  console.log(222222, action)
+function update(state = 'SHOW_ACTIVE', action) {
   switch (action.type) {
 
     case SET_VISIBILITY_FILTER:
-    console.log(333333)
-    return action.filter
+      return action.filter
 
     default:
       return state
