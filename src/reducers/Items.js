@@ -4,37 +4,36 @@ const initialState = []
 
 function items(state = initialState, action) {
 
+	let items = []
+
 	switch (action.type) {
 
 		case RECEIVE_ITEMS:
-			let items = []
-
 			action.data.map(function (item, id) {
 				items.push(
-					{
-						id: item.id,
-						title: item.title,
-						removed : false
-					}
+			    {
+		        id: item.id,
+		        title: item.title,
+		        removed : false
+			    }
 				)
 			})
-			return items 
 
-    case CHANGE_REMOVED_STATE_ITEM:
+		return  Object.assign({}, state,  { list: items } )
 
-      return state.map(function (item, id) {
-      	  if (item.id !== action.id) {
-		        return item
-		      }
+		case CHANGE_REMOVED_STATE_ITEM:
+			state.list.map(function (item, id) {
+				if (item.id === action.id) {
+			    item.removed = !item.removed
+					} 
+					items.push(item)          
+				})
 
-		      return Object.assign({}, item, {
-		        removed: !item.removed
-		      })
-      })
-
-		default:
-			return state
-  }
+		return Object.assign({}, state, { list: items } )
+		
+			default:
+				return state
+	  }
 }
 
 export default items

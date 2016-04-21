@@ -62,7 +62,7 @@ const getVisibleItems = (items, filter) => {
 
 function mapStateToProps(state) {
   return {
-    items: getVisibleItems(state.items, state.filters)
+    items: getVisibleItems(state.items.list, state.filters)
   }
 }
 
