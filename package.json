@@ -44,7 +44,8 @@
     "serialize-javascript": "^1.2.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "yo": "*"
   },
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
@@ -53,9 +54,10 @@
     "clean": "rm build/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "npm run logo && npm run clean && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
+    "start": "npm run logo && npm run clean && npm run yo && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
     "start:prod": "NODE_ENV=prod npm run logo && npm run build && node server/",
-    "postinstall": "npm run start"
+    "postinstall": "npm run start",
+    "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
   "jest": {
     "unmockedModulePathPatterns": [

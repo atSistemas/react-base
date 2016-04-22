@@ -35,7 +35,7 @@ class FilterListLink extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.filter === state.filters
+    active: ownProps.filter === state.filter
   }
 }
 
