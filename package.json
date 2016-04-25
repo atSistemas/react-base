@@ -6,6 +6,8 @@
   "main": "main.js",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.7.7",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^11.0.1",
@@ -51,11 +53,11 @@
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "build": "npm run clean && webpack --config webpack.config.prod.js",
-    "clean": "rm build/bundle.js || true",
+    "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "npm run logo && npm run clean && npm run yo && node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8000 --progress --colors --hot",
-    "start:prod": "NODE_ENV=prod npm run logo && npm run build && node server/",
+    "start": "NODE_ENV=development npm run logo && babel-node server/server.js",
+    "start:prod": "NODE_ENV=prod npm run logo && npm run build && babel-node server/server-prod.js",
     "postinstall": "npm run start",
     "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
