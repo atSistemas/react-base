@@ -1,4 +1,4 @@
-![React-Base logo](./build/react-base-logo.png)
+![React-Base logo](./dist/react-base-logo.png)
 
 # React-base: modular platform for Redux Isomorphic apps
 
