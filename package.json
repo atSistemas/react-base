@@ -56,8 +56,8 @@
     "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "NODE_ENV=development npm run logo && babel-node server/server.js",
-    "start:prod": "NODE_ENV=prod npm run logo && npm run build && babel-node server/server-prod.js",
+    "start": "npm run logo && babel-node server/server.js",
+    "start:prod": "npm run logo && npm run build && babel-node server/server-prod.js",
     "postinstall": "npm run start",
     "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
