@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { createMemoryHistory, match, RouterContext } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import configureStore  from '../src/store/configure-store'
+import fetchServerData from '../src/shared/fetchServerData'
 import routes from '../src/routes'
 import path from 'path'
 const app = express()
@@ -30,24 +31,25 @@ app.use(function (req, res) {
   const memoryHistory = createMemoryHistory(req.path)
   let store = configureStore(memoryHistory )
   const history = syncHistoryWithStore(memoryHistory, store)
+  store = configureStore(memoryHistory, store.getState())
 
   match({ history, routes , location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send(error.message)
     } else if (renderProps) {
+        fetchServerData().then( ()=> {
+            const content = renderToString(
+              <Provider store={store}>
+                <RouterContext {...renderProps}/>
+              </Provider>
+            )
+            res.end('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
+        }).catch(function (error){
 
-      store = configureStore(memoryHistory, store.getState())
-      const content = renderToString(
-        <Provider store={store}>
-          <RouterContext {...renderProps}/>
-        </Provider>
-      )
-      res.end('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
+        })
     }
   })
-
 })
-
 
 app.listen(8000, 'localhost', function (err) {
   if (err) {

@@ -20,9 +20,7 @@ function configureStore(history, initialState) {
     )
   )
 
-  const store = createStore(reducer, initialState, enchancer)
-
-  return store
+  return createStore(reducer, initialState, enchancer)
 
 }
 

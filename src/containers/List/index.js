@@ -12,7 +12,11 @@ class List extends Component {
     super(props)
   }
 
-  componentDidMount () {
+  static fetchServerData({ params, store, url }) {
+    return store.dispatch( fetchItems() )
+  }
+
+  componentDidlMount() {
     const { dispatch } = this.props
     dispatch(fetchItems())
    }
