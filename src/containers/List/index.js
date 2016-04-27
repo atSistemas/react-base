@@ -8,12 +8,10 @@ import HeaderList from '../../components/HeaderList'
 
 class List extends Component {
 
+  static needs = [fetchItems];
+
   constructor (props) {
     super(props)
-  }
-
-  static fetchServerData({ params, store, url }) {
-    return store.dispatch( fetchItems() )
   }
 
   componentDidlMount() {

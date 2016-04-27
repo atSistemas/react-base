@@ -37,7 +37,8 @@ app.use(function (req, res) {
     if (error) {
       res.status(500).send(error.message)
     } else if (renderProps) {
-        fetchServerData().then( ()=> {
+        fetchServerData(store.dispatch, renderProps.components, renderProps.params)
+        .then( ()=> {
             const content = renderToString(
               <Provider store={store}>
                 <RouterContext {...renderProps}/>

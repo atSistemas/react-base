@@ -1,8 +1,14 @@
-export default function fetchServerData() {
-  let { query, params } = renderProps;
-  return new Promise(function(resolve, reject) {
-    let comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
-    let url = req.protocol + '://' + req.get('host')
-    resolve(comp.fetchData({ params, store, url }));
-  });
+export default function fetchServerData(dispatch, components, params) {
+
+  const needs = components.reduce( (prev, current) => {
+
+  	return Object.keys(current).reduce( (acc, key) => {
+  		return current[key].hasOwnProperty('needs') ? current[key].needs.concat(acc) : acc
+  	}, prev)
+
+  }, []);
+
+  const promises = needs.map(need => dispatch(need(params)));
+
+  return Promise.all(promises);
 }
