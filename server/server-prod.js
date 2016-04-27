@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { createMemoryHistory, match, RouterContext } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import configureStore  from '../src/store/configure-store'
-import fetchServerData from '../src/shared/fetchServerData'
+import { fetchServerData } from '../src/shared/fetch-data'
 import routes from '../src/routes'
 import path from 'path'
 const app = express()

@@ -1,15 +1,19 @@
-import { RECEIVE_ITEMS, CHANGE_ITEM_STATE } from '../constants'
-
+import { ITEMS_REQUEST, ITEMS_SUCESS, ITEMS_ERROR } from '../constants'
+import createReducer from '../shared/create-reducer';
 const initialState = []
 
-function items(state = initialState, action) {
+function itemsRequest( state, action ){ return state }
 
-	let items = []
+function itemsError( state, action ){ return state }
 
+function itemsSucess(state, action) {
+	return { ...state, data: action.result }
+}
+
+	/*
 	switch (action.type) {
 
-		case RECEIVE_ITEMS:
-
+		case ITEMS_SUCESS:
 		return { ...state, data: action.data }
 
 		case CHANGE_ITEM_STATE:
@@ -25,6 +29,13 @@ function items(state = initialState, action) {
 			default:
 				return state
 	  }
+}*/
+
+
+const handlers ={
+	[ITEMS_REQUEST]: itemsRequest,
+	[ITEMS_SUCESS]: itemsSucess,
+	[ITEMS_ERROR]: itemsError,
 }
 
-export default items
+export default createReducer( initialState, handlers );

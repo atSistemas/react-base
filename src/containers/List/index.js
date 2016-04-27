@@ -1,22 +1,22 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import { setVisibilityFilter }from '../../actions/Filters'
-import { fetchItems, changeItemState } from '../../actions/Items'
+import { setVisibilityFilter } from '../../actions/Filters'
+import * as ItemsActions from '../../actions/Items'
+import { fetchNeeds } from '../../shared/fetch-data'
 
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
 
 class List extends Component {
 
-  static needs = [fetchItems];
+  static needs = [ItemsActions.fetchItems];
 
   constructor (props) {
     super(props)
   }
 
-  componentDidlMount() {
-    const { dispatch } = this.props
-    dispatch(fetchItems())
+  componentDidMount() {
+    fetchNeeds( List.needs, this.props )
    }
 
    onRowClick(id) {
@@ -47,6 +47,7 @@ class List extends Component {
 }
 
 const getVisibleItems = (items, filter) => {
+/*
   if (items == undefined)
     return null
 
@@ -59,7 +60,8 @@ const getVisibleItems = (items, filter) => {
       return items.filter(t => !t.removed)
     default:
       return items
-  }
+  }*/
+  return items
 }
 
 

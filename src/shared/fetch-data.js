@@ -2,15 +2,20 @@ import fetch from 'isomorphic-fetch'
 import { FETCH_DATA } from '../constants'
 import createAction from '../shared/action-creator'
 
-const fetchingData = createAction(FETCH_DATA)
+export function fetchServerData(dispatch, components, params) {
 
-function fetchData(url, callback) {
-  return dispatch => {
-    dispatch(fetchingData())
-    return fetch(url )
-      .then(req => req.json())
-      .then(data => dispatch(callback(data)))
-  }
+  const needs = components.reduce( (prev, current) => {
+  	return Object.keys(current).reduce( (acc, key) => {
+  		return current[key].hasOwnProperty('needs') ? current[key].needs.concat(acc) : acc
+  	}, prev)
+
+  }, []);
+
+  const promises = needs.map(need => dispatch(need(params)));
+  return Promise.all(promises);
 }
 
-export default fetchData
+export function fetchNeeds( needs, props ){
+	const { params, dispatch } = props;
+	needs.map( need => dispatch(need(params)) )
+}
