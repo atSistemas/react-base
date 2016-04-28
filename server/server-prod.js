@@ -65,7 +65,7 @@ function renderPage(content, store){
     <head>
     </head>
     <body>
-    <div class="root">${content}</div>
+    <div id="root">${content}</div>
       <script>window.$REACTBASE_STATE = ${store}</script>
       <script src="vendor.js"></script>
       <script src="bundle.js"></script>

@@ -20,7 +20,6 @@ class List extends Component {
    }
 
    onRowClick(id) {
-     console.log(4444444)
      const { dispatch } = this.props
      dispatch(ItemsActions.changeItemState(id))
    }

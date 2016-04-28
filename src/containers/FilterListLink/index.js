@@ -15,7 +15,6 @@ class FilterListLink extends Component {
   }
 
   setFilter (filter){
-    console.log(1111111)
     const { dispatch } = this.props
     dispatch(setVisibilityFilter(filter))
   }
