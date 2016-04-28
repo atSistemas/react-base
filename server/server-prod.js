@@ -7,11 +7,30 @@ import { createMemoryHistory, match, RouterContext } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import configureStore  from '../src/store/configure-store'
 import { fetchServerData } from '../src/shared/fetch-data'
+import promiseMiddleware from '../src/middleware/promise'
 import routes from '../src/routes'
 import path from 'path'
+import { applyMiddleware, createStore, combineReducers } from 'redux'
+import * as rootReducer from '../src/reducers/';
+
+const finalCreateStore = applyMiddleware(promiseMiddleware)( createStore );
+const reducer = combineReducers({...rootReducer})
+const store = finalCreateStore(reducer);
+
 const app = express()
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')))
+
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware')
+const config = require('../webpack.config.prod')
+const compiler = webpack(config)
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+app.use(webpackHotMiddleware(compiler))
+
+
+
 
 const HTML = ({ content, store }) => (
   <html>
@@ -28,12 +47,12 @@ const HTML = ({ content, store }) => (
 
 app.use(function (req, res) {
 
-  const memoryHistory = createMemoryHistory(req.path)
-  let store = configureStore(memoryHistory )
-  const history = syncHistoryWithStore(memoryHistory, store)
-  store = configureStore(memoryHistory, store.getState())
+  //const memoryHistory = createMemoryHistory(req.path)
+  //let store = configureStore(memoryHistory )
+  //const history = syncHistoryWithStore(memoryHistory, store)
+  //store = configureStore(memoryHistory, store.getState())
 
-  match({ history, routes , location: req.url }, (error, redirectLocation, renderProps) => {
+  match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send(error.message)
     } else if (renderProps) {

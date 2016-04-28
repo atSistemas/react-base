@@ -50,12 +50,12 @@ const getVisibleItems = (items, filter) => {
 
   if (items == undefined)
     return null
- 
+
   const obj = {
     'SHOW_ALL': () => items,
-    'SHOW_REMOVED': () => items.filter(t => t.removed), 
+    'SHOW_REMOVED': () => items.filter(t => t.removed),
     'SHOW_ACTIVE': () =>  items.filter(t => !t.removed)
-    
+
   }
 
   return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
