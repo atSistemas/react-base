@@ -1,4 +1,4 @@
-import { ITEMS_REQUEST, ITEMS_SUCESS, ITEMS_ERROR } from '../constants'
+import * as ItemsConst from '../constants'
 import createReducer from '../shared/create-reducer';
 const initialState = []
 
@@ -33,9 +33,9 @@ function itemsSucess(state, action) {
 
 
 const handlers ={
-	[ITEMS_REQUEST]: itemsRequest,
-	[ITEMS_SUCESS]: itemsSucess,
-	[ITEMS_ERROR]: itemsError,
+	[ItemsConst.ITEMS_REQUEST]: itemsRequest,
+	[ItemsConst.ITEMS_SUCESS]: itemsSucess,
+	[ItemsConst.ITEMS_ERROR]: itemsError,
 }
 
 export default createReducer( initialState, handlers );
