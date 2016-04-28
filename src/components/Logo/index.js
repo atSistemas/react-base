@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
+import React,{ PropTypes } from 'react'
 
 const ReactBaseLogo = ({ alt }) => (
 
-  <img alt="{ alt }" src="/dist/react-base-logo.png" alt="ReactBase" width="500" />
+  <img alt={ alt } src="/dist/react-base-logo.png" width="500" />
 )
+
+ReactBaseLogo.propTypes= {
+  alt: PropTypes.string
+}
 
 export default ReactBaseLogo

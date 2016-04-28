@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import Header from '../../components/Header'
 
-function App({ pushPath, children }) {
+function App({ children }) {
   return (
     <div>
       <Header />
@@ -12,7 +11,11 @@ function App({ pushPath, children }) {
         {children}
       </main>
     </div>
-  );
-};
+  )
+}
+
+App.propTypes = {
+  children: PropTypes.object.isRequired
+}
 
 export default connect(null)(App)

@@ -1,6 +1,4 @@
 import * as constants from '../constants'
-import { fetchData } from '../shared/fetch-data'
-import createAction from '../shared/action-creator'
 import itemsAPI from '../api/items'
 
 export function fetchItems(){
