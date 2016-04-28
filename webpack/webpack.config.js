@@ -2,9 +2,8 @@ const path = require('path');
 const Webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const distPath = 'dist'
-var buildPath = path.resolve(__dirname, '../public', '../dist');
-var mainPath = path.resolve(__dirname, '../src/', 'main.js');
+var buildPath = path.resolve(__dirname, '../public', '../dist/');
+var mainPath = path.resolve(__dirname, '../src/main.js');
 
 
 
@@ -17,7 +16,7 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    publichPath : '/dist/',
+    publichPath : '../dist/',
     path: buildPath
   },
   /*devServer: {
