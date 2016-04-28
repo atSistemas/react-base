@@ -54,7 +54,7 @@
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
-    "build": "npm run clean && webpack --config webpack.config.prod.js",
+    "build": "npm run clean && webpack --config webpack/webpack.config.prod.js",
     "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
