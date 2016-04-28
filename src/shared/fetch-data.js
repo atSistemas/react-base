@@ -15,7 +15,7 @@ export function fetchServerData(dispatch, components, params) {
   return Promise.all(promises)
 }
 
-export function fetchRequiredActions( actions, props ){
+export function fetchRequiredActions( actions, props, checkData){
 	const { params, dispatch } = props;
-	actions.map( action => dispatch(action(params)) )
+	if(!checkData) actions.map( action => dispatch(action(params)) )
 }

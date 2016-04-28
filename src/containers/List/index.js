@@ -16,7 +16,8 @@ class List extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions( List.requiredActions, this.props )
+    const { items } = this.props
+    fetchRequiredActions( List.requiredActions, this.props, items)
    }
 
    onRowClick(id) {
