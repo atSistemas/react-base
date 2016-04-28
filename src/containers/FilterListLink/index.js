@@ -9,12 +9,13 @@ class FilterListLink extends Component {
     filter: PropTypes.string.isRequired,
     children: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired
-  } 
+  }
   constructor (props) {
     super(props)
   }
 
   setFilter (filter){
+    console.log(1111111)
     const { dispatch } = this.props
     dispatch(setVisibilityFilter(filter))
   }

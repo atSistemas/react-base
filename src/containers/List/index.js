@@ -20,6 +20,7 @@ class List extends Component {
    }
 
    onRowClick(id) {
+     console.log(4444444)
      const { dispatch } = this.props
      dispatch(ItemsActions.changeItemState(id))
    }
@@ -55,19 +56,12 @@ const getVisibleItems = (items, filter) => {
     'SHOW_ALL': () => items,
     'SHOW_REMOVED': () => items.filter(t => t.removed),
     'SHOW_ACTIVE': () =>  items.filter(t => !t.removed)
-
   }
 
   return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
 }
 
 
-function mapStateToProps(state) {
-  return {
-    items: getVisibleItems(state.items.data, state.filter)
-  }
-}
-
 export default connect(
-  mapStateToProps
+  (state, ownProps) => ({ items: getVisibleItems(state.items.data, state.filter) })
 )(List)

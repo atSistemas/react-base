@@ -4,25 +4,20 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import promiseMiddleware from '../middleware/promise';
 
-import * as rootReducer from '../reducers'
+import rootReducer from '../reducers'
 
 function configureStore(history, initialState) {
 
-  const reducer = combineReducers({
-    ...rootReducer,
-    routing: routerReducer
-  })
-
   const enchancer = compose(
     applyMiddleware(
-      createLogger(),
       thunkMiddleware,
       promiseMiddleware,
-      routerMiddleware(history)
+      routerMiddleware(history),
+      createLogger({level: 'info',collapsed: true})
     )
   )
 
-  const store = createStore(reducer, initialState, enchancer)
+  const store = createStore(rootReducer, initialState, enchancer)
 
   if (module.hot) {
 	module.hot.accept('../reducers', () => {
