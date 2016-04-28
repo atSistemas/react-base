@@ -10,9 +10,9 @@ export function fetchItems(){
   }
 }
 
-export function changeItemState(){
+export function changeItemState(id){
   return {
-    type: CHANGE_ITEM_STATE,
+    type: [constants.CHANGE_ITEM_STATE],
     id:id
   }
 }

@@ -21,7 +21,7 @@ class List extends Component {
 
    onRowClick(id) {
      const { dispatch } = this.props
-     dispatch(changeItemState(id))
+     dispatch(ItemsActions.changeItemState(id))
    }
 
    render () {
@@ -47,21 +47,18 @@ class List extends Component {
 }
 
 const getVisibleItems = (items, filter) => {
-/*
+
   if (items == undefined)
     return null
+ 
+  const obj = {
+    'SHOW_ALL': () => items,
+    'SHOW_REMOVED': () => items.filter(t => t.removed), 
+    'SHOW_ACTIVE': () =>  items.filter(t => !t.removed)
+    
+  }
 
-  switch (filter) {
-    case 'SHOW_ALL':
-      return items
-    case 'SHOW_REMOVED':
-      return items.filter(t => t.removed)
-    case 'SHOW_ACTIVE':
-      return items.filter(t => !t.removed)
-    default:
-      return items
-  }*/
-  return items
+  return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
 }
 
 
