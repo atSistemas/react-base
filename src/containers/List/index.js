@@ -2,21 +2,21 @@ import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 import { setVisibilityFilter } from '../../actions/Filters'
 import * as ItemsActions from '../../actions/Items'
-import { fetchNeeds } from '../../shared/fetch-data'
+import { fetchRequiredActions } from '../../shared/fetch-data'
 
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
 
 class List extends Component {
 
-  static needs = [ItemsActions.fetchItems];
+  static requiredActions = [ItemsActions.fetchItems];
 
   constructor (props) {
     super(props)
   }
 
   componentDidMount() {
-    fetchNeeds( List.needs, this.props )
+    fetchRequiredActions( List.requiredActions, this.props )
    }
 
    onRowClick(id) {

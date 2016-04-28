@@ -4,18 +4,18 @@ import createAction from '../shared/action-creator'
 
 export function fetchServerData(dispatch, components, params) {
 
-  const needs = components.reduce( (prev, current) => {
+  const actions = components.reduce( (prev, current) => {
   	return Object.keys(current).reduce( (acc, key) => {
-  		return current[key].hasOwnProperty('needs') ? current[key].needs.concat(acc) : acc
+  		return current[key].hasOwnProperty('requiredActions') ? current[key].requiredActions.concat(acc) : acc
   	}, prev)
 
-  }, []);
+  }, [])
 
-  const promises = needs.map(need => dispatch(need(params)));
-  return Promise.all(promises);
+  const promises = actions.map(need => dispatch(need(params)));
+  return Promise.all(promises)
 }
 
-export function fetchNeeds( needs, props ){
+export function fetchRequiredActions( actions, props ){
 	const { params, dispatch } = props;
-	needs.map( need => dispatch(need(params)) )
+	actions.map( action => dispatch(action(params)) )
 }
