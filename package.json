@@ -43,7 +43,6 @@
     "redux-react-router": "^1.0.0-beta3",
     "redux-router": "^1.0.0-beta8",
     "redux-slider-monitor": "^1.0.5",
-    "redux-thunk": "^2.0.1",
     "scroll-behavior": "^0.4.0",
     "serialize-javascript": "^1.2.0",
     "webpack": "^1.13.0",

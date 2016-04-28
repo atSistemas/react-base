@@ -8,7 +8,7 @@ import routes from '../../routes'
 import configureStore from '../../store/configure-store'
 
 let state = window.$REACTBASE_STATE
-const store = configureStore(browserHistory, state)
+const store = configureStore(state)
 const history = syncHistoryWithStore(browserHistory, store)
 
 class Root extends Component {

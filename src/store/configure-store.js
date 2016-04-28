@@ -1,5 +1,4 @@
 import createLogger from 'redux-logger'
-import thunkMiddleware from 'redux-thunk'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import promiseMiddleware from '../middleware/promise';
@@ -10,9 +9,7 @@ function configureStore(history, initialState) {
 
   const enchancer = compose(
     applyMiddleware(
-      thunkMiddleware,
       promiseMiddleware,
-      routerMiddleware(history),
       createLogger({level: 'info',collapsed: true})
     )
   )
