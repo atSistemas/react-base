@@ -11,12 +11,9 @@ import promiseMiddleware from '../src/middleware/promise'
 import routes from '../src/routes'
 import path from 'path'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
-import * as rootReducer from '../src/reducers/';
+import rootReducer from '../src/reducers/';
 
 const finalCreateStore = applyMiddleware(promiseMiddleware)( createStore );
-const reducer = combineReducers({...rootReducer})
-const store = finalCreateStore(reducer);
-
 const app = express()
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')))
@@ -24,11 +21,41 @@ app.use('/dist', express.static(path.join(__dirname, '../dist')))
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
-const config = require('../webpack.config.prod')
+const config = require('../webpack/webpack.config.prod')
 const compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
+app.use(function (req, res) {
 
+  const store = finalCreateStore(rootReducer);
+
+  match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
+
+    if ( error )
+      return res.status(500).send( error.message );
+
+    if ( redirectLocation )
+      return res.redirect( 302, redirectLocation.pathname + redirectLocation.search );
+
+    if ( renderProps == null )
+      return res.status(404).send( 'Not found' );
+
+    fetchServerData(store.dispatch, renderProps.components, renderProps.params)
+      .then( () => {
+          const mainView = renderToString((
+            <Provider store={store}>
+              <RouterContext {...renderProps}/>
+            </Provider>
+          ))
+
+          let state = JSON.stringify( store.getState() )
+          let page = renderPage( mainView, state )
+          return page
+      })
+      .then( page => res.status(200).send(page) )
+      .catch( err => res.end(err.message) );
+    })
+})
 
 function renderPage(content, store){
   return `
@@ -39,37 +66,13 @@ function renderPage(content, store){
     </head>
     <body>
     <div class="root">${content}</div>
-      <script>window.__INITIALSTATE__ = ${store}</script>
-      <script src='/dist/vendor.js' />
-      <script src='/dist/bundle.js' />
+      <script>window.$REACTBASE_STATE = ${store}</script>
+      <script src="vendor.js"></script>
+      <script src="bundle.js"></script>
     </body>
   </html>
   `
 }
-
-app.use(function (req, res) {
-
-  match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
-    if (error) {
-      res.status(500).send(error.message)
-    } else if (renderProps) {
-        fetchServerData(store.dispatch, renderProps.components, renderProps.params)
-        .then( ()=> {
-            const mainView = renderToString(
-              <Provider store={store}>
-                <RouterContext {...renderProps}/>
-              </Provider>
-            )
-            let state = JSON.stringify( store.getState() )
-            let page = renderPage( mainView, state )
-            return page
-        })
-        .then( page => res.status(200).send(page) )
-        .catch( err => res.end(err.message) );
-
-    }
-  })
-})
 
 app.listen(8000, 'localhost', function (err) {
   if (err) {

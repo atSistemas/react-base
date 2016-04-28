@@ -1,7 +1,7 @@
 var Webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./../webpack.config.js');
-var webpackConfigProd = require('./../webpack.config.prod.js');
+var webpackConfig = require('../webpack/webpack.config.js');
+var webpackConfigProd = require('../webpack/webpack.config.prod.js');
 var path = require('path');
 var fs = require('fs');
 var mainPath = path.resolve(__dirname, '..', 'src', 'main.js');
