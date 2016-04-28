@@ -30,27 +30,24 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output
 app.use(webpackHotMiddleware(compiler))
 
 
-
-
-const HTML = ({ content, store }) => (
+function renderPage(content, store){
+  return `
+  <!doctype html>
+	<html lang="utf-8">
   <html>
     <head>
     </head>
     <body>
-      <div id='root' dangerouslySetInnerHTML={{ __html: content }}/>
-      <script dangerouslySetInnerHTML={{ __html: `window.__INITIALSTATE__=${serialize(store.getState())};` }}/>
+    <div class="root">${content}</div>
+      <script>window.__INITIALSTATE__ = ${store}</script>
       <script src='/dist/vendor.js' />
       <script src='/dist/bundle.js' />
     </body>
   </html>
-)
+  `
+}
 
 app.use(function (req, res) {
-
-  //const memoryHistory = createMemoryHistory(req.path)
-  //let store = configureStore(memoryHistory )
-  //const history = syncHistoryWithStore(memoryHistory, store)
-  //store = configureStore(memoryHistory, store.getState())
 
   match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
@@ -58,15 +55,18 @@ app.use(function (req, res) {
     } else if (renderProps) {
         fetchServerData(store.dispatch, renderProps.components, renderProps.params)
         .then( ()=> {
-            const content = renderToString(
+            const mainView = renderToString(
               <Provider store={store}>
                 <RouterContext {...renderProps}/>
               </Provider>
             )
-            res.end('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
-        }).catch(function (error){
-
+            let state = JSON.stringify( store.getState() )
+            let page = renderPage( mainView, state )
+            return page
         })
+        .then( page => res.status(200).send(page) )
+        .catch( err => res.end(err.message) );
+
     }
   })
 })
@@ -76,5 +76,5 @@ app.listen(8000, 'localhost', function (err) {
     console.log(err);
     return;
   }
-  console.log('[BASE] Server up on http://127.0.0.1:3000')
+  console.log('[BASE] Server up on http://127.0.0.1:8000')
 })
