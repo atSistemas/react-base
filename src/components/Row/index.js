@@ -2,14 +2,15 @@ import React, { PropTypes } from 'react'
 
 const Row = ({ id, title, removed = false ,  onClick }) => {
 
-var action = removed ? 'active' : 'remove'
+  var action = removed ? 'active' : 'remove'
   return (
     <li key={ id }>
       <a href="#"
         onClick={e => {
-        e.preventDefault()
-        onClick()
-        }}>
+          e.preventDefault()
+          onClick()
+        }}x
+      >
         click to {action}
       </a>
     <span>   {title}  </span>

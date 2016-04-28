@@ -4,6 +4,12 @@ import { setVisibilityFilter } from '../../actions/Filters'
 
 class FilterListLink extends Component {
 
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
+    active: PropTypes.bool.isRequired
+  } 
   constructor (props) {
     super(props)
   }
@@ -22,10 +28,11 @@ class FilterListLink extends Component {
 
     return (
       <a href=""
-         onClick={e => {
-           e.preventDefault()
-           this.setFilter(filter)
-         }}>
+        onClick={e => {
+          e.preventDefault()
+          this.setFilter(filter)
+        }}
+      >
         {children}
       </a>
       )
