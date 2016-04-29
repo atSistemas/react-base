@@ -1,8 +1,7 @@
 import { Provider } from 'react-redux'
 import React, { Component } from 'react'
-import { createHashHistory } from 'history'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { Router, browserHistory, useRouterHistory } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 
 import routes from '../../routes'
 import configureStore from '../../store/configure-store'

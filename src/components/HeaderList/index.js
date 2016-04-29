@@ -6,15 +6,15 @@ const HeaderList = () => (
     Show:
     {" "}
     <FilterListLink filter="SHOW_ACTIVE">
-      Active
+      Active Items
     </FilterListLink>
     {", "}
     <FilterListLink filter="SHOW_REMOVED">
-      Removed 
+      Removed Items
     </FilterListLink>
     {", "}
     <FilterListLink filter="SHOW_ALL">
-      All
+      All Items
     </FilterListLink>
   </p>
 )

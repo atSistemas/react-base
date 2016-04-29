@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import { setVisibilityFilter } from '../../actions/Filters'
 import * as ItemsActions from '../../actions/Items'
 import { fetchRequiredActions } from '../../shared/fetch-data'
 
@@ -11,6 +10,11 @@ class List extends Component {
 
   static requiredActions = [ItemsActions.fetchItems];
 
+  static propTypes = {
+    items: PropTypes.array,    
+    dispatch: PropTypes.func.isRequired
+  }
+
   constructor (props) {
     super(props)
   }
@@ -18,33 +22,36 @@ class List extends Component {
   componentDidMount() {
     const { items } = this.props
     fetchRequiredActions( List.requiredActions, this.props, items)
-   }
+  }
 
-   onRowClick(id) {
-     const { dispatch } = this.props
-     dispatch(ItemsActions.changeItemState(id))
-   }
+  onRowClick(id) {
+    const { dispatch } = this.props
+    dispatch(ItemsActions.changeItemState(id))
+  }
 
-   render () {
-     let list = null
-     const { items } = this.props
-     if( items ){
-       list = (
-         items.map((item, index) => {
-            return  (
-              <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
+  render () {
+    let listStyle={
+      listStyle:'none'
+    }
+    let list = null
+    const { items } = this.props
+    if( items ){
+      list = (
+        items.map((item, index) => {
+          return  (
+            <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
             )
-         })
-       )
-     }
+        })
+      )
+    }
 
-     return (
+    return (
       <div>
         <HeaderList />
-        <ul>{ list }</ul>
+        <ul style={listStyle}>{ list }</ul>
       </div>
      )
-   }
+  }
 }
 
 const getVisibleItems = (items, filter) => {
@@ -63,5 +70,5 @@ const getVisibleItems = (items, filter) => {
 
 
 export default connect(
-  (state, ownProps) => ({ items: getVisibleItems(state.items.data, state.filter) })
+  (state) => ({ items: getVisibleItems(state.items.data, state.filter) })
 )(List)

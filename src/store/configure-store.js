@@ -1,6 +1,5 @@
 import createLogger from 'redux-logger'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import promiseMiddleware from '../middleware/promise';
 
 import rootReducer from '../reducers'
@@ -17,10 +16,10 @@ function configureStore(history, initialState) {
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
-	module.hot.accept('../reducers', () => {
-	  const nextRootReducer = require('../reducers');
-	  store.replaceReducer(nextRootReducer);
-	});
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers');
+      store.replaceReducer(nextRootReducer);
+    });
   }
 
   return store
