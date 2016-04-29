@@ -7,14 +7,14 @@ import rootReducer from '../reducers'
 
 function configureStore(history, initialState) {
 
-  const enchancer = compose(
+  const enhancer = compose(
     applyMiddleware(
       promiseMiddleware,
       createLogger({level: 'info',collapsed: true})
     )
   )
 
-  const store = createStore(rootReducer, initialState, enchancer)
+  const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
 	module.hot.accept('../reducers', () => {
