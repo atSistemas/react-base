@@ -1,30 +1,35 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var buildPath = path.resolve(__dirname, 'dist');
-var mainPath = path.resolve(__dirname, 'src', 'client.js');
+const buildPath = path.resolve(__dirname, 'dist');
+const clientPath = path.resolve(__dirname, 'src', 'client.js');
 
-module.exports = {
+const devPlugins = [
+  new webpack.NoErrorsPlugin(),
+  new webpack.HotModuleReplacementPlugin()
+]
+
+const prodPlugins = [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}})
+];
+
+var plugins = (process.env.NODE_ENV === 'production') ? prodPlugins : devPlugins
+
+var config = {
 
   devtool: '#inline-source-map',
 
   entry: [
-    'webpack-hot-middleware/client',
+    clientPath,
     'webpack/hot/dev-server',
-    './src/client.js'
+    'webpack-hot-middleware/client'
   ],
 
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: buildPath,
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
 
   resolve: {
     alias: {},
@@ -38,11 +43,14 @@ module.exports = {
       exclude: /node_modules/,
       include: __dirname,
       query: {
-        presets: ["es2015", "stage-0", "react"],
+        presets: ["es2015", "stage-0", "react"]
       }
     }, {
       test: /\.css$/,
       loader: "style!css",
     }, ]
-  }
+  },
+  plugins: plugins
 };
+
+module.exports = config;
