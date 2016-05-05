@@ -35,8 +35,8 @@ const Row = ({ id, title,  removed = false ,  onClick }) => {
   }
 
   let action = removed ? 'add' : 'remove'
-  let imageUrl = '/dist/images/' + action + '.jpg'
-  let imageRow = '/dist/images/imagetest' + id % 10 + '.jpg' 
+  let imageUrl = '/assets/images/' + action + '.jpg'
+  let imageRow = '/assets/images/imagetest' + id % 10 + '.jpg'
 
   return (
     <li key={ id } style={rowStyle}>

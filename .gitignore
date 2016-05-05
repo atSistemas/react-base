@@ -1,5 +1,6 @@
 *.log
 .idea
+dist/
 *.vimrc
 .DS_STORE
 node_modules/

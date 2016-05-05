@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const url = 'http://localhost:8000/dist/mocks/items.json'
+const url = 'http://localhost:8000/mocks/items.json'
 
 export default {
 

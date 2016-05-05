@@ -1,16 +1,60 @@
-import path from 'path'
-import express from 'express'
-import webpack from 'webpack'
-import distProxy from './dist-proxy'
+import fs from 'fs';
+import express from 'express';
+import path from 'path';
+import React from 'react'
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server'
+import { Router, RouterContext, match } from 'react-router';
+import { applyMiddleware, createStore, combineReducers } from 'redux'
 
-const app = express();
-const port = process.env.PORT || 8000
-const publicPath = path.resolve(__dirname, '../', 'public')
+import routes from '../src/routes'
+import renderPage from './template'
+import rootReducer from '../src/reducers/';
+import promiseMiddleware from '../src/middleware/promise'
+import { fetchServerData } from '../src/shared/fetch-data'
+const serverStore = applyMiddleware( promiseMiddleware )( createStore );
+import { Compiler,  WebpackDevMiddleware, WebpackHotMiddleware } from './bundler'
 
-app.use(express.static(publicPath));
+const port = 8000
+const host = '0.0.0.0'
+const app = express()
 
-distProxy(app)
+app.use(WebpackDevMiddleware);
+app.use(WebpackHotMiddleware);
+app.use('/assets', express.static(path.join(__dirname, '..', 'src', 'assets')))
+app.use('/mocks', express.static(path.join(__dirname, '..', 'src', 'api', 'mocks')))
 
-app.listen(port, function () {
-  console.log('[BASE] Server up on port ' + port);
-});
+app.use(function (req, res) {
+
+  const store = serverStore(rootReducer);
+
+  match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
+
+    if ( error ) return res.status(500).send( error.message );
+    if ( redirectLocation ) return res.redirect( 302, redirectLocation.pathname + redirectLocation.search );
+    if ( renderProps == null ) return res.status(404).send( 'Not found' );
+
+    fetchServerData(store.dispatch, renderProps.components, renderProps.params)
+      .then( () => {
+          const mainView = renderToString((
+            <Provider store={ store }>
+              <RouterContext { ...renderProps }/>
+            </Provider>
+          ))
+
+          let state = JSON.stringify( store.getState() )
+          let page = renderPage( mainView, state )
+          return page
+      })
+      .then( page => res.status(200).send(page) )
+      .catch( err => res.end(err.message) );
+    })
+})
+
+app.listen(port, function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('[BASE] Server up on http://'+ host + ':' +  port)
+})
