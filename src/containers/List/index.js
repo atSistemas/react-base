@@ -11,7 +11,7 @@ class List extends Component {
   static requiredActions = [ItemsActions.fetchItems];
 
   static propTypes = {
-    items: PropTypes.array,    
+    items: PropTypes.array,
     dispatch: PropTypes.func.isRequired
   }
 
@@ -26,6 +26,7 @@ class List extends Component {
 
   onRowClick(id) {
     const { dispatch } = this.props
+    dispatch(ItemsActions.fetchItem(id))
     dispatch(ItemsActions.changeItemState(id))
   }
 
