@@ -14,14 +14,13 @@ var options = {
   stats: {colors: true}
 };
 
-var bundleStart = null
-
+var bundleStart = Date.now()
 console.log('[BASE] Bundling...')
-
-export const Compiler = webpack(config)
-export const WebpackDevMiddleware = webpackDevMiddleware(Compiler, options)
-export const WebpackHotMiddleware = webpackHotMiddleware(Compiler)
+const Compiler = webpack(config)
 
 Compiler.plugin('done', function() {
-    console.log('[BASE] Bundled proyect in ' + (Date.now() - bundleStart) + 'ms!');
+  console.log('[BASE] Bundled proyect in ' + (Date.now() - bundleStart) + 'ms!');
 });
+
+export const WebpackDevMiddleware = webpackDevMiddleware(Compiler, options)
+export const WebpackHotMiddleware = webpackHotMiddleware(Compiler)

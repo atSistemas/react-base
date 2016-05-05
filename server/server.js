@@ -1,7 +1,6 @@
-import fs from 'fs';
-import express from 'express';
 import path from 'path';
 import React from 'react'
+import express from 'express';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server'
 import { Router, RouterContext, match } from 'react-router';
@@ -12,8 +11,8 @@ import renderPage from './template'
 import rootReducer from '../src/reducers/';
 import promiseMiddleware from '../src/middleware/promise'
 import { fetchServerData } from '../src/shared/fetch-data'
+import { WebpackDevMiddleware, WebpackHotMiddleware } from './bundler'
 const serverStore = applyMiddleware( promiseMiddleware )( createStore );
-import { Compiler,  WebpackDevMiddleware, WebpackHotMiddleware } from './bundler'
 
 const port = 8000
 const host = '0.0.0.0'
