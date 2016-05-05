@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+
 const url = 'http://localhost:8000/dist/mocks/items.json'
 
 export default {
@@ -11,7 +12,7 @@ export default {
 
 
   getItem(id){
-    return fetch(url + '/' + id)
+    return fetch(url + '?id=' + id)
     .then(req => req.json())
     .then(data => data)
   }
