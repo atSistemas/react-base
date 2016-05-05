@@ -7,7 +7,7 @@ import { Router, RouterContext, match } from 'react-router';
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 
 import routes from '../src/routes'
-import renderPage from './template'
+import renderPage from './render-page'
 import rootReducer from '../src/reducers/';
 import promiseMiddleware from '../src/middleware/promise'
 import { fetchServerData } from '../src/shared/fetch-data'
