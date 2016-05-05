@@ -11,7 +11,7 @@ import renderPage from './template'
 import rootReducer from '../src/reducers/';
 import promiseMiddleware from '../src/middleware/promise'
 import { fetchServerData } from '../src/shared/fetch-data'
-import { WebpackDevMiddleware, WebpackHotMiddleware } from './bundler'
+import { WebpackDevMiddleware, WebpackHotMiddleware } from './middleware'
 
 const port = 8000
 const host = '0.0.0.0'
