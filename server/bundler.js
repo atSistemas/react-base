@@ -15,7 +15,7 @@ var options = {
 };
 
 var bundleStart = Date.now()
-console.log('[BASE] Bundling...')
+console.log('[BASE] Bundling proyect...')
 const Compiler = webpack(config)
 
 Compiler.plugin('done', function() {

@@ -12,11 +12,11 @@ import rootReducer from '../src/reducers/';
 import promiseMiddleware from '../src/middleware/promise'
 import { fetchServerData } from '../src/shared/fetch-data'
 import { WebpackDevMiddleware, WebpackHotMiddleware } from './bundler'
-const serverStore = applyMiddleware( promiseMiddleware )( createStore );
 
 const port = 8000
 const host = '0.0.0.0'
 const app = express()
+const serverStore = applyMiddleware( promiseMiddleware )( createStore );
 
 app.use(WebpackDevMiddleware);
 app.use(WebpackHotMiddleware);
@@ -34,7 +34,7 @@ app.use(function (req, res) {
     if ( renderProps == null ) return res.status(404).send( 'Not found' );
 
     fetchServerData(store.dispatch, renderProps.components, renderProps.params)
-      .then( () => {
+      .then(() => {
           const mainView = renderToString((
             <Provider store={ store }>
               <RouterContext { ...renderProps }/>
