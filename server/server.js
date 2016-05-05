@@ -55,5 +55,5 @@ app.listen(port, function (err) {
     console.log(err);
     return;
   }
-  console.log('[BASE] Server up on http://'+ host + ':' +  port)
+  console.log('[BASE] Server up on http://localhost:' +  port)
 })

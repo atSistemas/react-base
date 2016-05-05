@@ -1,5 +1,6 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
+
 const buildPath = path.resolve(__dirname, 'dist');
 const clientPath = path.resolve(__dirname, 'src', 'client.js');
 
@@ -10,10 +11,10 @@ const devPlugins = [
 
 const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}})
+  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }})
 ];
 
-var plugins = (process.env.NODE_ENV === 'production') ? prodPlugins : devPlugins
+const plugins = (process.env.NODE_ENV === 'production') ? prodPlugins : devPlugins
 
 var config = {
 
@@ -42,13 +43,12 @@ var config = {
       loader: 'babel',
       exclude: /node_modules/,
       include: __dirname,
-      query: {
-        presets: ["es2015", "stage-0", "react"]
-      }
-    }, {
+      query: { presets: ["es2015", "stage-0", "react"] }
+    },
+    {
       test: /\.css$/,
-      loader: "style!css",
-    }, ]
+      loader: "style!css"
+    }]
   },
   plugins: plugins
 };
