@@ -18,7 +18,7 @@ const plugins = (process.env.NODE_ENV === 'production') ? prodPlugins : devPlugi
 
 var config = {
 
-  devtool: '#inline-source-map',
+  devtool: 'eval',
 
   entry: [
     clientPath,
