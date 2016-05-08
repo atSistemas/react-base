@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-const config = require('../webpack.config')
+const config = require('../webpack.config.babel')
 const compiler = webpack(config)
 
 var options = {

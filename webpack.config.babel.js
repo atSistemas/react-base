@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-
 const buildPath = path.resolve(__dirname, 'dist');
 const clientPath = path.resolve(__dirname, 'src', 'client.js');
 

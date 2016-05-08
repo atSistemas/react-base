@@ -19,6 +19,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
+    "babel-register": "^6.8.0",
     "cross-env": "^1.0.7",
     "css-modules-require-hook": "^4.0.0",
     "eslint": "2.8.0",
@@ -51,13 +52,12 @@
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
-    "build": "npm run clean && webpack --config webpack.config.js",
+    "build": "npm run logo && npm run clean && webpack --config webpack.config.babel.js",
     "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "dev":  "webpack-dev-server --progress --color --hot --port=8000 --config=webpack/webpack.config.js",
     "start": "cross-env NODE_ENV=development npm run logo && node server/",
-    "start:prod": "cross-env NODE_ENV=production npm run logo && npm run build && node server/",
+    "start:prod": "cross-env NODE_ENV=production npm run build && node server/",
     "postinstall": "npm run start",
     "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
