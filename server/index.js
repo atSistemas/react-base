@@ -1,3 +1,9 @@
 require('babel-core/register')
-console.log('[BASE] Starting...')
-var server = require("./server.js")
+if(!!~process.argv.indexOf('--component')){
+  console.log('[BASE] Starting Component Server...')
+  var server = require("./server-component.js")
+}
+else {
+  console.log('[BASE] Starting Server...')
+  var server = require("./server.js")
+}
