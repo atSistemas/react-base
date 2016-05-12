@@ -1,5 +1,5 @@
 
-import * as ItemsConst from '../constants'
+import * as types from '../types'
 import createReducer from '../shared/create-reducer';
 
 const initialState = []
@@ -27,10 +27,10 @@ function changeItemState(state, action){
 
 
 const handlers = {
-  [ItemsConst.ITEMS_REQUEST]: itemsRequest,
-  [ItemsConst.ITEMS_SUCESS]: itemsSucess,
-  [ItemsConst.ITEMS_ERROR]: itemsError,	
-  [ItemsConst.CHANGE_ITEM_STATE]: changeItemState
+  [types.ITEMS_REQUEST]: itemsRequest,
+  [types.ITEMS_SUCESS]: itemsSucess,
+  [types.ITEMS_ERROR]: itemsError,
+  [types.CHANGE_ITEM_STATE]: changeItemState
 }
 
 export default createReducer( initialState, handlers );

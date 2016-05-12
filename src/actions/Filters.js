@@ -1,4 +1,4 @@
-import { SET_VISIBILITY_FILTER } from '../constants'
+import * as types from '../types'
 import createAction from '../shared/action-creator'
 
-export const setVisibilityFilter = createAction(SET_VISIBILITY_FILTER,'filter')
+export const setVisibilityFilter = createAction(types.SET_VISIBILITY_FILTER,'filter')

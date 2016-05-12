@@ -1,24 +1,24 @@
-import * as constants from '../constants'
+import * as types from '../types'
 import itemsAPI from '../api/items'
 
 export function fetchItems( { category } ){
   console.log('[BASE] Requested url category url ' + category )
   return {
-    types: [constants.ITEMS_REQUEST, constants.ITEMS_SUCESS, constants.ITEMS_ERROR],
+    types: [types.ITEMS_REQUEST, types.ITEMS_SUCESS, types.ITEMS_ERROR],
     promise: itemsAPI.getItems(category),
   }
 }
 
 export function fetchItem( id ){
   return {
-    types: [constants.ITEM_REQUEST, constants.ITEM_SUCESS, constants.ITEM_ERROR],
+    types: [types.ITEM_REQUEST, types.ITEM_SUCESS, types.ITEM_ERROR],
     promise: itemsAPI.getItem(id),
   }
 }
 
 export function changeItemState(id){
   return {
-    type: [constants.CHANGE_ITEM_STATE],
+    type: [types.CHANGE_ITEM_STATE],
     id:id
   }
 }

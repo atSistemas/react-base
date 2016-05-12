@@ -1,9 +1,9 @@
-import { SET_VISIBILITY_FILTER } from '../constants'
+import * as types from '../types'
 
 function update(state = 'SHOW_ACTIVE', action) {
   switch (action.type) {
 
-    case SET_VISIBILITY_FILTER:
+    case types.SET_VISIBILITY_FILTER:
       return action.filter
 
     default:
