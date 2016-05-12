@@ -1,5 +1,4 @@
-
-import * as types from '../types'
+import types from '../types'
 import createReducer from '../shared/create-reducer';
 
 const initialState = []

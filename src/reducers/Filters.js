@@ -1,4 +1,4 @@
-import * as types from '../types'
+import types from '../types'
 
 function update(state = 'SHOW_ACTIVE', action) {
   switch (action.type) {

@@ -1,8 +1,8 @@
-export const ITEMS_REQUEST = 'ITEMS_REQUEST'
-export const ITEMS_SUCESS = 'ITEMS_SUCESS'
-export const ITEMS_ERROR = 'ITEMS_ERROR'
-export const ITEM_REQUEST = 'ITEM_REQUEST'
-export const ITEM_SUCESS = 'ITEM_SUCESS'
-export const ITEM_ERROR = 'ITEM_ERROR'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-export const CHANGE_ITEM_STATE = 'CHANGE_ITEM_STATE'
+import typeHelper from '../shared/type-helper'
+
+export default typeHelper([
+  'ITEMS_REQUEST','ITEMS_SUCESS','ITEMS_ERROR',
+  'ITEM_REQUEST', 'ITEM_SUCESS', 'ITEM_ERROR',
+  'SET_VISIBILITY_FILTER',
+  'CHANGE_ITEM_STATE',
+])
