@@ -17,7 +17,7 @@ export function fetchItem( id ){
 
 export function changeItemState(id){
   return {
-    type: [types.CHANGE_ITEM_STATE]
+    type: [types.CHANGE_ITEM_STATE],
     id:id
   }
 }
