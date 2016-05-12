@@ -2,9 +2,9 @@ export default function promiseMiddleware(  ) {
 
   return (next) => (action) => {
 
-    const { promise, types, ...rest } = action
+    const { execute, types, ...rest } = action
 
-    if (!promise) {
+    if (!execute) {
       return next(action)
     }
 
@@ -12,7 +12,7 @@ export default function promiseMiddleware(  ) {
 
     next({ ...rest, type: REQUEST })
 
-    return promise.then(
+    return execute.then(
       (result) => next({ ...rest, result, type: SUCCESS }),
       (error) => next({ ...rest, error, type: ERROR })
     )
