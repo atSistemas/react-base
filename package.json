@@ -50,7 +50,6 @@
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
     "start": "cross-env NODE_ENV=development npm run logo && node server/",
-    "start:component": "cross-env NODE_ENV=development npm run logo && node server/ --component",
     "start:prod": "cross-env NODE_ENV=production npm run build && node server/",
     "postinstall": "npm run start",
     "yo": "npm link src/conf/.react-base/templates/generator-react-base"
