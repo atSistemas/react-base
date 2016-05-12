@@ -1,4 +1,4 @@
-import { typeBuilder, generetaFetchTypes } from '../shared/type-helper'
+import { typeBuilder } from '../shared/type-helper'
 
 export default typeBuilder([
   'ITEMS_REQUEST','ITEMS_SUCESS','ITEMS_ERROR',
