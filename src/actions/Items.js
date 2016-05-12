@@ -1,16 +1,17 @@
 import types from '../types'
 import itemsAPI from '../api/items'
+import { generetaFetchTypes } from '../shared/type-helper'
 
 export function fetchItems( { category } ){
   return {
-    types: [types.ITEMS_REQUEST, types.ITEMS_SUCESS, types.ITEMS_ERROR],
+    types: generetaFetchTypes(types.ITEMS_REQUEST),
     execute: itemsAPI.getItems(category)
   }
 }
 
 export function fetchItem( id ){
   return {
-    types: [types.ITEM_REQUEST, types.ITEM_SUCESS, types.ITEM_ERROR],
+    types: generetaFetchTypes(types.ITEM_REQUEST),
     execute: itemsAPI.getItem(id)
   }
 }
