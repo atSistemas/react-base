@@ -1,7 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import { devPlugins, devEntries } from './webpack-dev-config'
-import { prodPlugins, prodEntries } from './webpack-dev-config'
+import { prodPlugins, prodEntries } from './webpack-prod-config'
 
 const mainPath = path.resolve(__dirname, '..')
 const buildPath = path.resolve(__dirname, '..', 'dist')
