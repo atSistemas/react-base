@@ -45,12 +45,12 @@
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
-    "build": "npm run logo && npm run clean && webpack --config webpack.config.babel.js",
+    "build": "npm run logo && npm run clean && webpack --config webpack/webpack.config.babel.js",
     "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "test": "npm run logo && jest --coverage",
-    "start": "cross-env NODE_ENV=development npm run logo && node server/",
-    "start:prod": "cross-env NODE_ENV=production npm run build && node server/",
+    "start": "npm run logo && cross-env NODE_ENV=development node server/",
+    "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
     "postinstall": "npm run start",
     "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
