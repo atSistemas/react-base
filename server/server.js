@@ -11,17 +11,19 @@ import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
 import promiseMiddleware from '../src/middleware/promise'
 import { fetchServerData } from '../src/shared/fetch-data'
-import { WebpackDevMiddleware, WebpackHotMiddleware } from './middleware'
+import { applyEnvMiddleWare } from './middleware'
+import { statics } from './statics'
 
 const port = 8000
 const host = '0.0.0.0'
 const app = express()
+const ENV = process.env.NODE_ENV || 'development'
+const envMiddleware = applyEnvMiddleWare(ENV, app)
 const serverStore = applyMiddleware( promiseMiddleware )( createStore )
 
-app.use(WebpackDevMiddleware)
-app.use(WebpackHotMiddleware)
-app.use('/assets', express.static(path.join(__dirname, '..', 'src', 'assets')))
-app.use('/mocks', express.static(path.join(__dirname, '..', 'src', 'api', 'mocks')))
+statics.map(function(staticPath){
+  app.use(staticPath.route, express.static(staticPath.dir))
+})
 
 app.use(function (req, res) {
 

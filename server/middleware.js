@@ -1,26 +1,17 @@
-import webpack from 'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-const config = require('../webpack/webpack.config.babel')
-const compiler = webpack(config)
+import { devStatics, applyDevMiddleware } from './dev-middleware'
+import { prodStatics, applyProdMiddleware } from './prod-middleware'
 
-var options = {
-  hot: true,
-  lazy: false,
-  quiet: true,
-  noInfo: true,
-  inline: true,
-  stats: { colors: true },
-  publicPath: config.output.publicPath,
-  headers: { 'Access-Control-Allow-Origin': '*' }
+const ENV = process.env.NODE_ENV || 'development'
+const envStatics = (ENV === 'development') ? devStatics: prodStatics
+
+export function applyEnvMiddleWare(env, app){
+  if(env === 'development'){
+    applyDevMiddleware().map(function(middleware){
+      app.use(middleware)
+    })
+  } else {
+    applyProdMiddleware().map(function(middleware){
+      app.use(middleware)
+    })
+  }
 }
-
-var bundleStart = Date.now()
-console.log('[BASE] Bundling proyect...')
-
-compiler.plugin('done', function() {
-  console.log('[BASE] Bundled proyect in ' + (Date.now() - bundleStart) + 'ms!')
-})
-
-export const WebpackDevMiddleware = webpackDevMiddleware(compiler, options)
-export const WebpackHotMiddleware = webpackHotMiddleware(compiler)
