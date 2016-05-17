@@ -6,11 +6,11 @@ const envStatics = (ENV === 'development') ? devStatics: prodStatics
 
 export function applyEnvMiddleWare(env, app){
   if(env === 'development'){
-    applyDevMiddleware().map(function(middleware){
+    applyDevMiddleware().forEach(function(middleware){
       app.use(middleware)
     })
   } else {
-    applyProdMiddleware().map(function(middleware){
+    applyProdMiddleware().forEach(function(middleware){
       app.use(middleware)
     })
   }
