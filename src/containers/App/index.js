@@ -8,7 +8,7 @@ function App({ children }) {
     <div>
       <Header />
       <main>
-        {children}
+        { children }
       </main>
     </div>
   )

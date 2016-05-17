@@ -11,9 +11,10 @@ class Home extends Component {
     return (
       <div>
       Home!!!!
-      Go to <Link to="/list/news">
-        <span>list</span>
-      </Link>
+      Go to 
+        <Link to="/list/news">
+          <span>list</span>
+        </Link>
       </div>
     )
   }

@@ -39,19 +39,20 @@ const Row = ({ id, title,  removed = false ,  onClick }) => {
   let imageRow = '/assets/images/imagetest' + id % 10 + '.jpg'
 
   return (
-    <li key={ id } style={rowStyle}>
+    <li key={ id } style={ rowStyle }>
 
-      <img style={imageRowStyle} alt={id} src={imageRow} />
+      <img style={ imageRowStyle } alt={ id } src={ imageRow } />
 
-      <span style={spanStyle}>   {title}  </span>
-      <span style={spanStyle2}>
-        <a href=""
-          onClick={e => {
+      <span style={ spanStyle }>   { title }  </span>
+      <span style={ spanStyle2 }>
+        <a 
+          href=""
+          onClick={ e => {
             e.preventDefault()
             onClick()
-          }}
+          } }
         >
-          <img style={imageStyle} alt="icon" src={imageUrl} />
+          <img style={ imageStyle } alt="icon" src={ imageUrl } />
         </a>
       </span>
     </li>
