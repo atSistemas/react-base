@@ -1,3 +1,4 @@
 require('babel-core/register')
-console.log('[BASE] Starting enviroment...')
+var ENV = require('../src/shared/env')
+console.log('[BASE] Starting '+ ENV.default +' enviroment...')
 var server = require("./server.js")
