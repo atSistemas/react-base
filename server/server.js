@@ -6,11 +6,11 @@ import { renderToString } from 'react-dom/server'
 import { Router, RouterContext, match } from 'react-router'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 
+import statics from './statics'
 import routes from '../src/routes'
-import { statics } from './statics'
 import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
-import { applyEnvMiddleWare } from './middleware'
+import applyEnvMiddleWare from './middleware'
 import promiseMiddleware from '../src/middleware/promise'
 import fetchRequiredActions from '../src/shared/fetch-data'
 
