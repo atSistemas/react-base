@@ -6,7 +6,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 const config = require('../webpack/webpack.config.babel')
 const compiler = webpack(config)
 
-var serverOptions = {
+const serverOptions = {
   hot: true,
   lazy: false,
   quiet: true,
@@ -18,7 +18,7 @@ var serverOptions = {
   headers: { 'Access-Control-Allow-Origin': '*' }
 }
 
-var bundleStart = Date.now()
+const bundleStart = Date.now()
 console.log('[BASE] Bundling...')
 
 
