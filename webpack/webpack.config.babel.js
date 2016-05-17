@@ -20,7 +20,7 @@ var config = {
   output: {
     path: buildPath,
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
 
   resolve: {

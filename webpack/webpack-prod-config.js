@@ -1,6 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
+
 const clientPath = path.resolve(__dirname, '..', 'src', 'client.js')
 
 export const prodPlugins = [
