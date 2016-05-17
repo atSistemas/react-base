@@ -14,11 +14,11 @@ export const prodPlugins = [
 export const prodEntries = {
   app: clientPath,
   common: [
-    'isomorphic-fetch',
     'react',
+    'redux',
     'react-dom',
     'react-redux',
     'react-router',
-    'redux'
+    'isomorphic-fetch'
   ]
 }
