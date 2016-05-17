@@ -23,17 +23,18 @@ class FilterListLink extends Component {
     let { filter, children, active} = this.props
 
     if (active) {
-      return <span>{children}</span>
+      return <span>{ children }</span>
     }
 
     return (
-      <a href=""
-        onClick={e => {
+      <a 
+        href=""
+        onClick={ e => {
           e.preventDefault()
           this.setFilter(filter)
-        }}
+        } }
       >
-        {children}
+        { children }
       </a>
       )
   }

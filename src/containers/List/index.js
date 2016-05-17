@@ -40,7 +40,7 @@ class List extends Component {
       list = (
         items.map((item, index) => {
           return  (
-            <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
+            <Row { ...item } key={ index } onClick={ () => this.onRowClick(item.id) } />
             )
         })
       )
@@ -49,7 +49,7 @@ class List extends Component {
     return (
       <div>
         <HeaderList />
-        <ul style={listStyle}>{ list }</ul>
+        <ul style={ listStyle }>{ list }</ul>
       </div>
      )
   }

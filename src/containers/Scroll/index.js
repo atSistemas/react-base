@@ -1,12 +1,11 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import ReactDom from 'react-dom'
 import * as ItemsActions from '../../actions/Items'
 import { fetchRequiredActions } from '../../shared/fetch-data'
 import { Surface, ListView } from 'react-canvas'
-import Row from '../../components/Row'
-var Page = require('../Page');
-var articles = require('../../../dist/mocks/data');
+
+const Page = require('../Page');
+const articles = require('../../../dist/mocks/data');
 
 
 class Scroll extends Component {
@@ -32,38 +31,6 @@ class Scroll extends Component {
     dispatch(ItemsActions.changeItemState(id))
   }
 
-  render () {
-    var size = this.getSize();
-    var self = this;
-    return (
-      <Surface top={ 0 } left={ 0 } width={ size.width } height={ ize.height }>
-        <ListView
-          style={ self.getListViewStyle() }
-          snapping={ true }
-          scrollingDeceleration={ 0.92 }
-          scrollingPenetrationAcceleration={ 0.13 }
-          numberOfItemsGetter={ self.getNumberOfPages }
-          itemHeightGetter={ self.getPageHeight }
-          itemGetter={ self.renderPage } />
-      </Surface>
-    );
-  }
-
-  renderPage (pageIndex, scrollTop) {
-    var size = this.getSize();
-    var self = this;
-    var article = articles[pageIndex % articles.length];
-    var pageScrollTop = pageIndex * self.getPageHeight() - scrollTop;
-    return (
-      <Page
-        width={ size.width }
-        height={ size.height }
-        article={ article }
-        pageIndex={ pageIndex }
-        scrollTop={ pageScrollTop } />
-    );
-  }
-
   getSize () {
     return document.getElementById('root').getBoundingClientRect();
   }
@@ -72,7 +39,7 @@ class Scroll extends Component {
   // ========
 
   getListViewStyle () {
-    var size = this.getSize();
+    let size = this.getSize();
     return {
       top: 0,
       left: 0,
@@ -88,21 +55,43 @@ class Scroll extends Component {
   getPageHeight () {
     return 1000;//this.getSize().height;
   }
-}
 
-const getVisibleItems = (items, filter) => {
-
-  if (items == undefined)
-    return null
-
-  const obj = {
-    'SHOW_ALL': () => items,
-    'SHOW_REMOVED': () => items.filter(t => t.removed),
-    'SHOW_ACTIVE': () =>  items.filter(t => !t.removed)
+  renderPage (pageIndex, scrollTop) {
+    let size = this.getSize();
+    let self = this;
+    let article = articles[pageIndex % articles.length];
+    let pageScrollTop = pageIndex * self.getPageHeight() - scrollTop;
+    return (
+      <Page
+        width={ size.width }
+        height={ size.height }
+        article={ article }
+        pageIndex={ pageIndex }
+        scrollTop={ pageScrollTop } 
+      />
+    );
   }
 
-  return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
+  render () {
+    let size = this.getSize();
+    let self = this;
+    return (
+      <Surface top={ 0 } left={ 0 } width={ size.width } height={ size.height }>
+        <ListView
+          style={ self.getListViewStyle() }
+          snapping={ true } 
+          scrollingDeceleration={ 0.92 }
+          scrollingPenetrationAcceleration={ 0.13 }
+          numberOfItemsGetter={ self.getNumberOfPages }
+          itemHeightGetter={ self.getPageHeight }
+          itemGetter={ self.renderPage } 
+        />
+      </Surface>
+    );
+  }
+
 }
+
 
 export default connect(
   (state) => ({ items: state.items.data})//getVisibleItems(state.items.data, state.filter) })
