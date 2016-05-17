@@ -6,19 +6,19 @@ const clientPath = path.resolve(__dirname, '..', 'src', 'client.js')
 
 export const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }}),
-  new webpack.optimize.CommonsChunkPlugin('common', 'common.js'), 
-  new copyWebpackPlugin([{ from: './src/assets', to: 'assets' }])
+  new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
+  new copyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
+  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }})
 ]
 
 export const prodEntries = {
   app: clientPath,
-  common: [ 
-    'isomorphic-fetch', 
-    'react', 
-    'react-dom', 
-    'react-redux', 
-    'react-router', 
+  common: [
+    'isomorphic-fetch',
+    'react',
+    'react-dom',
+    'react-redux',
+    'react-router',
     'redux'
   ]
 }
