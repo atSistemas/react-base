@@ -1,4 +1,7 @@
-export default function renderPage(content, store){
+export default function renderPage(ENV, content, store){
+
+  const common = (ENV === 'production') ? '<script src="/common.js"></script>' : null
+
   return `
   <!doctype html>
 	<html lang="utf-8">
@@ -8,7 +11,8 @@ export default function renderPage(content, store){
     <body>
     <div id="root">${content}</div>
       <script>window.$REACTBASE_STATE = ${store}</script>
-      <script src="/static/bundle.js"></script>
+    ` + common +  `
+    <script src="/bundle.js"></script>
     </body>
   </html>
   `

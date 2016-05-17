@@ -44,7 +44,7 @@ app.use(function (req, res) {
           ))
 
           let state = JSON.stringify( store.getState() )
-          let page = renderPage( mainView, state )
+          let page = renderPage( ENV, mainView, state )
           return page
       })
       .then( page => res.status(200).send(page) )
