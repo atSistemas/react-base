@@ -8,6 +8,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux'
 
 import statics from './statics'
 import routes from '../src/routes'
+import ENV from '../src/shared/env'
 import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
 import applyEnvMiddleWare from './middleware'
@@ -18,7 +19,6 @@ const port = 8000
 const app = express()
 const host = '0.0.0.0'
 const context = 'server'
-const ENV = process.env.NODE_ENV || 'development'
 const envMiddleware = applyEnvMiddleWare(ENV, app)
 const serverStore = applyMiddleware( promiseMiddleware )( createStore )
 

@@ -19,10 +19,11 @@ var serverOptions = {
 }
 
 var bundleStart = Date.now()
-console.log('[BASE] Bundling development proyect...')
+console.log('[BASE] Bundling...')
+
 
 compiler.plugin('done', function() {
-  console.log('[BASE] Bundled development proyect in ' + (Date.now() - bundleStart) + 'ms!')
+  console.log('[BASE] Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
 })
 
 export function applyDevMiddleware(){

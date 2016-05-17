@@ -6,6 +6,8 @@ const envMiddleware = (ENV === 'development') ? applyDevMiddleware : applyProdMi
 
 export default function applyEnvMiddleWare(env, app){
   envMiddleware().forEach(function(middleware){
+    const middlewareName = middleware.name || 'middleware'
+    console.log('[BASE] Applying ' + middlewareName)
     app.use(middleware)
   })
 }
