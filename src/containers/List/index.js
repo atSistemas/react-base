@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 import * as ItemsActions from '../../actions/Items'
-import { fetchRequiredActions } from '../../shared/fetch-data'
+import fetchRequiredActions from '../../shared/fetch-data'
 
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
