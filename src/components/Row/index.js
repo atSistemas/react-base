@@ -47,10 +47,12 @@ const Row = ({ id, title,  removed = false ,  onClick }) => {
       <span style={ spanStyle2 }>
         <a 
           href=""
-          onClick={ e => {
-            e.preventDefault()
-            onClick()
-          } }
+          onClick={ 
+            e => {
+              e.preventDefault()
+              onClick()
+            } 
+          }
         >
           <img style={ imageStyle } alt="icon" src={ imageUrl } />
         </a>
