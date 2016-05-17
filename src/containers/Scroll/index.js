@@ -31,42 +31,20 @@ class Scroll extends Component {
     const { dispatch } = this.props
     dispatch(ItemsActions.changeItemState(id))
   }
-  /*
-  render () {
-    let listStyle={
-      listStyle:'none'
-    }
-    let list = null
-    const { items } = this.props
-    if( items ){
-      list = (
-        items.map((item, index) => {
-          return  (
-            <Row { ...item } key={ index } onClick={() => this.onRowClick(item.id)} />
-            )
-        })
-      )
-    }
 
-    return (
-      <div>
-        <ul style={listStyle}>{ list }</ul>
-      </div>
-     )
-  }*/
   render () {
     var size = this.getSize();
     var self = this;
     return (
-      <Surface top={0} left={0} width={size.width} height={size.height}>
+      <Surface top={ 0 } left={ 0 } width={ size.width } height={ ize.height }>
         <ListView
-          style={self.getListViewStyle()}
-          snapping={true}
-          scrollingDeceleration={0.92}
-          scrollingPenetrationAcceleration={0.13}
-          numberOfItemsGetter={self.getNumberOfPages}
-          itemHeightGetter={self.getPageHeight}
-          itemGetter={self.renderPage} />
+          style={ self.getListViewStyle() }
+          snapping={ true }
+          scrollingDeceleration={ 0.92 }
+          scrollingPenetrationAcceleration={ 0.13 }
+          numberOfItemsGetter={ self.getNumberOfPages }
+          itemHeightGetter={ self.getPageHeight }
+          itemGetter={ self.renderPage } />
       </Surface>
     );
   }
@@ -78,11 +56,11 @@ class Scroll extends Component {
     var pageScrollTop = pageIndex * self.getPageHeight() - scrollTop;
     return (
       <Page
-        width={size.width}
-        height={size.height}
-        article={article}
-        pageIndex={pageIndex}
-        scrollTop={pageScrollTop} />
+        width={ size.width }
+        height={ size.height }
+        article={ article }
+        pageIndex={ pageIndex }
+        scrollTop={ pageScrollTop } />
     );
   }
 

@@ -25,6 +25,8 @@
     "react/wrap-multilines": 2,
     "react/jsx-no-bind": 2,
     "jsx-quotes": [2, "prefer-double"],
+    
+    "react/jsx-curly-spacing": [2, "always"],
     "import/default": 0,
     "import/no-duplicates": 0,
     "import/named": 0,
