@@ -1,17 +1,13 @@
-import { devStatics, applyDevMiddleware } from './dev-middleware'
-import { prodStatics, applyProdMiddleware } from './prod-middleware'
+import { applyDevMiddleware } from './dev-middleware'
+import { applyProdMiddleware } from './prod-middleware'
+import ENV from '../src/shared/env'
 
-const ENV = process.env.NODE_ENV || 'development'
-const envStatics = (ENV === 'development') ? devStatics: prodStatics
+const envMiddleware = (ENV === 'development') ? applyDevMiddleware : applyProdMiddleware
 
-export function applyEnvMiddleWare(env, app){
-  if(env === 'development'){
-    applyDevMiddleware().forEach(function(middleware){
-      app.use(middleware)
-    })
-  } else {
-    applyProdMiddleware().forEach(function(middleware){
-      app.use(middleware)
-    })
-  }
+export default function applyEnvMiddleWare(env, app){
+  envMiddleware().forEach(function(middleware){
+    const middlewareName = middleware.name || 'middleware'
+    console.log('[BASE] Applying ' + middlewareName)
+    app.use(middleware)
+  })
 }

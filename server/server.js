@@ -6,23 +6,24 @@ import { renderToString } from 'react-dom/server'
 import { Router, RouterContext, match } from 'react-router'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 
+import statics from './statics'
 import routes from '../src/routes'
-import { statics } from './statics'
+import ENV from '../src/shared/env'
 import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
-import { applyEnvMiddleWare } from './middleware'
-import promiseMiddleware from '../src/middleware/promise'
+import applyEnvMiddleWare from './middleware'
+import requestMiddleware from '../src/middleware/request'
 import fetchRequiredActions from '../src/shared/fetch-data'
 
 const port = 8000
 const app = express()
 const host = '0.0.0.0'
 const context = 'server'
-const ENV = process.env.NODE_ENV || 'development'
 const envMiddleware = applyEnvMiddleWare(ENV, app)
-const serverStore = applyMiddleware( promiseMiddleware )( createStore )
+const serverStore = applyMiddleware( requestMiddleware )( createStore )
 
 statics.map(function(staticPath){
+  console.log('[BASE] Setting static path ' + staticPath.route)
   app.use(staticPath.route, express.static(staticPath.dir))
 })
 

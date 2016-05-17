@@ -6,7 +6,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 const config = require('../webpack/webpack.config.babel')
 const compiler = webpack(config)
 
-var serverOptions = {
+const serverOptions = {
   hot: true,
   lazy: false,
   quiet: true,
@@ -18,11 +18,12 @@ var serverOptions = {
   headers: { 'Access-Control-Allow-Origin': '*' }
 }
 
-var bundleStart = Date.now()
-console.log('[BASE] Bundling development proyect...')
+const bundleStart = Date.now()
+console.log('[BASE] Bundling...')
+
 
 compiler.plugin('done', function() {
-  console.log('[BASE] Bundled development proyect in ' + (Date.now() - bundleStart) + 'ms!')
+  console.log('[BASE] Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
 })
 
 export function applyDevMiddleware(){

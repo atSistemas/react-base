@@ -1,6 +1,5 @@
 import path from 'path'
-
-const ENV = process.env.NODE_ENV || 'development'
+import ENV from '../src/shared/env'
 
 const commonStatics = [
   {route: '/mocks', dir: path.join(__dirname, '..', 'src', 'api', 'mocks')}
@@ -16,5 +15,5 @@ const prodStatics = [
 ]
 
 const envStatics = (ENV === 'development') ? commonStatics.concat(devStatics) : commonStatics.concat(prodStatics)
-
-export const statics = envStatics
+const statics = envStatics
+export default statics

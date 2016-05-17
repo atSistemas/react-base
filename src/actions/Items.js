@@ -5,7 +5,7 @@ import { generetaFetchTypes } from '../shared/type-helper'
 export function fetchItems( { category } ){
   return {
     types: generetaFetchTypes(types.ITEMS_REQUEST),
-    execute: itemsAPI.getItems(category)
+    request: itemsAPI.getItems(category)
   }
 }
 
