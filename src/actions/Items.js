@@ -12,7 +12,7 @@ export function fetchItems( { category } ){
 export function fetchItem( id ){
   return {
     types: generetaFetchTypes(types.ITEM_REQUEST),
-    execute: itemsAPI.getItem(id)
+    request: itemsAPI.getItem(id)
   }
 }
 

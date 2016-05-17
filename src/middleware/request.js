@@ -2,9 +2,10 @@ export default function requestMiddleware(  ) {
 
   return (next) => (action) => {
     const { request, types, ...rest } = action
-    const [REQUEST, SUCCESS, ERROR] = types
 
     if (!request) return next(action)
+
+    const [REQUEST, SUCCESS, ERROR] = types
 
     next({ ...rest, type: REQUEST })
     return request.then(
