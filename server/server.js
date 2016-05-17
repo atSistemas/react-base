@@ -7,16 +7,17 @@ import { Router, RouterContext, match } from 'react-router'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 
 import routes from '../src/routes'
+import { statics } from './statics'
 import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
-import promiseMiddleware from '../src/middleware/promise'
-import { fetchServerData } from '../src/shared/fetch-data'
 import { applyEnvMiddleWare } from './middleware'
-import { statics } from './statics'
+import promiseMiddleware from '../src/middleware/promise'
+import fetchRequiredActions from '../src/shared/fetch-data'
 
 const port = 8000
-const host = '0.0.0.0'
 const app = express()
+const host = '0.0.0.0'
+const context = 'server'
 const ENV = process.env.NODE_ENV || 'development'
 const envMiddleware = applyEnvMiddleWare(ENV, app)
 const serverStore = applyMiddleware( promiseMiddleware )( createStore )
@@ -35,7 +36,7 @@ app.use(function (req, res) {
     if ( redirectLocation ) return res.redirect( 302, redirectLocation.pathname + redirectLocation.search )
     if ( renderProps == null ) return res.status(404).send( 'Not found' )
 
-    fetchServerData(store.dispatch, renderProps.components, renderProps.params)
+    fetchRequiredActions(store.dispatch, renderProps.components, renderProps.params, context)
       .then(() => {
           const mainView = renderToString((
             <Provider store={ store }>
