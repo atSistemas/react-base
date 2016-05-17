@@ -1,6 +1,6 @@
 import createLogger from 'redux-logger'
 import { createStore, compose, applyMiddleware } from 'redux'
-import promiseMiddleware from '../middleware/promise';
+import requestMiddleware from '../middleware/request'
 
 import rootReducer from '../reducers'
 
@@ -8,7 +8,7 @@ function configureStore(history, initialState) {
 
   const enhancer = compose(
     applyMiddleware(
-      promiseMiddleware,
+      requestMiddleware,
       createLogger({level: 'info',collapsed: true})
     )
   )

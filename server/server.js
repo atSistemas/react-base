@@ -12,7 +12,7 @@ import ENV from '../src/shared/env'
 import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
 import applyEnvMiddleWare from './middleware'
-import promiseMiddleware from '../src/middleware/promise'
+import requestMiddleware from '../src/middleware/request'
 import fetchRequiredActions from '../src/shared/fetch-data'
 
 const port = 8000
@@ -20,9 +20,10 @@ const app = express()
 const host = '0.0.0.0'
 const context = 'server'
 const envMiddleware = applyEnvMiddleWare(ENV, app)
-const serverStore = applyMiddleware( promiseMiddleware )( createStore )
+const serverStore = applyMiddleware( requestMiddleware )( createStore )
 
 statics.map(function(staticPath){
+  console.log('[BASE] Setting static path ' + staticPath.route)
   app.use(staticPath.route, express.static(staticPath.dir))
 })
 

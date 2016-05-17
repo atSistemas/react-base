@@ -1,6 +1,5 @@
 import path from 'path'
 import ENV from '../src/shared/env'
-console.log('[BASE] Exporting statics ...')
 
 const commonStatics = [
   {route: '/mocks', dir: path.join(__dirname, '..', 'src', 'api', 'mocks')}
