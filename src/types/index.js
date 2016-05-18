@@ -5,4 +5,5 @@ export default typeBuilder([
   'ITEM_REQUEST', 'ITEM_SUCESS', 'ITEM_ERROR',
   'SET_VISIBILITY_FILTER',
   'CHANGE_ITEM_STATE',
+  'SHOW_ACTIVE', 'SHOW_ALL', 'SHOW_REMOVED'
 ])
