@@ -1,9 +1,10 @@
 *.log
 .idea
+coverage/
 dist/
 build/
 *.vimrc
 .DS_STORE
 node_modules/
 bower_components/
-coverage/
+.nyc_output/
