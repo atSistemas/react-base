@@ -20,5 +20,3 @@ You need git to clone the React-Base repository from Github. You can get git fro
 We also use a number of node.js tools to initialize and test React-Base. You must have node.js and
 its package manager (npm) installed. In addition you'll need Bower to manage the angular modules/dependencies that we've
 included in the project by default. You can get them from [nodejs.org][node] and [Bower](http://www.bower.io)
-
-test
