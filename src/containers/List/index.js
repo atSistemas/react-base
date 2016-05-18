@@ -69,7 +69,6 @@ const getVisibleItems = (items, filter) => {
   return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
 }
 
-
 export default connect(
   (state) => ({ items: getVisibleItems(state.items.data, state.filter) })
 )(List)
