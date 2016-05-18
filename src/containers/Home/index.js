@@ -10,7 +10,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-      Home!!!
+      Home!!!!
       Go to 
         <Link to="/list/news">
           <span>list</span>
