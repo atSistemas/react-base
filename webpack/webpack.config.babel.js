@@ -9,8 +9,7 @@ const buildPath = path.resolve(__dirname, '..', 'dist')
 const plugins = (ENV === 'development') ? devPlugins: prodPlugins
 const entries = (ENV === 'development') ? devEntries: prodEntries
 
-var config = {
-
+const config = {
   devtool: 'eval',
 
   entry: entries,
