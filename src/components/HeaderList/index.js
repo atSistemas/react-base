@@ -1,19 +1,20 @@
 import React from 'react'
 import FilterListLink from '../../containers/FilterListLink'
+import types from '../../types'
 
 const HeaderList = () => (
   <p>
     Show:
     { " " }
-    <FilterListLink filter="SHOW_ACTIVE">
+    <FilterListLink filter={ types.SHOW_ACTIVE }>
       Active Items
     </FilterListLink>
     { ", " }
-    <FilterListLink filter="SHOW_REMOVED">
+    <FilterListLink filter={ types.SHOW_REMOVED }>
       Removed Items
     </FilterListLink>
     { ", " }
-    <FilterListLink filter="SHOW_ALL">
+    <FilterListLink filter={ types.SHOW_ALL }>
       All Items
     </FilterListLink>
   </p>
