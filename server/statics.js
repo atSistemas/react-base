@@ -6,7 +6,7 @@ const commonStatics = [
 ]
 
 const devStatics = [
-  {route: '/assets', dir: path.join(__dirname, '..', 'src', 'assets')},
+  {route: '/', dir: path.join(__dirname, '..', 'src')},
 ]
 
 const prodStatics = [
