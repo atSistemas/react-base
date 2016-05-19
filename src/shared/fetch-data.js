@@ -1,5 +1,4 @@
-export default function fetchRequiredActions(  ){
-  const args = Array.prototype.slice.call(arguments)
+export default function fetchRequiredActions(...args){
   const serverContext = !!~args.indexOf('server')
   return (serverContext) ?  fetchServerData.apply(this, args) : fetchClientData.apply(this, args)
 }
