@@ -7,7 +7,7 @@ function itemsRequest( state ){ return state }
 
 function itemsError( state ){ return state }
 
-function itemsSucess(state, action) {
+function itemsSuccess(state, action) {
   return { ...state, data: action.result }
 }
 
@@ -27,7 +27,7 @@ function changeItemState(state, action){
 
 const handlers = {
   [types.ITEMS_REQUEST]: itemsRequest,
-  [types.ITEMS_SUCESS]: itemsSucess,
+  [types.ITEMS_SUCCESS]: itemsSuccess,
   [types.ITEMS_ERROR]: itemsError,
   [types.CHANGE_ITEM_STATE]: changeItemState
 }
