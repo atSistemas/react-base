@@ -67,5 +67,9 @@
   "keywords": [
     "ReactSeed"
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "redux-immutable": "^3.0.6"
+  }
 }
