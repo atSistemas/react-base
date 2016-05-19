@@ -55,10 +55,17 @@ class List extends Component {
   }
 }
 
-const getVisibleItems = (items, filter) => {
+const getVisibleItems = (state) => {
 
-  if (items == undefined)
+  let items = state.get('items');
+  let filter = state.get('filter');
+
+  if (!items.wasAltered() && items.size == 0) {
     return null
+  } else {
+    items = items.toJS();
+  }
+
 
   const obj = {
     'SHOW_ALL': () => items,
@@ -71,5 +78,5 @@ const getVisibleItems = (items, filter) => {
 
 
 export default connect(
-  (state) => ({ items: getVisibleItems(state.items.data, state.filter) })
+  (state) => ({ items: getVisibleItems(state) })
 )(List)
