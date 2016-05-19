@@ -15,28 +15,21 @@ describe('filters reducer', () => {
 
 
 it('should handle change filter', () => {
-    expect(
-      reducer([], {
+
+    let action = {
         type: types.SET_VISIBILITY_FILTER, 
         filter: types.SHOW_ALL 
-      })
-    ).toEqual(
-      types.SHOW_ALL
-    )
+      }
 
-    expect(
-      reducer(
-        [
-           types.SHOW_ALL
-        ],
+    expect(reducer([], action)).toEqual(types.SHOW_ALL)
+
+    let action2 = 
         {
           type: types.SET_VISIBILITY_FILTER, 
           filter: types.SHOW_REMOVED 
-        }
-      )
-    ).toEqual(
-      types.SHOW_REMOVED 
-    )
+        } 
+
+    expect(reducer([types.SHOW_ALL], action2)).toEqual(types.SHOW_REMOVED)
   })
 
 })

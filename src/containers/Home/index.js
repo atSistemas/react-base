@@ -20,5 +20,6 @@ class Home extends Component {
   }
 
 }
+Home.displayName = 'Home'
 
 export default Home

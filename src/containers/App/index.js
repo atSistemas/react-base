@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from '../../components/Header'
 
-function App({ children }) {
+export function App({ children }) {
   return (
     <div>
       <Header />
