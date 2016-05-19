@@ -19,7 +19,7 @@ function setup() {
   }
 }
 
-describe('components', () => {
+describe('containers', () => {
   describe('Home', () => {
     it('should render correctly', () => {
       const { output } = setup()

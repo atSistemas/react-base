@@ -1,15 +1,15 @@
 import expect from 'expect'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import ConnectedApp, { App } from '..'
+import Header from '..'
 
 function setup() {
   let props = {
-    children: {}
+    
   }
 
   let renderer = TestUtils.createRenderer()
-  renderer.render(<App {...props} />)
+  renderer.render(<Header {...props} />)
   let output = renderer.getRenderOutput()
 
   return {
@@ -19,18 +19,15 @@ function setup() {
   }
 }
 
-describe('comtainers', () => {
-  describe('App comtainer', () => {
+describe('components', () => {
+  describe('Header', () => {
     it('should render correctly', () => {
       const { output } = setup()
 
       expect(output.type).toBe('div')
 
-      const [ header, main ] = output.props.children
-
-      expect(header.type.displayName).toEqual('Header')
-
-      expect(main.type).toBe('main')
+      const [ div , linkSection] = output.props.children
+      expect(linkSection.type.displayName).toEqual('Link')
     })
   })
 })
