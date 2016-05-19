@@ -1,19 +1,21 @@
+import Immutable from 'immutable'
 import createLogger from 'redux-logger'
 import { createStore, compose, applyMiddleware } from 'redux'
-import requestMiddleware from '../middleware/request'
 
 import rootReducer from '../reducers'
+import requestMiddleware from '../middleware/request'
 
-function configureStore(history, initialState) {
+function configureStore(history, initialState = {}) {
 
   const enhancer = compose(
     applyMiddleware(
       requestMiddleware,
-      createLogger({level: 'info',collapsed: true})
+      createLogger({ level: 'info', collapsed: true })
     )
   )
 
-  const store = createStore(rootReducer, initialState, enhancer)
+  const state = Immutable.fromJS(initialState)
+  const store = createStore(rootReducer, state, enhancer)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
