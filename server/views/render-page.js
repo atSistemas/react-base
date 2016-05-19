@@ -1,6 +1,6 @@
 export default function renderPage(ENV, content, store){
 
-  const common = (ENV === 'production') ? '<script src="/common.js"></script>' : null
+  const common = (ENV === 'production') ? '<script src="/common.js"></script>' : '' 
 
   return `
   <!doctype html>
