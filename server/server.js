@@ -23,8 +23,8 @@ const envMiddleware = applyEnvMiddleWare(ENV, app)
 const serverStore = applyMiddleware( requestMiddleware )( createStore )
 
 statics.map(function(staticPath){
-  console.log('[BASE] Setting static path ' + staticPath.route)
   app.use(staticPath.route, express.static(staticPath.dir))
+  console.log('[BASE] ✓ Applied static path ' + staticPath.route)
 })
 
 app.use(function (req, res) {
@@ -59,5 +59,5 @@ app.listen(port, function (err) {
     console.log(err)
     return;
   }
-  console.log('[BASE] Server up on http://localhost:' +  port)
+  console.log('[BASE] ✓ Server up on http://localhost:' +  port)
 })

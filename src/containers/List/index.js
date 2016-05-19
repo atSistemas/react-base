@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import * as ItemsActions from '../../actions/Items'
 import fetchRequiredActions from '../../shared/fetch-data'
 
+import types from '../../types'
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
 
@@ -68,7 +69,6 @@ const getVisibleItems = (items, filter) => {
 
   return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
 }
-
 
 export default connect(
   (state) => ({ items: getVisibleItems(state.items.data, state.filter) })

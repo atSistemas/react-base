@@ -23,7 +23,7 @@ console.log('[BASE] Bundling...')
 
 
 compiler.plugin('done', function() {
-  console.log('[BASE] Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
+  console.log('[BASE] ✓ Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
 })
 
 export function applyDevMiddleware(){
