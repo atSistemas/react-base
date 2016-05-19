@@ -7,17 +7,16 @@ function itemsRequest( state ){ return state }
 function itemsError( state ){ return state }
 
 function itemsSuccess(state, action) {
-  return Immutable.List(action.result);
+  return Immutable.fromJS(action.result);
 }
 
 function changeItemState(state, action){
-  let items = state.map((item) => {
-    if (item.id === action.id) {
-      item.removed = !item.removed;
+  return state.map((item) => {
+    if (item.get('id') === action.id) {
+      return item.set('removed', !item.get('removed'));
     }
     return item;
   });
-  return items;
 }
 
 const handlers = {
