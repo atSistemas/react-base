@@ -1,1 +1,1 @@
-export default ['REQUEST','SUCESS','ERROR']
+export default ['REQUEST','SUCCESS','ERROR']
