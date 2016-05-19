@@ -1,4 +1,4 @@
-export default function renderPage(ENV, container, store){
+export default function renderMainPage(ENV, view, store){
 
   const state = JSON.stringify( store.getState() )
   const common = (ENV === 'production') ? '<script src="/common.js"></script>' : ''
@@ -10,7 +10,7 @@ export default function renderPage(ENV, container, store){
     <head>
     </head>
     <body>
-    <div id="root">${ container }</div>
+    <div id="root">${ view }</div>
       <script>window.$REACTBASE_STATE = ${ state }</script>
     ` + common +  `
     <script src="/bundle.js"></script>
