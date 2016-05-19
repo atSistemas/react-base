@@ -1,10 +1,11 @@
 import createLogger from 'redux-logger'
 import { createStore, compose, applyMiddleware } from 'redux'
 import requestMiddleware from '../middleware/request'
+import Immutable from 'immutable'
 
 import rootReducer from '../reducers'
 
-function configureStore(history, initialState) {
+function configureStore(history, initialState = {}) {
 
   const enhancer = compose(
     applyMiddleware(
@@ -13,7 +14,7 @@ function configureStore(history, initialState) {
     )
   )
 
-  const store = createStore(rootReducer, initialState, enhancer)
+  const store = createStore(rootReducer, Immutable.fromJS(initialState), enhancer)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
