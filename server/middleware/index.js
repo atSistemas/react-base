@@ -1,6 +1,6 @@
 import { applyDevMiddleware } from './dev-middleware'
 import { applyProdMiddleware } from './prod-middleware'
-import ENV from '../src/shared/env'
+import ENV from '../../src/shared/env'
 
 const envMiddleware = (ENV === 'development') ? applyDevMiddleware : applyProdMiddleware
 

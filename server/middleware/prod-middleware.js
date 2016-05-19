@@ -1,7 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 
-const config = require('../webpack/webpack.config.babel')
+const config = require('../../webpack/webpack.config.babel')
 const compiler = webpack(config)
 
 const bundleStart = Date.now()
