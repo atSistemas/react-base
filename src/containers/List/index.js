@@ -12,7 +12,6 @@ class List extends Component {
   static requiredActions = [ItemsActions.fetchItems];
 
   static propTypes = {
-    items: PropTypes.array,
     dispatch: PropTypes.func.isRequired
   }
 
@@ -22,7 +21,7 @@ class List extends Component {
 
   componentDidMount() {
     const { items } = this.props
-    fetchRequiredActions(List.requiredActions, this.props, items)
+    fetchRequiredActions(List.requiredActions, this.props)
   }
 
   onRowClick(id) {
@@ -35,22 +34,20 @@ class List extends Component {
     let listStyle={
       listStyle:'none'
     }
-    let list = null
     const { items } = this.props
-    if( items ){
-      list = (
-        items.map((item, index) => {
-          return  (
-            <Row { ...item } key={ index } onClick={ () => this.onRowClick(item.id) } />
-            )
-        })
-      )
-    }
+
+    const list = (
+      items.items.map((item, index) => (
+        <Row { ...item } key={ index } onClick={ () => this.onRowClick(item.id) } />
+      ))
+    )
 
     return (
       <div>
         <HeaderList />
-        <ul style={ listStyle }>{ list }</ul>
+        <ul>
+        { list }
+        </ul>
       </div>
      )
   }
@@ -61,6 +58,7 @@ const getVisibleItems = (state) => {
   let items = state.get('items');
   let filter = state.get('filter');
 
+  console.log(333333, state)
   if (!items.wasAltered() && items.size == 0) {
     return null
   } else {

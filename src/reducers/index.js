@@ -5,5 +5,5 @@ import filter from './Filters'
 
 export default combineReducers({
   items,
-  filter
+  //filter
 })
