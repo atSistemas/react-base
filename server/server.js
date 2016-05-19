@@ -1,16 +1,15 @@
 import path from 'path'
 import React from 'react'
 import express from 'express';
-import { Provider } from 'react-redux'
-import { renderToString } from 'react-dom/server'
-import { Router, RouterContext, match } from 'react-router'
+import { match } from 'react-router'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 
 import statics from './statics'
 import routes from '../src/routes'
 import ENV from '../src/shared/env'
-import renderPage from './render-page'
 import rootReducer from '../src/reducers/'
+import renderPage from './views/render-page'
+import renderMainView from './views/main-view'
 import applyEnvMiddleWare from './middleware'
 import requestMiddleware from '../src/middleware/request'
 import fetchRequiredActions from '../src/shared/fetch-data'
@@ -21,11 +20,7 @@ const host = '0.0.0.0'
 const context = 'server'
 const envMiddleware = applyEnvMiddleWare(ENV, app)
 const serverStore = applyMiddleware( requestMiddleware )( createStore )
-
-statics.map(function(staticPath){
-  app.use(staticPath.route, express.static(staticPath.dir))
-  console.log('[BASE] ✓ Applied static path ' + staticPath.route)
-})
+const staticPaths = setStaticsPaths(statics)
 
 app.use(function (req, res) {
 
@@ -39,12 +34,7 @@ app.use(function (req, res) {
 
     fetchRequiredActions(store.dispatch, renderProps.components, renderProps.params, context)
       .then(() => {
-          const mainView = renderToString((
-            <Provider store={ store }>
-              <RouterContext { ...renderProps }/>
-            </Provider>
-          ))
-
+          let mainView = renderMainView(store, renderProps)
           let state = JSON.stringify( store.getState() )
           let page = renderPage( ENV, mainView, state )
           return page
@@ -53,6 +43,13 @@ app.use(function (req, res) {
       .catch( err => res.end(err.message) )
     })
 })
+
+function setStaticsPaths(staticsPath){
+  staticsPath.map(function(staticPath){
+    app.use(staticPath.route, express.static(staticPath.dir))
+    console.log('[BASE] ✓ Applied static path ' + staticPath.route)
+  })
+}
 
 app.listen(port, function (err) {
   if (err) {
