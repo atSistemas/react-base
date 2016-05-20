@@ -32,6 +32,7 @@ class List extends Component {
  }
 
  render () {
+
    let listStyle={
      listStyle:'none'
    }
@@ -39,9 +40,9 @@ class List extends Component {
    const { items } = this.props
    if( items ){
      list = (
-       items.items.map((item, index) => {
+       items.map((item, index) => {
          return  (
-           <Row { ...item } key={ index } onClick={ () => this.onRowClick(item.id) } />
+           <Row { ...(item.toJS()) } key={ index } onClick={ () => this.onRowClick(item.id) } />
            )
        })
      )
@@ -63,8 +64,6 @@ const getVisibleItems = (state) => {
 
  if (!items.wasAltered() && items.size == 0) {
    return null
- } else {
-   items = items.toJS();
  }
 
 
