@@ -13,6 +13,7 @@ import renderMainPage from './templates/main-page'
 import renderMainContainer from './containers/main-container'
 import requestMiddleware from '../src/middleware/request'
 import fetchRequiredActions from '../src/shared/fetch-data'
+import {symbols, color} from './shared/console'
 
 const port = 8000
 const app = express()
@@ -45,7 +46,7 @@ app.use(function (req, res) {
 function setStaticsPaths(staticPaths){
   staticPaths.map(function(staticPath){
     app.use(staticPath.route, express.static(staticPath.dir))
-    console.log('[BASE] ✓ Applied static path ' + staticPath.route)
+    console.log('[BASE] ' + color('success', symbols.ok) + ' Applied static path ' + staticPath.route)
   })
 }
 
@@ -54,5 +55,5 @@ app.listen(port, function (err) {
     console.log(err)
     return;
   }
-  console.log('[BASE] ✓ Server up on http://localhost:' +  port)
+  console.log('[BASE] ' + color('success', symbols.ok) + ' Server up on http://localhost:' +  port)
 })

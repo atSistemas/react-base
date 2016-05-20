@@ -1,8 +1,7 @@
-import path from 'path'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-
+import {symbols, color} from '../shared/console'
 const config = require('../../webpack/webpack.config.babel')
 const compiler = webpack(config)
 
@@ -23,7 +22,7 @@ console.log('[BASE] Bundling...')
 
 
 compiler.plugin('done', function() {
-  console.log('[BASE] ✓ Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
+  console.log('[BASE] ' + color('success', symbols.ok) + ' Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
 })
 
 export function applyDevMiddleware(){
