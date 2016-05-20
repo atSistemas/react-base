@@ -13,13 +13,10 @@ function itemsSuccess(state, action) {
 }
 
 function changeItemState(state, action){
- return state.update( 'items', list => {
-   return list.map(item => {
-     console.log(55555, item)
-      if(item.get('id') === action.id) return item.set('removed', !item.get('removed'))
-      return item
-   })
- })
+  return state.map(item => {
+    if(item.get('id') === action.id) return item.set('removed', !item.get('removed'))
+    return item
+  })
 /*
   const items = state.get('items')
   return items.map((item) => {
