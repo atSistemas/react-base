@@ -1,5 +1,7 @@
 import types from '../types'
 import Immutable from 'immutable'
+import { itemsModel } from '../models/items.js'
+
 import createReducer from '../shared/create-reducer'
 
 function itemsRequest( state ){ return state }
@@ -7,8 +9,7 @@ function itemsRequest( state ){ return state }
 function itemsError( state ){ return state }
 
 function itemsSuccess(state, action) {
-  return state.update( 'items', map => action.result )
-
+  return state.clear().merge(action.result.map((item) => itemsModel(item)));
 }
 
 function changeItemState(state, action){
@@ -36,4 +37,4 @@ const handlers = {
   [types.CHANGE_ITEM_STATE]: changeItemState
 }
 
-export default createReducer(handlers, Immutable.Map());
+export default createReducer(handlers, Immutable.List());
