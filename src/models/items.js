@@ -7,4 +7,5 @@ export const itemsModel = Immutable.Record({
 	id: "",
 	title: 0,
 	body: 0,
+	removed: false
 })
