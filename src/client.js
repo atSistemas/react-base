@@ -2,10 +2,11 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { Router, browserHistory } from 'react-router'
+import Immutable from 'immutable'
 
 import routes from './routes'
 import configureStore from './store/configure-store'
-const state = window.$REDUX_STATE
+const state = Immutable.Map()
 const store = configureStore(browserHistory, state)
 
 render(

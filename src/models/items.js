@@ -1,8 +1,6 @@
 import Immutable from 'immutable'
 
-export const itemsList = Immutable.Map({
-	items: Immutable.List(),
-})
+export const itemsList = Immutable.Map()
 
 export const itemsModel = Immutable.Record({
 	userId: null,

@@ -14,7 +14,6 @@ function configureStore(history, initialState) {
     )
   )
 
-  //const state = Immutable.fromJS(initialState)
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
