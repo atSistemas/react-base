@@ -1,13 +1,12 @@
-import Immutable from 'immutable'
+export default function createReducer (actionHandler, initialState) {
+  return (state = initialState, action) => {
 
-export default function createReducer (actionHandlers, initialState = window ? window.$REACTBASE_STATE : {}) {
+    const handler = actionHandler[action.type]
 
-  return (state = Immutable.fromJS(initialState), action) => {
-    const reduceFn = actionHandlers[action.type];
-    if (reduceFn) {
-      return reduceFn(state, action);
-    } else {
-      return state;
-    }
-  };
+    if(!handler) return state
+
+    state = handler(state, action)
+
+    return state
+  }
 }
