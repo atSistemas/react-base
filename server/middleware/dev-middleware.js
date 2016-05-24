@@ -9,6 +9,7 @@ const serverOptions = {
   hot: true,
   lazy: false,
   quiet: true,
+  watch: true,
   noInfo: true,
   inline: true,
   progress: false,
