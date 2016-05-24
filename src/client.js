@@ -6,7 +6,7 @@ import Immutable from 'immutable'
 
 import routes from './routes'
 import configureStore from './store/configure-store'
-const state = Immutable.Map()
+const state = {}//Immutable.Map()
 const store = configureStore(browserHistory, state)
 
 render(

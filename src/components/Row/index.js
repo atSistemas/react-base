@@ -1,6 +1,9 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-const Row = ({ id, title,  removed = false ,  onClick }) => {
+const Row = ({ item,  onClick }) => {
+  const removed = false
+  const id = item.id
+  const title = item.title
 
   let imageStyle = {
     height: '20px',
@@ -45,13 +48,13 @@ const Row = ({ id, title,  removed = false ,  onClick }) => {
 
       <span style={ spanStyle }>   { title }  </span>
       <span style={ spanStyle2 }>
-        <a 
+        <a
           href=""
-          onClick={ 
+          onClick={
             e => {
               e.preventDefault()
               onClick()
-            } 
+            }
           }
         >
           <img style={ imageStyle } alt="icon" src={ imageUrl } />
@@ -62,8 +65,6 @@ const Row = ({ id, title,  removed = false ,  onClick }) => {
 }
 
 Row.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   removed: PropTypes.bool
 }

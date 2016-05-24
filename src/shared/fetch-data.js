@@ -15,7 +15,8 @@ function fetchServerData(dispatch, components, params) {
   return Promise.all(promises)
 }
 
-function fetchClientData( actions, props, checkData){
+function fetchClientData( actions, props, node){
+  const store = window.$REACTBASE_STATE[node]
   const { params, dispatch } = props
-  if(!checkData) actions.map( action => dispatch(action(params)) )
+  actions.map( action => dispatch(action(params)) )
 }

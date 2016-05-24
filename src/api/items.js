@@ -1,4 +1,7 @@
 import fetch from 'isomorphic-fetch'
+import Immutable from 'immutable'
+import { itemModel } from '../models/items'
+import { generateMap } from '../shared/model-helper'
 
 const url = 'http://localhost:8000/mocks/items.json'
 
@@ -7,9 +10,8 @@ export default {
   getItems( category ){
     return fetch(url + '?category=' + category)
     .then(req => req.json())
-    .then(data => data)
+    .then(data => generateMap(data, itemModel))
   },
-
 
   getItem(id){
     return fetch(url + '?id=' + id)

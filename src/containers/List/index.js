@@ -12,7 +12,6 @@ class List extends Component {
  static requiredActions = [ItemsActions.fetchItems];
 
  static propTypes = {
-   items: PropTypes.object,
    dispatch: PropTypes.func.isRequired
  }
 
@@ -21,8 +20,7 @@ class List extends Component {
  }
 
  componentDidMount() {
-   const { items } = this.props
-   fetchRequiredActions(List.requiredActions, this.props, items)
+   fetchRequiredActions(List.requiredActions, this.props, 'items')
  }
 
  onRowClick(id) {
@@ -35,48 +33,22 @@ class List extends Component {
    let listStyle={
      listStyle:'none'
    }
-   let list = null
-   const { items } = this.props
-   if( items ){
-     list = (
-       items.items.map((item, index) => {
-         return  (
-           <Row { ...item } key={ index } onClick={ () => this.onRowClick(item.id) } />
-           )
-       })
-     )
-   }
 
+   const items = this.props.items.items
+   let itemList = items.valueSeq().map( item => {
+     return <Row
+            item = { item }
+            key={ item.get('id')}
+            onClick={ () => this.onRowClick(item.id) }/>
+    })
    return (
      <div>
        <HeaderList />
-       <ul style={ listStyle }>{ list }</ul>
+       <ul style={ listStyle }>{ itemList }</ul>
      </div>
     )
  }
 }
 
-const getVisibleItems = (state) => {
 
- let items = state.get('items');
- let filter = state.get('filter');
-
- if (!items.wasAltered() && items.size == 0) {
-   return null
- } else {
-   items = items.toJS();
- }
-
-
- const obj = {
-   'SHOW_ALL': () => items,
-   'SHOW_REMOVED': () => items.filter(t => t.removed),
-   'SHOW_ACTIVE': () =>  items.filter(t => !t.removed)
- }
-
- return  obj[filter] !== undefined ? obj[filter] (): obj.SHOW_ALL ()
-}
-
-export default connect(
- (state) => ({ items: getVisibleItems(state) })
-)(List)
+export default connect( (state, ownProps) => ({ items: state.items }) )(List);

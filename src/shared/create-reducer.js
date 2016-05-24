@@ -1,17 +1,10 @@
 import Immutable, { Map, List } from 'immutable'
 
-export default function createReducer (actionHandlers, initialState) {
+export default function createReducer (actionHandler, initialState) {
   return (state = initialState, action) => {
-    if (!Map.isMap(state) && !List.isList(state)) {
-      state = Immutable.fromJS(state);
-    }
-    const handler = actionHandlers[action.type];
-    if (!handler) return state
-
-    state = handler(state, action);
-    if (!Map.isMap(state) && !List.isList(state)) {
-       throw new TypeError('Reducer should return Immutable objects.');
-    }
+    const handler = actionHandler[action.type]
+    if(!handler) return state
+    state = handler(state, action)
     return state
   }
 }
