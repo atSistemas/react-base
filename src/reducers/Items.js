@@ -19,11 +19,11 @@ function changeItemState(state, action){
  })
 }
 
-const handlers = {
+const actionHandlers = {
   [types.ITEMS_REQUEST]: itemsRequest,
   [types.ITEMS_SUCCESS]: itemsSuccess,
   [types.ITEMS_ERROR]: itemsError,
   [types.CHANGE_ITEM_STATE]: changeItemState
 }
 
-export default createReducer(handlers, new itemCollection())
+export default createReducer(actionHandlers, new itemCollection())
