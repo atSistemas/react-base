@@ -2,7 +2,7 @@ import path from 'path'
 import webpack from 'webpack'
 import copyWebpackPlugin from 'copy-webpack-plugin'
 
-const clientPath = path.resolve(__dirname, '..', 'src', 'client.js')
+const clientPath = path.resolve(__dirname, '..', 'src', 'client/')
 
 export const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),

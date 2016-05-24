@@ -1,6 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
-const clientPath = path.resolve(__dirname, '..', 'src', 'client.js')
+const clientPath = path.resolve(__dirname, '..', 'src', 'client/')
 
 export const devPlugins = [
   new webpack.NoErrorsPlugin(),
