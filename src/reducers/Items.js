@@ -8,7 +8,7 @@ function itemsRequest( state ){ return state }
 function itemsError( state ){ return state }
 
 function itemsSuccess(state, action) {
-  return state.update( 'items', map => action.result )
+  return state.update( 'data', map => action.result )
 }
 
 function changeItemState(state, action){

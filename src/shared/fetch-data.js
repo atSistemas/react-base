@@ -11,12 +11,12 @@ function fetchServerData(dispatch, components, params) {
 
   }, [])
 
-  const promises = actions.map(action => dispatch(action(params)));
-  return Promise.all(promises)
+  const requiredActions = actions.map(action => dispatch(action(params)));
+  return Promise.all(requiredActions)
 }
 
 function fetchClientData( actions, props, node){
-  const store = window.$REACTBASE_STATE[node]
+  const checkSize = props[node].data.size
   const { params, dispatch } = props
-  actions.map( action => dispatch(action(params)) )
+  if(!checkSize) actions.map( action => dispatch(action(params)) )
 }

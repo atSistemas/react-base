@@ -1,12 +1,13 @@
-import Immutable from 'immutable'
+import { Record, Map } from 'immutable'
 
-export const itemModel = Immutable.Record({
-	userId: null,
-	id: "",
-	title: 0,
-	body: 0,
-})
+class Item {
+	constructor(){
+		this.userId = 0;
+		this.id = 0;
+		this.title = null;
+		this.body = null;
+	}
+}
 
-export const itemCollection = Immutable.Record({
-	items: Immutable.Map()
-})
+export const itemModel = new Record(new Item())
+export const itemCollection = new Record({data: new Map()})

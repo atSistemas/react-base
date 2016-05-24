@@ -31,7 +31,7 @@ const Row = ({ item,  onClick }) => {
   }
 
   let rowStyle ={
-    width: '400px',
+    width: '410px',
     height: '260px',
     margin:'10px 10px 10px 10px',
     borderBottom: '1px dotted #ff0000'
