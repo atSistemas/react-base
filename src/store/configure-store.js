@@ -5,7 +5,7 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import rootReducer from '../reducers'
 import requestMiddleware from '../middleware/request'
 
-function configureStore(history, initialState = {}) {
+function configureStore(history, initialState) {
 
   const enhancer = compose(
     applyMiddleware(
@@ -14,8 +14,7 @@ function configureStore(history, initialState = {}) {
     )
   )
 
-  const state = Immutable.fromJS(initialState)
-  const store = createStore(rootReducer, state, enhancer)
+  const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

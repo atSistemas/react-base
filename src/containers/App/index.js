@@ -1,21 +1,24 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import Header from '../../components/Header'
 
-export function App({ children }) {
-  return (
-    <div>
-      <Header />
-      <main>
-        { children }
-      </main>
-    </div>
-  )
-}
+export default class App extends Component {
 
-App.propTypes = {
-  children: PropTypes.object.isRequired
-}
+  static propTypes = {
+    children: PropTypes.object.isRequired
+  }
 
-export default connect(null)(App)
+  render(){
+    let children = this.props.children
+
+    return (
+      <div>
+        <Header />
+        <main>
+          { children }
+        </main>
+      </div>
+    )
+  }
+}

@@ -12,7 +12,7 @@ export default function renderMainPage(ENV, view, store){
     <body>
     <div id="root">${ view }</div>
       <script>window.$REACTBASE_STATE = ${ state }</script>
-    ` + common +  `
+      ${ common }
     <script src="/bundle.js"></script>
     </body>
   </html>
