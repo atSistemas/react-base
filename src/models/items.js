@@ -9,5 +9,5 @@ class Item {
 	}
 }
 
-export const itemModel = new Record(new Item())
-export const itemCollection = new Record({data: new Map()})
+export const itemModel = new Record( new Item() )
+export const itemCollection = new Record({ data: new Map() })

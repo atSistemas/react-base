@@ -1,5 +1,4 @@
 import types from '../types'
-import Immutable from 'immutable'
 import createReducer from '../shared/create-reducer'
 import { itemCollection, itemModel } from '../models/items'
 
@@ -18,14 +17,6 @@ function changeItemState(state, action){
       return item
    })
  })
-/*
-  const items = state.get('items')
-  return items.map((item) => {
-    if (item.id === action.id) {
-      return item.removed, !item.removed
-    }
-    return item
-  })*/
 }
 
 const handlers = {
