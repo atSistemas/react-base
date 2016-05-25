@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { setVisibilityFilter } from '../../actions/Filters'
+import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react';
+import { setVisibilityFilter } from '../../actions/Filters';
 
 class FilterListLink extends Component {
 
@@ -10,24 +10,25 @@ class FilterListLink extends Component {
     children: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired
   }
+
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   setFilter (filter){
-    const { dispatch } = this.props
-    dispatch(setVisibilityFilter(filter))
+    const { dispatch } = this.props;
+    dispatch(setVisibilityFilter(filter));
   }
 
   render(){
-    let { filter, children, active} = this.props
+    let { filter, children, active} = this.props;
 
     if (active) {
-      return <span>{ children }</span>
+      return <span>{ children }</span>;
     }
 
     return (
-      <a 
+      <a
         href=""
         onClick={ e => {
           e.preventDefault()
@@ -36,7 +37,7 @@ class FilterListLink extends Component {
       >
         { children }
       </a>
-      )
+    );
   }
 
 }

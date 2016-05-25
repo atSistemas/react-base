@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -69,6 +69,6 @@ const Row = ({ item,  onClick }) => {
   )
 }
 
-Row.PropTypes = propTypes
+Row.PropTypes = propTypes;
 
-export default Row
+export default Row;
