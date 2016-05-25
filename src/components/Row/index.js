@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 
+const propTypes = {
+  onClick: PropTypes.func.isRequired,
+  removed: PropTypes.bool
+}
+
 const Row = ({ item,  onClick }) => {
   const removed = false
   const id = item.id
@@ -64,9 +69,6 @@ const Row = ({ item,  onClick }) => {
   )
 }
 
-Row.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  removed: PropTypes.bool
-}
+Row.PropTypes = propTypes
 
 export default Row

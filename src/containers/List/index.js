@@ -9,14 +9,14 @@ import types from '../../types'
 import Row from '../../components/Row'
 import HeaderList from '../../components/HeaderList'
 
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  items: React.PropTypes.instanceOf(Immutable.Record)
+}
+
 class List extends Component {
 
  static requiredActions = [ItemsActions.fetchItems];
-
- static propTypes = {
-   dispatch: PropTypes.func.isRequired,
-   items: React.PropTypes.instanceOf(Immutable.Record)
- }
 
  constructor (props) {
    super(props)
@@ -46,6 +46,8 @@ class List extends Component {
     )
  }
 }
+
+List.PropTypes = propTypes
 
 
 export default connect(
