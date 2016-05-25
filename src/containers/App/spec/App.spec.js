@@ -23,7 +23,7 @@ describe('comtainers', () => {
   describe('App comtainer', () => {
     it('should render correctly', () => {
       const { output } = setup()
-
+      
       expect(output.type).toBe('div')
 
       const [ header, main ] = output.props.children

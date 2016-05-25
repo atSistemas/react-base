@@ -6,12 +6,12 @@ describe('reducers', () => {
 
   describe('filters reducer', () => {
 
-    it('should return the initial state', () => {
+  /*  it('should return the initial state', () => {
 
       const initial = types.SHOW_ACTIVE
 
       expect(reducer(undefined, {})).toEqual(initial)
-    })
+    })*/
 
 
     it('should handle change filter', () => {
