@@ -24,9 +24,10 @@ describe('components', () => {
     it('should render correctly', () => {
       const { output } = setup()
 
-      expect(output.type).toBe('div')
+      expect(output.type).toBe('header')
 
-      const [ div , linkSection] = output.props.children
+      const linkSection  = output.props.children
+
       expect(linkSection.type.displayName).toEqual('Link')
     })
   })

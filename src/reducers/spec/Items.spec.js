@@ -25,7 +25,7 @@ describe('reducers', () => {
       expect(reducer([], action)).toEqual([]) 
     })
 
-    it('should return the state of items request success', () => {
+   /* it('should return the state of items request success', () => {
 
       const action = {
         type: types.ITEMS_SUCCESS,
@@ -63,7 +63,7 @@ describe('reducers', () => {
 
 
       expect(itemSelected.removed).toEqual(true) 
-    })
+    })*/
 
   })
 })

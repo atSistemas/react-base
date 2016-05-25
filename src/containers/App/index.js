@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from '../../components/Header'
 
-export default class App extends Component {
+export class App extends Component {
 
   static propTypes = {
     children: PropTypes.object.isRequired
@@ -22,3 +22,6 @@ export default class App extends Component {
     )
   }
 }
+App.displayName = 'App'
+
+export default connect(null)(App)
