@@ -1,53 +1,54 @@
-import Immutable from 'immutable'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import React, { Component, PropTypes } from 'react'
+import Immutable from 'immutable';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import React, { Component, PropTypes } from 'react';
 
-import types from '../../types'
-import Row from '../../components/Row'
-import * as ItemsActions from '../../actions/Items'
-import HeaderList from '../../components/HeaderList'
-import fetchRequiredActions from '../../shared/fetch-data'
+import Row from '../../components/Row';
+import * as ItemsActions from '../../actions/Items';
+import HeaderList from '../../components/HeaderList';
+import fetchRequiredActions from '../../shared/fetch-data';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
   items: React.PropTypes.instanceOf(Immutable.Record)
-}
+};
 
 class List extends Component {
 
- static requiredActions = [ItemsActions.fetchItems];
+  static requiredActions = [ItemsActions.fetchItems];
 
- constructor (props) {
-   super(props)
-   this.actions = bindActionCreators(ItemsActions, props.dispatch)
- }
+  constructor (props) {
+    super(props);
+    this.actions = bindActionCreators(ItemsActions, props.dispatch);
+  }
 
- componentDidMount() {
-   fetchRequiredActions(List.requiredActions, this.props, 'items')
- }
+  componentDidMount() {
+    fetchRequiredActions(List.requiredActions, this.props, 'items');
+  }
 
- render () {
+  render () {
 
-   let items = this.props.items
-   let itemList = items.data.valueSeq().map( item => {
+    let items = this.props.items;
+    let itemList = items.data.valueSeq().map( item => {
 
-    return <Row
-            item ={ item }
-            key={ item.get('id')}
-            onClick={this.actions.changeItemState} />
-    })
+      return (<Row
+        item={ item }
+        key={ item.get('id') }
+        onClick={ this.actions.changeItemState }
+      />);
 
-   return (
-     <div>
-     <HeaderList />
+    });
+
+    return (
+      <div>
+        <HeaderList />
        { itemList }
       </div>
-    )
- }
+    );
+  }
 }
 
-List.PropTypes = propTypes
+List.PropTypes = propTypes;
 
 
 export default connect(

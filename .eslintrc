@@ -22,7 +22,7 @@
     "react/jsx-boolean-value": [2, "always"],
     "react/require-render-return": 2,
     "react/no-is-mounted": 2,
-    "react/wrap-multilines": 2,
+    "react/wrap-multilines": 1,
     "react/jsx-no-bind": 2,
     "jsx-quotes": [2, "prefer-double"],
     "react/jsx-curly-spacing": [2, "always"],
@@ -36,7 +36,7 @@
     "indent": [2, 2, {"SwitchCase": 1}],
     "no-console": 0,
     "no-alert": 0,
-    "semi": 0,
+    "semi": 1,
     "no-var":2
   }
 }

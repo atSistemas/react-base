@@ -1,9 +1,11 @@
-import webpack from 'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import {symbols, color} from '../shared/console'
-const config = require('../../webpack/webpack.config.babel')
-const compiler = webpack(config)
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+
+import {symbols, color} from '../shared/console';
+
+const config = require('../../webpack/webpack.config.babel');
+const compiler = webpack(config);
 
 const serverOptions = {
   hot: true,
@@ -16,19 +18,19 @@ const serverOptions = {
   stats: { colors: true },
   publicPath: config.output.publicPath,
   headers: { 'Access-Control-Allow-Origin': '*' }
-}
+};
 
-const bundleStart = Date.now()
-console.log('[BASE] Bundling...')
+const bundleStart = Date.now();
+console.log('[BASE] Bundling...');
 
 
 compiler.plugin('done', function() {
-  console.log('[BASE] ' + color('success', symbols.ok) + ' Bundled project in ' + (Date.now() - bundleStart) + 'ms!')
-})
+  console.log('[BASE] ' + color('success', symbols.ok) + ' Bundled project in ' + (Date.now() - bundleStart) + 'ms!');
+});
 
 export function applyDevMiddleware(){
   return [
     webpackHotMiddleware(compiler),
     webpackDevMiddleware(compiler, serverOptions)
-  ]
+  ];
 }

@@ -1,17 +1,15 @@
-import path from 'path'
-import webpack from 'webpack'
-import { devPlugins, devEntries, devLoaders } from './webpack-dev-config'
-import { prodPlugins, prodEntries, prodLoaders } from './webpack-prod-config'
-import ENV from '../src/shared/env'
+import path from 'path';
+import { devPlugins, devEntries, devLoaders } from './webpack-dev-config';
+import { prodPlugins, prodEntries, prodLoaders } from './webpack-prod-config';
+import ENV from '../src/shared/env';
 
-const mainPath = path.resolve(__dirname, '..')
-const buildPath = path.resolve(__dirname, '..', 'dist')
-const plugins = (ENV === 'development') ? devPlugins: prodPlugins
-const entries = (ENV === 'development') ? devEntries: prodEntries
-const loaders= (ENV === 'development') ? devLoaders: prodLoaders
+const buildPath = path.resolve(__dirname, '..', 'dist');
+const plugins = (ENV === 'development') ? devPlugins: prodPlugins;
+const entries = (ENV === 'development') ? devEntries: prodEntries;
+const loaders= (ENV === 'development') ? devLoaders: prodLoaders;
 
 const config = {
-  
+
   devtool: 'eval',
 
   entry: entries,
@@ -33,6 +31,6 @@ const config = {
     extensions: ['', '.js', '.jsx']
   }
 
-}
+};
 
 module.exports = config;

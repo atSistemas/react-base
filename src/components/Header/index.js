@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router'
-import ReactBaseLogo from '../../components/Logo'
+import React from 'react';
+import { Link } from 'react-router';
+import ReactBaseLogo from '../../components/Logo';
 
 function Header() {
 
@@ -10,10 +10,10 @@ function Header() {
         <ReactBaseLogo />
       </Link>
     </header>
-  )
+  );
 
 }
 
-Header.displayName = 'Header'
+Header.displayName = 'Header';
 
-export default Header
+export default Header;

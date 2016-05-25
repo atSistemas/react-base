@@ -1,7 +1,7 @@
 export default function renderMainPage(ENV, view, store){
 
-  const state = JSON.stringify( store.getState() )
-  const common = (ENV === 'production') ? '<script src="/common.js"></script>' : ''
+  const state = JSON.stringify( store.getState() );
+  const common = (ENV === 'production') ? '<script src="/common.js"></script>' : '';
 
   return `
   <!doctype html>
@@ -16,5 +16,5 @@ export default function renderMainPage(ENV, view, store){
     <script src="/bundle.js"></script>
     </body>
   </html>
-  `
+  `;
 }
