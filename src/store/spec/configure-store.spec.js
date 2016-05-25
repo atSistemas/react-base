@@ -1,5 +1,5 @@
-import expect from 'expect'
-import  configureStore  from '../configure-store'
+import expect from 'expect';
+import  configureStore  from '../configure-store';
 
 describe('store / configureStore', () => {
 
@@ -7,15 +7,14 @@ describe('store / configureStore', () => {
 
     it('should return configureStore', () => {
 
-     let output = configureStore(null,{})
+      let output = configureStore(null,{});
 
-     let func = ()=> {   }
+      let type = typeof(output.dispatch);
 
-     let type = typeof(output.dispatch)
-     expect(type).toBe('function') 
+      expect(type).toBe('function');
 
-    })
-  })
+    });
+  });
 
 
-})
+});

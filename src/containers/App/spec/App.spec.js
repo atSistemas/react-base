@@ -1,36 +1,36 @@
-import expect from 'expect'
-import React from 'react'
-import TestUtils from 'react-addons-test-utils'
-import ConnectedApp, { App } from '..'
+import expect from 'expect';
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
+import  { App } from '..';
 
 function setup() {
   let props = {
     children: {}
-  }
+  };
 
-  let renderer = TestUtils.createRenderer()
-  renderer.render(<App {...props} />)
-  let output = renderer.getRenderOutput()
+  let renderer = TestUtils.createRenderer();
+  renderer.render(<App {...props} />);
+  let output = renderer.getRenderOutput();
 
   return {
     props,
     output,
     renderer
-  }
+  };
 }
 
 describe('comtainers', () => {
   describe('App comtainer', () => {
     it('should render correctly', () => {
-      const { output } = setup()
+      const { output } = setup();
       
-      expect(output.type).toBe('div')
+      expect(output.type).toBe('div');
 
-      const [ header, main ] = output.props.children
+      const [ header, main ] = output.props.children;
 
-      expect(header.type.displayName).toEqual('Header')
+      expect(header.type.displayName).toEqual('Header');
 
-      expect(main.type).toBe('main')
-    })
-  })
-})
+      expect(main.type).toBe('main');
+    });
+  });
+});
