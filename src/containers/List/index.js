@@ -1,13 +1,13 @@
-import { connect } from 'react-redux'
 import Immutable from 'immutable'
+import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import React, { Component, PropTypes } from 'react'
 
-import * as ItemsActions from '../../actions/Items'
-import fetchRequiredActions from '../../shared/fetch-data'
 import types from '../../types'
 import Row from '../../components/Row'
+import * as ItemsActions from '../../actions/Items'
 import HeaderList from '../../components/HeaderList'
+import fetchRequiredActions from '../../shared/fetch-data'
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
