@@ -1,16 +1,16 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react';
 
-import Header from '../../components/Header'
+import Header from '../../components/Header';
 
-export class App extends Component {
+class App extends Component {
 
   static propTypes = {
     children: PropTypes.object.isRequired
   }
 
   render(){
-    let children = this.props.children
+    let children = this.props.children;
 
     return (
       <div>
@@ -19,9 +19,11 @@ export class App extends Component {
           { children }
         </main>
       </div>
-    )
+    );
+
   }
 }
-App.displayName = 'App'
 
-export default connect(null)(App)
+App.displayName = 'App';
+
+export default connect(null)(App);

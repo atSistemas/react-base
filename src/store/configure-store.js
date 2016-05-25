@@ -1,9 +1,8 @@
-import Immutable from 'immutable'
-import createLogger from 'redux-logger'
-import { createStore, compose, applyMiddleware } from 'redux'
+import createLogger from 'redux-logger';
+import { createStore, compose, applyMiddleware } from 'redux';
 
-import rootReducer from '../reducers'
-import requestMiddleware from '../middleware/request'
+import rootReducer from '../reducers';
+import requestMiddleware from '../middleware/request';
 
 function configureStore(history, initialState) {
 
@@ -12,9 +11,9 @@ function configureStore(history, initialState) {
       requestMiddleware,
       createLogger({ level: 'info', collapsed: true })
     )
-  )
+  );
 
-  const store = createStore(rootReducer, initialState, enhancer)
+  const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
@@ -23,8 +22,8 @@ function configureStore(history, initialState) {
     });
   }
 
-  return store
+  return store;
 
 }
 
-export default configureStore
+export default configureStore;

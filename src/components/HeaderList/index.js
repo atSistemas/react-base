@@ -1,6 +1,6 @@
-import React from 'react'
-import FilterListLink from '../../containers/FilterListLink'
-import types from '../../types'
+import React from 'react';
+import FilterListLink from '../../containers/FilterListLink';
+import types from '../../types';
 
 const HeaderList = () => (
   <p>
@@ -18,6 +18,6 @@ const HeaderList = () => (
       All Items
     </FilterListLink>
   </p>
-)
+);
 
-export default HeaderList
+export default HeaderList;
