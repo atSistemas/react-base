@@ -1,3 +1,4 @@
+
 import { Record, Map } from 'immutable';
 
 export const itemModel = new Record({
@@ -7,8 +8,4 @@ export const itemModel = new Record({
   body: ''
 });
 
-<<<<<<< HEAD
 export const itemCollection = new Record({ data: new Map() });
-=======
-export const itemCollection = new Record({ data: new Map() });
->>>>>>> master
