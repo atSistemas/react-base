@@ -1,23 +1,19 @@
 import path from 'path';
-import { devPlugins, devEntries, devLoaders } from './webpack-dev-config';
-import { prodPlugins, prodEntries, prodLoaders } from './webpack-prod-config';
-import ENV from '../src/shared/env';
+import getEnvConfig from './env-config';
 
+const envConfig = getEnvConfig();
 const buildPath = path.resolve(__dirname, '..', 'dist');
-const plugins = (ENV === 'development') ? devPlugins: prodPlugins;
-const entries = (ENV === 'development') ? devEntries: prodEntries;
-const loaders= (ENV === 'development') ? devLoaders: prodLoaders;
 
-const config = {
+const webpackConfig = {
 
   devtool: 'eval',
 
-  entry: entries,
+  entry: envConfig.entries,
 
-  plugins: plugins,
+  plugins: envConfig.plugins,
 
   module: {
-    loaders: loaders
+    loaders: envConfig.loaders
   },
 
   output: {
@@ -33,4 +29,4 @@ const config = {
 
 };
 
-module.exports = config;
+module.exports = webpackConfig;

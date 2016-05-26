@@ -1,4 +1,3 @@
-
 import { Record, Map } from 'immutable';
 
 export const itemModel = new Record({
