@@ -1,8 +1,8 @@
-import { connect } from 'react-redux'
-import React, { Component, PropTypes } from 'react'
-import * as ItemsActions from '../../actions/Items'
-import { fetchRequiredActions } from '../../shared/fetch-data'
-import { Surface, ListView } from 'react-canvas'
+import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react';
+import * as ItemsActions from '../../actions/Items';
+import { fetchRequiredActions } from '../../shared/fetch-data';
+import { Surface, ListView } from 'react-canvas';
 
 const Page = require('../Page');
 const articles = require('../../../dist/mocks/data');
@@ -15,20 +15,20 @@ class Scroll extends Component {
   static propTypes = {
     items: PropTypes.array,
     dispatch: PropTypes.func.isRequired
-  }
+  };
 
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
-    const { items } = this.props
-    fetchRequiredActions( Scroll.requiredActions, this.props, items)
+    const { items } = this.props;
+    fetchRequiredActions( Scroll.requiredActions, this.props, items);
   }
 
   onRowClick(id) {
-    const { dispatch } = this.props
-    dispatch(ItemsActions.changeItemState(id))
+    const { dispatch } = this.props;
+    dispatch(ItemsActions.changeItemState(id));
   }
 
   getSize () {
@@ -95,4 +95,4 @@ class Scroll extends Component {
 
 export default connect(
   (state) => ({ items: state.items.data})//getVisibleItems(state.items.data, state.filter) })
-)(Scroll)
+)(Scroll);

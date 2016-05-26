@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import fetch from 'isomorphic-fetch';
 import { itemModel } from '../models/items';
 import { generateMap } from '../shared/model-helper';

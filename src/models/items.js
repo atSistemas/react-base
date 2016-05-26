@@ -2,12 +2,12 @@ import { Record, Map } from 'immutable';
 
 class Item {
 
-	constructor() {
-		this.userId = 0;
-		this.id = 0;
-		this.title = null;
-		this.body = null;
-	}
+  constructor() {
+    this.userId = 0;
+    this.id = 0;
+    this.title = null;
+    this.body = null;
+  }
 
 }
 
