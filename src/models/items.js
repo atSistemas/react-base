@@ -1,6 +1,11 @@
 import { Record, Map } from 'immutable';
 
-class Item {
+export const itemModel = new Record({
+	id: 0,
+	userId: 0,
+	title: '',
+	body: ''
+});
 
   constructor() {
     this.userId = 0;
