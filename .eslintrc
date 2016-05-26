@@ -5,7 +5,9 @@
   ],
   "extends": ["eslint-config-airbnb", "eslint:recommended", "plugin:react/recommended"],
   "globals": {
-    "__DEV__": true
+    "__DEV__": true,
+    "describe"   : false,
+    "it"         : false,
   },
   "env": {
     "browser": true,

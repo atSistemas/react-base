@@ -66,6 +66,11 @@
     "webpack-hot-middleware": "^2.10.0",
     "yo": "*"
   },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/atsistemas/react-base"
