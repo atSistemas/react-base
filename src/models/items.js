@@ -7,4 +7,8 @@ export const itemModel = new Record({
   body: ''
 });
 
+<<<<<<< HEAD
 export const itemCollection = new Record({ data: new Map() });
+=======
+export const itemCollection = new Record({ data: new Map() });
+>>>>>>> master
