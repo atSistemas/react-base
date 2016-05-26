@@ -23,7 +23,7 @@ describe('middleware', () => {
 
   describe('request', () => {
 
-    it('requestMiddleware', () => {
+    it('requestMiddleware with request', () => {
 
       const props= {
         category: 'news'
@@ -43,7 +43,7 @@ describe('middleware', () => {
     });
 
 
-    it('requestMiddleware', () => {
+    it('requestMiddleware without resquest action', () => {
       
       const actions = { 
         types: generetaFetchTypes(types.ITEMS_REQUEST)
