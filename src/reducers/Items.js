@@ -13,7 +13,7 @@ function itemsSuccess(state, action) {
 function changeItemState(state, action){
   return state.update( 'items', list => {
     return list.map(item => {
-      if(item.get('id') === action.id) return item.set('removed', !item.get('removed'))
+      if(item.get('id') === action.id) return item.set('removed', !item.get('removed'));
       return item;
     });
   });

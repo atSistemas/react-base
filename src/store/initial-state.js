@@ -3,8 +3,8 @@ import { generateImmutable } from '../shared/model-helper';
 
 const initialState = window.$REACTBASE_STATE || {};
 
-initialState.items = new itemCollection({
-	data: generateImmutable( initialState.items.data, itemModel )
-});
+initialState.items = new itemCollection(
+	{ data: generateImmutable( initialState.items.data, itemModel )}
+);
 
 export default initialState;
