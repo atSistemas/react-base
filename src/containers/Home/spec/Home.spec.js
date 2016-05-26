@@ -29,7 +29,7 @@ describe('containers', () => {
       const [div,linkSection] = output.props.children;
       
       let divType = typeof(div);
-      expect(divType).toBe('string')
+      expect(divType).toBe('string');
       expect(linkSection.type.displayName).toEqual('Link');
     });
   });
