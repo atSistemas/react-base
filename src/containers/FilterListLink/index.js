@@ -9,7 +9,7 @@ class FilterListLink extends Component {
     filter: PropTypes.string.isRequired,
     children: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired
-  }
+  };
 
   constructor (props) {
     super(props);
@@ -31,8 +31,8 @@ class FilterListLink extends Component {
       <a
         href=""
         onClick={ e => {
-          e.preventDefault()
-          this.setFilter(filter)
+          e.preventDefault();
+          this.setFilter(filter);
         } }
       >
         { children }
@@ -45,7 +45,7 @@ class FilterListLink extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     active: ownProps.filter === state.filter
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(FilterListLink)
+export default connect(mapStateToProps)(FilterListLink);

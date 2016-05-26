@@ -48,9 +48,9 @@ class List extends Component {
   }
 }
 
-List.PropTypes = propTypes;
+List.propTypes = propTypes;
 
 
 export default connect(
-  (state, ownProps) => ({ items: state.items })
+  (state) => ({ items: state.items })
 )(List);
