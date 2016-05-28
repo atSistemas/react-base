@@ -16,6 +16,6 @@ export const devEntries = [
 ];
 
 export const devLoaders = [
-  { test: /\.js?$/,loader: 'babel',exclude: /node_modules/,include: mainPath, query: { presets: ["react-hmre", "es2015", "stage-0", "react"] }},
+  { test: [/\.js$/, /\.jsx$/],loader: 'babel',exclude: /node_modules/,include: mainPath, query: { presets: ["react-hmre", "es2015", "stage-0", "react"] }},
   { test: /\.css$/,loader: "style!css"}
 ];

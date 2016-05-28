@@ -25,6 +25,6 @@ export const prodEntries = {
 };
 
 export const prodLoaders = [
-  { test: /\.js?$/, loader: 'babel', exclude: /node_modules/, include: mainPath, query: { presets: ["es2015", "stage-0", "react"] } },
+  { test: [/\.js$/, /\.jsx$/], loader: 'babel', exclude: /node_modules/, include: mainPath, query: { presets: ["es2015", "stage-0", "react"] } },
   { test: /\.css$/,loader: "style!css"}
 ];
