@@ -1,2 +1,3 @@
 require('normalize.css');
-require('#components/Logo/styles');
+require('../containers/Main/styles');
+require('../components/Logo/styles');

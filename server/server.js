@@ -53,5 +53,5 @@ app.listen(port, function (err) {
     return;
   }
   console.log('[BASE] ' + color('success', symbols.ok) + ' Server up on http://localhost:' +  port);
-  
+
 });

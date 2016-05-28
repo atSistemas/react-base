@@ -19,5 +19,5 @@ export const devEntries = [
 
 export const devLoaders = [
   { test: [/\.js$/, /\.jsx$/],loader: 'babel',exclude: /node_modules/,include: mainPath, query: { presets: ["react-hmre", "es2015", "stage-0", "react"] }},
-  { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?module','&localIdentName=[name]__[local]___[hash:base64:5]','&disableStructuralMinification','!postcss-loader')}
+  { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?module','&localIdentName=[name]__[local]___[hash:base64:5]','!postcss-loader')}
 ];

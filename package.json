@@ -67,6 +67,7 @@
     "nyc": "^6.4.4",
     "postcss-functions": "^2.1.0",
     "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
     "precss": "^1.4.0",
     "react-addons-test-utils": "~15.1.0",
     "redux-logger": "^2.6.1",

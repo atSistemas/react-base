@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
+//import styles from './styles';
 import Logo from '../../components/Logo';
 import * as LogoActions from '../../actions/Logo';
 import fetchRequiredActions from '../../shared/fetch-data';
