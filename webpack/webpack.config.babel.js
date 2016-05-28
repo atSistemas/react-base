@@ -35,14 +35,6 @@ const webpackConfig = {
       '#containers': path.join(__dirname, '../src/containers'),
     }
   },
-/*
-  postcss: function() {
-    return [autoprefixer, precss({
-      variables: {
-        variables: require('../src/styles/vars.js')
-      }
-    })]
-  }*/
 
   postcss: [
     nested(),
