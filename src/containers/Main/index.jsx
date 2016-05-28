@@ -14,7 +14,7 @@ const propTypes = {
 
 class Main extends Component {
 
-  static requiredActions = [LogoActions.fetchLogo];
+  static requiredActions = [LogoActions.getLogo];
 
   constructor (props) {
     super(props);
