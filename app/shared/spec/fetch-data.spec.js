@@ -22,7 +22,7 @@ describe('shared', () => {
         params:{
           category: 'news'
         },
-        items:{
+        logo:{
           data:[]
         },
         dispatch: dispatch
@@ -45,7 +45,7 @@ describe('shared', () => {
         params:{
           category: 'news'
         },
-        items:{
+        logo:{
           data: data
         },
         dispatch: dispatch
@@ -67,7 +67,7 @@ describe('shared', () => {
         { displayName: 'Connect(List)',
           WrappedComponent: {
             requiredActions: requiredActions, dispatch: dispatch,
-            PropTypes: { dispatch: dispatch, items: { } }
+            PropTypes: { dispatch: dispatch, logo: { } }
           },
           dispatch: dispatch,
           requiredActions: requiredActions

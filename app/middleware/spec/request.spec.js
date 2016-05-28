@@ -34,7 +34,7 @@ describe('middleware', () => {
 
 
       const expectedAction = {
-        type: 'ITEMS_REQUEST'
+        type: 'LOGO_REQUEST'
       };
 
       expect(dispatchWithStoreOf({}, actions)).toEqual(expectedAction);

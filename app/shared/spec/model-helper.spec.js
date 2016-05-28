@@ -58,7 +58,7 @@ describe('shared / model-helper', () => {
     it('should return  object', () => {
 
       const initialState = generateImmutable( mockData, LogoModel );
-      const data = generateMap( initialState, itemModel );
+      const data = generateMap( initialState, LogoModel );
 
       const expectedData = initialState
                             .reduce((acc, item) => {
@@ -73,7 +73,7 @@ describe('shared / model-helper', () => {
     it('should return empty object', () => {
 
       const initialState = generateImmutable( {}, LogoModel );
-      const data = generateMap( initialState, itemModel );
+      const data = generateMap( initialState, LogoModel );
 
       const expectedData = initialState
                             .reduce((acc, item) => {
