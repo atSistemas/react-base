@@ -1,2 +1,1 @@
-export items from './Items';
-export items from './Logo';
+export Logo from './Logo';
