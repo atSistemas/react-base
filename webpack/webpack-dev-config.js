@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'src', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
 
 export const devPlugins = [
   new webpack.NoErrorsPlugin(),

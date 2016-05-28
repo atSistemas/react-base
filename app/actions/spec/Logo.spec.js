@@ -15,7 +15,7 @@ describe('Actions', () => {
         request: LogoAPI.fetchLogo(params)
       };
 
-      expect(actions.getLogo(params)).toEqual(expectedAction);
+      expect(Actions.getLogo(params)).toEqual(expectedAction);
 
     });
 
