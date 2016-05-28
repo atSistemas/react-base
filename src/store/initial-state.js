@@ -1,10 +1,7 @@
-import { itemCollection, itemModel } from '../models/items';
-import { generateImmutable } from '../shared/model-helper';
+import * as models from '../models';
+import setGlobalState from './global-state';
 
 const initialState = window.$REACTBASE_STATE || {};
-
-initialState.items = new itemCollection(
-	{ data: generateImmutable( initialState.items.data, itemModel )}
-);
+setGlobalState(initialState, models);
 
 export default initialState;
