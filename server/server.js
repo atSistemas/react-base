@@ -3,14 +3,14 @@ import { match } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
-import routes from '../app/routes';
-import ENV from '../app/shared/env';
-import rootReducer from '../app/reducers/';
+import routes from '../src/routes';
+import ENV from '../src/shared/env';
+import rootReducer from '../src/reducers/';
 import applyEnvMiddleWare from './middleware';
 import {symbols, color} from './shared/console';
 import renderMainPage from './templates/main-page';
-import requestMiddleware from '../app/middleware/request';
-import fetchRequiredActions from '../app/shared/fetch-data';
+import requestMiddleware from '../src/middleware/request';
+import fetchRequiredActions from '../src/shared/fetch-data';
 import renderMainContainer from './containers/main-container';
 
 const port = 8000;

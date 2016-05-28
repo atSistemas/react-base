@@ -5,17 +5,17 @@
   "description": "React Base Isomorphic Redux",
   "main": "client/client.js",
   "scripts": {
-    "logo": "node ./app/conf/.react-base/logo.js",
+    "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "build": "npm run logo && npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "clean": "rm dist/bundle.js || true",
-    "lint": "npm run logo && node_modules/eslint/bin/eslint.js app",
-    "test": "npm run logo && mocha './app/**/*.spec.js' --compilers js:babel-core/register --recursive ",
+    "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
+    "test": "npm run logo && mocha './src/**/*.spec.js' --compilers js:babel-core/register --recursive ",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
     "postinstall": "npm run test:coverage && npm run start",
-    "yo": "npm link app/conf/.react-base/templates/generator-react-base"
+    "yo": "npm link src/conf/.react-base/templates/generator-react-base"
   },
   "dependencies": {
     "react": "^15.1.0",

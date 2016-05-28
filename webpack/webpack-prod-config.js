@@ -4,12 +4,12 @@ import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'client/');
 
 export const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-  new copyWebpackPlugin([{ from: './app/assets', to: 'assets' }]),
+  new copyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }}),
   new ExtractTextPlugin('bundle.css')
 ];

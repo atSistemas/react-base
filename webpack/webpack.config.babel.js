@@ -29,10 +29,10 @@ const webpackConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css'],
     alias: {
-      '#app': path.join(__dirname, '../app'),
-      '#css': path.join(__dirname, '../app/styles'),
-      '#components': path.join(__dirname, '../app/components'),
-      '#containers': path.join(__dirname, '../app/containers'),
+      '#src': path.join(__dirname, '../src'),
+      '#css': path.join(__dirname, '../src/styles'),
+      '#components': path.join(__dirname, '../src/components'),
+      '#containers': path.join(__dirname, '../src/containers'),
     }
   },
 

@@ -1,7 +1,7 @@
 import { symbols, color } from '../shared/console';
 import { applyDevMiddleware } from './dev-middleware';
 import { applyProdMiddleware } from './prod-middleware';
-import ENV from '../../app/shared/env';
+import ENV from '../../src/shared/env';
 
 const envMiddleware = (ENV === 'development') ? applyDevMiddleware : applyProdMiddleware;
 
