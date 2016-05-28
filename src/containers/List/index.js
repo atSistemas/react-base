@@ -5,7 +5,6 @@ import React, { Component, PropTypes } from 'react';
 
 import Row from '../../components/Row';
 import * as ItemsActions from '../../actions/Items';
-import HeaderList from '../../components/HeaderList';
 import fetchRequiredActions from '../../shared/fetch-data';
 
 const propTypes = {
@@ -41,7 +40,6 @@ class List extends Component {
 
     return (
       <div>
-        <HeaderList />
        { itemList }
       </div>
     );

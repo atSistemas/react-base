@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
 import items from './Items';
-import filter from './Filters';
+import logo from './Logo';
 
 export default combineReducers({
   items,
-  filter
+  logo
 });

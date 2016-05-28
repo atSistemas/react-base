@@ -1,26 +1,54 @@
-import { Link } from 'react-router';
-import React, { Component } from 'react';
+import Immutable from 'immutable';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import React, { Component, PropTypes } from 'react';
 
-class Home extends Component {
+import Logo from '../../components/Logo';
+import * as LogoActions from '../../actions/Logo';
+import fetchRequiredActions from '../../shared/fetch-data';
+
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  logo: React.PropTypes.instanceOf(Immutable.Record)
+};
+
+class Main extends Component {
+
+  static requiredActions = [LogoActions.fetchLogo];
 
   constructor (props) {
     super(props);
+    this.actions = bindActionCreators(LogoActions, props.dispatch);
   }
 
-  render() {
+  componentDidMount() {
+    fetchRequiredActions(Logo.requiredActions, this.props, 'logo');
+  }
+
+  render () {
+
+    const logo = this.props.logo;
+    const logoList = logo.data.valueSeq().map( logo => {
+
+      return (<Logo
+        logo={ logo }
+        key={ logo.get('id') }
+      />);
+
+    });
+
     return (
       <div>
-      Home!!!
-      Go to
-        <Link to="/list/news">
-          <span>list</span>
-        </Link>
+       { logoList }
       </div>
     );
   }
 
 }
 
-Home.displayName = 'Home';
+Main.propTypes = propTypes;
 
-export default Home;
+
+export default connect(
+  (state) => ({ logo: state.logo })
+)(Main);

@@ -1,6 +1,8 @@
 import { typeBuilder } from '../shared/type-helper';
 
 export default typeBuilder([
+  'LOGO_REQUEST','LOGO_SUCCESS','LOGO_ERROR',
+  'MAIN_REQUEST','MAIN_SUCCESS','MAIN_ERROR',
   'ITEMS_REQUEST','ITEMS_SUCCESS','ITEMS_ERROR',
   'ITEM_REQUEST', 'ITEM_SUCCESS', 'ITEM_ERROR',
   'SET_VISIBILITY_FILTER',
