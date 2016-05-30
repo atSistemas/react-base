@@ -5,11 +5,11 @@ import { Map } from 'immutable';
 
 const mockData = [
   {
-  "id": 1,
-  "alt": "React Base!",
-  "name": "ReactBaseLogo",
-  "width": 500,
-  "url": "/assets/images/react-base-logo.png"
+    "id": 1,
+    "alt": "React Base!",
+    "name": "ReactBaseLogo",
+    "width": 500,
+    "url": "/assets/images/react-base-logo.png"
   }
 ];
 

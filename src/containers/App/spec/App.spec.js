@@ -23,14 +23,12 @@ describe('comtainers', () => {
   describe('App comtainer', () => {
     it('should render correctly', () => {
       const { output } = setup();
-
+    
       expect(output.type).toBe('div');
 
-      const [ main ] = output.props.children;
+      const main  = output.props.children;
 
-      //expect(header.type.displayName).toEqual('Header');
-
-      //expect(main.type).toBe('main');
+      expect(main.type).toBe('main');
     });
   });
 });

@@ -11,7 +11,7 @@ describe('shared', () => {
   describe('fetch data', () => {
 
     it('fetch client action', (done) => {
-      let requiredActions = [LogoActions.fetchLogo];
+      let requiredActions = [LogoActions.getLogo];
 
       function dispatch({ types }) {
         expect(types.length).toEqual(3);
@@ -34,7 +34,7 @@ describe('shared', () => {
     });
 
     it('fetch client action with data', () => {
-      let requiredActions = [LogoActions.fetchLogo];
+      let requiredActions = [LogoActions.getLogo];
 
       function dispatch({ types }) {
         expect(types.length).toEqual(3);
@@ -62,9 +62,9 @@ describe('shared', () => {
         done() ;
       }
 
-      let requiredActions = [LogoActions.fetchLogo];
+      let requiredActions = [LogoActions.getLogo];
       const components =  [[
-        { displayName: 'Connect(List)',
+        { displayName: 'Connect(Main)',
           WrappedComponent: {
             requiredActions: requiredActions, dispatch: dispatch,
             PropTypes: { dispatch: dispatch, logo: { } }
@@ -73,7 +73,7 @@ describe('shared', () => {
           requiredActions: requiredActions
         },
         {
-          displayName: 'Home'
+          displayName: 'Main'
         }
       ]];
 

@@ -13,7 +13,7 @@ const propTypes = {
   logo: React.PropTypes.instanceOf(Immutable.Record)
 };
 
-class Main extends Component {
+export class Main extends Component {
 
   static requiredActions = [LogoActions.getLogo];
 
