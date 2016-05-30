@@ -14,6 +14,8 @@ const webpackConfig = {
 
   entry: envConfig.entries,
 
+  context: envConfig.context,
+
   plugins: envConfig.plugins,
 
   module: {
