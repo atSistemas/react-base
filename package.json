@@ -10,7 +10,7 @@
     "build": "npm run logo && npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "clean": "rm dist/bundle.js || true",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
-    "test": "npm run logo && mocha './src/**/*.spec.js' --compilers js:babel-core/register --recursive --require ignore-styles ",
+    "test": "npm run logo && mocha \"./src/**/*.spec.js\" --compilers js:babel-core/register --recursive --require ignore-styles ",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
@@ -80,6 +80,10 @@
   "nyc": {
     "exclude": [
       "**/*.spec.js"
+    ],
+    "extension": [
+      ".jsx",
+      ".es6"
     ]
   },
   "repository": {
