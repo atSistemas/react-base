@@ -1,7 +1,6 @@
 import path from 'path';
 import getEnvConfig from './env-config';
 import autoprefixer from 'autoprefixer';
-import precss from 'precss';
 import nested from 'postcss-nested';
 import functions from 'postcss-functions';
 
@@ -38,15 +37,14 @@ const webpackConfig = {
     }
   },
 
-  postcss: [
-    nested(),
-    autoprefixer({
-      browsers: [
-        '> 1%',
-        'last 2 versions'
-      ]
-    })
-  ]
+  postcss: function (webpack) {
+   return [
+     require("postcss-import")({ addDependencyTo: webpack }),
+     require("postcss-url")(),
+     require("postcss-cssnext")(),
+     require("postcss-reporter")()
+   ]
+ }
 };
 
 module.exports = webpackConfig;

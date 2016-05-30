@@ -1,5 +1,7 @@
+@import '../../styles/base.css';
+
 .Main {
-  width: 650px;
+  width: var(--logoWidth);
   height: 200px;
   position: absolute;
   left: 0; 
