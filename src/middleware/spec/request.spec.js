@@ -1,9 +1,9 @@
 import expect from 'expect';
 import requestMiddleware from '../request';
-import types from '../../types'; 
-import itemsAPI from '../../api/items';
+import types from '../../types';
+import logoAPI from '../../api/Logo';
 import { generetaFetchTypes } from '../../shared/type-helper';
- 
+
 const createFakeStore = fakeData => ({
   getState() {
     return fakeData;
@@ -26,15 +26,15 @@ describe('middleware', () => {
       const props= {
         category: 'news'
       };
-      
-      const actions = { 
-        types: generetaFetchTypes(types.ITEMS_REQUEST), 
-        request: itemsAPI.getItems(props.category) 
-      }; 
+
+      const actions = {
+        types: generetaFetchTypes(types.LOGO_REQUEST),
+        request: logoAPI.fetchLogo(props.category)
+      };
 
 
       const expectedAction = {
-        type: 'ITEMS_REQUEST'
+        type: 'LOGO_REQUEST'
       };
 
       expect(dispatchWithStoreOf({}, actions)).toEqual(expectedAction);
@@ -42,10 +42,10 @@ describe('middleware', () => {
 
 
     it('requestMiddleware without resquest action', () => {
-      
-      const actions = { 
-        types: generetaFetchTypes(types.ITEMS_REQUEST)
-      }; 
+
+      const actions = {
+        types: generetaFetchTypes(types.LOGO_REQUEST)
+      };
 
       expect(dispatchWithStoreOf({}, actions)).toEqual(actions);
     });

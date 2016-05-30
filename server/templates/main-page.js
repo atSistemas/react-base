@@ -6,8 +6,8 @@ export default function renderMainPage(ENV, view, store){
   return `
   <!doctype html>
 	<html lang="utf-8">
-  <html>
     <head>
+    <link rel="stylesheet" href="bundle.css">
     </head>
     <body>
     <div id="root">${ view }</div>

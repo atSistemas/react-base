@@ -9,6 +9,7 @@ export function typeBuilder(types){
 }
 
 export function generetaFetchTypes(initialType){
+  if(!initialType) throw new Error("[BASE] Missing fetch type. You should add your request types in your action file!");
   const type = initialType.split('_')[0];
   const result = fetchTypes.reduce(function(acc, item){
     acc.push(type + '_' + item);

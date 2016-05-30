@@ -1,2 +1,1 @@
-export items from './Items';
-export filters from './Filters';
+export Logo from './Logo';

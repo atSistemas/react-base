@@ -1,5 +1,9 @@
 import path from 'path';
 import getEnvConfig from './env-config';
+import autoprefixer from 'autoprefixer';
+import precss from 'precss';
+import nested from 'postcss-nested';
+import functions from 'postcss-functions';
 
 const envConfig = getEnvConfig();
 const buildPath = path.resolve(__dirname, '..', 'dist');
@@ -9,6 +13,8 @@ const webpackConfig = {
   devtool: 'eval',
 
   entry: envConfig.entries,
+
+  context: envConfig.context,
 
   plugins: envConfig.plugins,
 
@@ -23,10 +29,24 @@ const webpackConfig = {
   },
 
   resolve: {
-    alias: {},
-    extensions: ['', '.js', '.jsx']
-  }
+    extensions: ['', '.js', '.jsx', '.css'],
+    alias: {
+      '#src': path.join(__dirname, '../src'),
+      '#css': path.join(__dirname, '../src/styles'),
+      '#components': path.join(__dirname, '../src/components'),
+      '#containers': path.join(__dirname, '../src/containers'),
+    }
+  },
 
+  postcss: [
+    nested(),
+    autoprefixer({
+      browsers: [
+        '> 1%',
+        'last 2 versions'
+      ]
+    })
+  ]
 };
 
 module.exports = webpackConfig;

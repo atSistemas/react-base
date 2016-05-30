@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import  { App } from '..';
+import  { App } from '../';
 
 function setup() {
   let props = {
@@ -23,12 +23,10 @@ describe('comtainers', () => {
   describe('App comtainer', () => {
     it('should render correctly', () => {
       const { output } = setup();
-      
+    
       expect(output.type).toBe('div');
 
-      const [ header, main ] = output.props.children;
-
-      expect(header.type.displayName).toEqual('Header');
+      const main  = output.props.children;
 
       expect(main.type).toBe('main');
     });
