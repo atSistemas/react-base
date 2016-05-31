@@ -11,11 +11,11 @@ there must be some changes needed by the structure to fit your needs correctly
 
 ## Getting Started
 
-To get you started, let's see what you need after cloning the repository and install the dependencies:
+To get you started, you need to meet the prerequisites, and then follow the installation instructions.
 
 ### Prerequisites
 
-React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js and its package manager (npm) installed. You can get it from [nodejs.org][node].
+React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js and its package manager (npm) installed. You can get it from [nodejs.org](node).
 
 ### Installing
 
