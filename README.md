@@ -15,7 +15,7 @@ To get you started, you need to meet the prerequisites, and then follow the inst
 
 ### Prerequisites
 
-React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 5.0.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org][node].
+React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 5.0.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org](node).
 
 ### Installing
 
@@ -67,10 +67,10 @@ Run `npm test` to perform your unit testing, or `npm test:coverage` to run your 
 - Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload support
-- [PostCSS](http://postcss.org/) processing with isomorphic support, including support for *[future CSS features](http://cssnext.io/features/)*.
-- Css Vars using [Cssnext](http://cssnext.io/)
+- [PostCSS](http://postcss.org/) processing with isomorphic support.
+- CSS Vars using [Cssnext](http://cssnext.io/)
 - Persistent data handling using [ImmutableJS](https://facebook.github.io/immutable-js/)
-- [Mocha](https://mochajs.org/) for unit testing plus
+- [Mocha](https://mochajs.org/) for unit testing
 - [nyc](https://github.com/bcoe/nyc)) for code coverage
 - Code Linting using [Eslint](https://github.com/eslint/eslint)
 - Css Linting using [CssLint](https://github.com/stylelint/stylelint)
