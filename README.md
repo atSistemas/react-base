@@ -56,6 +56,7 @@ Run `npm test` to perform your unit testing, or `npm test:coverage` to run your 
 
 **React-Base** makes use of the latest tools to improve your workflow, and enables you to create future ready applications:
 
+- Separate build configurations depending on target environment
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload support
 - [PostCSS](http://postcss.org/) processing with isomorphic support, including support for *[future CSS features](http://cssnext.io/features/)*.
