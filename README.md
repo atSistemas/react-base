@@ -15,11 +15,7 @@ To get you started, you need to meet the prerequisites, and then follow the inst
 
 ### Prerequisites
 
-<<<<<<< HEAD
 React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 5.0.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org][node].
-=======
-React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js and its package manager (npm) installed. You can get it from [nodejs.org](node).
->>>>>>> a92559bb79a2fef1126b7b635065f450e428037c
 
 ### Installing
 
