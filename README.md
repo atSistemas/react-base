@@ -11,19 +11,15 @@ there must be some changes needed by the structure to fit your needs correctly
 
 ## Getting Started
 
-To get you started, let's see what you need after cloning the repository and install the dependencies:
+To get you started, you need to meet the prerequisites, and then follow the installation instructions.
 
 ### Prerequisites
 
-React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js and its package manager (npm) installed. You can get it from [nodejs.org][node].
+React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 5.0.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org][node].
 
 ### Installing
 
-Using Node Package Manager:
-
-`$ npm install react-base`
-
-Or you can clone our Git repository:
+You can clone our Git repository:
 
 `$ git clone https://github.com/atSistemas/react-base.git`
 
@@ -46,7 +42,15 @@ Please note that `npm install` is only required on your first start, or in case 
 
 ### Testing your application
 
-Run `npm test` to perform your unit testing, or `npm test:coverage` to run your tests and display a code coverage report
+Run `npm test` to perform your unit testing, or `npm test:coverage` to run your tests and display a code coverage report.
+
+### Runinng development server
+
+`npm run start` will run development enviroment of your application using [webpack-dev-server](https://webpack.github.io/) middleware.
+
+### Runinng production server
+
+`npm run start:prod` will run production enviroment of your application serving content from dist directory.
 
 ### Building your application
 
@@ -56,12 +60,22 @@ Run `npm test` to perform your unit testing, or `npm test:coverage` to run your 
 
 **React-Base** makes use of the latest tools to improve your workflow, and enables you to create future ready applications:
 
+- Redux Based Architecture
+- Isomorphic / Universal Javascript Apps
+- Separate build configurations depending on target environment
+- [Webpack](https://webpack.github.io/) for the build toolchain  
+- Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload support
 - [PostCSS](http://postcss.org/) processing with isomorphic support, including support for *[future CSS features](http://cssnext.io/features/)*.
+- Css Vars using [Cssnext](http://cssnext.io/)
 - Persistent data handling using [ImmutableJS](https://facebook.github.io/immutable-js/)
-- [Webpack](https://webpack.github.io/) for the build toolchain
-- [Mocha](https://mochajs.org/) for unit testing plus [nyc](https://github.com/bcoe/nyc) reporting
+- [Mocha](https://mochajs.org/) for unit testing plus
+- [nyc](https://github.com/bcoe/nyc)) for code coverage
+- Code Linting using [Eslint](https://github.com/eslint/eslint)
+- Css Linting using [CssLint](https://github.com/stylelint/stylelint)
+- [Airbnb](https://github.com/airbnb/javascript/tree/master/react) React Style Guide
+
 
 ## Contributing
 
