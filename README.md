@@ -67,10 +67,10 @@ Run `npm test` to perform your unit testing, or `npm test:coverage` to run your 
 - Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload support
-- [PostCSS](http://postcss.org/) processing with isomorphic support, including support for *[future CSS features](http://cssnext.io/features/)*.
-- Css Vars using [Cssnext](http://cssnext.io/)
+- [PostCSS](http://postcss.org/) processing with isomorphic support.
+- CSS Vars using [Cssnext](http://cssnext.io/)
 - Persistent data handling using [ImmutableJS](https://facebook.github.io/immutable-js/)
-- [Mocha](https://mochajs.org/) for unit testing plus
+- [Mocha](https://mochajs.org/) for unit testing
 - [nyc](https://github.com/bcoe/nyc)) for code coverage
 - Code Linting using [Eslint](https://github.com/eslint/eslint)
 - Css Linting using [CssLint](https://github.com/stylelint/stylelint)
