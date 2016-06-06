@@ -1,6 +1,6 @@
-import Types from '../types';
+import Types from '../types/types';
 import LogoAPI from '../api/Logo';
-import { generetaFetchTypes } from '../shared/type-helper';
+import { generetaFetchTypes } from '../../../shared/type-helper';
 
 export function getLogo( { params } ){
   return {

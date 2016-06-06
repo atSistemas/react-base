@@ -1,5 +1,5 @@
 import { Record, Map } from 'immutable';
-import { generateImmutable } from '../shared/model-helper';
+import { generateImmutable } from '../../../shared/model-helper';
 
 const LogoModel = new Record({
   id: 0,
