@@ -27,10 +27,9 @@ const webpackConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css'],
     alias: {
-      '#src': path.join(__dirname, '../src'),
-      '#css': path.join(__dirname, '../src/styles'),
-      '#components': path.join(__dirname, '../src/components'),
-      '#containers': path.join(__dirname, '../src/containers'),
+      'src': path.resolve(__dirname, '../src'),
+      'components': path.resolve(__dirname, '../src/components'),
+      'containers': path.resolve(__dirname, '../src/containers'),
     }
   },
 
