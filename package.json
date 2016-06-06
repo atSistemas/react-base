@@ -55,7 +55,6 @@
     "rimraf":"^2.5.2"
   },
   "devDependencies": {
-    "autoprefixer":"*",
     "assets-webpack-plugin": "^3.4.0",
     "babel-eslint": "^6.0.4",
     "babel-jest": "^12.1.0",

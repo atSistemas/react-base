@@ -1,8 +1,5 @@
 import path from 'path';
 import getEnvConfig from './env-config';
-import autoprefixer from 'autoprefixer';
-import nested from 'postcss-nested';
-import functions from 'postcss-functions';
 
 const envConfig = getEnvConfig();
 const buildPath = path.resolve(__dirname, '..', 'dist');
