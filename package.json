@@ -17,7 +17,7 @@
   "scripts": {
     "logo": "node ./src/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
-    "clean": "rm dist/bundle.js || true",
+    "clean": "rimraf dist/bundle.js || true",
     "build": "npm run logo && npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js src",
     "lint:css": "npm run logo && stylelint 'src/**/*.css' --config .stylelintrc",
@@ -51,9 +51,11 @@
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "supports-color": "^3.1.2",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "rimraf":"^2.5.2"
   },
   "devDependencies": {
+    "autoprefixer":"*",
     "assets-webpack-plugin": "^3.4.0",
     "babel-eslint": "^6.0.4",
     "babel-jest": "^12.1.0",
@@ -70,6 +72,7 @@
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
     "expect": "^1.20.1",
+    "express": "*",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "ignore-styles": "^2.0.0",
@@ -92,6 +95,7 @@
     "style-loader": "^0.13.1",
     "stylelint": "^6.5.1",
     "webpack-dev-server": "^1.14.1",
+    "webpack-dev-middleware":"^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
     "yo": "*"
   },

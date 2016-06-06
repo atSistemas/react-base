@@ -44,11 +44,11 @@ Please note that `npm install` is only required on your first start, or in case 
 
 Run `npm test` to perform your unit testing, or `npm test:coverage` to run your tests and display a code coverage report.
 
-### Runinng development server
+### Running development server
 
 `npm run start` will run development enviroment of your application using [webpack-dev-server](https://webpack.github.io/) middleware.
 
-### Runinng production server
+### Running production server
 
 `npm run start:prod` will run production enviroment of your application serving content from dist directory.
 
