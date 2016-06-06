@@ -11,7 +11,7 @@ export const prodContext = path.resolve(__dirname, '../src');
 export const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-  new copyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
+  new copyWebpackPlugin([{ from: '../src/assets', to: 'assets' }]),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }}),
   new ExtractTextPlugin('bundle.css')
 ];
