@@ -1,4 +1,16 @@
 {
   "presets": ["react", "es2015", "stage-0"],
-  "plugins": ["transform-react-jsx","transform-object-rest-spread","transform-class-properties"]
+  "plugins": ["transform-react-jsx","transform-object-rest-spread","transform-class-properties"],
+  "env": {
+    "development": {
+      "plugins": [
+        [ "babel-plugin-webpack-alias", { "config": "./webpack/webpack.config.babel.js" } ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        [ "babel-plugin-webpack-alias", { "config": "./webpack/webpack.config.babel.js" } ]
+      ]
+    }
+  }
 }

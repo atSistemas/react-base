@@ -3,9 +3,9 @@ import webpack from 'webpack';
 import AssetsPlugin from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'src', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
 
-export const devContext = path.resolve(__dirname, '../src');
+export const devContext = path.resolve(__dirname, '../app');
 
 export const devPlugins = [
   new webpack.NoErrorsPlugin(),
