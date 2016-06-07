@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
 import routes from '../routes';
-import initialState from 'store/initial-state';
-import configureStore from 'store/configure-store';
+import InitialState from 'store/InitialState';
+import ConfigureStore from 'store/ConfigureStore';
 
-const store = configureStore(browserHistory, initialState);
+const store = ConfigureStore(browserHistory, InitialState);
 
 render(
   <Provider store={ store }>

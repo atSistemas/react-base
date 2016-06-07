@@ -1,5 +1,5 @@
 import Types from '../types';
-import createReducer from 'shared/create-reducer';
+import CreateReducer from 'shared/CreateReducer';
 import { LogoCollection } from '../models';
 
 function logoRequest( state ){ return state; }
@@ -16,4 +16,4 @@ const actionHandlers = {
   [Types.LOGO_ERROR]: logoError,
 };
 
-export default createReducer(actionHandlers, new LogoCollection());
+export default CreateReducer(actionHandlers, new LogoCollection());

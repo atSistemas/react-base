@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { typeBuilder, generetaFetchTypes } from '../type-helper';
+import { typeBuilder, generetaFetchTypes } from '../TypeHelper';
 
 describe('shared / type-helper', () => {
 

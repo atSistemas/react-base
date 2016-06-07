@@ -6,7 +6,7 @@ import React, { Component, PropTypes } from 'react';
 import styles from './styles';
 import Logo from 'components/Logo';
 import * as LogoActions from './actions';
-import fetchRequiredActions from 'shared/fetch-data';
+import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,

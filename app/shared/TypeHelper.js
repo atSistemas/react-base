@@ -1,4 +1,4 @@
-import fetchTypes from '../types/fetch-types';
+import fetchTypes from '../types/FetchTypes';
 
 export function typeBuilder(types){
   const data = {};
