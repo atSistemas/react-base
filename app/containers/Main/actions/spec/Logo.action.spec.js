@@ -1,9 +1,9 @@
 import expect from 'expect';
-import * as Actions from '../Logo';
-import Types from '../../types/types';
+import * as Actions from '../';
+import Types from '../../types';
 import { generetaFetchTypes } from 'shared/type-helper';
 
-import LogoAPI from '../../api/Logo';
+import LogoAPI from '../../api';
 
 describe('Actions', () => {
   describe('Actions logo', () => {

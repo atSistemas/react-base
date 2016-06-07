@@ -24,7 +24,8 @@ export const prodEntries = {
     'react-dom',
     'react-redux',
     'react-router',
-    'isomorphic-fetch'
+    'isomorphic-fetch',
+    'immutable'
   ]
 };
 

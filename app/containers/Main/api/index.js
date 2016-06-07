@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { LogoModel } from '../models/Logo';
+import { LogoModel } from '../models';
 import { generateMap } from 'shared/model-helper';
 
 const url = 'http://localhost:8000/mocks/logo.json';
