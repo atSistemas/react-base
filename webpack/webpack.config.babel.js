@@ -29,7 +29,9 @@ const webpackConfig = {
     alias: {
       'src': path.resolve(__dirname, '../src'),
       'components': path.resolve(__dirname, '../src/components'),
-      'containers': path.resolve(__dirname, '../src/containers'),
+      'containers': path.resolve(__dirname, '../src/containers'),      
+      'shared': path.resolve(__dirname, '../src/shared'),      
+      'store': path.resolve(__dirname, '../src/store')
     }
   },
 
