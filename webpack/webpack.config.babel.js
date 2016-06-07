@@ -29,20 +29,20 @@ const webpackConfig = {
     alias: {
       'app': path.resolve(__dirname, '../app'),
       'components': path.resolve(__dirname, '../app/components'),
-      'containers': path.resolve(__dirname, '../app/containers'),      
-      'shared': path.resolve(__dirname, '../app/shared'),      
+      'containers': path.resolve(__dirname, '../app/containers'),
+      'shared': path.resolve(__dirname, '../app/shared'),
       'store': path.resolve(__dirname, '../app/store')
     }
   },
 
   postcss: function (webpack) {
-   return [
-     require("postcss-import")({ addDependencyTo: webpack }),
-     require("postcss-url")(),
-     require("postcss-cssnext")(),
-     require("postcss-reporter")()
-   ]
- }
+    return [
+      require("postcss-import")({ addDependencyTo: webpack }),
+      require("postcss-url")(),
+      require("postcss-cssnext")(),
+      require("postcss-reporter")()
+    ];
+  }
 };
 
 module.exports = webpackConfig;
