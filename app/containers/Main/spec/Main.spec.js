@@ -3,7 +3,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { generateMap } from 'shared/model-helper';
 
-import { LogoModel, setInitialState } from '../models/Logo';
+import { LogoModel, setInitialState } from '../models';
 import { Main } from '..';
 
 const mockData = [

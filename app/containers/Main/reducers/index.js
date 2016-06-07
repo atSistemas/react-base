@@ -1,6 +1,6 @@
-import Types from '../types/types';
+import Types from '../types';
 import createReducer from 'shared/create-reducer';
-import { LogoCollection } from '../models/Logo';
+import { LogoCollection } from '../models';
 
 function logoRequest( state ){ return state; }
 

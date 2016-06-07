@@ -1,6 +1,6 @@
 import expect from 'expect';
-import reducer from '../Logo';
-import types from '../../types/types';
+import reducer from '..';
+import types from '../../types';
 
 describe('Reducers', () => {
   describe('Logo reducer', () => {
