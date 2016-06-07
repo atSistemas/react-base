@@ -1,5 +1,5 @@
 import expect from 'expect';
-import  configureStore  from '../configure-store';
+import  configureStore  from '../ConfigureStore';
 
 describe('store / configureStore', () => {
 

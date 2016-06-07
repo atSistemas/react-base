@@ -1,5 +1,5 @@
 import * as models from '../models';
-import setGlobalState from './global-state';
+import setGlobalState from './GlobalState';
 
 const initialState = window.$REACTBASE_STATE || {};
 setGlobalState(initialState, models);

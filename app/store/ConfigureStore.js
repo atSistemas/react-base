@@ -2,7 +2,7 @@ import createLogger from 'redux-logger';
 import { createStore, compose, applyMiddleware } from 'redux';
 
 import rootReducer from '../reducers';
-import requestMiddleware from '../middleware/request';
+import requestMiddleware from '../middleware/Request';
 
 function configureStore(history, initialState) {
 

@@ -1,6 +1,6 @@
 import expect from 'expect';
 import { LogoModel } from 'containers/Main/models';
-import { generateMap, generateImmutable } from '../model-helper';
+import { generateMap, generateImmutable } from '../ModelHelper';
 import { Map } from 'immutable';
 
 const mockData = [

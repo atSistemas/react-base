@@ -1,5 +1,5 @@
 import path from 'path';
-import ENV from 'shared/env';
+import ENV from 'shared/Env';
 
 const commonStatics = [
   {route: '/mocks', dir: path.join(__dirname, '..', '..', 'app', 'api', 'mocks')}

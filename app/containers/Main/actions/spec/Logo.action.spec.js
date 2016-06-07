@@ -1,7 +1,7 @@
 import expect from 'expect';
 import * as Actions from '../';
 import Types from '../../types';
-import { generetaFetchTypes } from 'shared/type-helper';
+import { generetaFetchTypes } from 'shared/TypeHelper';
 
 import LogoAPI from '../../api';
 
