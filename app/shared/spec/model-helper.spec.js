@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { LogoModel } from '../../containers/Main/models/Logo';
+import { LogoModel } from 'containers/Main/models/Logo';
 import { generateMap, generateImmutable } from '../model-helper';
 import { Map } from 'immutable';
 

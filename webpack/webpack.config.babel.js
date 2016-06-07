@@ -27,11 +27,11 @@ const webpackConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css'],
     alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'containers': path.resolve(__dirname, '../src/containers'),      
-      'shared': path.resolve(__dirname, '../src/shared'),      
-      'store': path.resolve(__dirname, '../src/store')
+      'app': path.resolve(__dirname, '../app'),
+      'components': path.resolve(__dirname, '../app/components'),
+      'containers': path.resolve(__dirname, '../app/containers'),      
+      'shared': path.resolve(__dirname, '../app/shared'),      
+      'store': path.resolve(__dirname, '../app/store')
     }
   },
 

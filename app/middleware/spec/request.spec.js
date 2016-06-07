@@ -1,8 +1,8 @@
 import expect from 'expect';
 import requestMiddleware from '../request';
-import types from '../../containers/Main/types/types';
-import logoAPI from '../../containers/Main/api/Logo';
-import { generetaFetchTypes } from '../../shared/type-helper';
+import types from 'containers/Main/types/types';
+import logoAPI from 'containers/Main/api/Logo';
+import { generetaFetchTypes } from 'shared/type-helper';
 
 const createFakeStore = fakeData => ({
   getState() {

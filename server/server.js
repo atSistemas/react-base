@@ -3,7 +3,7 @@ import { match } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
-import ENV from '../src/shared/env';
+import ENV from '../app/shared/env';
 import { symbols, color } from './shared/console';
 import applyEnvMiddleWare from './middleware';
 
@@ -14,11 +14,11 @@ const staticPaths = setStaticsPaths(statics);
 const envMiddleware = applyEnvMiddleWare(ENV, app);
 const serverStore = applyMiddleware( requestMiddleware )( createStore );
 
-import routes from '../src/routes';
-import rootReducer from '../src/reducers/';
+import routes from '../app/routes';
+import rootReducer from '../app/reducers/';
 import renderMainPage from './templates/main-page';
-import requestMiddleware from '../src/middleware/request';
-import fetchRequiredActions from '../src/shared/fetch-data';
+import requestMiddleware from '../app/middleware/request';
+import fetchRequiredActions from '../app/shared/fetch-data';
 import renderMainContainer from './containers/main-container';
 
 app.use(function (req, res) {
