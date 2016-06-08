@@ -1,7 +1,12 @@
 require('babel-core/register');
 const args = process.argv.slice(2);
-const generateModel = require('./GenerateModelIndex.js');
 
 if(~args.indexOf('--model')){
-  generateModel();
+  const generateModelIndex = require('./GenerateModelIndex.js');
+  generateModelIndex();
+}
+
+if(~args.indexOf('--reducer')){
+  const generateReducerIndex = require('./GenerateReducerIndex.js');
+  generateReducerIndex();
 }

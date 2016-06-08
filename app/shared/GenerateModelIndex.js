@@ -38,7 +38,7 @@ function getModels(){
   return files.map(function(container){
     let modelPath = path.resolve(containersPath, container, 'models','index.js');
     if(fileExists(modelPath)){
-      return { name:container, import:'import * as ' + container + 'Model from \'containers/Main/models\';' };
+      return { name:container, import:'import * as ' + container + 'Model from \'containers/'+ container +'/models\';' };
     } else {
       return { name: container, import: null };
     }
