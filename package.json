@@ -34,7 +34,7 @@
     "yo": "npm link app/conf/.react-base/templates/generator-react-base"
   },
   "dependencies": {
-    "react-baset": "^15.1.0",
+    "react": "^15.1.0",
     "react-addons-linked-state-mixin": "^15.1.0",
     "react-addons-test-utils": "~15.1.0",
     "react-dom": "^15.1.0",
