@@ -20,6 +20,7 @@
     "babel": "node_modules/babel-cli/babel-node.js",
     "generate:modelIndex": "node ./app/shared/Generate.js --model",
     "generate:reducerIndex": "node ./app/shared/Generate.js --reducer",
+    "generate:all": "npm run logo && npm run generate:modelIndex && npm run generate:reducerIndex",
     "build": "npm run logo && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js app",
     "lint:css": "npm run logo && stylelint 'app/**/*.css' --config .stylelintrc",
