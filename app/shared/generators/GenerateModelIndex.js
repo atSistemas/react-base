@@ -1,9 +1,9 @@
 import path from 'path';
-import { symbols, color } from '../../server/shared/console';
-import { fileExists, readDir, writeFile } from './FileSystem';
+import { symbols, color } from '../../../server/shared/console';
+import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const containersPath = path.resolve(__dirname, '..', 'containers');
-const modelFilePath = path.resolve(__dirname, '..', 'models','index.js');
+const containersPath = path.resolve(__dirname, '..', '..', 'containers');
+const modelFilePath = path.resolve(__dirname, '..', '..', 'models','index.js');
 
 function GenerateModelIndex(){
   const models = getModels();

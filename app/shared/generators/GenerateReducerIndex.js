@@ -1,9 +1,9 @@
 import path from 'path';
-import { symbols, color } from '../../server/shared/console';
-import { fileExists, readDir, writeFile } from './FileSystem';
+import { symbols, color } from '../../../server/shared/console';
+import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const containersPath = path.resolve(__dirname, '..', 'containers');
-const reducerFilePath = path.resolve(__dirname, '..', 'reducers','index.js');
+const containersPath = path.resolve(__dirname, '..', '..', 'containers');
+const reducerFilePath = path.resolve(__dirname, '..', '..', 'reducers','index.js');
 
 function GenerateReducerIndex(){
   const reducers = getReducers();
@@ -11,10 +11,9 @@ function GenerateReducerIndex(){
   let reducerExports = '';
 
   reducers.forEach(function(reducer, index){
-    console.log(222222, reducer);
     if(reducer.import){
       reducerImports += (index === 0) ? reducer.import : '\n' + reducer.import;
-      reducerExports += '  ' + reducer.name + 'reducer';
+      reducerExports += '  _' + reducer.name;
       reducerExports += (index < reducers.length-1) ? ',' : '';
     }
   });
@@ -39,7 +38,7 @@ function getReducers(){
   return files.map(function(container){
     let reducerPath = path.resolve(containersPath, container, 'reducers','index.js');
     if(fileExists(reducerPath)){
-      return { name:container, import:'import ' + container + 'reducer from \'containers/'+ container +'/reducers\';\n' };
+      return { name:container, import:'import _' + container + ' from \'containers/'+ container +'/reducers\';\n' };
     } else {
       return { name: container, import: null };
     }

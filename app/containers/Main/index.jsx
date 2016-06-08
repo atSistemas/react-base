@@ -10,7 +10,7 @@ import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  logo: React.PropTypes.instanceOf(Immutable.Record)
+  _Main: React.PropTypes.instanceOf(Immutable.Record)
 };
 
 export class Main extends Component {
@@ -23,13 +23,13 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(Logo.requiredActions, this.props, 'logo');
+    fetchRequiredActions(Logo.requiredActions, this.props, '_Main');
   }
 
   render () {
 
-    const logo = this.props.logo;
-    const logoList = logo.data.valueSeq().map( logo => {
+    const _Main = this.props._Main;
+    const logoList = _Main.data.valueSeq().map( logo => {
 
       return (<Logo
         logo={ logo }
@@ -51,5 +51,5 @@ Main.propTypes = propTypes;
 
 
 export default connect(
-  (state) => ({ logo: state.logo })
+  (state) => ({ _Main: state._Main })
 )(Main);
