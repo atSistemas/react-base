@@ -13,7 +13,7 @@ const propTypes = {
   _Main: React.PropTypes.instanceOf(Immutable.Record)
 };
 
-export class Main extends Component {
+export class _Main extends Component {
 
   static requiredActions = [LogoActions.getLogo];
 
@@ -47,9 +47,9 @@ export class Main extends Component {
 
 }
 
-Main.propTypes = propTypes;
+_Main.propTypes = propTypes;
 
 
 export default connect(
   (state) => ({ _Main: state._Main })
-)(Main);
+)(_Main);
