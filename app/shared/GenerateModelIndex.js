@@ -22,15 +22,15 @@ function GenerateModelIndex(){
   let content = modelImports + modelExports;
   let result = writeFile(modelFilePath, content);
   if(result){
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Models Index generated correctly!');
+    console.log('[BASE] ' + color('success', symbols.ok) + ' Model index generated correctly!');
   } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' ' + e);
+    console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
   }
 }
 
 
 function generateModelExport(modelExports){
-  return '\r\nexport const modelsIndex = [' + modelExports + '];';
+  return '\r\nexport const modelIndex = [' + modelExports + '];';
 }
 
 function getModels(){
