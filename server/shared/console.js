@@ -4,17 +4,20 @@ exports.useColors = process.browser ? null : require('supports-color');
 exports.colors = {
   success: 32,
   error: 31,
-  default: 32
+  default: 32,
+  warning: 33,
 };
 
 exports.symbols = {
   ok: '✓',
+  war: '✓',
   err: '✖',
   dot: '․'
 };
 
 if (process.platform === 'win32') {
   exports.symbols.ok = '\u221A';
+  exports.symbols.war = '\u221A';
   exports.symbols.err = '\u00D7';
   exports.symbols.dot = '.';
 }

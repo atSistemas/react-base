@@ -17,6 +17,8 @@
   "scripts": {
     "logo": "node ./app/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
+    "babel": "node_modules/babel-cli/babel-node.js",
+    "generate:modelIndex": "node ./app/shared/Generate.js --model",
     "build": "npm run logo && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "lint": "npm run logo && node_modules/eslint/bin/eslint.js app",
     "lint:css": "npm run logo && stylelint 'app/**/*.css' --config .stylelintrc",
