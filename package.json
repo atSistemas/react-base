@@ -33,7 +33,6 @@
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
-    "postinstall": "npm run test:coverage && npm run start",
     "postYeomanGenerator": "npm run generate:all && npm run start",
     "yo": "npm link app/conf/.react-base/templates/generator-react-base"
   },
