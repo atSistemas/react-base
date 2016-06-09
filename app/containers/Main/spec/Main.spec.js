@@ -4,7 +4,7 @@ import TestUtils from 'react-addons-test-utils';
 import { generateMap } from 'shared/ModelHelper';
 
 import { LogoModel, setInitialState } from '../models';
-import { Main } from '..';
+import { _Main } from '..';
 
 const mockData = [
   {
@@ -22,18 +22,18 @@ function setup() {
 
   function dispatch() { }
   let initialState = {
-    logo :{
-      data: mockData
-    }
+      _Main: {
+        data: mockData
+      }
   };
 
   let props = {
     dispatch: dispatch,
-    logo: setInitialState(initialState)
+    _Main: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<Main {...props} />);
+  renderer.render(<_Main {...props} />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -47,7 +47,6 @@ describe('containers', () => {
   describe('Main', () => {
     it('should render correctly', () => {
       const { output } = setup();
-
       expect(output.type).toBe('div');
 
       let logo2 = output.props.children.valueSeq().map( logo => {

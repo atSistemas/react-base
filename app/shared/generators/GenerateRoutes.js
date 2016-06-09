@@ -5,7 +5,7 @@ import { fileExists, readDir, writeFile } from '../FileSystem';
 const containersPath = path.resolve(__dirname, '..', '..', 'containers');
 const routerPath = path.resolve(__dirname, '..', '..', 'routes','index.js');
 
-let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\'';
+let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';';
 
 function GenerateRoutes(){
   const routes = getRoutes();
@@ -19,7 +19,7 @@ function GenerateRoutes(){
     }
   });
 
-  newRoutes = generateRoutes(newRoutes)
+  newRoutes = generateRoutes(newRoutes);
   routesExports = generateRoutesExport(routesExports);
   let content = routesImports + newRoutes + routesExports;
   let result = writeFile(routerPath, content);
@@ -31,11 +31,11 @@ function GenerateRoutes(){
 }
 
 function generateRoutes(newRoutes){
-  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ _Main } />\n  ' + newRoutes + '  </Route>\n);\n';
+  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ _Main } />\n' + newRoutes + '  </Route>\n);\n';
 }
 
 
-function generateRoutesExport(routesExports){
+function generateRoutesExport(){
   return '\nexport default routes;';
 }
 
