@@ -3,8 +3,8 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { generateMap } from 'shared/ModelHelper';
 
-import { <%= namePascal %>Model, setInitialState } from '../models';
-import { <%= nameGenerator %> } from '..';
+import { <%= name %>Model, setInitialState } from '../models';
+import { <%= name %> } from '..';
 
 const mockData = [
   {
@@ -16,24 +16,24 @@ const mockData = [
   }
 ];
 
-const mockDataImmutable2= generateMap(mockData,<%= namePascal %>Model );
+const mockDataImmutable2= generateMap(mockData,<%= name %>Model );
 
 function setup() {
 
   function dispatch() { }
   let initialState = {
-      <%= nameState %>: {
+      <%= name %>: {
         data: mockData
       }
   };
 
   let props = {
     dispatch: dispatch,
-    <%= nameState %>: setInitialState(initialState)
+    <%= name %>: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<<%= nameGenerator %> {...props} />);
+  renderer.render(<<%= name %> {...props} />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -44,27 +44,27 @@ function setup() {
 }
 
 describe('containers', () => {
-  describe('<%= nameGenerator %>', () => {
+  describe('<%= name %>', () => {
     it('should render correctly', () => {
       const { output } = setup();
       expect(output.type).toBe('div');
 
-      let <%= nameGenerator %>2 = output.props.children.valueSeq().map( <%= nameGenerator %> => {
-        let <%= nameGenerator %>Props = <%= nameGenerator %>.props.logo;
+      let <%= name %>2 = output.props.children.valueSeq().map( <%= name %> => {
+        let <%= name %>Props = <%= name %>.props.logo;
 
-        expect (<%= nameGenerator %>Props.get("id")).toEqual(mockData[0].id);
-        expect (<%= nameGenerator %>Props.get("alt")).toEqual(mockData[0].alt);
-        expect (<%= nameGenerator %>Props.get("name")).toEqual(mockData[0].name);
-        expect (<%= nameGenerator %>Props.get("width")).toEqual(mockData[0].width);
-        expect (<%= nameGenerator %>Props.get("url")).toEqual(mockData[0].url);
-        return <%= nameGenerator %>Props;
+        expect (<%= name %>Props.get("id")).toEqual(mockData[0].id);
+        expect (<%= name %>Props.get("alt")).toEqual(mockData[0].alt);
+        expect (<%= name %>Props.get("name")).toEqual(mockData[0].name);
+        expect (<%= name %>Props.get("width")).toEqual(mockData[0].width);
+        expect (<%= name %>Props.get("url")).toEqual(mockData[0].url);
+        return <%= name %>Props;
       });
 
-      let expected<%= nameGenerator %> = mockDataImmutable2.valueSeq().map( <%= nameGenerator %> => {
-        return <%= nameGenerator %>;
+      let expected<%= name %> = mockDataImmutable2.valueSeq().map( <%= name %> => {
+        return <%= name %>;
       });
 
-      expect(<%= nameGenerator %>2).toEqual(expected<%= nameGenerator %>);
+      expect(<%= name %>2).toEqual(expected<%= name %>);
       
     });
   });

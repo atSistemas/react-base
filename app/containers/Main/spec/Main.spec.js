@@ -4,7 +4,7 @@ import TestUtils from 'react-addons-test-utils';
 import { generateMap } from 'shared/ModelHelper';
 
 import { LogoModel, setInitialState } from '../models';
-import { _Main } from '..';
+import { Main } from '..';
 
 const mockData = [
   {
@@ -22,18 +22,18 @@ function setup() {
 
   function dispatch() { }
   let initialState = {
-      _Main: {
+      Main: {
         data: mockData
       }
   };
 
   let props = {
     dispatch: dispatch,
-    _Main: setInitialState(initialState)
+    Main: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<_Main {...props} />);
+  renderer.render(<Main {...props} />);
   let output = renderer.getRenderOutput();
 
   return {

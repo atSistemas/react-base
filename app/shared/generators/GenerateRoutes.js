@@ -15,7 +15,7 @@ function GenerateRoutes(){
   routes.forEach(function(route, index){
     if(route.import){
       routesImports += (index === 0) ? route.import : '\n' + route.import;
-      newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ _' + route.name +' } />\n';
+      newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ ' + route.name +' } />\n';
     }
   });
 
@@ -31,7 +31,7 @@ function GenerateRoutes(){
 }
 
 function generateRoutes(newRoutes){
-  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ _Main } />\n' + newRoutes + '  </Route>\n);\n';
+  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';
 }
 
 
@@ -44,7 +44,7 @@ function getRoutes(){
   return files.map(function(container){
     let containerPath = path.resolve(containersPath, container);
     if(fileExists(containerPath) && container !== 'App'){
-      return { name:container, import:'import _' + container + ' from \'containers/'+ container +'/\';' };
+      return { name:container, import:'import ' + container + ' from \'containers/'+ container +'/\';' };
     } else {
       return { name: container, import: null };
     }

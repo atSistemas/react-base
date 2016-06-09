@@ -1,6 +1,6 @@
 import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
-import { <%= namePascal %>Collection } from '../models';
+import { <%= name %>Collection } from '../models';
 
 function <%= nameLower %>Request ( state ) { return state; }
 
@@ -16,4 +16,4 @@ const actionHandlers = {
   [Types.<%= nameUpper %>_ERROR]: <%= nameLower %>Error
 };
 
-export default CreateReducer(actionHandlers, new <%= namePascal %>Collection());
+export default CreateReducer(actionHandlers, new <%= name %>Collection());

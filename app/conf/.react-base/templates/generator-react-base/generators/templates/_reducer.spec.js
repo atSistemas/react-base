@@ -3,7 +3,7 @@ import reducer from '..';
 import types from '../../types';
 
 describe('Reducers', () => {
-  describe('<%= namePascal %> reducer', () => {
+  describe('<%= name %> reducer', () => {
 
     it('Should return the initial state', () => {
 
@@ -14,7 +14,7 @@ describe('Reducers', () => {
       expect(reducer([], action)).toEqual([]);
     });
 
-    it('should return the state of <%= namePascal %> request fail', () => {
+    it('should return the state of <%= name %> request fail', () => {
 
       const action = {
         type: types.<%= nameUpper %>_ERROR

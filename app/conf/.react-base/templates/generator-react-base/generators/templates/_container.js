@@ -10,12 +10,12 @@ import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  <%= nameState %>: React.PropTypes.instanceOf(Immutable.Record)
+  <%= name %>: React.PropTypes.instanceOf(Immutable.Record)
 };
 
-export class <%= nameGenerator %> extends Component {
+export class <%= name %> extends Component {
 
-  static requiredActions = [Actions.get<%= namePascal %>];
+  static requiredActions = [Actions.get<%= name %>];
 
   constructor (props) {
     super(props);
@@ -23,13 +23,13 @@ export class <%= nameGenerator %> extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(<%= namePascal %>.requiredActions, this.props, '<%= nameState %>');
+    fetchRequiredActions(<%= name %>.requiredActions, this.props, '<%= name %>');
   }
 
   render () {
 
-    const <%= nameState %> = this.props.<%= nameState %>;
-    const logoList = <%= nameState %>.data.valueSeq().map( logo => {
+    const <%= name %> = this.props.<%= name  %>;
+    const logoList = <%= name %>.data.valueSeq().map( logo => {
 
       return (<Logo
         logo={ logo }
@@ -47,9 +47,9 @@ export class <%= nameGenerator %> extends Component {
 
 }
 
-<%= nameGenerator %>.propTypes = propTypes;
+<%= name %>.propTypes = propTypes;
 
 
 export default connect(
-  (state) => ({ <%= nameState %>: state.<%= nameState %> })
-)(<%= nameGenerator %>);
+  (state) => ({ <%= name %>: state.<%= name %> })
+)(<%= name %>);

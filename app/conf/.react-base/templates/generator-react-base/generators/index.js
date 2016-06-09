@@ -121,8 +121,7 @@ function createComponent(name){
     this.destinationPath(routeComponentName, typesDocument.component.nameFile), {
       name: name,
       nameUpper: name.toUpperCase(),
-      nameLower: name.toLowerCase(),
-      namePascal: name.charAt(0).toUpperCase() + name.slice(1)
+      nameLower: name.toLowerCase()
     }
   );
 
@@ -132,8 +131,7 @@ function createComponent(name){
     this.destinationPath(routeComponentName, typesDocument.styles.nameFile), {
       name: name,
       nameUpper: name.toUpperCase(),
-      nameLower: name.toLowerCase(),
-      namePascal: name.charAt(0).toUpperCase() + name.slice(1)
+      nameLower: name.toLowerCase()
     }
   );
 
@@ -143,8 +141,7 @@ function createComponent(name){
     this.destinationPath(routeComponentName + '/spec/' + name + typesDocument.component_spec.nameFile), {
       name: name,
       nameUpper: name.toUpperCase(),
-      nameLower: name.toLowerCase(),
-      namePascal: name.charAt(0).toUpperCase() + name.slice(1)
+      nameLower: name.toLowerCase()
     }
   );
 
@@ -152,16 +149,17 @@ function createComponent(name){
 
 function createContainer(name){
   let route = baseRoute + '/containers/'
-  sectionCopy(route, name, typesDocument.action);
-  sectionSpec(route, name, typesDocument.action_spec);
-  sectionCopy(route, name, typesDocument.api);
-  sectionCopy(route, name, typesDocument.container);
-  sectionSpec(route, name, typesDocument.container_spec);
-  sectionCopy(route, name, typesDocument.models);
-  sectionCopy(route, name, typesDocument.reducer);
-  sectionSpec(route, name, typesDocument.reducer_spec);
-  sectionCopy(route, name, typesDocument.styles);
-  sectionCopy(route, name, typesDocument.types);  
+  let namePascal = name.charAt(0).toUpperCase() + name.slice(1)
+  sectionCopy(route, namePascal, typesDocument.action);
+  sectionSpec(route, namePascal, typesDocument.action_spec);
+  sectionCopy(route, namePascal, typesDocument.api);
+  sectionCopy(route, namePascal, typesDocument.container);
+  sectionSpec(route, namePascal, typesDocument.container_spec);
+  sectionCopy(route, namePascal, typesDocument.models);
+  sectionCopy(route, namePascal, typesDocument.reducer);
+  sectionSpec(route, namePascal, typesDocument.reducer_spec);
+  sectionCopy(route, namePascal, typesDocument.styles);
+  sectionCopy(route, namePascal, typesDocument.types);  
 
 }
 

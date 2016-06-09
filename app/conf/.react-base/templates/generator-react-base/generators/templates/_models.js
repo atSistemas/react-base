@@ -1,7 +1,7 @@
 import { Record, Map } from 'immutable';
 import { generateImmutable } from 'shared/ModelHelper';
 
-const <%= namePascal %>Model = new Record({
+const <%= name %>Model = new Record({
   id: 0,
   alt: '',
   name: '',
@@ -9,12 +9,12 @@ const <%= namePascal %>Model = new Record({
   url: ''
 });
 
-const <%= namePascal %>Collection = new Record({ data: new Map() });
+const <%= name %>Collection = new Record({ data: new Map() });
 
 function setInitialState(initialState){
-  return initialState.<%= nameState %> = new <%= namePascal %>Collection({
-    data: generateImmutable( initialState.<%= nameState %>.data, <%= namePascal %>Model )
+  return initialState.<%= name %> = new <%= name %>Collection({
+    data: generateImmutable( initialState.<%= name %>.data, <%= name %>Model )
   });
 }
 
-export { <%= namePascal %>Model, <%= namePascal %>Collection, setInitialState };
+export { <%= name %>Model, <%= name %>Collection, setInitialState };
