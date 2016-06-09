@@ -29,18 +29,10 @@ export class <%= name %> extends Component {
   render () {
 
     const <%= name %> = this.props.<%= name  %>;
-    const logoList = <%= name %>.data.valueSeq().map( logo => {
-
-      return (<Logo
-        logo={ logo }
-        key={ logo.get('id') }
-      />);
-
-    });
 
     return (
       <div className={styles.Main}>
-       { logoList }
+        <%= name %> Container    
       </div>
     );
   }

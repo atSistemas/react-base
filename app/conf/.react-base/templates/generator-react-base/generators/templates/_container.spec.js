@@ -49,23 +49,6 @@ describe('containers', () => {
       const { output } = setup();
       expect(output.type).toBe('div');
 
-      let <%= name %>2 = output.props.children.valueSeq().map( <%= name %> => {
-        let <%= name %>Props = <%= name %>.props.logo;
-
-        expect (<%= name %>Props.get("id")).toEqual(mockData[0].id);
-        expect (<%= name %>Props.get("alt")).toEqual(mockData[0].alt);
-        expect (<%= name %>Props.get("name")).toEqual(mockData[0].name);
-        expect (<%= name %>Props.get("width")).toEqual(mockData[0].width);
-        expect (<%= name %>Props.get("url")).toEqual(mockData[0].url);
-        return <%= name %>Props;
-      });
-
-      let expected<%= name %> = mockDataImmutable2.valueSeq().map( <%= name %> => {
-        return <%= name %>;
-      });
-
-      expect(<%= name %>2).toEqual(expected<%= name %>);
-      
     });
   });
 });
