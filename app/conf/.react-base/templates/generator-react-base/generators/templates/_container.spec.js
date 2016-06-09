@@ -47,7 +47,7 @@ describe('containers', () => {
   describe('<%= name %>', () => {
     it('should render correctly', () => {
       const { output } = setup();
-      expect(output.type).toBe('div');
+       expect(output.props.name).toBe('<%= name %>');
 
     });
   });
