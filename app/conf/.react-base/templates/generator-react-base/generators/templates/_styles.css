@@ -1,6 +1,6 @@
 @import '../../styles/base.css';
 
-.Main {
+.<%= name %> {
   width: var(--logoWidth);
   height: 200px;
   position: absolute;

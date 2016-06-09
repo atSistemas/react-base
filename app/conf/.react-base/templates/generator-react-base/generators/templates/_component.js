@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
-const <%= namePascal %>Component = ({id}) => {
+const <%= name %>Component = ({id}) => {
 
   return (
-    <div key={ id } className={ styles.<%= name %> } ><%= namePascal %> component</div>
+    <div key={ id } className={ styles.<%= name %> } ><%= name %> component</div>
   );
 };
 
-<%= namePascal %>Component.propTypes= {
+<%= name %>Component.propTypes= {
   id: PropTypes.number.isRequired
 };
 
-export default <%= namePascal %>Component;
+export default <%= name %>Component;

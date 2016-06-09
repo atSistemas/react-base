@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
 import styles from './styles';
-import Logo from 'components/Logo';
 import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
 
@@ -29,9 +28,9 @@ export class <%= name %> extends Component {
   render () {
 
     const <%= name %> = this.props.<%= name  %>;
-
+    console.log(<%= name %> );
     return (
-      <div className={styles.Main}>
+      <div className={ styles.<%= name %> }>
         <%= name %> Container    
       </div>
     );
