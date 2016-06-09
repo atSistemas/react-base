@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
-const <%= name %>Component = ({id}) => {
+const <%= name %> = ({ name }) => {
 
   return (
-    <div key={ id } className={ styles.<%= name %> } ><%= name %> component</div>
+    <div className={ styles.<%= name %>  }>
+      Hello { name } Container !
+    </div>
   );
 };
 
-<%= name %>Component.propTypes= {
-  id: PropTypes.number.isRequired
+<%= name %>.propTypes= {
+  name: PropTypes.string.isRequired
 };
 
-export default <%= name %>Component;
+export default <%= name %>;

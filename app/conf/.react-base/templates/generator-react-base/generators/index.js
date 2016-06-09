@@ -26,13 +26,13 @@ var typesDocument = {
     nameType: 'api'
   }, 
   component:{
-    folder: '/',
+    folder: '/component/',
     template: '_component.js',  
     nameFile: '/index.jsx',
     nameType: 'component'
   }, 
   component_spec:{
-    folder: '/spec/',
+    folder: '/component/spec/',
     template: '_component.spec.js',  
     nameFile: '.component.spec.js',
     nameType: 'component_spec'
@@ -68,7 +68,7 @@ var typesDocument = {
     nameType: 'reducer_spec'
   }, 
   styles:{
-    folder: '/',
+    folder: '/component/',
     template: '_styles.css',
     nameFile: '/styles.css',
     nameType: 'styles'
@@ -119,7 +119,7 @@ function createComponent(name){
   /*COMPONENT*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.component.template),
-    this.destinationPath(routeComponentName, typesDocument.component.nameFile), {
+    this.destinationPath(routeComponentName, '/'), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
@@ -129,7 +129,7 @@ function createComponent(name){
   /*STYLES*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.styles.template),
-    this.destinationPath(routeComponentName, typesDocument.styles.nameFile), {
+    this.destinationPath(routeComponentName, '/'), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
@@ -154,6 +154,8 @@ function createContainer(name){
   sectionCopy(route, namePascal, typesDocument.action);
   sectionSpec(route, namePascal, typesDocument.action_spec);
   sectionCopy(route, namePascal, typesDocument.api);
+  sectionCopy(route, namePascal, typesDocument.component);
+  sectionSpec(route, namePascal, typesDocument.component_spec);
   sectionCopy(route, namePascal, typesDocument.container);
   sectionSpec(route, namePascal, typesDocument.container_spec);
   sectionCopy(route, namePascal, typesDocument.models);
