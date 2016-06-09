@@ -18,6 +18,7 @@
     "logo": "node ./app/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "babel": "node_modules/babel-cli/babel-node.js",
+    "generate": "npm run logo && yo react-base",
     "generate:modelIndex": "node ./app/shared/Generate.js --model",
     "generate:routes": "node ./app/shared/Generate.js --routes",
     "generate:reducerIndex": "node ./app/shared/Generate.js --reducer",
@@ -79,6 +80,7 @@
     "express": "*",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "generator-webapp": "^2.1.0",
     "ignore-styles": "^2.0.0",
     "install": "^0.8.1",
     "istanbul": "^0.4.3",
@@ -101,7 +103,7 @@
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0",
-    "yo": "*"
+    "yo": "^1.8.4"
   },
   "nyc": {
     "exclude": [
