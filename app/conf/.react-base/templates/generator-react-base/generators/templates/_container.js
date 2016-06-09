@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
-import styles from './styles';
 import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
+import <%= name %>Component from './component/';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -26,11 +26,12 @@ export class <%= name %> extends Component {
   }
 
   render () {
-    
+    let props = this.props.<%= name  %>; 
+
+    props.name = '<%= name  %>';
+
     return (
-      <div className={ styles.<%= name %>  }>
-        Hello <%= name %> Container !
-      </div>
+      <<%= name %>Component name={ props.name } />
     );
   }
 
