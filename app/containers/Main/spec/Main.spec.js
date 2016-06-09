@@ -22,14 +22,14 @@ function setup() {
 
   function dispatch() { }
   let initialState = {
-    logo :{
-      data: mockData
-    }
+      Main: {
+        data: mockData
+      }
   };
 
   let props = {
     dispatch: dispatch,
-    logo: setInitialState(initialState)
+    Main: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();
@@ -47,7 +47,6 @@ describe('containers', () => {
   describe('Main', () => {
     it('should render correctly', () => {
       const { output } = setup();
-
       expect(output.type).toBe('div');
 
       let logo2 = output.props.children.valueSeq().map( logo => {

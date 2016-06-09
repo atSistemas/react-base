@@ -2,7 +2,7 @@ import expect from 'expect';
 import requestMiddleware from '../Request';
 import types from 'containers/Main/types';
 import logoAPI from 'containers/Main/api';
-import { generetaFetchTypes } from 'shared/TypeHelper';
+import { generateFetchTypes } from 'shared/TypeHelper';
 
 const createFakeStore = fakeData => ({
   getState() {
@@ -28,7 +28,7 @@ describe('middleware', () => {
       };
 
       const actions = {
-        types: generetaFetchTypes(types.LOGO_REQUEST),
+        types: generateFetchTypes(types.LOGO_REQUEST),
         request: logoAPI.fetchLogo(props.category)
       };
 
@@ -44,7 +44,7 @@ describe('middleware', () => {
     it('requestMiddleware without resquest action', () => {
 
       const actions = {
-        types: generetaFetchTypes(types.LOGO_REQUEST)
+        types: generateFetchTypes(types.LOGO_REQUEST)
       };
 
       expect(dispatchWithStoreOf({}, actions)).toEqual(actions);

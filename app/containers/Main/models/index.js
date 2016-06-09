@@ -12,8 +12,8 @@ const LogoModel = new Record({
 const LogoCollection = new Record({ data: new Map() });
 
 function setInitialState(initialState){
-  return initialState._Main = new LogoCollection({
-    data: generateImmutable( initialState._Main.data, LogoModel )
+  return initialState.Main = new LogoCollection({
+    data: generateImmutable( initialState.Main.data, LogoModel )
   });
 }
 

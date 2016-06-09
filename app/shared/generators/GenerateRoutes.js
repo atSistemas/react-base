@@ -5,7 +5,7 @@ import { fileExists, readDir, writeFile } from '../FileSystem';
 const containersPath = path.resolve(__dirname, '..', '..', 'containers');
 const routerPath = path.resolve(__dirname, '..', '..', 'routes','index.js');
 
-let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\'';
+let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';';
 
 function GenerateRoutes(){
   const routes = getRoutes();
@@ -15,11 +15,11 @@ function GenerateRoutes(){
   routes.forEach(function(route, index){
     if(route.import){
       routesImports += (index === 0) ? route.import : '\n' + route.import;
-      newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ _' + route.name +' } />\n';
+      newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ ' + route.name +' } />\n';
     }
   });
 
-  newRoutes = generateRoutes(newRoutes)
+  newRoutes = generateRoutes(newRoutes);
   routesExports = generateRoutesExport(routesExports);
   let content = routesImports + newRoutes + routesExports;
   let result = writeFile(routerPath, content);
@@ -31,11 +31,11 @@ function GenerateRoutes(){
 }
 
 function generateRoutes(newRoutes){
-  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ _Main } />\n  ' + newRoutes + '  </Route>\n);\n';
+  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';
 }
 
 
-function generateRoutesExport(routesExports){
+function generateRoutesExport(){
   return '\nexport default routes;';
 }
 
@@ -44,7 +44,7 @@ function getRoutes(){
   return files.map(function(container){
     let containerPath = path.resolve(containersPath, container);
     if(fileExists(containerPath) && container !== 'App'){
-      return { name:container, import:'import _' + container + ' from \'containers/'+ container +'/\';' };
+      return { name:container, import:'import ' + container + ' from \'containers/'+ container +'/\';' };
     } else {
       return { name: container, import: null };
     }

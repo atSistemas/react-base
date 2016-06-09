@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { typeBuilder, generetaFetchTypes } from '../TypeHelper';
+import { typeBuilder, generateFetchTypes } from '../TypeHelper';
 
 describe('shared / type-helper', () => {
 
@@ -16,13 +16,13 @@ describe('shared / type-helper', () => {
     });
   });
 
-  describe('generetaFetchTypes', () => {
+  describe('generateFetchTypes', () => {
 
 
     it('should return fetch tyspes', () => {
 
       let TypeExamples = 'TEST';
-      let types = generetaFetchTypes(TypeExamples);
+      let types = generateFetchTypes(TypeExamples);
 
       expect(types.length).toEqual(3);
       expect(types[0]).toEqual('TEST_REQUEST');
