@@ -1,6 +1,9 @@
 ![React-Base logo](./app/assets/images/react-base-logo.png)
 
 # React-Base
+
+https://travis-ci.org/atSistemas/react-base.svg?branch=master
+
 **A modular platform for Redux Isomorphic applications**
 
 This repository is a modular abstraction to build a typical [ReactJS](https://facebook.github.io/react/) web application.
