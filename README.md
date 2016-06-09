@@ -2,7 +2,7 @@
 
 # React-Base
 
-https://travis-ci.org/atSistemas/react-base.svg?branch=master
+![Build-Status](https://travis-ci.org/atSistemas/react-base.svg?branch=master)
 
 **A modular platform for Redux Isomorphic applications**
 
