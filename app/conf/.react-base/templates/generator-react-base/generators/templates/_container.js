@@ -31,8 +31,8 @@ export class <%= name %> extends Component {
     const <%= name %> = this.props.<%= name  %>;
 
     return (
-      <div className={styles.Main}>
-        <%= name %> Container    
+      <div className={ styles.<%= name %>  }>
+        Hello <%= name %> Container !
       </div>
     );
   }
