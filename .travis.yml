@@ -3,6 +3,8 @@ node_js:
     - "6.1.0"
 before_script:
     - npm install
+env:
+  - NODE_ENV=development
 script:
     - node_modules/eslint/bin/eslint.js app --ignore-pattern '*.spec.js'  --ext .js --ext .jsx
     - node_modules/mocha/bin/mocha \"./app/**/*.spec.js\" --compilers js:babel-core/register --recursive --require ignore-styles
