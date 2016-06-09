@@ -39,7 +39,7 @@ export class Main extends Component {
     });
 
     return (
-      <div className={styles.Main}>
+      <div className={ styles.Main }>
        { logoList }
       </div>
     );

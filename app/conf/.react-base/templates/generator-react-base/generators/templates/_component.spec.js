@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import <%= namePascal %> from '../';
+import <%= name %> from '../';
 
 function setup() {
   let props = {
@@ -9,7 +9,7 @@ function setup() {
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<<%= namePascal %> />);
+  renderer.render(<<%= name %> />);
   let output = renderer.getRenderOutput();
 
   return {

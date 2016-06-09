@@ -1,6 +1,7 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
+var optionOrPrompt = require('yeoman-option-or-prompt');
 var fs = require("fs");
 var listModules, listModulesArray;
 
@@ -114,12 +115,12 @@ function sectionSpec(route, name, config){
 
 function createComponent(name){
   let routeComponentName = baseRoute +'/components/' + name;
-
+  let namePascal = name.charAt(0).toUpperCase() + name.slice(1)
   /*COMPONENT*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.component.template),
     this.destinationPath(routeComponentName, typesDocument.component.nameFile), {
-      name: name,
+      name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
     }
@@ -129,7 +130,7 @@ function createComponent(name){
   this.fs.copyTpl(
     this.templatePath(typesDocument.styles.template),
     this.destinationPath(routeComponentName, typesDocument.styles.nameFile), {
-      name: name,
+      name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
     }
@@ -139,7 +140,7 @@ function createComponent(name){
   this.fs.copyTpl(
     this.templatePath(typesDocument.component_spec.template),
     this.destinationPath(routeComponentName + '/spec/' + name + typesDocument.component_spec.nameFile), {
-      name: name,
+      name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
     }
@@ -164,9 +165,10 @@ function createContainer(name){
 }
 
 module.exports = yeoman.Base.extend({
-
+  _optionOrPrompt: optionOrPrompt,
+  
   prompting: function () {
-   
+
     var done = this.async();
 
     var promptsAll = [{
@@ -175,12 +177,12 @@ module.exports = yeoman.Base.extend({
       type: 'input'
     },
     {
-      message: ' Name',
+      message: 'Input Name',
       name: 'name',
       type: 'input'
     }];
     
-    this.prompt(promptsAll, function (answers) {
+    this._optionOrPrompt(promptsAll, function (answers) {
 
       this.props = answers;
       this.props.option = parseInt(answers.option);
