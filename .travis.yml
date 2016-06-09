@@ -5,4 +5,4 @@ before_script:
     - npm install
 script:
     - node_modules/eslint/bin/eslint.js app --ignore-pattern '*.spec.js'  --ext .js --ext .jsx
-    - mocha \"./app/**/*.spec.js\" --compilers js:babel-core/register --recursive --require ignore-styles
+    - node_modules/mocha/bin/mocha \"./app/**/*.spec.js\" --compilers js:babel-core/register --recursive --require ignore-styles
