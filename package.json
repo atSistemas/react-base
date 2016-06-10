@@ -35,7 +35,7 @@
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
     "postinstall": "npm run yo && npm run test:coverage",
     "postYeomanGenerator": "npm run generate:all && npm run start",
-    "yo": "npm link app/conf/.react-base/templates/generator-react-base"
+    "yo": "npm run logo && npm link app/conf/.react-base/templates/generator-react-base"
   },
   "dependencies": {
     "react": "^15.1.0",
