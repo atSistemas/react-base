@@ -7,5 +7,5 @@ env:
   - NODE_ENV=development
 script:
     - npm run build
-    - node_modules/eslint/bin/eslint.js app --ignore-pattern '*.spec.js'  --ext .js --ext .jsx
-    - node_modules/mocha/bin/mocha ./app/**/*.spec.js --compilers js:babel-core/register --recursive --require ignore-styles
+    - npm run test:coverage
+    - npm run lint:all
