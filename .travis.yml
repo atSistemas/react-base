@@ -6,6 +6,4 @@ before_script:
 env:
   - NODE_ENV=development
 script:
-    - npm run build
-    - npm run test:coverage
-    - npm run lint:all
+    - npm run builds
