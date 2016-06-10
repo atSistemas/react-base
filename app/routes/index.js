@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+import try from 'try'; 
 
 import App from 'containers/App/';
 import Main from 'containers/Main/';
