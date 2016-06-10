@@ -12,6 +12,14 @@ export const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.optimize.DedupePlugin(),
   new ExtractTextPlugin('bundle.css'),
+  function(){
+    this.plugin("done", function(stats){
+      if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
+        console.log(stats.compilation.errors)
+        //throw new Error(stats.compilation.errors);
+      }
+    });
+  }
 ];
 
 export const devEntries = [
