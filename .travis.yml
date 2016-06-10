@@ -6,6 +6,11 @@ before_script:
 env:
   - NODE_ENV=development
 script:
-    - npm run builds
+    - npm run build
+    - npm run test:coverage
+    - npm run lint:all
 notifications:
-  slack: cejs-atsistemas:XxetFLj7MuJALpcVhx2PKEE6
+  slack: cejs-atsistemas:XxetFLj7MuJALpcVhx2PKEE6#react-base
+    on_success: [always]
+    on_failure: [always]
+    on_start: [never]
