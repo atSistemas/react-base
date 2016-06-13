@@ -4,7 +4,7 @@ node_js:
 before_script:
     - npm install
 env:
-  - NODE_ENV=production
+  - NODE_ENV=development
 script:
     - npm run build
     - npm run test:coverage
