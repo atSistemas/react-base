@@ -28,9 +28,11 @@ compiler.plugin('done', function() {
   console.log('[BASE] ' + color('success', symbols.ok) + ' Bundled project in ' + (Date.now() - bundleStart) + 'ms!');
 });
 
-export function applyDevMiddleware(){
+const applyDevMiddleware = function(){
   return [
     webpackHotMiddleware(compiler),
     webpackDevMiddleware(compiler, serverOptions)
   ];
-}
+};
+
+module.exports = applyDevMiddleware;

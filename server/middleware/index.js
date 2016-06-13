@@ -1,9 +1,7 @@
 import { symbols, color } from '../shared/console';
-import { applyDevMiddleware } from './dev-middleware';
-import { applyProdMiddleware } from './prod-middleware';
 import ENV from 'shared/Env';
 
-const envMiddleware = (ENV === 'development') ? applyDevMiddleware : applyProdMiddleware;
+const envMiddleware = (ENV === 'development') ? require('./dev-middleware') : require('./prod-middleware');
 
 export default function applyEnvMiddleWare(env, app){
   envMiddleware().forEach(function(middleware){
