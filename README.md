@@ -3,6 +3,8 @@
 # React-Base
 
 ![Build-Status](https://travis-ci.org/atSistemas/react-base.svg?branch=master)
+![Dependencies](https://david-dm.org/atSistemas/react-base.svg)
+![Dev-dependencies](https://david-dm.org/atSistemas/react-base/dev-status.svg)
 
 **A modular platform for Redux Isomorphic applications**
 
