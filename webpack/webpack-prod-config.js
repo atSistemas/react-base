@@ -13,6 +13,7 @@ export const prodPlugins = [
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
   new copyWebpackPlugin([{ from: '../app/assets', to: 'assets' }]),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: true }}),
+  new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
   new ExtractTextPlugin('bundle.css'),
   function(){
     this.plugin("done", function(stats){

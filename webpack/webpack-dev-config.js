@@ -9,14 +9,14 @@ export const devContext = path.resolve(__dirname, '../app');
 
 export const devPlugins = [
   new webpack.NoErrorsPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
   new webpack.optimize.DedupePlugin(),
   new ExtractTextPlugin('bundle.css'),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
   function(){
     this.plugin("done", function(stats){
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
-        console.log(stats.compilation.errors)
-        //throw new Error(stats.compilation.errors);
+        throw new Error(stats.compilation.errors);
       }
     });
   }
