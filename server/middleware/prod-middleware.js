@@ -9,6 +9,8 @@ compiler.plugin('done', function() {
   console.log('[BASE] Bundled project in ' + (Date.now() - bundleStart) + 'ms!');
 });
 
-export function applyProdMiddleware(){
+const applyProdMiddleware = function(){
   return [];
-}
+};
+
+module.exports = applyProdMiddleware;
