@@ -106,7 +106,8 @@
   },
   "nyc": {
     "exclude": [
-      "**/*.spec.js"
+      "**/*.spec.js",
+      "/webpack"
     ],
     "extension": [
       ".jsx",
