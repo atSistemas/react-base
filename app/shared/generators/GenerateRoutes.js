@@ -24,7 +24,7 @@ function GenerateRoutes(){
   let content = routesImports + newRoutes + routesExports;
   let result = writeFile(routerPath, content);
   if(result){
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Routes generated correctly!');
+    console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
   } else {
     console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
   }

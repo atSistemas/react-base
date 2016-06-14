@@ -2,47 +2,53 @@ import path from 'path';
 import { symbols, color } from '../console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const containersPath = path.resolve(__dirname, '..', '..', 'containers');
-const reducerFilePath = path.resolve(__dirname, '..', '..', 'reducers','index.js');
+const mainImportTpl = 'import { combineReducers } from \'redux\';\n';
+const exportTpl = '\n\nexport default combineReducers({\n@param\n});';
+const importTpl = 'import @param from \'containers/@param/reducers\';';
 
-function GenerateReducerIndex(){
-  const reducers = getReducers();
-  let reducerImports = 'import { combineReducers } from \'redux\';\n';
+function generateImportLine(container){
+  return importTpl.replace(/@param/g, container);
+}
+
+function generateExportLine(reducerExports){
+  return exportTpl.replace('@param', reducerExports);
+}
+
+function generateReducerIndex(containersPath, reducerFilePath ){
+  let reducerImports = mainImportTpl;
   let reducerExports = '';
+  const containerReducers = getContainerReducers(containersPath);
 
-  reducers.forEach(function(reducer, index){
+  containerReducers.forEach(function(reducer, index){
     if(reducer.import){
       reducerImports += (index === 0) ? reducer.import : '\n' + reducer.import;
       reducerExports += '  ' + reducer.name;
-      reducerExports += (index < reducers.length-1) ? ',' : '';
+      reducerExports += (index < containerReducers.length-1) ? ',\n' : '';
     }
   });
 
-  reducerExports = generateReducerExport(reducerExports);
-  let content = reducerImports + reducerExports;
+  let content = reducerImports + generateExportLine(reducerExports);
   let result = writeFile(reducerFilePath, content);
   if(result){
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index generated correctly!');
+    console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
   } else {
     console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
   }
 }
 
-
-function generateReducerExport(reducerExports){
-  return '\r\nexport default combineReducers({\n' + reducerExports + '\n});';
-}
-
-function getReducers(){
+function getContainerReducers(containersPath){
   const files = readDir(containersPath);
   return files.map(function(container){
     let reducerPath = path.resolve(containersPath, container, 'reducers','index.js');
     if(fileExists(reducerPath)){
-      return { name:container, import:'import ' + container + ' from \'containers/'+ container +'/reducers\';\n' };
+      return { name:container, import: generateImportLine(container)};
     } else {
       return { name: container, import: null };
     }
   });
 }
 
-module.exports = GenerateReducerIndex;
+module.exports.generateReducerIndex = generateReducerIndex;
+module.exports.generateImportLine = generateImportLine;
+module.exports.generateExportLine = generateExportLine;
+module.exports.getContainerReducers = getContainerReducers;
