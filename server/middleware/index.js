@@ -1,4 +1,4 @@
-import { symbols, color } from '../shared/console';
+import { symbols, color } from '../../app/shared/console';
 import ENV from 'shared/Env';
 
 const envMiddleware = (ENV === 'development') ? require('./dev-middleware') : require('./prod-middleware');

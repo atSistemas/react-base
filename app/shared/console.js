@@ -1,4 +1,3 @@
-
 exports.useColors = process.browser ? null : require('supports-color');
 
 exports.colors = {
@@ -22,17 +21,6 @@ if (process.platform === 'win32') {
   exports.symbols.dot = '.';
 }
 
-/**
- * Color `str` with the given `type`,
- * allowing colors to be disabled,
- * as well as user-defined color
- * schemes.
- *
- * @param {string} type
- * @param {string} str
- * @return {string}
- * @api private
- */
 exports.color = function(type, str) {
   if (!exports.useColors) {
     return String(str);
