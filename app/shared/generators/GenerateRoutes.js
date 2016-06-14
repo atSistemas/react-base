@@ -1,5 +1,5 @@
 import path from 'path';
-import { symbols, color } from '../../../server/shared/console';
+import { symbols, color } from '../console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const containersPath = path.resolve(__dirname, '..', '..', 'containers');
