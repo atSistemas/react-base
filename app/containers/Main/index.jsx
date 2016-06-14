@@ -23,7 +23,7 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(Logo.requiredActions, this.props, 'Main');
+    fetchRequiredActions(Main.requiredActions, this.props, 'Main');
   }
 
   render () {
