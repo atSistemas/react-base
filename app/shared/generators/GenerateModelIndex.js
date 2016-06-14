@@ -1,48 +1,56 @@
 import path from 'path';
-import { symbols, color } from '../../../server/shared/console';
+import { symbols, color } from '../console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const containersPath = path.resolve(__dirname, '..', '..', 'containers');
-const modelFilePath = path.resolve(__dirname, '..', '..', 'models','index.js');
+const exportTpl = '\n\nexport const modelIndex = [@param];';
+const importTpl = 'import * as @paramModel from \'containers/@param/models\';';
 
-function GenerateModelIndex(){
-  const models = getModels();
+
+function generateImportLine(container){
+  return importTpl.replace(/@param/g, container);
+}
+
+function generateExportLine(modelExports){
+  return exportTpl.replace('@param',modelExports);
+}
+
+function generateModelIndex(containersPath, modelFilePath){
   let modelImports = '';
   let modelExports = '';
+  const containerModels = getContainerModels(containersPath);
 
-  models.forEach(function(model, index){
+  containerModels.forEach(function(model, index){
     if(model.import){
-      modelImports += (index === 0) ? model.import : '\n' + model.import;
+      modelImports += (index === 1) ? model.import : '\n' + model.import;
       modelExports += model.name + 'Model';
-      modelExports += (index < models.length-1) ? ',' : '';
+      modelExports += (index < containerModels.length-1) ? ',' : '';
     }
   });
 
-  modelExports = generateModelExport(modelExports);
-  let content = modelImports + modelExports;
-  let result = writeFile(modelFilePath, content);
+  const content = modelImports + generateExportLine(modelExports);
+  const result = writeFile(modelFilePath, content);
+
   if(result){
     console.log('[BASE] ' + color('success', symbols.ok) + ' Model index generated correctly!');
   } else {
     console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
   }
+
 }
 
-
-function generateModelExport(modelExports){
-  return '\r\nexport const modelIndex = [' + modelExports + '];';
-}
-
-function getModels(){
-  const files = readDir(containersPath);
-  return files.map(function(container){
+function getContainerModels(containersPath){
+  const containers = readDir(containersPath);
+  return containers.map(function(container){
     let modelPath = path.resolve(containersPath, container, 'models','index.js');
     if(fileExists(modelPath)){
-      return { name:container, import:'import * as ' + container + 'Model from \'containers/'+ container +'/models\';' };
+      return { name:container, import: generateImportLine(container)};
     } else {
       return { name: container, import: null };
     }
   });
 }
 
-module.exports = GenerateModelIndex;
+module.exports.generateModelIndex = generateModelIndex;
+module.exports.generateImportLine = generateImportLine;
+module.exports.generateExportLine = generateExportLine;
+module.exports.getContainerModels = getContainerModels;
