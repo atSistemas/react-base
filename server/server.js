@@ -4,8 +4,8 @@ import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
 import ENV from 'shared/Env';
-import { symbols, color } from './shared/console';
 import applyEnvMiddleWare from './middleware';
+import { symbols, color } from '../app/shared/console';
 
 const port = 8000;
 const app = express();
