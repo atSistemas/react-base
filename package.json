@@ -62,7 +62,7 @@
     "expect": "^1.20.1",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
-    "ignore-styles": "^3.0.0",
+    "ignore-styles": "^4.0.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "istanbul": "^0.4.3",
@@ -82,7 +82,7 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "style-loader": "^0.13.1",
-    "stylelint": "^6.5.1",
+    "stylelint": "^6.6.0",
     "supports-color": "^3.1.2",
     "webpack": "^1.13.1"
   },
