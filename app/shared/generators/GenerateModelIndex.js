@@ -5,13 +5,12 @@ import { fileExists, readDir, writeFile } from '../FileSystem';
 const exportTpl = '\n\nexport const modelIndex = [@param];';
 const importTpl = 'import * as @paramModel from \'containers/@param/models\';';
 
-
 function generateImportLine(container){
   return importTpl.replace(/@param/g, container);
 }
 
 function generateExportLine(modelExports){
-  return exportTpl.replace('@param',modelExports);
+  return exportTpl.replace('@param', modelExports);
 }
 
 function generateModelIndex(containersPath, modelFilePath){
@@ -31,7 +30,7 @@ function generateModelIndex(containersPath, modelFilePath){
   const result = writeFile(modelFilePath, content);
 
   if(result){
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Model index generated correctly!');
+    console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
   } else {
     console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
   }
