@@ -10,7 +10,7 @@ export const devContext = path.resolve(__dirname, '../app');
 export const devPlugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.DedupePlugin(),
-  new ExtractTextPlugin('bundle.css'),
+  new ExtractTextPlugin('bundle.css', { allChunks: true }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
   function(){
@@ -30,5 +30,5 @@ export const devEntries = [
 
 export const devLoaders = [
   { test: [/\.js$/, /\.jsx$/],loader: 'babel-loader',exclude: /node_modules/,include: mainPath, query: { presets: ["react-hmre", "es2015", "stage-0", "react"] }},
-  { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader')}
+  { test: /\.css/, loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader'}
 ];
