@@ -5,7 +5,7 @@ import React, { Component, PropTypes } from 'react';
 
 import styles from './styles';
 import Logo from 'components/Logo';
-import * as LogoActions from './actions';
+import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
@@ -15,15 +15,15 @@ const propTypes = {
 
 export class Main extends Component {
 
-  static requiredActions = [LogoActions.getLogo];
+  static requiredActions = [Actions.getLogo];
 
   constructor (props) {
     super(props);
-    this.actions = bindActionCreators(LogoActions, props.dispatch);
+    this.actions = bindActionCreators(Actions, props.dispatch);
   }
 
   componentDidMount() {
-    fetchRequiredActions(Logo.requiredActions, this.props, 'Main');
+    fetchRequiredActions(Main.requiredActions, this.props, 'Main');
   }
 
   render () {
