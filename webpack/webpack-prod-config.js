@@ -10,6 +10,7 @@ export const prodContext = path.resolve(__dirname, '../app');
 
 export const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
   new copyWebpackPlugin([{ from: '../app/assets', to: 'assets' }]),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: true }}),
@@ -27,13 +28,13 @@ export const prodPlugins = [
 export const prodEntries = {
   app: clientPath,
   common: [
+    'immutable',
+    'isomorphic-fetch',
     'react',
-    'redux',
     'react-dom',
     'react-redux',
     'react-router',
-    'isomorphic-fetch',
-    'immutable'
+    'redux'
   ]
 };
 

@@ -8,8 +8,7 @@ const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
 export const devContext = path.resolve(__dirname, '../app');
 
 export const devPlugins = [
-  new webpack.NoErrorsPlugin(),
-  new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.OccurenceOrderPlugin(),
   new ExtractTextPlugin('bundle.css', { allChunks: true }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
