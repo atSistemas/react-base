@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
 
-import Result from './components/Result';
+import Display from './components/Display';
 import ButtonPannel from './components/ButtonPannel';
 import styles from './styles.css';
 
@@ -15,10 +15,9 @@ export class Calculator extends Component {
   }
 
   render () {
-    let data = this.props.Calculator;
     return (
       <div className={ styles.Calculator }>
-        <Result result={ data }/>
+        <Display />
         <ButtonPannel />
       </div>
     );

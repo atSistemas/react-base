@@ -20,9 +20,9 @@ export function inputNumber(value){
   };
 }
 
-export function inputOperation(operation) {
+export function inputOperator(operator) {
   return {
-    type: Types.INPUT_OPEATION,
-    operation
+    type: Types.INPUT_OPERATOR,
+    operator
   };
 }

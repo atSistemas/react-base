@@ -2,8 +2,11 @@ import { Record, Map } from 'immutable';
 import { generateImmutable } from 'shared/ModelHelper';
 
 const CalculatorModel = new Record({
-  currentInput:'',
-  currentOperation:'',
+  display:0,
+  operator:0,
+  prevValue: 0,
+  nextValue: 0,
+  resetDisplay: false,
   history: [],
 });
 

@@ -1,12 +1,12 @@
 import { typeBuilder } from 'shared/TypeHelper';
 
 export default typeBuilder([
+  'SUM',
   'UNDO',
+  'DIVIDE',
+  'MULTIPLY',
+  'SUBSTRACT',
   'CALCULATE',
   'INPUT_NUMBER',
-  'CALCULATOR_ADD',
-  'INPUT_OPEATION',
-  'CALCULATOR_DIVIDE',
-  'CALCULATOR_MULTIPLY',
-  'CALCULATOR_SUBSTRACT',
+  'INPUT_OPERATOR'
 ]);

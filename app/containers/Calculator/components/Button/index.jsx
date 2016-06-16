@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
 const propTypes= {
+  type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
-const Button = ({ value, onClick }) => {
+const Button = ({ type, value, onClick }) => {
 
   let style;
-  if(value === '=') style = styles.ButtonEqual;
-  if(value === '0') style = styles.Button0;
+  if(type !== 'number') style = styles.ButtonOperate;
   else style = styles.Button;
 
   return (
