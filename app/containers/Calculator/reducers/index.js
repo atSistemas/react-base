@@ -1,15 +1,21 @@
 import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
-import { CalculatorCollection } from '../models';
+import { CalculatorModel } from '../models';
 
 function undo( state ) { return state; }
 
-function calculate( state ) { return state; }
+function calculate( state, action ) { return state; }
 
-function inputNumber( state ) { return state; }
+function inputNumber( state, data ) {
+  const current = state.get('currentInput');
+  const selected = data.value;
+  //FIXME
+  const next =  current + '' + selected;
+  return state.update ( 'currentInput', () => next );
+}
 
 function inputOperation( state, action ) {
-  return state.update ( 'data', () => action.result );
+  return state.update ( 'currentOperation', () => action.result );
 }
 
 const actionHandlers = {
@@ -19,4 +25,4 @@ const actionHandlers = {
   [Types.INPUT_OPERATION]: inputOperation
 };
 
-export default CreateReducer(actionHandlers, new CalculatorCollection());
+export default CreateReducer(actionHandlers, new CalculatorModel());

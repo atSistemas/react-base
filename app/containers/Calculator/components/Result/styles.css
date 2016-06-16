@@ -1,0 +1,13 @@
+.Result{
+    display: flex;
+    padding-top: 40px;
+    flex: 2;
+    flex-direction: column;
+    background-color: #e3e7e9;
+    font-size: 30px;
+    box-shadow: inset 1px 1px 0 0 #e3e7e9;
+    text-align: right;
+    padding: 0px 30px;
+    line-height: 60px;
+    width:220px;
+}

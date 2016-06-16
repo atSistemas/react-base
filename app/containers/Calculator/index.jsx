@@ -1,12 +1,11 @@
-import Immutable from 'immutable';
 import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
 
+import Result from './components/Result';
 import ButtonPannel from './components/ButtonPannel';
 import styles from './styles.css';
 
 const propTypes = {
-  Calculator: React.PropTypes.instanceOf(Immutable.Record)
 };
 
 export class Calculator extends Component {
@@ -14,15 +13,16 @@ export class Calculator extends Component {
   constructor (props) {
     super(props);
   }
-  //className={ styles.Calculator }>
+
   render () {
+    let data = this.props.Calculator;
     return (
-      <div>
+      <div className={ styles.Calculator }>
+        <Result result={ data }/>
         <ButtonPannel />
       </div>
     );
   }
-
 }
 
 Calculator.propTypes = propTypes;
