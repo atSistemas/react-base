@@ -2,7 +2,6 @@ import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
 import { CalculatorModel } from '../models';
 
-
 function inputOperator(state, action){
   return state
   .set('operator', action.operator)
