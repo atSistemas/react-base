@@ -1,17 +1,18 @@
 import React, { PropTypes } from 'react';
-import styles from './styles.css';
+
+const propTypes= {
+  name: PropTypes.string.isRequired
+};
 
 const <%= name %> = ({ name }) => {
 
   return (
-    <div className={ styles.<%= name %>  }>
+    <div>
       Hello { name } Container !
     </div>
   );
 };
 
-<%= name %>.propTypes= {
-  name: PropTypes.string.isRequired
-};
+<%= name %>.propTypes = propTypes;
 
 export default <%= name %>;

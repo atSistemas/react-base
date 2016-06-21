@@ -29,7 +29,7 @@ function setup() {
 
   let props = {
     dispatch: dispatch,
-    <%= name %>: setInitialState(initialState)
+    <%= name %>Model: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();

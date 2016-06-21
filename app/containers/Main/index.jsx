@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
-import styles from './styles';
+import styles from './styles.css';
 import Logo from 'components/Logo';
 import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  Main: React.PropTypes.instanceOf(Immutable.Record)
+  MainModel: React.PropTypes.instanceOf(Immutable.Record)
 };
 
 export class Main extends Component {
@@ -23,13 +23,12 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(Main.requiredActions, this.props, 'Main');
+    fetchRequiredActions(Main.requiredActions, this.props, 'MainModel');
   }
 
   render () {
-
-    const Main = this.props.Main;
-    const logoList = Main.data.valueSeq().map( logo => {
+    const MainModel = this.props.MainModel;
+    const logoList = MainModel.data.valueSeq().map( logo => {
 
       return (<Logo
         logo={ logo }
@@ -51,5 +50,5 @@ Main.propTypes = propTypes;
 
 
 export default connect(
-  (state) => ({ Main: state.Main })
+  (state) => ({ MainModel: state.Main })
 )(Main);
