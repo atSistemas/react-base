@@ -1,103 +1,81 @@
+.ButtonCommon{
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 30px;
+  text-align: center;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink:0;
+  flex-basis: 25%;
+  height: 70px;
+  font-family: Arial;
+  outline:none;
+}
+.CommonAnimate{
+  animation: doClick .5s ease-out 0s 1 alternate forwards;
+}
 .Button {
-            cursor: pointer;
-            position: relative;
-            margin: 0;
-            padding: 0;
-            box-shadow: inset 1px 1px 0 0 #e3e7e9;
-            border: none;
-            background-color: #fafafa;
-            font-size: 30px;
-            text-align: center;
-            color: #979ca4;
-            overflow: hidden;
-            width: 70px;
-            height: 70px;
-            &:before {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background: #aaa;
-                opacity: 0;
-            }
-            &.clicked:before {
-                animation: doClick .5s ease-out 0s 1 alternate forwards;
-            }
-            &.button-equal {
-                color: #fff;
-                background-color: #fa722e;
-            }
-            &:focus{
-                outline: none;
-            }
-        }
+  composes: ButtonCommon;
+  box-shadow: inset 1px 1px 0 0 #e3e7e9;
+  background-color: #fafafa;
+  color: #979ca4;
+  /*
+  &:focus{
+    color:#ADB2BA;
+    box-shadow: inset 1px 1px 0 0 #BCC0C2;
+  }*/
+}
 
+.ButtonClicked{
+  composes: ButtonCommon;
+  background-color: #fafafa;
+  color: #979ca4;
+}
 
-        @keyframes doClick {
-          0% {
-              transform: scale(1);
-              opacity: .7;
-          }
-          100% {
-              transform: scale(3);
-              opacity: 0;
-          }
-        }
+.ButtonOperate{
+  composes: ButtonCommon;
+  flex-basis: calc(25% - 1px);
+  box-sizing: border-box;
+  margin: 1px 0 0 1px;
+  background-color: #fa722e;
+  border-top: 1px solid #fa722e;
+  border-left: 1px solid #fa722e;
+  color: #fff;
+  /*
+  &:focus{
+    color:#EBEBEB;
+    border-top: 1px solid #BD490F;
+    border-left: 1px solid #BD490F;
+  }*/
+}
 
-        .ButtonOperate {
-                    cursor: pointer;
-                    position: relative;
-                    margin: 0;
-                    padding: 0;
-                    box-shadow: inset 1px 1px 0 0 #e3e7e9;
-                    border: none;
-                    background-color: #fa722e;
-                    font-size: 30px;
-                    text-align: center;
-                    color: #fff;
-                    overflow: hidden;
-                    width: 70px;
-                    height: 70px;
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        top: 0;
-                        bottom: 0;
-                        margin: auto;
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        background: #aaa;
-                        opacity: 0;
-                    }
-                    &.clicked:before {
-                        animation: doClick .5s ease-out 0s 1 alternate forwards;
-                    }
-                    &.button-equal {
-                        color: #fff;
-                        background-color: #fa722e;
-                    }
-                    &:focus{
-                        outline: none;
-                    }
-                }
+.ButtonOperateClicked{
+  composes: ButtonCommon;
+  background-color: #fa722e;
+  color: #fff;
+}
 
+.ButtonZero{
+  composes: ButtonCommon;
+  flex-grow: 2;
+  flex-basis: 50%;
+  box-shadow: inset 1px 1px 0 0 #e3e7e9;
+  background-color: #fafafa;
+  color: #979ca4;
+  /*
+  &:focus{
+    color:#ADB2BA;
+    box-shadow: inset 1px 1px 0 0 #BCC0C2;
 
-                @keyframes doClick {
-                  0% {
-                      transform: scale(1);
-                      opacity: .7;
-                  }
-                  100% {
-                      transform: scale(3);
-                      opacity: 0;
-                  }
-                }
+  }*/
+}
+
+.ink {
+	display: block; position: absolute;
+	background: hsl(180, 40%, 80%);
+	border-radius: 100%;
+	transform: scale(0);
+}

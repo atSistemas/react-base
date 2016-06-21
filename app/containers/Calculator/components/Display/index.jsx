@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
+import { Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 
 import styles from './styles.css';
 
-export class Display extends Component {
+const propTypes = {
+  Calculator: PropTypes.instanceOf(Record)
+};
 
-  constructor (props) {
-    super(props);
-  }
+export class Display extends Component {
 
   render () {
     const display = this.props.Calculator.display;
@@ -18,6 +19,7 @@ export class Display extends Component {
     );
   }}
 
+Display.propTypes = propTypes;
 
 export default connect(
   (state) => ({ Calculator: state.Calculator })

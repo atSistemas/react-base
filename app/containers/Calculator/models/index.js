@@ -1,5 +1,4 @@
-import { Record, Map } from 'immutable';
-import { generateImmutable } from 'shared/ModelHelper';
+import { Record } from 'immutable';
 
 const CalculatorModel = new Record({
   display:0,

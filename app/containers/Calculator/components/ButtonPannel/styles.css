@@ -15,3 +15,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.clicked{
+    animation: doClick .5s ease-out 0s 1 alternate forwards;
+}
+
+@keyframes doClick {
+  0% {
+      transform: scale(1);
+      opacity: .7;
+  }
+  100% {
+      transform: scale(3);
+      opacity: 0;
+  }
+}

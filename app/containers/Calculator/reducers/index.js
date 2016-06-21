@@ -12,16 +12,37 @@ function calculate( state) {
   const operator = state.get('operator');
   const prevValue = state.get('prevValue');
   const nextValue = state.get('nextValue');
+  let result = '';
 
   switch(operator){
     case Types.SUM:
-      return state.set('display', prevValue + nextValue);
+      result = prevValue + nextValue;
+      return state
+        .set('display', result)
+        .set('nextValue', 0)
+        .set('prevValue', result);
+
     case Types.SUBSTRACT:
-      return state.set('display', prevValue - nextValue);
+      result = prevValue - nextValue;
+      return state
+        .set('display', result)
+        .set('nextValue', 0)
+        .set('prevValue', result);
+
     case Types.MULTIPLY:
-      return state.set('display', prevValue * nextValue);
+      result = prevValue * nextValue;
+      return state
+        .set('display', result)
+        .set('nextValue', 0)
+        .set('prevValue', result);
+
     case Types.DIVIDE:
-      return state.set('display', prevValue / nextValue);
+      result = prevValue / nextValue;
+      return state
+        .set('display', result)
+        .set('nextValue', 0)
+        .set('prevValue', result);
+
   }
 }
 

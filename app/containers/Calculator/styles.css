@@ -1,25 +1,18 @@
-@import '../../styles/base.css';
-
-.calculator {
+html, body{
+  height:100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body{
+  padding-top: calc(50% - 750px);
+  overflow: hidden;
+}
+
+.Calculator {
+  width: 300px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-  .text-center {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.column {
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
