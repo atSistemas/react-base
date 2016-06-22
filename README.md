@@ -2,10 +2,13 @@
 
 # React-Base
 
+
 ![Build-Status](https://travis-ci.org/atSistemas/react-base.svg?branch=master)
 ![Coverage](https://coveralls.io/repos/github/atSistemas/react-base/badge.svg?branch=master)
 ![Dependencies](https://david-dm.org/atSistemas/react-base.svg)
 ![Dev-dependencies](https://david-dm.org/atSistemas/react-base/dev-status.svg)
+![Npm-Version](https://img.shields.io/badge/npm-v6.1.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 
 **A modular platform for Redux Isomorphic applications**
 
@@ -14,6 +17,26 @@ You can use it to quickly scaffold your React web application projects and devel
 
 This seed should clarify how to wire up all the modules of your application, even when we understand that in some cases
 there must be some changes needed by the structure to fit your needs correctly
+
+## Overview
+
+**React-Base** makes use of the latest tools to improve your workflow, and enables you to create future ready applications:
+
+- Redux Based Architecture
+- Isomorphic / Universal Javascript Apps
+- Separate build configurations depending on target environment
+- [Webpack](https://webpack.github.io/) for the build toolchain  
+- Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
+- JSX and ES6 transpilation using [Babel](https://babeljs.io/)
+- Hot Reload support for Js & Css
+- [PostCSS](http://postcss.org/) processing with isomorphic support.
+- CSS Vars using [Cssnext](http://cssnext.io/)
+- Persistent data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
+- [Mocha](https://mochajs.org/) for unit testing
+- [nyc](https://github.com/bcoe/nyc) for code coverage
+- Code Linting using [Eslint](https://github.com/eslint/eslint)
+- Css Linting using [CssLint](https://github.com/stylelint/stylelint)
+- [Airbnb](https://github.com/airbnb/javascript/tree/master/react) React Style Guide
 
 ## Getting Started
 
@@ -61,26 +84,6 @@ Run `npm test` to perform your unit testing, or `npm test:coverage` to run your 
 ### Building your application
 
 `npm run build` will create a minified version for your application, ready for production.
-
-## Overview
-
-**React-Base** makes use of the latest tools to improve your workflow, and enables you to create future ready applications:
-
-- Redux Based Architecture
-- Isomorphic / Universal Javascript Apps
-- Separate build configurations depending on target environment
-- [Webpack](https://webpack.github.io/) for the build toolchain  
-- Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
-- JSX and ES6 transpilation using [Babel](https://babeljs.io/)
-- Hot Reload support
-- [PostCSS](http://postcss.org/) processing with isomorphic support.
-- CSS Vars using [Cssnext](http://cssnext.io/)
-- Persistent data handling using [ImmutableJS](https://facebook.github.io/immutable-js/)
-- [Mocha](https://mochajs.org/) for unit testing
-- [nyc](https://github.com/bcoe/nyc)) for code coverage
-- Code Linting using [Eslint](https://github.com/eslint/eslint)
-- Css Linting using [CssLint](https://github.com/stylelint/stylelint)
-- [Airbnb](https://github.com/airbnb/javascript/tree/master/react) React Style Guide
 
 
 ## Contributing
