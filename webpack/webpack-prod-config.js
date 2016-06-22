@@ -6,16 +6,18 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const mainPath = path.resolve(__dirname, '..');
 const clientPath = path.resolve(__dirname, '..', 'app','client/');
 
+export const prodTool = 'cheap-module-source-map';
+
 export const prodContext = path.resolve(__dirname, '../app');
 
 export const prodPlugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextPlugin('bundle.css'),
   new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
   new copyWebpackPlugin([{ from: '../app/assets', to: 'assets' }]),
-  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: true }}),
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
-  new ExtractTextPlugin('bundle.css'),
+  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   function(){
     this.plugin("done", function(stats){
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){

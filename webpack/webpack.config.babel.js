@@ -6,7 +6,7 @@ const buildPath = path.resolve(__dirname, '..', 'dist');
 
 const webpackConfig = {
 
-  devtool: 'eval',
+  devtool: envConfig.devTool,
 
   entry: envConfig.entries,
 
