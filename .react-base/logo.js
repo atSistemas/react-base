@@ -7,5 +7,4 @@ const logo = () => {
   console.log(fs.readFileSync(dir, 'utf-8'));
 };
 
-let args = process.argv.slice(2);
-require.main === module ? logo(...args) : module.exports = logo;
+require.main === module ? logo() : module.exports = logo;

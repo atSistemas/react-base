@@ -6,6 +6,9 @@ const Mocha = require('mocha'),
 
 const test = (patterns, dependencies) => {
 
+  patterns = patterns ? patterns : ["**/*.spec.js"];
+  dependencies = dependencies ? dependencies : ['babel-register', 'ignore-styles'];
+
   dependencies.forEach((dependency) => require(dependency));
 
   const mocha = new Mocha({

@@ -25,7 +25,7 @@ const build = (method) => {
     case methods.BUILD:
       break;
     case methods.TEST:
-      test("**/*.spec.js", ['babel-register', 'ignore-styles']);
+      test("**/*.spec.js");
       break;
     case methods.START:
       break;
