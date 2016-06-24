@@ -32,12 +32,12 @@
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
-    "postinstall": "npm run yo && npm run test:coverage",
+    "postinstall": "npm run logo && npm run test:coverage",
     "postYeomanGenerator": "npm run regenerate && npm run start",
-    "yo": "npm run logo && npm link .react-base/generator-react-base",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
+		"generator-react-base": "file:.react-base/generator-react-base",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
