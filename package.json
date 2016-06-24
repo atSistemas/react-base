@@ -131,5 +131,8 @@
     "starterKit",
     "Webpack"
   ],
+	"bin": {
+			"base": ".react-base/index.js"
+	},
   "license": "MIT"
 }
