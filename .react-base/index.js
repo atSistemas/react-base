@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 'use strict';
-
+require('babel-core/register');
 const logo = require('./logo');
 const methods = require('./methods');
 const baseConsole = require('./console-helper');
