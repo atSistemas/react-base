@@ -15,7 +15,7 @@
   ],
   "main": "client/client.js",
   "scripts": {
-    "logo": "node ./app/conf/.react-base/logo.js",
+    "logo": "node .react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "generate": "npm run logo && yo react-base",
     "generate:component": "npm run logo && yo react-base --option=2",
@@ -32,9 +32,9 @@
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
-    "postinstall": "npm run yo && npm run test:coverage",
+    "postinstall": "npm link && npm run yo && npm run test:coverage",
     "postYeomanGenerator": "npm run regenerate && npm run start",
-    "yo": "npm run logo && npm link app/conf/.react-base/templates/generator-react-base",
+    "yo": "npm run logo && npm link && npm link .react-base/generator-react-base",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
@@ -96,6 +96,7 @@
     "eslint-loader": "^1.3.0",
     "file-loader": "^0.9.0",
     "generator-webapp": "^2.1.0",
+    "glob-all": "^3.0.3",
     "install": "^0.8.1",
     "normalize.css": "^4.1.1",
     "postcss-url": "^5.1.2",
