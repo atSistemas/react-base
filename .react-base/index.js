@@ -2,12 +2,14 @@
 
 'use strict';
 require('babel-core/register');
+
 const logo = require('./logo');
 const methods = require('./methods');
 const baseConsole = require('./console-helper');
 const test = require('./test');
+const build = require('./build');
 
-const build = (method) => {
+const index = (method) => {
 
   baseConsole.clear();
 
@@ -23,9 +25,10 @@ const build = (method) => {
     case methods.LINT:
       break;
     case methods.BUILD:
+      build();
       break;
     case methods.TEST:
-      test("**/*.spec.js");
+      test();
       break;
     case methods.START:
       break;
@@ -34,4 +37,4 @@ const build = (method) => {
 };
 
 let args = process.argv.slice(2);
-require.main === module ? build(...args) : module.exports = build;
+require.main === module ? index(...args) : module.exports = build;
