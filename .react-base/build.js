@@ -1,17 +1,16 @@
 'use strict';
-const webpack = require('webpack'),
-  babel = require('babel-core'),
-  consoleHelper = require('./console-helper'),
-  path = require('path');
 
-//cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js
+require('babel-core/register');
+
+const webpack = require('webpack'),
+  consoleHelper = require('./console-helper');
 
 const build = (env) => {
 
   process.env.NODE_ENV = env || 'production';
+
   // returns a Compiler instance
-  //console.log(babel.transformFileSync('./webpack/webpack.config.babel.js', {}).code);
-  let compiler = webpack(babel.transformFileSync('./webpack/webpack.config.babel.js', {}));
+  let compiler = webpack(require('../webpack/webpack.config.babel.js'));
 
   compiler.run((err, stats) => {
     if (err) {
