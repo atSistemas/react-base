@@ -32,9 +32,9 @@
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
-    "postinstall": "npm link && npm run yo && npm run test:coverage",
+    "postinstall": "npm run yo && npm run test:coverage",
     "postYeomanGenerator": "npm run regenerate && npm run start",
-    "yo": "npm run logo && npm link && npm link .react-base/generator-react-base",
+    "yo": "npm run logo && npm link .react-base/generator-react-base",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
@@ -132,8 +132,8 @@
     "starterKit",
     "Webpack"
   ],
-	"bin": {
-			"base": ".react-base/index.js"
-	},
+  "bin": {
+    "base": ".react-base/index.js"
+  },
   "license": "MIT"
 }
