@@ -30,7 +30,7 @@ function RegenerateReducerIndex(containersPath, reducerFilePath ){
   const content = reducerImports + RegenerateExportLine(reducerExports);
 
   try{
-    const result = writeFile(reducerFilePath, content);
+    writeFile(reducerFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
     return true;
   } catch(e){

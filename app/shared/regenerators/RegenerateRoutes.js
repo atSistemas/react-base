@@ -24,14 +24,14 @@ function RegenerateRoutes(){
   let content = routesImports + newRoutes + routesExports;
 
   try{
-    const result = writeFile(routerPath, content);
+    writeFile(routerPath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
     return true;
   } catch(e){
     console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
     return false;
-    }
   }
+}
 
 function generateRoutes(newRoutes){
   return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';

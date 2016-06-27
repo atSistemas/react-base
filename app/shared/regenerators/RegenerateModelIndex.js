@@ -29,7 +29,7 @@ function RegenerateModelIndex(containersPath, modelFilePath){
   const content = modelImports + RegenerateExportLine(modelExports);
 
   try{
-    const result = writeFile(modelFilePath, content);
+    writeFile(modelFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
     return true;
   } catch(e){
