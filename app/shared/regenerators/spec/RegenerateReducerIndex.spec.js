@@ -1,16 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import expect from 'expect';
-import { RegenerateImportLine, RegenerateExportLine, getContainerModels, RegenerateModelIndex } from '../GenerateModelIndex';
+import { RegenerateImportLine, RegenerateExportLine, getContainerReducers, RegenerateReducerIndex } from '../RegenerateReducerIndex';
 
-describe('shared / Generators / GenerateModelIndex', () => {
+describe('shared / Generators / RegenerateReducerIndex', () => {
 
   describe('RegenerateImportLine', () => {
 
-    it('Sould return the import line of a model', () => {
+    it('Sould return the import line of a reducer', () => {
 
       const procesedImport = RegenerateImportLine('Main');
-      const expectedImport = 'import * as MainModel from \'containers/Main/models\';';
+      const expectedImport = 'import Main from \'containers/Main/reducers\';';
 
       expect(procesedImport).toEqual(expectedImport);
 
@@ -22,7 +22,7 @@ describe('shared / Generators / GenerateModelIndex', () => {
     it('Sould return the export line for models', () => {
 
       const procesedExport = RegenerateExportLine('Main');
-      const expectedExport = '\n\nexport const modelIndex = [Main];';
+      const expectedExport = '\n\nexport default combineReducers({\nMain\n});';
 
       expect(procesedExport).toEqual(expectedExport);
 
@@ -32,17 +32,17 @@ describe('shared / Generators / GenerateModelIndex', () => {
 
   describe('getContainerModels', () => {
 
-    it('Sould return an object with avaiable models', () => {
+    it('Sould return an object with avaiable reducers for import', () => {
 
       const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
-      const result = getContainerModels(containersPath);
+      const result = getContainerReducers(containersPath);
 
       const containers = fs.readdirSync(containersPath);
       const expectedResult = containers.map(function(container){
 
-        let modelPath = path.resolve(containersPath, container, 'models','index.js');
+        let reducerPath = path.resolve(containersPath, container, 'reducers','index.js');
         try{
-          fs.accessSync(modelPath);
+          fs.accessSync(reducerPath);
           return { name:container, import: RegenerateImportLine(container)};
         }catch(e){
           return { name: container, import: null };
