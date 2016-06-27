@@ -1,5 +1,5 @@
-import { devTool, devContext, devPlugins, devEntries, devLoaders } from './webpack-dev-config';
-import { prodTool, prodContext, prodPlugins, prodEntries, prodLoaders } from './webpack-prod-config';
+import { devTool, devContext, devPlugins, devEntries, devLoaders, devPostCss } from './webpack-dev-config';
+import { prodTool, prodContext, prodPlugins, prodEntries, prodLoaders, prodPostCss } from './webpack-prod-config';
 import ENV from '../app/shared/Env';
 
 export default function getEnvConfig(){
@@ -8,6 +8,7 @@ export default function getEnvConfig(){
     context : (ENV === 'development') ? devContext : prodContext,
     plugins : (ENV === 'development') ? devPlugins : prodPlugins,
     entries : (ENV === 'development') ? devEntries : prodEntries,
-    loaders : (ENV === 'development') ? devLoaders : prodLoaders
+    loaders : (ENV === 'development') ? devLoaders : prodLoaders,
+    postCss : (ENV === 'development') ? devPostCss : prodPostCss
   };
 }

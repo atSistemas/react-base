@@ -33,3 +33,12 @@ export const devLoaders = [
   { test: [/\.js$/, /\.jsx$/],loader: 'babel-loader',exclude: /node_modules/,include: mainPath, query: { presets: ["react-hmre", "es2015", "stage-0", "react"] }},
   { test: /\.css$/, loader: 'style-loader!css-loader?modules=true&sourceMap&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader'}
 ];
+
+export const devPostCss = function (webpack) {
+  return [
+    require("postcss-import")({ addDependencyTo: webpack }),
+    require("postcss-url")(),
+    require("postcss-cssnext")(),
+    require("postcss-reporter")()
+  ];
+};

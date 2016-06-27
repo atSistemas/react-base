@@ -14,6 +14,8 @@ const webpackConfig = {
 
   plugins: envConfig.plugins,
 
+  postcss: envConfig.postCss,
+
   module: {
     loaders: envConfig.loaders
   },
@@ -33,16 +35,8 @@ const webpackConfig = {
       'shared': path.resolve(__dirname, '../app/shared'),
       'store': path.resolve(__dirname, '../app/store')
     }
-  },
-
-  postcss: function (webpack) {
-    return [
-      require("postcss-import")({ addDependencyTo: webpack }),
-      require("postcss-url")(),
-      require("postcss-cssnext")(),
-      require("postcss-reporter")()
-    ];
   }
+
 };
 
 module.exports = webpackConfig;
