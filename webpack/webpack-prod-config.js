@@ -46,7 +46,6 @@ export const prodLoaders = [
 ];
 
 export const prodPostCss = function (webpack) {
-  console.log(888888)
   return [
     require("postcss-import")({ addDependencyTo: webpack }),
     require("postcss-url")(),
