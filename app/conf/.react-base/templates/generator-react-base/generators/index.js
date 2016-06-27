@@ -26,13 +26,13 @@ var typesDocument = {
     nameType: 'api'
   }, 
   component:{
-    folder: '/component/',
+    folder: '/components/',
     template: '_component.js',  
     nameFile: '/index.jsx',
     nameType: 'component'
   }, 
   component_spec:{
-    folder: '/component/spec/',
+    folder: '/components/spec/',
     template: '_component.spec.js',  
     nameFile: '.component.spec.js',
     nameType: 'component_spec'
@@ -68,7 +68,7 @@ var typesDocument = {
     nameType: 'reducer_spec'
   }, 
   styles:{
-    folder: '/component/',
+    folder: '/',
     template: '_styles.css',
     nameFile: '/styles.css',
     nameType: 'styles'
