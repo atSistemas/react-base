@@ -27,12 +27,15 @@ function RegenerateReducerIndex(containersPath, reducerFilePath ){
     }
   });
 
-  let content = reducerImports + RegenerateExportLine(reducerExports);
-  let result = writeFile(reducerFilePath, content);
-  if(result){
+  const content = reducerImports + RegenerateExportLine(reducerExports);
+
+  try{
+    const result = writeFile(reducerFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' Can\'t regenerate Reducer Index! : ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
   }
 }
 

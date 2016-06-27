@@ -27,14 +27,15 @@ function RegenerateModelIndex(containersPath, modelFilePath){
   });
 
   const content = modelImports + RegenerateExportLine(modelExports);
-  const result = writeFile(modelFilePath, content);
 
-  if(result){
+  try{
+    const result = writeFile(modelFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' Can\'t regenerate Model Index! : ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
   }
-
 }
 
 function getContainerModels(containersPath){

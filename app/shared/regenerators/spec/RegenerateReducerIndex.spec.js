@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import expect from 'expect';
+import { fileExists, writeFile } from '../../FileSystem';
 import { RegenerateImportLine, RegenerateExportLine, getContainerReducers, RegenerateReducerIndex } from '../RegenerateReducerIndex';
 
 describe('shared / Generators / RegenerateReducerIndex', () => {
@@ -50,6 +51,20 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
       });
 
       expect(result).toEqual(expectedResult);
+
+    });
+  });
+
+  describe('RegenerateReducerIndex', () => {
+
+    it('Sould write the reducer index file', () => {
+      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const fakeReducerPath = path.resolve(__dirname, 'fake.js');
+      const result = RegenerateReducerIndex(containersPath, fakeReducerPath);
+
+      expect(result).toEqual(true);
+      expect(fileExists(fakeReducerPath)).toEqual(true);
+      fs.unlink(fakeReducerPath);
 
     });
   });

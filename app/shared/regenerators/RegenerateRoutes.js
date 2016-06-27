@@ -22,13 +22,16 @@ function RegenerateRoutes(){
   newRoutes = generateRoutes(newRoutes);
   routesExports = generateRoutesExport(routesExports);
   let content = routesImports + newRoutes + routesExports;
-  let result = writeFile(routerPath, content);
-  if(result){
+
+  try{
+    const result = writeFile(routerPath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' Can\'t regenerate Routes! : ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
+    }
   }
-}
 
 function generateRoutes(newRoutes){
   return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';

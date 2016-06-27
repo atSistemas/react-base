@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import expect from 'expect';
+import { fileExists, writeFile } from '../../FileSystem';
 import { RegenerateImportLine, RegenerateExportLine, getContainerModels, RegenerateModelIndex } from '../RegenerateModelIndex';
 
-describe('shared / Generators / RegenerateModelIndex', () => {
+describe('shared / Regenerators / RegenerateModelIndex', () => {
 
   describe('RegenerateImportLine', () => {
 
@@ -50,6 +51,21 @@ describe('shared / Generators / RegenerateModelIndex', () => {
       });
 
       expect(result).toEqual(expectedResult);
+
+    });
+  });
+
+
+  describe('RegenerateModelIndex', () => {
+
+    it('Sould write the model index file', () => {
+      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const fakeModelPath = path.resolve(__dirname, 'fake.js');
+      const result = RegenerateModelIndex(containersPath, fakeModelPath);
+
+      expect(result).toEqual(true);
+      expect(fileExists(fakeModelPath)).toEqual(true);
+      fs.unlink(fakeModelPath);
 
     });
   });
