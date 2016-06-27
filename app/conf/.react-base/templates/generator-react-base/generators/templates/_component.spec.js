@@ -21,10 +21,10 @@ function setup() {
 
 describe('components', () => {
   describe('<%= name %> component', () => {
-    it('should render correctly', () => {
+   /* it('should render correctly', () => {
       const { output, renderer } = setup();
 
       expect(output.type).toBe('div');
-    });
+    });*/
   });
 });
