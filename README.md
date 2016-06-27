@@ -7,7 +7,7 @@
 ![Coverage](https://coveralls.io/repos/github/atSistemas/react-base/badge.svg?branch=master)
 ![Dependencies](https://david-dm.org/atSistemas/react-base.svg)
 ![Dev-dependencies](https://david-dm.org/atSistemas/react-base/dev-status.svg)
-![Npm-Version](https://img.shields.io/badge/npm-v6.1.0-blue.svg)
+![Npm-Version](https://img.shields.io/badge/npm-v6.2.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 
 **A modular platform for Redux Isomorphic applications**
@@ -29,14 +29,16 @@ there must be some changes needed by the structure to fit your needs correctly
 - Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload support for Js & Css
-- [PostCSS](http://postcss.org/) processing with isomorphic support.
-- CSS Vars using [Cssnext](http://cssnext.io/)
+- Container and component generators using [Yeoman](https://github.com/yeoman/yo)
 - Persistent data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
 - [Mocha](https://mochajs.org/) for unit testing
 - [nyc](https://github.com/bcoe/nyc) for code coverage
+- [PostCSS](http://postcss.org/) processing with isomorphic support.
+- CSS Vars using [Cssnext](http://cssnext.io/)
 - Code Linting using [Eslint](https://github.com/eslint/eslint)
 - Css Linting using [CssLint](https://github.com/stylelint/stylelint)
 - [Airbnb](https://github.com/airbnb/javascript/tree/master/react) React Style Guide
+
 
 ## Getting Started
 
