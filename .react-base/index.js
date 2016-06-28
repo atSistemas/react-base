@@ -9,6 +9,7 @@ const methods = require('./methods');
 const baseConsole = require('./console-helper');
 const test = require('./test');
 const build = require('./build');
+const lint = require('./lint');
 const start = require('./start');
 
 const index = (method, param1) => {
@@ -25,6 +26,7 @@ const index = (method, param1) => {
     case methods.REGENERATE:
       break;
     case methods.LINT:
+      lint(param1);
       break;
     case methods.BUILD:
       if (param1) {
