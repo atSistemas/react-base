@@ -7,29 +7,19 @@ const webpack = require('webpack'),
 
 const build = (env) => {
 
-  process.env.NODE_ENV = env || 'production';
+  process.env['NODE_ENV'] = env || process.env.NODE_ENV;
 
   // returns a Compiler instance
   let compiler = webpack(require('../webpack/webpack.config.babel.js'));
 
   compiler.run((err, stats) => {
     if (err) {
-      console.log(consoleHelper.error("application build failed:"));
+      console.log(consoleHelper.error("Application build failed:"));
       process.exit(err);
     }
     console.log(stats.toString({
       colors: true
     }));
-
-    /*generatePackage(env, function (err) {
-      if (!err) {
-        console.log(consoleHelper.success('application generated successfully.'));
-        process.exit(0);
-      } else {
-        process.exit(err);
-      }
-    });*/
-
   });
 };
 

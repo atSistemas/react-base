@@ -48,11 +48,11 @@ exports.line = function (str) {
 };
 
 exports.success = function (str) {
-  return exports.line(exports.color('success', exports.symbols.ok) + ' ' + str);
+  return exports.line(exports.color('success', exports.symbols.ok) + ' ' + '[BASE] ' + str);
 };
 
 exports.error = function (str) {
-  return exports.line(exports.color('error', exports.symbols.err + ' ' + str));
+  return exports.line(exports.color('error', exports.symbols.err + ' ' + '[BASE] ' + str));
 };
 
 exports.clear = function () {
