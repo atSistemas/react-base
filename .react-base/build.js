@@ -1,7 +1,5 @@
 'use strict';
 
-require('babel-core/register');
-
 const webpack = require('webpack'),
   consoleHelper = require('./console-helper');
 

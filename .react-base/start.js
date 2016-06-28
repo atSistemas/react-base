@@ -1,6 +1,4 @@
 //"start": "npm run logo && cross-env NODE_ENV=development node server/",
-require('babel-core/register');
-
 import consoleHelper from './console-helper';
 import childProcess from 'child_process';
 
