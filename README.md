@@ -4,7 +4,6 @@
 
 
 ![Build-Status](https://travis-ci.org/atSistemas/react-base.svg?branch=master)
-![WindowsBuild-Status](https://img.shields.io/appveyor/ci/pmagaz/react-base/master.svg?label=windows%20build)
 ![Coverage](https://coveralls.io/repos/github/atSistemas/react-base/badge.svg?branch=master)
 ![Dependencies](https://david-dm.org/atSistemas/react-base.svg)
 ![Dev-dependencies](https://david-dm.org/atSistemas/react-base/dev-status.svg)
