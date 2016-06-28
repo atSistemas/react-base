@@ -37,6 +37,7 @@ export const devLoaders = [
 export const devPostCss = function (webpack) {
   return [
     require("postcss-import")({ addDependencyTo: webpack }),
+    require('postcss-modules-extract-imports'),
     require("postcss-url")(),
     require("postcss-cssnext")(),
     require("postcss-reporter")()
