@@ -99,6 +99,7 @@
     "generator-webapp": "^2.1.0",
     "install": "^0.8.1",
     "normalize.css": "^4.1.1",
+    "postcss-modules-extract-imports": "^1.0.1",
     "postcss-url": "^5.1.2",
     "react-addons-test-utils": "~15.1.0",
     "webpack-dev-middleware": "^1.6.1",
