@@ -1,3 +1,4 @@
+import ReactBaseError from './Errors.js';
 import fetchTypes from '../types/FetchTypes';
 
 export function typeBuilder(types){
@@ -9,7 +10,7 @@ export function typeBuilder(types){
 }
 
 export function generateFetchTypes(initialType){
-  if(!initialType) throw new Error("[BASE] Missing fetch type. You should add your request types in your action file!");
+  if(!initialType) throw new ReactBaseError('Missing fetch type. You should add your request types in your action file!');
   const type = initialType.split('_')[0];
   const result = fetchTypes.reduce(function(acc, item){
     acc.push(type + '_' + item);
