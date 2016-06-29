@@ -34,7 +34,7 @@
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "postYeomanGenerator": "npm run regenerate && npm run start",
-    "postinstall": "npm run yo && npm run test:coverage"
+    "postinstall": "npm run test:coverage"
   },
   "dependencies": {
     "babel-cli": "^6.10.1",
