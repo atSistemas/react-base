@@ -6,34 +6,35 @@ const Mocha = require('mocha'),
 
 const test = (patterns, dependencies) => {
 
-  patterns = patterns ? patterns : ["**/*.spec.js"];
-  dependencies = dependencies ? dependencies : ['babel-register', 'ignore-styles'];
+  return new Promise((resolve, reject) => {
+    patterns = patterns ? patterns : ["**/*.spec.js"];
+    dependencies = dependencies ? dependencies : ['babel-register', 'ignore-styles'];
 
-  dependencies.forEach((dependency) => require(dependency));
+    dependencies.forEach((dependency) => require(dependency));
 
-  const mocha = new Mocha({
-    ui: 'bdd',
-    reporter: 'spec'
+    const mocha = new Mocha({
+      ui: 'bdd',
+      reporter: 'spec'
+    });
+
+    const files = glob.sync(patterns, {
+      nodir: true,
+      ignore: ['node_modules/**']
+    });
+
+    files.forEach(function (file) {
+      mocha.addFile(file);
+    });
+
+    mocha.run(function (failures) {
+      if (failures !== 0) {
+        console.log(consoleHelper.error(failures + " tests failed"));
+        reject(failures); // exit with non-zero status if there were failures
+      }
+      console.log(consoleHelper.success('All tests passed'));
+      resolve();
+    });
   });
-
-  const files = glob.sync(patterns, {
-    nodir: true,
-    ignore: ['node_modules/**']
-  });
-
-  files.forEach(function (file) {
-    mocha.addFile(file);
-  });
-
-  mocha.run(function (failures) {
-    if (failures !== 0) {
-      console.log(consoleHelper.error(failures + " tests failed"));
-      process.exit(failures); // exit with non-zero status if there were failures
-    }
-    console.log(consoleHelper.success('All tests passed'));
-    process.exit(0);
-  });
-
 };
 
 let args = process.argv.slice(2);
