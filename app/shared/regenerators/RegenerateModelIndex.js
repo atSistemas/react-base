@@ -5,15 +5,15 @@ import { fileExists, readDir, writeFile } from '../FileSystem';
 const exportTpl = '\n\nexport const modelIndex = [@param];';
 const importTpl = 'import * as @paramModel from \'containers/@param/models\';';
 
-function generateImportLine(container){
+function RegenerateImportLine(container){
   return importTpl.replace(/@param/g, container);
 }
 
-function generateExportLine(modelExports){
+function RegenerateExportLine(modelExports){
   return exportTpl.replace('@param', modelExports);
 }
 
-function generateModelIndex(containersPath, modelFilePath){
+function RegenerateModelIndex(containersPath, modelFilePath){
   let modelImports = '';
   let modelExports = '';
   const containerModels = getContainerModels(containersPath);
@@ -26,15 +26,16 @@ function generateModelIndex(containersPath, modelFilePath){
     }
   });
 
-  const content = modelImports + generateExportLine(modelExports);
-  const result = writeFile(modelFilePath, content);
+  const content = modelImports + RegenerateExportLine(modelExports);
 
-  if(result){
+  try{
+    writeFile(modelFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
   }
-
 }
 
 function getContainerModels(containersPath){
@@ -42,14 +43,14 @@ function getContainerModels(containersPath){
   return containers.map(function(container){
     let modelPath = path.resolve(containersPath, container, 'models','index.js');
     if(fileExists(modelPath)){
-      return { name:container, import: generateImportLine(container)};
+      return { name:container, import: RegenerateImportLine(container)};
     } else {
       return { name: container, import: null };
     }
   });
 }
 
-module.exports.generateModelIndex = generateModelIndex;
-module.exports.generateImportLine = generateImportLine;
-module.exports.generateExportLine = generateExportLine;
+module.exports.RegenerateModelIndex = RegenerateModelIndex;
+module.exports.RegenerateImportLine = RegenerateImportLine;
+module.exports.RegenerateExportLine = RegenerateExportLine;
 module.exports.getContainerModels = getContainerModels;

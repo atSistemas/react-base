@@ -6,15 +6,15 @@ const mainImportTpl = 'import { combineReducers } from \'redux\';\n';
 const exportTpl = '\n\nexport default combineReducers({\n@param\n});';
 const importTpl = 'import @param from \'containers/@param/reducers\';';
 
-function generateImportLine(container){
+function RegenerateImportLine(container){
   return importTpl.replace(/@param/g, container);
 }
 
-function generateExportLine(reducerExports){
+function RegenerateExportLine(reducerExports){
   return exportTpl.replace('@param', reducerExports);
 }
 
-function generateReducerIndex(containersPath, reducerFilePath ){
+function RegenerateReducerIndex(containersPath, reducerFilePath ){
   let reducerImports = mainImportTpl;
   let reducerExports = '';
   const containerReducers = getContainerReducers(containersPath);
@@ -27,12 +27,15 @@ function generateReducerIndex(containersPath, reducerFilePath ){
     }
   });
 
-  let content = reducerImports + generateExportLine(reducerExports);
-  let result = writeFile(reducerFilePath, content);
-  if(result){
+  const content = reducerImports + RegenerateExportLine(reducerExports);
+
+  try{
+    writeFile(reducerFilePath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
   }
 }
 
@@ -41,14 +44,14 @@ function getContainerReducers(containersPath){
   return files.map(function(container){
     let reducerPath = path.resolve(containersPath, container, 'reducers','index.js');
     if(fileExists(reducerPath)){
-      return { name:container, import: generateImportLine(container)};
+      return { name:container, import: RegenerateImportLine(container)};
     } else {
       return { name: container, import: null };
     }
   });
 }
 
-module.exports.generateReducerIndex = generateReducerIndex;
-module.exports.generateImportLine = generateImportLine;
-module.exports.generateExportLine = generateExportLine;
+module.exports.RegenerateReducerIndex = RegenerateReducerIndex;
+module.exports.RegenerateImportLine = RegenerateImportLine;
+module.exports.RegenerateExportLine = RegenerateExportLine;
 module.exports.getContainerReducers = getContainerReducers;

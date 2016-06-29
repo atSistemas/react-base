@@ -45,10 +45,10 @@ function setup() {
 
 describe('containers', () => {
   describe('<%= name %>', () => {
-    it('should render correctly', () => {
+   /* it('should render correctly', () => {
       const { output } = setup();
        expect(output.props.name).toBe('<%= name %>');
 
-    });
+    });*/
   });
 });
