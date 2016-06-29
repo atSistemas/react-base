@@ -30,13 +30,13 @@ export const prodPlugins = [
 export const prodEntries = {
   app: clientPath,
   common: [
-    'immutable',
-    'isomorphic-fetch',
     'react',
+    'redux',
     'react-dom',
+    'immutable',
     'react-redux',
     'react-router',
-    'redux'
+    'isomorphic-fetch'
   ]
 };
 
