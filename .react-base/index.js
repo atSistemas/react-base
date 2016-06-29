@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 'use strict';
 require('babel-core/register');
@@ -11,6 +11,7 @@ const test = require('./test');
 const build = require('./build');
 const lint = require('./lint');
 const start = require('./start');
+const coverage = require('./coverage');
 
 const index = (method, param1) => {
 
@@ -52,6 +53,10 @@ const index = (method, param1) => {
         process.env['NODE_ENV'] = 'development';
       }
       start();
+      break;
+    case methods.COVERAGE:
+      test();
+      coverage();
       break;
     default:
   }
