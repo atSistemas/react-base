@@ -1,25 +1,17 @@
 import consoleHelper from './console-helper';
-import childProcess from 'child_process';
+import scriptRunner from './script-runner';
 
 const start = () => {
 
-  let process = childProcess.fork('./server/index.js');
-
-  // listen for errors as they may prevent the exit event from firing
-  process.on('error', function (err) {
+  scriptRunner('./server/index.js', (err) => {
+    if (!err) {
+      console.log(consoleHelper.line("Development server terminated"));
+      process.exit(0);
+      return;
+    }
     console.log(consoleHelper.error("Error launching development environment:"));
     console.error(err);
-    process.exit(0);
-  });
-
-  process.on('exit', function (code) {
-    let err = code === 0 ? null : new Error('exit code ' + code);
-    if (err) {
-      console.log(consoleHelper.error("Error launching development environment:"));
-      console.error(err);
-    } else {
-      console.log(consoleHelper.line("Development server terminated"));
-    }
+    process.exit(err);
   });
 
 };
