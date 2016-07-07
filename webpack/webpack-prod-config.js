@@ -11,6 +11,7 @@ export const prodTool = 'cheap-module-source-map';
 export const prodContext = path.resolve(__dirname, '../app');
 
 export const prodPlugins = [
+  new webpack.NoErrorsPlugin(),
   new ExtractTextPlugin('bundle.css'),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(),
