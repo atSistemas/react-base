@@ -5,5 +5,5 @@ require('css-modules-require-hook')({
   mode: 'local',
   rootDir: './app'
 });
-require("./server.js");
 console.log(`[BASE] Starting ${ENV.default} enviroment...`);
+require('./server.js');
