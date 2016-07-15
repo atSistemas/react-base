@@ -1,0 +1,10 @@
+.infoWindowBox {
+  background-color: white;
+  height: 80px;
+  width: 100px;
+}
+
+.infoWindowRow{
+  display:block;
+  height: 20px;
+}

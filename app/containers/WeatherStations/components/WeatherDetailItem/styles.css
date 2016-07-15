@@ -1,0 +1,10 @@
+.weatherDetailRow{
+  float:left;
+  height:200px;
+  width: 350px;
+}
+
+.rowItem{
+  display:block;
+  float:none;
+}
