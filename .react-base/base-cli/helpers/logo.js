@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const dir = path.join(__dirname + '../assets/logo.txt');
+const dir = path.normalize(path.join(__dirname + '/../assets/logo.txt'));
 
 const logo = () => {
   console.log(fs.readFileSync(dir, 'utf-8'));
