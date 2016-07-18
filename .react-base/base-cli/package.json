@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "main": "index.js",
+  "name": "base-cli",
+  "version": "0.4.0",
+  "keywords": [
+    "cli"
+  ],
+  "author": {
+    "name": "Rafael Bernad de Castro",
+    "email": "rbernad@atsistemas.com",
+    "url": ""
+  },
+  "bin": {
+    "base": "./base.js"
+  }
+}
