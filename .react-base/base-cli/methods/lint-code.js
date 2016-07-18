@@ -1,7 +1,7 @@
 import {
   CLIEngine
 } from 'eslint';
-import consoleHelper from '../lib/console';
+import consoleHelper from '../helpers/console';
 
 const lintSrc = (patterns, ignores) => {
 
