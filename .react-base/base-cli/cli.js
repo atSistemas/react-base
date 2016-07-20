@@ -13,7 +13,7 @@ logo();
 fs.exists(path.join(__dirname, 'methods', `${subcommand}.js`), (exists) => {
   if (exists) {
     argv._ = argv._.slice(1);
-    require(`./methods/${subcommand}`)(argv);
+    require(`./methods/${subcommand}`).apply(this, argv._);
   } else {
     if (subcommand !== 'logo') {
       console.log(consoleHelper.error(`Unknown command: ${subcommand}`));
