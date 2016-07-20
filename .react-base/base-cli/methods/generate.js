@@ -1,5 +1,4 @@
 import consoleHelper from '../helpers/console';
-import scriptRunner from '../helpers/script-runner';
 import minimist from 'minimist';
 import yeomanEnv from 'yeoman-generator';
 
