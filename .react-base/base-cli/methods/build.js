@@ -30,4 +30,4 @@ const build = (env) => {
 };
 
 let args = minimist(process.argv.slice(2));
-require.main === module ? build(args._.slice(1)) : module.exports = build;
+require.main === module ? build.apply(this, args._.slice(1)) : module.exports = build;
