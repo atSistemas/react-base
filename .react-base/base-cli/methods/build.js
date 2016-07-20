@@ -10,8 +10,10 @@ const envAliases = {
 
 const build = (env) => {
 
-  env = envAliases[env] || env;
+  env = envAliases[env] || env || envAliases.pro;
   process.env['NODE_ENV'] = env || process.env.NODE_ENV;
+
+  console.log(consoleHelper.line(`Building application for ${env} environment...`));
 
   // returns a Compiler instance
   let compiler = webpack(babelConfig);
