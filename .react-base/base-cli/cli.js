@@ -5,7 +5,7 @@ import logo from './logo';
 import consoleHelper from './helpers/console';
 
 const argv = minimist(process.argv.slice(2));
-const subcommand = argv._[0].toLowerCase();
+const subcommand = argv._.length ? argv._[0].toLowerCase() : '';
 
 consoleHelper.clear();
 logo();
@@ -15,7 +15,9 @@ fs.exists(path.join(__dirname, 'methods', `${subcommand}.js`), (exists) => {
     argv._ = argv._.slice(1);
     require(`./methods/${subcommand}`).apply(this, argv._);
   } else {
-    if (subcommand !== 'logo') {
+    if (!subcommand) {
+      console.log(consoleHelper.error(`You must provide a command`));
+    } else if (subcommand !== 'logo') {
       console.log(consoleHelper.error(`Unknown command: ${subcommand}`));
     }
   }

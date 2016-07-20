@@ -1,5 +1,5 @@
 import path from 'path';
-import { symbols, color } from '../console';
+import { symbols, color } from '../base-cli/helpers/console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const exportTpl = '\n\nexport const modelIndex = [@param];';

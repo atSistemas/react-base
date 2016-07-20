@@ -56,5 +56,5 @@ exports.error = function (str) {
 };
 
 exports.clear = function () {
-  process.stdout.write("\u001b[2J\u001b[0;0H");
+  process.stdout.write("\x1B[2J\x1B[0f");//\u001b[2J\u001b[0;0H");
 };
