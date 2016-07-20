@@ -4,7 +4,8 @@ import minimist from 'minimist';
 import babelConfig from '../../../webpack/webpack.config.babel.js';
 
 const envAliases = {
-  dev: 'development'
+  dev: 'development',
+  pro: 'production'
 };
 
 const build = (env) => {
