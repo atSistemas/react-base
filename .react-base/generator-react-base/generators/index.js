@@ -3,6 +3,7 @@
 var yeoman = require('yeoman-generator');
 var optionOrPrompt = require('yeoman-option-or-prompt');
 var fs = require("fs");
+var camelize = require('camelize');
 var listModules, listModulesArray;
 
 var typesDocument = {
@@ -12,7 +13,7 @@ var typesDocument = {
     template: '_action.js',
     nameFile: '/index.js',
     nameType: 'action'
-  },    
+  },
   action_spec:{
     folder: '/actions/spec/',
     template: '_action.spec.js',
@@ -24,25 +25,25 @@ var typesDocument = {
     template: '_api.js',
     nameFile: '/index.js',
     nameType: 'api'
-  }, 
+  },
   component:{
     folder: '/components/',
-    template: '_component.js',  
+    template: '_component.js',
     nameFile: '/index.jsx',
     nameType: 'component'
-  }, 
+  },
   component_spec:{
     folder: '/components/spec/',
-    template: '_component.spec.js',  
+    template: '_component.spec.js',
     nameFile: '.component.spec.js',
     nameType: 'component_spec'
-  },   
+  },
   container:{
     folder: '/',
     template: '_container.js',
     nameFile: '/index.jsx',
     nameType: 'container'
-  },  
+  },
   container_spec:{
     folder: '/spec/',
     template: '_container.spec.js',
@@ -54,19 +55,19 @@ var typesDocument = {
     template: '_models.js',
     nameFile: '/index.js',
     nameType: 'models'
-  }, 
+  },
   reducer:{
     folder: '/reducers/',
     template: '_reducer.js',
     nameFile: '/index.js',
     nameType: 'reducer'
-  },  
+  },
   reducer_spec:{
     folder: '/reducers/spec/',
     template: '_reducer.spec.js',
     nameFile: '.reducer.spec.js',
     nameType: 'reducer_spec'
-  }, 
+  },
   styles:{
     folder: '/',
     template: '_styles.css',
@@ -162,13 +163,13 @@ function createContainer(name){
   sectionCopy(route, namePascal, typesDocument.reducer);
   sectionSpec(route, namePascal, typesDocument.reducer_spec);
   sectionCopy(route, namePascal, typesDocument.styles);
-  sectionCopy(route, namePascal, typesDocument.types);  
+  sectionCopy(route, namePascal, typesDocument.types);
 
 }
 
 module.exports = yeoman.Base.extend({
   _optionOrPrompt: optionOrPrompt,
-  
+
   prompting: function () {
 
     var done = this.async();
@@ -183,12 +184,12 @@ module.exports = yeoman.Base.extend({
       name: 'name',
       type: 'input'
     }];
-    
+
     this._optionOrPrompt(promptsAll, function (answers) {
 
       this.props = answers;
       this.props.option = parseInt(answers.option);
-      this.props.name = answers.name;
+      this.props.name = camelize(answers.name);
       done();
     }.bind(this));
   },
@@ -201,7 +202,7 @@ module.exports = yeoman.Base.extend({
 
       createComponent = createComponent.bind(this);
       switch(this.props.option){
-          case 1: 
+          case 1:
             createContainer(this.props.name);
             break;
           case 2:
@@ -210,12 +211,12 @@ module.exports = yeoman.Base.extend({
           default:
           return;
         }
-     
-     
+
+
     }
   },
   end: function () {
-        var done = this.async();
-        this.spawnCommand('npm', ['run', 'postYeomanGenerator']).on('close', done);
+        //var done = this.async();
+        //this.spawnCommand('npm', ['run', 'postYeomanGenerator']).on('close', done);
     }
 });
