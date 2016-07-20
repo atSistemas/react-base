@@ -1,7 +1,12 @@
 import consoleHelper from '../helpers/console';
 import scriptRunner from '../helpers/script-runner';
+import minimist from 'minimist';
+import envAliases from '../environment-aliases';
 
-const start = () => {
+const start = (env) => {
+
+  env = envAliases[env] || env || envAliases.pro;
+  process.env['NODE_ENV'] = env || process.env.NODE_ENV;
 
   scriptRunner('./server/index.js', (err) => {
     if (!err) {
@@ -16,5 +21,5 @@ const start = () => {
 
 };
 
-let args = process.argv.slice(2);
-require.main === module ? start(...args) : module.exports = start;
+let args = minimist(process.argv.slice(2));
+require.main === module ? start.apply(this, args._.slice(1)) : module.exports = start;

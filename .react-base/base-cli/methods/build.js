@@ -2,11 +2,7 @@ import webpack from 'webpack';
 import consoleHelper from '../helpers/console';
 import minimist from 'minimist';
 import babelConfig from '../../../webpack/webpack.config.babel.js';
-
-const envAliases = {
-  dev: 'development',
-  pro: 'production'
-};
+import envAliases from './environment-aliases';
 
 const build = (env) => {
 
