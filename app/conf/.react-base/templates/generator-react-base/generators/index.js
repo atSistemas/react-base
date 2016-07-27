@@ -119,7 +119,7 @@ function createComponent(name){
   /*COMPONENT*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.component.template),
-    this.destinationPath(routeComponentName, '/'), {
+    this.destinationPath(routeComponentName+ '/'+  typesDocument.component.nameFile), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
@@ -129,7 +129,7 @@ function createComponent(name){
   /*STYLES*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.styles.template),
-    this.destinationPath(routeComponentName, '/'), {
+    this.destinationPath(routeComponentName+ '/' + typesDocument.styles.nameFile), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
