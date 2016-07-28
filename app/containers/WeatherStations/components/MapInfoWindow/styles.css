@@ -1,7 +1,8 @@
 .infoWindowBox {
   background-color: white;
-  height: 80px;
   width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .infoWindowRow{

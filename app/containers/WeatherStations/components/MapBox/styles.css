@@ -1,4 +1,5 @@
 .mapBox{
+  float: left;
   height: 650px;
-  width: 1000px;
+  width: 800px;
 }

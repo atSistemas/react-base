@@ -1,7 +1,16 @@
 .weatherDetailRow{
+  border: 3px solid #FAB10A;
+  border-radius: 15px;
   float: left;
-  height: 200px;
-  width: 350px;
+  height: 150px;  
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;  
+  width: 250px;
+}
+
+.dayBox{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .rowItem{

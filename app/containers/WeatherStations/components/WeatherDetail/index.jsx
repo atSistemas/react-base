@@ -2,8 +2,7 @@ import Immutable from 'immutable';
 import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
 import WeatherDetailItem from '../WeatherDetailItem';
-
-//import styles from './styles.css';
+import styles from './styles.css';
 
 const propTypes = {
   WeatherDetail: PropTypes.instanceOf(Immutable.Record),
@@ -20,14 +19,14 @@ export  class WeatherDetail extends Component {
 
   render () {
     let ActualWeather = this.props.ActualWeather;
-    if (this.props.StationSelected === 0 ){
+    if (this.props.StationSelected === -1 ){
       return (
         <div>
         </div>
       );
     }
 
-    let index=0;
+    let index = 0;
     const actualWeatherList = ActualWeather.valueSeq().map( weather => {
       index++;
       return (<WeatherDetailItem key={ index } item={ weather } /> );
@@ -35,6 +34,7 @@ export  class WeatherDetail extends Component {
 
     return(
       <div>
+        <h3 className={ styles.title }> FORECAST </h3>
         { actualWeatherList }
       </div>
       );

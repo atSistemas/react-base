@@ -27,13 +27,13 @@ const MapInfoWindow = ( props ) => {
 
   return (
     <div className={ styles.infoWindowBox } >
-      <span className={ styles.infoWindowRow }>  Temp: { temp } ºC </span>
-      <span className={ styles.infoWindowRow }> Humidity: { humidity } %</span>
-      <span className={ styles.infoWindowRow }> Pressure: { pressure } %</span>
+      <span className={ styles.infoWindowRow }>  Temp: <b>{ temp } ºC </b></span>
+      <span className={ styles.infoWindowRow }> Humidity: <b>{ humidity } % </b></span>
+      <span className={ styles.infoWindowRow }> Pressure: <b>{ pressure } hpa </b></span>
     </div>
   );
 };
 
-MapInfoWindow.propTypes= propTypes;
+MapInfoWindow.propTypes = propTypes;
 
 export default MapInfoWindow;

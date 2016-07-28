@@ -16,9 +16,18 @@ export function weatherStationSelected( id ){
   };
 }
 
+export function getWeatherStation( id ){
+  return {
+    types: generateFetchTypes(Types.WEATHERSTATION_REQUEST),
+    request: api.fetchWeatherStation( id )
+  };
+}
+
+
 export function getWeather( lat, lng ){
   return {
     types: generateFetchTypes(Types.ACTUALWEATHER_REQUEST),
     request: api.fetchWeather(lat, lng)
   };
 }
+

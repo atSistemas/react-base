@@ -10,10 +10,13 @@ import fetchRequiredActions from 'shared/FetchData';
 import MapBox from './components/MapBox';
 import styles from './styles.css';
 import WeatherDetail from './components/WeatherDetail';
+import WeatherStationDetails from './components/WeatherStationDetails';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record)
+  WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record),
+  WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map),
+  StationSelected: React.PropTypes.number
 };
 
 export class WeatherStations extends Component {
@@ -32,13 +35,27 @@ export class WeatherStations extends Component {
   shouldComponentUpdate = shouldPureComponentUpdate;
 
   render () {
-    let props = this.props.WeatherStationsModel; 
-    props.name = 'WeatherStations';
+    let props = this.props.WeatherStationsModel;
+    const WeatherStationDetailsState = this.props.WeatherStationDetailsState;
+    const stationList = WeatherStationDetailsState.valueSeq().map( station => {
+      
+      return (<WeatherStationDetails
+        key={ station.id }
+        selected={ this.props.StationSelected } 
+        details={ station } 
+      />);
 
+    });
+
+    props.name = 'WeatherStations';
     return (
       <div className={ styles.WeatherStations  }>
-        <MapBox name={ props.name } />
-        <WeatherDetail />
+        <MapBox name={ props.name } />        
+        { stationList }
+        <div className={ styles.clear  }></div>
+        <div>
+          <WeatherDetail />
+        </div>
       </div>
     );
   }
@@ -49,5 +66,9 @@ WeatherStations.propTypes = propTypes;
 
 
 export default connect(
-  (state) => ({ WeatherStationsModel: state.WeatherStations })
+  (state) => ({ 
+    WeatherStationsModel: state.WeatherStations, 
+    WeatherStationDetailsState:state.WeatherStations.weatherStationDetails, 
+    StationSelected: state.WeatherStations.stationSelected 
+  })
 )(WeatherStations);

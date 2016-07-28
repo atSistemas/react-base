@@ -40,6 +40,9 @@ export  class MapBox extends Component {
    
     this.actions.getWeather(childProps.lat, childProps.lng);
     this.actions.weatherStationSelected(parseInt(key));
+    this.actions.getWeatherStation(parseInt(childProps.stationId));
+
+    
   }
 
   render () {
@@ -49,6 +52,7 @@ export  class MapBox extends Component {
       return (<MapMarker      
         key={ item.get('id') }
         lat={ item.station.coord.lat }
+        stationId={ item.stationId }
         lng={ item.station.coord.lon }
         selected={ StationSelected }
         distance={ item.get('distance') }
