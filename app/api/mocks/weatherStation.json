@@ -1,0 +1,33 @@
+{
+    "last": {
+        "dt": 1467917065,
+        "main": {
+            "temp": 292.59
+        },
+        "rain": {
+            "1h": 0,
+            "today": 0
+        },
+        "wind": {
+            "deg": 295,
+            "gust": 0,
+            "speed": 0
+        }
+    },
+    "params": [
+        "temp",
+        "wind",
+        "gust",
+        "rain"
+    ],
+    "station": {
+        "coord": {
+            "lat": 41.761,
+            "lon": -2.4588
+        },
+        "id": 10912,
+        "name": "ED1ZAI-1",
+        "status": 30,
+        "type": 2
+    }
+}

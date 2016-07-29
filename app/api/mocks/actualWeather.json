@@ -1,0 +1,219 @@
+{
+    "city": {
+        "coord": {
+            "lat": 38.98333,
+            "lon": -3.93333
+        },
+        "country": "ES",
+        "id": 2519402,
+        "name": "Ciudad Real",
+        "population": 0
+    },
+    "cnt": 8,
+    "cod": "200",
+    "list": [
+        {
+            "id": 1,
+            "clouds": 0,
+            "deg": 204,
+            "dt": 1469793600,
+            "humidity": 24,
+            "pressure": 951.51,
+            "speed": 2.36,
+            "temp": {
+                "day": 43.94,
+                "eve": 37.62,
+                "max": 43.94,
+                "min": 23.04,
+                "morn": 34.44,
+                "night": 23.04
+            },
+            "weather": [
+                {
+                    "description": "cielo claro",
+                    "icon": "01d",
+                    "id": 800,
+                    "main": "Clear"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "clouds": 0,
+            "deg": 226,
+            "dt": 1469880000,
+            "humidity": 23,
+            "pressure": 952.13,
+            "rain": 0.9,
+            "speed": 5.86,
+            "temp": {
+                "day": 36.32,
+                "eve": 32.56,
+                "max": 37.29,
+                "min": 20.61,
+                "morn": 20.61,
+                "night": 22.14
+            },
+            "weather": [
+                {
+                    "description": "lluvia ligera",
+                    "icon": "10d",
+                    "id": 500,
+                    "main": "Rain"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "clouds": 92,
+            "deg": 215,
+            "dt": 1469966400,
+            "humidity": 26,
+            "pressure": 952.84,
+            "rain": 0.31,
+            "speed": 6.37,
+            "temp": {
+                "day": 33.29,
+                "eve": 30.28,
+                "max": 33.29,
+                "min": 17.2,
+                "morn": 20.85,
+                "night": 17.2
+            },
+            "weather": [
+                {
+                    "description": "lluvia ligera",
+                    "icon": "10d",
+                    "id": 500,
+                    "main": "Rain"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "clouds": 0,
+            "deg": 243,
+            "dt": 1470052800,
+            "humidity": 0,
+            "pressure": 949.3,
+            "speed": 3.26,
+            "temp": {
+                "day": 32.92,
+                "eve": 32.75,
+                "max": 32.92,
+                "min": 15.45,
+                "morn": 15.45,
+                "night": 20.82
+            },
+            "weather": [
+                {
+                    "description": "cielo claro",
+                    "icon": "01d",
+                    "id": 800,
+                    "main": "Clear"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "clouds": 54,
+            "deg": 254,
+            "dt": 1470139200,
+            "humidity": 0,
+            "pressure": 947.83,
+            "speed": 4.62,
+            "temp": {
+                "day": 30.16,
+                "eve": 30.96,
+                "max": 30.96,
+                "min": 16.63,
+                "morn": 16.63,
+                "night": 21.67
+            },
+            "weather": [
+                {
+                    "description": "lluvia ligera",
+                    "icon": "10d",
+                    "id": 500,
+                    "main": "Rain"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "clouds": 0,
+            "deg": 54,
+            "dt": 1470225600,
+            "humidity": 0,
+            "pressure": 947.95,
+            "speed": 2.3,
+            "temp": {
+                "day": 29.76,
+                "eve": 30.55,
+                "max": 30.55,
+                "min": 17.54,
+                "morn": 17.57,
+                "night": 17.54
+            },
+            "weather": [
+                {
+                    "description": "cielo claro",
+                    "icon": "01d",
+                    "id": 800,
+                    "main": "Clear"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "clouds": 0,
+            "deg": 52,
+            "dt": 1470312000,
+            "humidity": 0,
+            "pressure": 946.94,
+            "speed": 0.28,
+            "temp": {
+                "day": 30.53,
+                "eve": 32.43,
+                "max": 32.43,
+                "min": 13.42,
+                "morn": 13.42,
+                "night": 18.48
+            },
+            "weather": [
+                {
+                    "description": "cielo claro",
+                    "icon": "01d",
+                    "id": 800,
+                    "main": "Clear"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "clouds": 9,
+            "deg": 223,
+            "dt": 1470398400,
+            "humidity": 0,
+            "pressure": 948.14,
+            "speed": 1.39,
+            "temp": {
+                "day": 33.86,
+                "eve": 34.73,
+                "max": 34.73,
+                "min": 16.1,
+                "morn": 16.1,
+                "night": 22.82
+            },
+            "weather": [
+                {
+                    "description": "cielo claro",
+                    "icon": "01d",
+                    "id": 800,
+                    "main": "Clear"
+                }
+            ]
+        }
+    ],
+    "message": 0.0517
+}
