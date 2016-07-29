@@ -9,7 +9,7 @@ const WeatherStationsModel = new Record({
   station:null
 });
 
-const ActualWeatherModel = new Record({
+const ForecastModel = new Record({
   clouds: 0,
   deg: 0,
   dt: 0,
@@ -35,16 +35,16 @@ const WeatherStationsCollection = new Record(
   { 
     data: new Map(), 
     stationSelected:-1, 
-    actualWeather: new Map(), 
+    forecast: new Map(), 
     weatherStationDetails:  new Map()
   });
 
 function setInitialState(initialState){
   return initialState.WeatherStations = new WeatherStationsCollection({
     data: generateImmutable( initialState.WeatherStations.data, WeatherStationsModel ),
-    actualWeather: generateImmutable( initialState.WeatherStations.actualWeather, ActualWeatherModel ),
-    weatherStationDetails: generateImmutable( initialState.WeatherStations.weatherStationDetails, WeatherStationDetailsModel ),
+    forecast: generateImmutable( initialState.WeatherStations.forecast, ForecastModel ),
+    weatherStationDetails: generateImmutable( initialState.WeatherStations.weatherStationDetails, WeatherStationDetailsModel )
   });
 }
 
-export { WeatherStationsModel, WeatherStationsCollection, ActualWeatherModel, WeatherStationDetailsModel, setInitialState };
+export { WeatherStationsModel, WeatherStationsCollection, ForecastModel, WeatherStationDetailsModel, setInitialState };

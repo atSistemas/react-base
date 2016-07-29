@@ -6,7 +6,7 @@ import styles from './styles.css';
 
 const propTypes = {
   WeatherDetail: PropTypes.instanceOf(Immutable.Record),
-  ActualWeather: PropTypes.object,
+  Forecast: PropTypes.object,
   StationSelected: PropTypes.number.isRequired
 };
 
@@ -18,7 +18,7 @@ export  class WeatherDetail extends Component {
 
 
   render () {
-    let ActualWeather = this.props.ActualWeather;
+    let Forecast = this.props.Forecast;
     if (this.props.StationSelected === -1 ){
       return (
         <div>
@@ -27,7 +27,8 @@ export  class WeatherDetail extends Component {
     }
 
     let index = 0;
-    const actualWeatherList = ActualWeather.valueSeq().map( weather => {
+
+    const actualWeatherList = Forecast.valueSeq().map( weather => {
       index++;
       return (<WeatherDetailItem key={ index } item={ weather } /> );
     });
@@ -44,6 +45,6 @@ export  class WeatherDetail extends Component {
 WeatherDetail.propTypes = propTypes;
 
 export default connect(
-  (state) => ({ ActualWeather: state.WeatherStations.actualWeather, 
+  (state) => ({ Forecast: state.WeatherStations.forecast, 
     StationSelected: state.WeatherStations.stationSelected })
 )(WeatherDetail);

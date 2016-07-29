@@ -1,33 +1,38 @@
 {
     "last": {
-        "dt": 1467917065,
+        "dt": 1452416940,
         "main": {
-            "temp": 292.59
+            "humidity": 79,
+            "pressure": 1000,
+            "temp": 284.82
         },
         "rain": {
-            "1h": 0,
             "today": 0
         },
         "wind": {
-            "deg": 295,
-            "gust": 0,
+            "deg": 0,
             "speed": 0
+        },
+        "visibility":{
+            "distance": 10000
         }
     },
     "params": [
         "temp",
+        "pressure",
+        "humidity",
         "wind",
-        "gust",
-        "rain"
+        "rain",
+        "visibility"
     ],
     "station": {
         "coord": {
-            "lat": 41.761,
-            "lon": -2.4588
+            "lat": 42.8668,
+            "lon": -2.6793
         },
-        "id": 10912,
-        "name": "ED1ZAI-1",
-        "status": 30,
+        "id": 120139,
+        "name": "EA2CQ-13",
+        "status": 20,
         "type": 2
     }
 }

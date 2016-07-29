@@ -47,10 +47,11 @@ describe('Actions', () => {
 
       const params= {
         lat: 0,
-        lng:0
-      }
+        lng: 0
+      };
+
       const expectedAction = {
-        types: generateFetchTypes(Types.ACTUALWEATHER_REQUEST),
+        types: generateFetchTypes(Types.FORECAST_REQUEST),
         request: api.fetchWeather(params.lat, params.lng)
       };
 

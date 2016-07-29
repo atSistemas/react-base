@@ -3,11 +3,11 @@ import reducer from '../';
 import types from '../../types';
 import weatherStationsMock from 'app/api/mocks/weatherStations.json';
 import weatherStationMock from 'app/api/mocks/weatherStation.json';
-import actualWeatherMock from 'app/api/mocks/actualWeather.json';
+import ForecastMock from 'app/api/mocks/forecast.json';
 
 import api from '../../api'
 
-import { WeatherStationsCollection, WeatherStationsModel, WeatherStationModel, ActualWeatherModel } from '../../models';
+import { WeatherStationsCollection, WeatherStationsModel, WeatherStationModel, ForecastModel } from '../../models';
 import { generateMap } from 'shared/ModelHelper';
 
 describe('Reducers', () => {
@@ -72,9 +72,8 @@ describe('Reducers', () => {
 
       const returnedData = reducer(model, action).get('weatherStationDetails');
 
-      let element = returnedData.keySeq().first();
 
-      expect(returnedData.get(element).id).toEqual(weatherStationMock.station.id );
+      expect(returnedData[0].id).toEqual(weatherStationMock.station.id );
     });
 
 
@@ -87,35 +86,34 @@ describe('Reducers', () => {
       expect(reducer([], action)).toEqual([]);
     });
 
-    it('Should return the initial state when request actualWeather ', () => {
+    it('Should return the initial state when request forecast ', () => {
 
       const action = {
-        type: types.ACTUALWEATHER_REQUEST
+        type: types.FORECAST_REQUEST
       };
 
       expect(reducer([], action)).toEqual([]);
     });
 
-    it('Should return the state actualWeather updated request successfull', () => {
+    it('Should return the state forecast updated request successfull', () => {
 
       const action = {
-        type: types.ACTUALWEATHER_SUCCESS,
-        result: generateMap(actualWeatherMock.list, ActualWeatherModel)
+        type: types.FORECAST_SUCCESS,
+        result: generateMap(ForecastMock.list, ForecastModel)
       };
       const model = new WeatherStationsCollection();
 
-      const returnedData = reducer(model, action).get('actualWeather');
-
+      const returnedData = reducer(model, action).get('forecast');
       let element = returnedData.keySeq().first();
       
-      expect(returnedData.get(element).dt).toEqual(actualWeatherMock.list[0].dt);
+      expect(returnedData.get(element).dt).toEqual(ForecastMock.list[0].dt);
     });
 
 
-    it('should return the state of actualWeather request fail', () => {
+    it('should return the state of forecast request fail', () => {
 
       const action = {
-        type: types.ACTUALWEATHER_ERROR
+        type: types.FORECAST_ERROR
       };
 
       expect(reducer([], action)).toEqual([]);

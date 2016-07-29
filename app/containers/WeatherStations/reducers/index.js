@@ -23,12 +23,12 @@ function weatherStationSuccess ( state, action ) {
   return state.update ( 'weatherStationDetails', () =>  action.result);
 }
 
-function actualWeatherRequest ( state ) { return state; }
+function forecastRequest ( state ) { return state; }
 
-function actualWeatherError ( state ) { return state; }
+function forecastError ( state ) { return state; }
 
-function actualWeatherSuccess ( state, action ) {
-  return state.update ( 'actualWeather', () => action.result );
+function forecastSuccess ( state, action ) {
+  return state.update ( 'forecast', () => action.result );
 }
 
 const actionHandlers = {
@@ -39,9 +39,9 @@ const actionHandlers = {
   [Types.WEATHERSTATION_SUCCESS]: weatherStationSuccess,
   [Types.WEATHERSTATION_ERROR]: weatherStationError,
   [Types.WEATHERSTATION_SELECTED]: weatherStationSelected,  
-  [Types.ACTUALWEATHER_REQUEST]: actualWeatherRequest,
-  [Types.ACTUALWEATHER_SUCCESS]: actualWeatherSuccess,
-  [Types.ACTUALWEATHER_ERROR]: actualWeatherError,
+  [Types.FORECAST_REQUEST]: forecastRequest,
+  [Types.FORECAST_SUCCESS]: forecastSuccess,
+  [Types.FORECAST_ERROR]: forecastError,
 };
 
 export default CreateReducer(actionHandlers, new WeatherStationsCollection());

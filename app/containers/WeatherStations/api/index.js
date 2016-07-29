@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { WeatherStationsModel, ActualWeatherModel, WeatherStationDetailsModel } from '../models';
+import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
 import { generateMap } from 'shared/ModelHelper';
 import { config } from '../config.js';
 
@@ -27,7 +27,10 @@ export default {
        config.WEATHER_API_KEY;
     return fetch(urlApi)
     .then(req => req.json())
-    .then(data => this.getDataWeatherStation(data));
+    .then(data =>{
+      const dataParsed = this.getDataWeatherStation(data);
+      return generateMap(dataParsed, WeatherStationDetailsModel);
+    } );
   },
 
   fetchWeather(lat, lng){
@@ -45,7 +48,7 @@ export default {
         length; i++){
         data.list[i].id = i + 1;
       }
-      return generateMap(data.list, ActualWeatherModel);
+      return generateMap(data.list, ForecastModel);
     });
 
   },
@@ -81,7 +84,7 @@ export default {
 
     let list = [obj];
 
-    return generateMap(list, WeatherStationDetailsModel);
+    return list;
 
   }
 

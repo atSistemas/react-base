@@ -26,7 +26,7 @@ export function getWeatherStation( id ){
 
 export function getWeather( lat, lng ){
   return {
-    types: generateFetchTypes(Types.ACTUALWEATHER_REQUEST),
+    types: generateFetchTypes(Types.FORECAST_REQUEST),
     request: api.fetchWeather(lat, lng)
   };
 }

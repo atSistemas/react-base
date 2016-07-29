@@ -64,7 +64,6 @@ export class WeatherStations extends Component {
 
 WeatherStations.propTypes = propTypes;
 
-
 export default connect(
   (state) => ({ 
     WeatherStationsModel: state.WeatherStations, 
