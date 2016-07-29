@@ -12,7 +12,7 @@ export function getWeatherStations( { params } ){
 export function weatherStationSelected( id ){
   return {
     type: Types.WEATHERSTATION_SELECTED,
-    id
+    id: id
   };
 }
 
