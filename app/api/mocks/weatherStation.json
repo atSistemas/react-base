@@ -12,6 +12,9 @@
         "wind": {
             "deg": 14,
             "speed": 14
+        },
+        "visibility": {
+
         }
     },
     "params": [
@@ -19,7 +22,8 @@
         "pressure",
         "humidity",
         "wind",
-        "rain"
+        "rain",
+        "visibility"
     ],
     "station": {
         "coord": {
