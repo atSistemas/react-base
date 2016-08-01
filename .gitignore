@@ -8,3 +8,5 @@ build/
 node_modules/
 bower_components/
 .nyc_output/
+*.sublime-project
+*.sublime-workspace

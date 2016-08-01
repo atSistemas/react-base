@@ -20,8 +20,8 @@ function RegenerateModelIndex(containersPath, modelFilePath){
 
   containerModels.forEach(function(model, index){
     if(model.import){
-      modelImports += (index === 1) ? model.import : '\n' + model.import;
-      modelExports += model.name + 'Model';
+      modelImports += (index === 1) ? model.import : `\n${model.import}`;
+      modelExports += `${model.name}Model`;
       modelExports += (index < containerModels.length-1) ? ',' : '';
     }
   });
@@ -30,10 +30,10 @@ function RegenerateModelIndex(containersPath, modelFilePath){
 
   try{
     writeFile(modelFilePath, content);
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
+    console.log(`[BASE] ${color('success', symbols.ok)} Model index regenerated correctly`);
     return true;
   } catch(e){
-    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    console.log(`[BASE] ${color('error', symbols.err)} ${e.msg}`);
     return false;
   }
 }

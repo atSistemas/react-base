@@ -14,8 +14,8 @@ function RegenerateRoutes(){
 
   routes.forEach(function(route, index){
     if(route.import){
-      routesImports += (index === 0) ? route.import : '\n' + route.import;
-      newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ ' + route.name +' } />\n';
+      routesImports += (index === 0) ? route.import : `\n${route.import}`;
+      newRoutes += `    <Route path="${route.name.toLowerCase()}" component={ ${route.name} } />\n`;
     }
   });
 
@@ -25,16 +25,16 @@ function RegenerateRoutes(){
 
   try{
     writeFile(routerPath, content);
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
+    console.log(`[BASE] ${color('success', symbols.ok)} Routes index regenerated correctly`);
     return true;
   } catch(e){
-    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    console.log(`[BASE] ${color('error', symbols.err)} ${e.msg}`);
     return false;
   }
 }
 
 function generateRoutes(newRoutes){
-  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';
+  return `\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n${newRoutes}  </Route>\n);\n`;
 }
 
 
@@ -47,7 +47,7 @@ function getRoutes(){
   return files.map(function(container){
     let containerPath = path.resolve(containersPath, container);
     if(fileExists(containerPath) && container !== 'App'){
-      return { name:container, import:'import ' + container + ' from \'containers/'+ container +'/\';' };
+      return { name:container, import:`import ${container} from 'containers/${container}/\';`};
     } else {
       return { name: container, import: null };
     }

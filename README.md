@@ -69,7 +69,7 @@ Please note that `npm install` is only required on your first start, or in case 
 
 ### Initializing the development server
 
- Once all the dependencies are installed, you can run `npm start` to initialize your development environment.
+ Once all the dependencies are installed, you can run `npm run start` to initialize your development environment.
 
 ### Testing your application
 
