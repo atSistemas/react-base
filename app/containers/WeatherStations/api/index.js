@@ -44,8 +44,7 @@ export default {
     return fetch(urlCall)
     .then(req => req.json())
     .then(data => {     
-      for (let i=0; i<data.list.
-        length; i++){
+      for (let i=0; i<data.list.length; i++){
         data.list[i].id = i + 1;
       }
       return generateMap(data.list, ForecastModel);

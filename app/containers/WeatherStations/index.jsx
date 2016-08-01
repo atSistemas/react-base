@@ -9,7 +9,7 @@ import fetchRequiredActions from 'shared/FetchData';
 
 import MapBox from './components/MapBox';
 import styles from './styles.css';
-import WeatherDetail from './components/WeatherDetail';
+import ForecastDetail from './components/ForecastDetail';
 import WeatherStationDetails from './components/WeatherStationDetails';
 
 const propTypes = {
@@ -54,7 +54,7 @@ export class WeatherStations extends Component {
         { stationList }
         <div className={ styles.clear  }></div>
         <div>
-          <WeatherDetail />
+          <ForecastDetail />
         </div>
       </div>
     );

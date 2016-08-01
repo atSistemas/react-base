@@ -10,11 +10,8 @@
             "today": 0
         },
         "wind": {
-            "deg": 0,
-            "speed": 0
-        },
-        "visibility":{
-            "distance": 10000
+            "deg": 14,
+            "speed": 14
         }
     },
     "params": [
@@ -22,8 +19,7 @@
         "pressure",
         "humidity",
         "wind",
-        "rain",
-        "visibility"
+        "rain"
     ],
     "station": {
         "coord": {

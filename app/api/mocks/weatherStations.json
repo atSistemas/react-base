@@ -1,186 +1,162 @@
-{
-    "cnt": 128,
-    "cod": "200",
-    "list": [
-        {
-            "clouds": [
-                {
-                    "condition": "SCT",
-                    "distance": 488
-                },
-                {
-                    "condition": "BKN",
-                    "distance": 610
-                }
-            ],
-            "coord": {
-                "lat": 27.8148,
-                "lon": -17.8871
+[
+    {
+        "id": 1,
+        "stationId": 1442829648,
+        "distance": 9.168,
+        "last": {
+            "calc": {
+                "dewpoint": 11.1833
             },
-            "dt": 1468222200,
-            "id": 5514,
+            "dt": 1470034503,
             "main": {
-                "humidity": 83,
-                "pressure": 1018,
-                "temp": 22
-            },
-            "name": "GCHI",
-            "rang": 3,
-            "type": 1,
-            "wind": {
-                "deg": 360,
-                "speed": 8.7
+                "humidity": 37.5,
+                "pressure": 1019.49,
+                "temp": 300.05
             }
         },
-        {
-            "clouds": [
-                {
-                    "condition": "FEW",
-                    "distance": 122
-                },
-                {
-                    "condition": "BKN",
-                    "distance": 244
-                }
-            ],
+        "station": {
             "coord": {
-                "lat": 28.0296,
-                "lon": -17.2146
+                "lat": 40.495,
+                "lon": -3.655
             },
-            "dt": 1468222200,
-            "id": 5513,
+            "id": 1442829648,
+            "name": "pirates",
+            "status": 20,
+            "type": 5,
+            "user_id": 0
+        }
+    },
+    {
+        "id": 2,
+        "stationId": 42622,
+        "distance": 9.839,
+        "last": {
+            "dt": 1469991990,
             "main": {
-                "humidity": 88,
-                "pressure": 1018,
-                "temp": 21
             },
-            "name": "GCGM",
-            "rang": 3,
-            "type": 1,
+            "rain": {
+                "1h": 0,
+                "24h": 0,
+                "today": 0
+            },
             "wind": {
-                "deg": 0,
-                "speed": 0
-            }
-        },
-        {
-            "clouds": [
-                {
-                    "condition": "FEW",
-                    "distance": 457
-                },
-                {
-                    "condition": "BKN",
-                    "distance": 1067
-                }
-            ],
-            "coord": {
-                "lat": 28.6265,
-                "lon": -17.7556
-            },
-            "dt": 1468222200,
-            "id": 5515,
-            "main": {
-                "humidity": 78,
-                "pressure": 1019,
-                "temp": 22
-            },
-            "name": "GCLA",
-            "rang": 3,
-            "type": 1,
-            "wind": {
-                "deg": 360,
-                "speed": 6.7
-            }
-        },
-        {
-            "coord": {
-                "lat": 28.1525,
-                "lon": -16.7287
-            },
-            "dt": 1468224270,
-            "id": 9674,
-            "main": {
-                "pressure": 1022,
-                "temp": 22.78
-            },
-            "name": "EA3GKP-8",
-            "rang": 30,
-            "type": 2,
-            "wind": {
-                "deg": 45,
+                "deg": 11,
+                "gust": 1.54,
                 "speed": 0.51
             }
         },
-        {
+        "station": {
+            "coord": {
+                "lat": 40.5048,
+                "lon": -3.6668
+            },
+            "id": 42622,
+            "name": "EA4ENR",
+            "status": 20,
+            "type": 2
+        }
+    },
+    {
+        "id": 3,
+        "stationId": 5488,
+        "distance": 13.928,
+        "last": {
+            "calc": {
+                "dewpoint": 285.15,
+                "humidex": 296.35
+            },
             "clouds": [
                 {
-                    "condition": "FEW",
-                    "distance": 610
+                    "condition": "CAVOK"
                 }
             ],
-            "coord": {
-                "lat": 28.0445,
-                "lon": -16.5725
+            "dt": 1470033000,
+            "visibility": {
+                "distance": 10000,
+                "prefix": 1
             },
-            "dt": 1468222200,
-            "id": 5518,
-            "main": {
-                "humidity": 73,
-                "pressure": 1017,
-                "temp": 22
-            },
-            "name": "GCTS",
-            "rang": 50,
-            "type": 1,
             "wind": {
-                "deg": 0,
+                "deg": 10,
+                "speed": 3.1,
+                "var_beg": 340,
+                "var_end": 40
+            }
+        },
+        "station": {
+            "coord": {
+                "lat": 40.4936,
+                "lon": -3.5668
+            },
+            "id": 5488,
+            "name": "LEMD",
+            "status": 50,
+            "type": 1
+        }
+    },
+    {
+        "id": 4,
+        "stationId": 187956,
+        "distance": 20.445,
+        "last": {
+            "dt": 1469793737,
+            "main": {
+                "humidity": 29,
+                "pressure": 1014,
+                "temp": 307.59
+            },
+            "rain": {
+                "1h": 0,
+                "24h": 0,
+                "today": 0
+            },
+            "wind": {
+                "deg": 172,
+                "gust": 0,
                 "speed": 0
             }
         },
-        {
+        "station": {
             "coord": {
-                "lat": 28.3818,
-                "lon": -16.5838
+                "lat": 40.4467,
+                "lon": -3.461
             },
-            "dt": 1468225156,
-            "id": 135159,
+            "id": 187956,
+            "name": "EA4CQL-11",
+            "status": 20,
+            "type": 2
+        }
+    },
+    {
+        "id": 5,
+        "stationId": 120400,
+        "distance": 20.445,
+        "last": {
+            "dt": 1452255851,
             "main": {
-                "humidity": 79,
-                "pressure": 1017,
-                "temp": 22.22
+                "humidity": 66,
+                "pressure": 1003,
+                "temp": 288.15
             },
-            "name": "EA8URV-10",
-            "rain": {
-                "today": 0
-            },
-            "rang": 20,
-            "type": 2,
-            "wind": {
-                "deg": 45,
-                "speed": 2.06
-            }
-        },
-        {
-            "coord": {
-                "lat": 28.3342,
-                "lon": -16.4195
-            },
-            "dt": 1468223719,
-            "id": 10064,
-            "main": {
-                "temp": 25
-            },
-            "name": "EA8NE-3",
             "rain": {
                 "1h": 0,
-                "today": 0
+                "24h": 0.508,
+                "today": 7.62
             },
-            "rang": 30,
-            "type": 2,
             "wind": {
-                "deg": 193,
-                "speed": 1.03
+                "deg": 154,
+                "gust": 0.51,
+                "speed": 0
             }
+        },
+        "station": {
+            "coord": {
+                "lat": 40.4467,
+                "lon": -3.461
+            },
+            "id": 120400,
+            "name": "EA4CQL-11",
+            "status": 20,
+            "type": 2
         }
-    ]
-}
+    }
+]

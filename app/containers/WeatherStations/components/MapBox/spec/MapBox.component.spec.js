@@ -2,13 +2,10 @@ import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
-import { WeatherStationsModel, setInitialState } from '../models';
-import { WeatherStations } from '..';
+import { MapBox } from '../';
 import weatherStationsMock from 'app/api/mocks/weatherStations.json';
-import weatherStationMock from 'app/api/mocks/weatherStation.json';
-import forecastMock from 'app/api/mocks/forecast.json';
+import { WeatherStationsModel, setInitialState } from '../../../models';
 
-import api from '../api';
 
 function setup() {
 
@@ -16,22 +13,21 @@ function setup() {
   let initialState = {
       WeatherStations: {
         data: weatherStationsMock,
-        forecast:forecastMock.list,
-        weatherStationDetails: api.getDataWeatherStation(weatherStationMock),
-        StationSelected: 15
+        StationSelected: 15,
+        forecast:{},
+        weatherStationDetails:{}
       }
   };
-
   let initialStateProps = setInitialState(initialState);
 
   let props = {
     dispatch: dispatch,
-    WeatherStationsModel: initialStateProps,
-    WeatherStationDetailsState : initialStateProps.weatherStationDetails,
+    Stations: initialStateProps.data,
     StationSelected: initialStateProps.stationSelected
   };
+
   let renderer = TestUtils.createRenderer();
-  renderer.render(<WeatherStations {...props}  />);
+  renderer.render(<MapBox {...props}  />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -41,8 +37,8 @@ function setup() {
   };
 }
 
-describe('containers', () => {
-  describe('WeatherStations', () => {
+describe('component ', () => {
+  describe('MapBox', () => {
     it('should render correctly', () => {
       const { output } = setup();
       expect(output.type).toBe('div');

@@ -34,6 +34,7 @@ const MapInfoWindow = ( props ) => {
   );
 };
 
+MapInfoWindow.displayName = 'MapInfoWindow';
 MapInfoWindow.propTypes = propTypes;
 
 export default MapInfoWindow;
