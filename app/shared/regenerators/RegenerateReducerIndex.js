@@ -21,8 +21,8 @@ function RegenerateReducerIndex(containersPath, reducerFilePath ){
 
   containerReducers.forEach(function(reducer, index){
     if(reducer.import){
-      reducerImports += (index === 0) ? reducer.import : '\n' + reducer.import;
-      reducerExports += '  ' + reducer.name;
+      reducerImports += (index === 0) ? reducer.import : `\n${reducer.import}`;
+      reducerExports += `  ${reducer.name}`;
       reducerExports += (index < containerReducers.length-1) ? ',\n' : '';
     }
   });
@@ -31,10 +31,10 @@ function RegenerateReducerIndex(containersPath, reducerFilePath ){
 
   try{
     writeFile(reducerFilePath, content);
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
+    console.log(`[BASE] ${color('success', symbols.ok)} Reducer index regenerated correctly`);
     return true;
   } catch(e){
-    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    console.log(`[BASE] ${color('error', symbols.err)} ${e.msg}`);
     return false;
   }
 }
