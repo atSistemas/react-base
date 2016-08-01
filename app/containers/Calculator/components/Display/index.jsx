@@ -1,5 +1,6 @@
-import { connect } from 'react-redux';
 import { Record } from 'immutable';
+import { connect } from 'react-redux';
+import classNames from 'classNames/bind';
 import React, { Component, PropTypes } from 'react';
 
 import styles from './styles.css';
@@ -11,10 +12,16 @@ const propTypes = {
 export class Display extends Component {
 
   render () {
+    const cx = classNames.bind(styles);
     const display = this.props.Calculator.display;
+
+    const classDisplay = cx({
+      Fade : this.props.Calculator.resetDisplay
+    });
+
     return (
       <div className={ styles.Display }>
-        { display }
+        <span className={ classDisplay }> { display } </span>
       </div>
     );
   }}

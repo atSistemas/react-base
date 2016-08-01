@@ -2,15 +2,15 @@ html, body{
   height:100%;
   width: 100%;
   padding: 0;
-  margin: 0;
 }
 body{
+  margin-top:75px;
   padding-top: calc(50% - 750px);
   overflow: hidden;
 }
 
 .Calculator {
-  width: 300px;
+  width: 350px;
   height: 100%;
   margin: auto;
   display: flex;

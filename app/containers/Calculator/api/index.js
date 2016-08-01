@@ -8,8 +8,8 @@ export default {
 
   fetchCalculator(){
     return fetch(url)
-    .then(req => req.json())
-    .then(data => generateMap(data, CalculatorModel));
+      .then(req => req.json())
+      .then(data => generateMap(data, CalculatorModel));
   }
 
 };

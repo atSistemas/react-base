@@ -22,11 +22,6 @@
   box-shadow: inset 1px 1px 0 0 #e3e7e9;
   background-color: #fafafa;
   color: #979ca4;
-  /*
-  &:focus{
-    color:#ADB2BA;
-    box-shadow: inset 1px 1px 0 0 #BCC0C2;
-  }*/
 }
 
 .ButtonClicked{
@@ -44,12 +39,6 @@
   border-top: 1px solid #fa722e;
   border-left: 1px solid #fa722e;
   color: #fff;
-  /*
-  &:focus{
-    color:#EBEBEB;
-    border-top: 1px solid #BD490F;
-    border-left: 1px solid #BD490F;
-  }*/
 }
 
 .ButtonOperateClicked{
@@ -65,17 +54,4 @@
   box-shadow: inset 1px 1px 0 0 #e3e7e9;
   background-color: #fafafa;
   color: #979ca4;
-  /*
-  &:focus{
-    color:#ADB2BA;
-    box-shadow: inset 1px 1px 0 0 #BCC0C2;
-
-  }*/
-}
-
-.ink {
-	display: block; position: absolute;
-	background: hsl(180, 40%, 80%);
-	border-radius: 100%;
-	transform: scale(0);
 }

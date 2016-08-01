@@ -8,5 +8,7 @@ export default typeBuilder([
   'SUBSTRACT',
   'CALCULATE',
   'INPUT_NUMBER',
-  'INPUT_OPERATOR'
+  'INPUT_DECIMAL',
+  'INPUT_OPERATOR',
+  'INPUT_OPERATION'
 ]);

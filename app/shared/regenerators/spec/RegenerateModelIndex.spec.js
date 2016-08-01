@@ -1,15 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import expect from 'expect';
-import { generateImportLine, generateExportLine, getContainerModels, generateModelIndex } from '../GenerateModelIndex';
+import { fileExists, writeFile } from '../../FileSystem';
+import { RegenerateImportLine, RegenerateExportLine, getContainerModels, RegenerateModelIndex } from '../RegenerateModelIndex';
 
-describe('shared / Generators / GenerateModelIndex', () => {
+describe('shared / Regenerators / RegenerateModelIndex', () => {
 
-  describe('generateImportLine', () => {
+  describe('RegenerateImportLine', () => {
 
     it('Sould return the import line of a model', () => {
 
-      const procesedImport = generateImportLine('Main');
+      const procesedImport = RegenerateImportLine('Main');
       const expectedImport = 'import * as MainModel from \'containers/Main/models\';';
 
       expect(procesedImport).toEqual(expectedImport);
@@ -17,11 +18,11 @@ describe('shared / Generators / GenerateModelIndex', () => {
     });
   });
 
-  describe('generateExportLine', () => {
+  describe('RegenerateExportLine', () => {
 
     it('Sould return the export line for models', () => {
 
-      const procesedExport = generateExportLine('Main');
+      const procesedExport = RegenerateExportLine('Main');
       const expectedExport = '\n\nexport const modelIndex = [Main];';
 
       expect(procesedExport).toEqual(expectedExport);
@@ -43,13 +44,28 @@ describe('shared / Generators / GenerateModelIndex', () => {
         let modelPath = path.resolve(containersPath, container, 'models','index.js');
         try{
           fs.accessSync(modelPath);
-          return { name:container, import: generateImportLine(container)};
+          return { name:container, import: RegenerateImportLine(container)};
         }catch(e){
           return { name: container, import: null };
         }
       });
 
       expect(result).toEqual(expectedResult);
+
+    });
+  });
+
+
+  describe('RegenerateModelIndex', () => {
+
+    it('Sould write the model index file', () => {
+      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const fakeModelPath = path.resolve(__dirname, 'fake.js');
+      const result = RegenerateModelIndex(containersPath, fakeModelPath);
+
+      expect(result).toEqual(true);
+      expect(fileExists(fakeModelPath)).toEqual(true);
+      fs.unlink(fakeModelPath);
 
     });
   });

@@ -7,7 +7,7 @@ const routerPath = path.resolve(__dirname, '..', '..', 'routes','index.js');
 
 let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';';
 
-function GenerateRoutes(){
+function RegenerateRoutes(){
   const routes = getRoutes();
   let routesExports = '';
   let newRoutes = '';
@@ -22,11 +22,14 @@ function GenerateRoutes(){
   newRoutes = generateRoutes(newRoutes);
   routesExports = generateRoutesExport(routesExports);
   let content = routesImports + newRoutes + routesExports;
-  let result = writeFile(routerPath, content);
-  if(result){
+
+  try{
+    writeFile(routerPath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
-  } else {
-    console.log('[BASE] ' + color('error', symbols.err) + ' ' + result);
+    return true;
+  } catch(e){
+    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    return false;
   }
 }
 
@@ -51,4 +54,4 @@ function getRoutes(){
   });
 }
 
-module.exports = GenerateRoutes;
+module.exports = RegenerateRoutes;

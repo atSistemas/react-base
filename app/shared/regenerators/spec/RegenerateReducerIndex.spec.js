@@ -1,15 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import expect from 'expect';
-import { generateImportLine, generateExportLine, getContainerReducers, generateReducerIndex } from '../GenerateReducerIndex';
+import { fileExists, writeFile } from '../../FileSystem';
+import { RegenerateImportLine, RegenerateExportLine, getContainerReducers, RegenerateReducerIndex } from '../RegenerateReducerIndex';
 
-describe('shared / Generators / GenerateReducerIndex', () => {
+describe('shared / Generators / RegenerateReducerIndex', () => {
 
-  describe('generateImportLine', () => {
+  describe('RegenerateImportLine', () => {
 
     it('Sould return the import line of a reducer', () => {
 
-      const procesedImport = generateImportLine('Main');
+      const procesedImport = RegenerateImportLine('Main');
       const expectedImport = 'import Main from \'containers/Main/reducers\';';
 
       expect(procesedImport).toEqual(expectedImport);
@@ -17,11 +18,11 @@ describe('shared / Generators / GenerateReducerIndex', () => {
     });
   });
 
-  describe('generateExportLine', () => {
+  describe('RegenerateExportLine', () => {
 
     it('Sould return the export line for models', () => {
 
-      const procesedExport = generateExportLine('Main');
+      const procesedExport = RegenerateExportLine('Main');
       const expectedExport = '\n\nexport default combineReducers({\nMain\n});';
 
       expect(procesedExport).toEqual(expectedExport);
@@ -43,13 +44,27 @@ describe('shared / Generators / GenerateReducerIndex', () => {
         let reducerPath = path.resolve(containersPath, container, 'reducers','index.js');
         try{
           fs.accessSync(reducerPath);
-          return { name:container, import: generateImportLine(container)};
+          return { name:container, import: RegenerateImportLine(container)};
         }catch(e){
           return { name: container, import: null };
         }
       });
 
       expect(result).toEqual(expectedResult);
+
+    });
+  });
+
+  describe('RegenerateReducerIndex', () => {
+
+    it('Sould write the reducer index file', () => {
+      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const fakeReducerPath = path.resolve(__dirname, 'fake.js');
+      const result = RegenerateReducerIndex(containersPath, fakeReducerPath);
+
+      expect(result).toEqual(true);
+      expect(fileExists(fakeReducerPath)).toEqual(true);
+      fs.unlink(fakeReducerPath);
 
     });
   });

@@ -5,8 +5,8 @@ const CalculatorModel = new Record({
   operator:0,
   prevValue: 0,
   nextValue: 0,
-  resetDisplay: false,
-  history: [],
+  newValue: false,
+  resetDisplay: false
 });
 
 function setInitialState(initialState){

@@ -23,8 +23,8 @@ export class ButtonPannel extends Component {
       <div className={ styles.ButtonPanel }>
         <div className={ styles.Column }>
           <div className={ styles.Row }>
-            <Button type="number" value="AC" onClick={ this.actions.inputNumber } />
-            <Button type="number" value="+/-" onClick={ this.actions.inputNumber } />
+            <Button type="number" value="C" onClick={ () => this.actions.inputOperation('C') } />
+            <Button type="number" value="+/-" onClick={ () => this.actions.inputOperation('+/-') } />
             <Button type="number" value="%" onClick={ () => this.actions.inputOperation('%') } />
             <Button type="operator" value="÷" onClick={ () => this.actions.inputOperator(Types.DIVIDE) }  />
 
@@ -49,7 +49,7 @@ export class ButtonPannel extends Component {
           </div>
           <div className={ styles.Row }>
             <Button type="zero" value="0" onClick={ () => this.actions.inputNumber(0) } />
-            <Button type="number" value="." onClick={ () => this.actions.inputNumber('.') } />
+            <Button type="number" value="." onClick={ () => this.actions.inputDecimal() } />
             <Button type="operator"  value="=" onClick={ this.actions.calculate } />
           </div>
         </div>

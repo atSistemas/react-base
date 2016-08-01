@@ -20,6 +20,19 @@ export function inputNumber(value){
   };
 }
 
+export function inputOperation(value){
+  return {
+    type: Types.INPUT_OPERATION,
+    value
+  };
+}
+
+export function inputDecimal(){
+  return {
+    type: Types.INPUT_DECIMAL
+  };
+}
+
 export function inputOperator(operator) {
   return {
     type: Types.INPUT_OPERATOR,
