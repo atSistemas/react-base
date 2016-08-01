@@ -8,8 +8,8 @@ export default {
 
   fetchLogo(){
     return fetch(url)
-    .then(req => req.json())
-    .then(data => generateMap(data, LogoModel));
+      .then(req => req.json())
+      .then(data => generateMap(data, LogoModel));
   }
 
 };
