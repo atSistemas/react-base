@@ -44,7 +44,7 @@ app.use(function (req, res) {
 function setStaticsPaths(staticPaths){
   staticPaths.map(function(staticPath){
     app.use(staticPath.route, express.static(staticPath.dir));
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Applied static path ' + staticPath.route);
+    console.log(`[BASE] ${color('success', symbols.ok)} Applied static path ${staticPath.route}`);
   });
 }
 
@@ -53,6 +53,6 @@ app.listen(port, function (err) {
     console.log(err);
     return;
   }
-  console.log('[BASE] ' + color('success', symbols.ok) + ' Server up on http://localhost:' +  port);
+  console.log(`[BASE] ${color('success', symbols.ok)} Server up on http://localhost:${port}`);
 
 });

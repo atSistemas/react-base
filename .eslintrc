@@ -39,6 +39,7 @@
     "no-console": 0,
     "no-alert": 0,
     "semi": 1,
-    "no-var":2
+    "no-var": 2,
+    "prefer-template": 1
   }
 }
