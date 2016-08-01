@@ -8,8 +8,8 @@ export default {
 
   fetch<%= namePascal %>(){
     return fetch(url)
-    .then(req => req.json())
-    .then(data => generateMap(data, <%= namePascal %>Model));
+      .then(req => req.json())
+      .then(data => generateMap(data, <%= namePascal %>Model));
   }
 
 };
