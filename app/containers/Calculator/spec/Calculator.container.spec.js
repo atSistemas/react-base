@@ -1,54 +1,191 @@
-import expect from 'expect';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import { generateMap } from 'shared/ModelHelper';
+import { expect } from 'chai';
+import { Provider } from 'react-redux';
+import { mount, shallow } from 'enzyme';
 
-import { CalculatorModel, setInitialState } from '../models';
-import { Calculator } from '..';
+import Calculator from '../';
+import { CalculatorModel } from '../../../models';
+import configureStore from 'shared/../store/ConfigureStore';;
 
-const mockData = [
-  {
-    "id": 1,
-    "alt": "React Base!",
-    "name": "ReactBaseLogo",
-    "width": 500,
-    "url": "/assets/images/react-base-logo.png"
-  }
-];
-
-const mockDataImmutable2= generateMap(mockData,CalculatorModel );
-
-function setup() {
-
-  function dispatch() { }
-  let initialState = {
-      Calculator: {
-        data: mockData
-      }
-  };
-
-  let props = {
-    dispatch: dispatch,
-    Calculator: setInitialState(initialState)
-  };
-
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<Calculator {...props} />);
-  let output = renderer.getRenderOutput();
-
-  return {
-    props,
-    output,
-    renderer
-  };
-}
-
-describe('containers', () => {
+describe('Containers', () => {
   describe('Calculator', () => {
-    it('should render correctly', () => {
-      const { output } = setup();
-       expect(output.props.name).toBe('Calculator');
 
+    it('Should have display & buttonpannel', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+        expect(component.find('Display')).to.have.lengthOf(1);
+        expect(component.find('ButtonPannel')).to.have.lengthOf(1);
     });
+
+
+    it('Should display sum result on clicking buttons', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '1')
+        .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '2')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '+')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '3')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '=')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('15');
+    });
+
+
+    it('Should display substract result on clicking buttons', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '4')
+        .simulate('click');
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '0')
+        .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '-')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '5')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '=')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('35');
+    });
+
+    it('Should display multiply result on clicking buttons', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '6')
+        .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === 'x')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '7')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '=')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('42');
+    });
+
+
+    it('Should display divide result on clicking buttons', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '9')
+        .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '÷')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '3')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '=')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('3');
+    });
+
+
+    it('Should display a negative number', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '9')
+        .simulate('click');
+
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '4')
+          .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '+/-')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('-94');
+    });
+
+
+
+    it('Should reset display', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Calculator />
+        </Provider>);
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '1')
+        .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === 'C')
+          .simulate('click');
+
+        const Display = component.find('Display');
+        expect(Display.text()).to.equal('0');
+    });
+
+
   });
 });

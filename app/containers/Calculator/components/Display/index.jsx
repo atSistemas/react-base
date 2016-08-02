@@ -21,7 +21,7 @@ export class Display extends Component {
 
     return (
       <div className={ styles.Display }>
-        <span className={ classDisplay }> { display } </span>
+        <span className={ classDisplay }>{ display }</span>
       </div>
     );
   }}
