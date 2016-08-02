@@ -43,5 +43,23 @@ describe('component ', () => {
       const { output } = setup();
       expect(output.type).toBe('div');
     });
+
+    it('should click function return valur', () => {
+      const key = 23333;
+      
+      const childProps = {
+        lat: 2222,
+        lng: 2222,
+        stationId: 22
+      }
+      const { output, renderer } = setup();
+      
+      const func = renderer._instance._instance;
+
+      const keyOutput = func.onChildClick(key, childProps);
+
+      expect(keyOutput).toBe(23333);
+
+    });
   });
 });

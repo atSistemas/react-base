@@ -24,7 +24,7 @@ export  class MapBox extends Component {
 
   static defaultProps = {
     key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
-    center: {lat: 39.938043, lng: -4.337157},
+    center: { lat: 39.938043, lng: -4.337157 },
     zoom: 6
   };
 
@@ -35,14 +35,13 @@ export  class MapBox extends Component {
 
   shouldComponentUpdate = shouldPureComponentUpdate;
 
-  _onChildClick = (key, childProps) => {
-
+  onChildClick = (key, childProps) => {
    
     this.actions.getWeather(childProps.lat, childProps.lng);
     this.actions.weatherStationSelected(parseInt(key));
     this.actions.getWeatherStation(parseInt(childProps.stationId));
 
-    
+    return key;    
   }
 
   render () {
@@ -69,7 +68,7 @@ export  class MapBox extends Component {
           id="map"
           bootstrapURLKeys={ { key:this.props.key } }
           defaultCenter={ this.props.center }
-          onChildClick={ this._onChildClick }
+          onChildClick={ this.onChildClick }
           defaultZoom={ this.props.zoom } 
         >
             { mapMarkerList }
