@@ -43,6 +43,8 @@ export class ForecastDetail extends Component {
 ForecastDetail.propTypes = propTypes;
 
 export default connect(
-  (state) => ({ Forecast: state.WeatherStations.forecast, 
-    StationSelected: state.WeatherStations.stationSelected })
+  (state) => ({ 
+    Forecast: state.WeatherStations.forecast, 
+    StationSelected: state.WeatherStations.stationSelected 
+  })
 )(ForecastDetail);

@@ -48,16 +48,18 @@ export  class MapBox extends Component {
     let Stations = this.props.Stations;
     let StationSelected = this.props.StationSelected;
     const mapMarkerList = Stations.valueSeq().map( item => {
-      return (<MapMarker      
-        key={ item.get('id') }
-        lat={ item.station.coord.lat }
-        stationId={ item.stationId }
-        lng={ item.station.coord.lon }
-        selected={ StationSelected }
-        distance={ item.get('distance') }
-        main={ item.last.main }
-        station={ item.get('station') }
-      />);
+      return (
+        <MapMarker      
+          key={ item.get('id') }
+          lat={ item.station.coord.lat }
+          stationId={ item.stationId }
+          lng={ item.station.coord.lon }
+          selected={ StationSelected }
+          distance={ item.get('distance') }
+          main={ item.last.main }
+          station={ item.get('station') }
+        />
+        );
 
     });
 
@@ -80,6 +82,8 @@ export  class MapBox extends Component {
 MapBox.propTypes = propTypes;
 
 export default connect(
-  (state) => ({ Stations: state.WeatherStations.data, 
-    StationSelected: state.WeatherStations.stationSelected })
+  (state) => ({ 
+    Stations: state.WeatherStations.data, 
+    StationSelected: state.WeatherStations.stationSelected 
+  })
 )(MapBox);
