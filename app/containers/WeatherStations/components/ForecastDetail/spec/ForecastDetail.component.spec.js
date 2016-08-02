@@ -32,7 +32,9 @@ describe('component ', () => {
       };       
 
       const { output } = setup(props);
+
       expect(output.type).toBe('div');
+      expect(output.props.children[1].size).toBe(8);
     });
 
     it('should render correctly station not selected', () => {

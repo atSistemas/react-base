@@ -52,9 +52,8 @@ describe('component ', () => {
         lng: 2222,
         stationId: 22
       }
-      const { output, renderer } = setup();
-      
-      const func = renderer._instance._instance;
+      const { output } = setup();
+      const func = output.props.children.props;
 
       const keyOutput = func.onChildClick(key, childProps);
 
