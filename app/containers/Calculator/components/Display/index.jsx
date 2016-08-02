@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 import { connect } from 'react-redux';
-import classNames from 'classNames/bind';
+import classNames from 'classnames/bind';
 import React, { Component, PropTypes } from 'react';
 
 import styles from './styles.css';
