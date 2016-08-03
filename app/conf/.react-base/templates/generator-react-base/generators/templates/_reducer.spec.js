@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import reducer from '..';
 import types from '../../types';
 

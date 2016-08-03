@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import expect from 'expect';
+import { expect } from 'chai';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 describe('shared / FileSystem', () => {
@@ -12,8 +12,8 @@ describe('shared / FileSystem', () => {
       const realPath = path.resolve(__dirname, '..', 'FileSystem.js');
       const fakePath = path.resolve(__dirname, '..', 'fake.js');
 
-      expect(fileExists(realPath)).toEqual(true);
-      expect(fileExists(fakePath)).toEqual(false);
+      expect(fileExists(realPath)).to.equal(true);
+      expect(fileExists(fakePath)).to.equal(false);
 
     });
   });
@@ -24,7 +24,7 @@ describe('shared / FileSystem', () => {
 
       const dir = path.resolve(__dirname, '..', '..', 'client');
       const files = readDir(dir);
-      expect(files.length).toEqual(1);
+      expect(files.length).to.equal(1);
 
     });
   });
@@ -40,7 +40,7 @@ describe('shared / FileSystem', () => {
       const wrote  = fs.readFileSync(file, "utf8");
       fs.unlink(file);
 
-      expect(wrote).toEqual(content);
+      expect(wrote).to.equal(content);
 
     });
   });

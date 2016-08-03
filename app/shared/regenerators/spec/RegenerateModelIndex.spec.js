@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import expect from 'expect';
+import { expect } from 'chai';
 import { fileExists, writeFile } from '../../FileSystem';
 import { RegenerateImportLine, RegenerateExportLine, getContainerModels, RegenerateModelIndex } from '../RegenerateModelIndex';
 
@@ -13,7 +13,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
       const procesedImport = RegenerateImportLine('Main');
       const expectedImport = 'import * as MainModel from \'containers/Main/models\';';
 
-      expect(procesedImport).toEqual(expectedImport);
+      expect(procesedImport).to.equal(expectedImport);
 
     });
   });
@@ -25,7 +25,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
       const procesedExport = RegenerateExportLine('Main');
       const expectedExport = '\n\nexport const modelIndex = [Main];';
 
-      expect(procesedExport).toEqual(expectedExport);
+      expect(procesedExport).to.equal(expectedExport);
 
     });
   });
@@ -50,7 +50,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
         }
       });
 
-      expect(result).toEqual(expectedResult);
+      expect(result).to.deep.equal(expectedResult);
 
     });
   });
@@ -63,8 +63,8 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
       const fakeModelPath = path.resolve(__dirname, 'fake.js');
       const result = RegenerateModelIndex(containersPath, fakeModelPath);
 
-      expect(result).toEqual(true);
-      expect(fileExists(fakeModelPath)).toEqual(true);
+      expect(result).to.equal(true);
+      expect(fileExists(fakeModelPath)).to.equal(true);
       fs.unlink(fakeModelPath);
 
     });

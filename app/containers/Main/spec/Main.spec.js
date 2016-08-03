@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { generateMap } from 'shared/ModelHelper';
@@ -47,16 +47,16 @@ describe('containers', () => {
   describe('Main', () => {
     it('should render correctly', () => {
       const { output } = setup();
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
 
       let logo2 = output.props.children.valueSeq().map( logo => {
         let logoProps = logo.props.logo;
 
-        expect (logoProps.get("id")).toEqual(mockData[0].id);
-        expect (logoProps.get("alt")).toEqual(mockData[0].alt);
-        expect (logoProps.get("name")).toEqual(mockData[0].name);
-        expect (logoProps.get("width")).toEqual(mockData[0].width);
-        expect (logoProps.get("url")).toEqual(mockData[0].url);
+        expect (logoProps.get("id")).to.equal(mockData[0].id);
+        expect (logoProps.get("alt")).to.equal(mockData[0].alt);
+        expect (logoProps.get("name")).to.equal(mockData[0].name);
+        expect (logoProps.get("width")).to.equal(mockData[0].width);
+        expect (logoProps.get("url")).to.equal(mockData[0].url);
         return logoProps;
       });
 
@@ -64,7 +64,7 @@ describe('containers', () => {
         return logo;
       });
 
-      expect(logo2).toEqual(expectedLogo);
+      expect(logo2.size).to.equal(expectedLogo.size);
       
     });
   });

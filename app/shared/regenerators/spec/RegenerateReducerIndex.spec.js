@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import expect from 'expect';
+import { expect } from 'chai';
 import { fileExists, writeFile } from '../../FileSystem';
 import { RegenerateImportLine, RegenerateExportLine, getContainerReducers, RegenerateReducerIndex } from '../RegenerateReducerIndex';
 
@@ -13,7 +13,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
       const procesedImport = RegenerateImportLine('Main');
       const expectedImport = 'import Main from \'containers/Main/reducers\';';
 
-      expect(procesedImport).toEqual(expectedImport);
+      expect(procesedImport).to.equal(expectedImport);
 
     });
   });
@@ -25,7 +25,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
       const procesedExport = RegenerateExportLine('Main');
       const expectedExport = '\n\nexport default combineReducers({\nMain\n});';
 
-      expect(procesedExport).toEqual(expectedExport);
+      expect(procesedExport).to.equal(expectedExport);
 
     });
   });
@@ -50,7 +50,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
         }
       });
 
-      expect(result).toEqual(expectedResult);
+      expect(result).to.deep.equal(expectedResult);
 
     });
   });
@@ -62,8 +62,8 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
       const fakeReducerPath = path.resolve(__dirname, 'fake.js');
       const result = RegenerateReducerIndex(containersPath, fakeReducerPath);
 
-      expect(result).toEqual(true);
-      expect(fileExists(fakeReducerPath)).toEqual(true);
+      expect(result).to.equal(true);
+      expect(fileExists(fakeReducerPath)).to.equal(true);
       fs.unlink(fakeReducerPath);
 
     });

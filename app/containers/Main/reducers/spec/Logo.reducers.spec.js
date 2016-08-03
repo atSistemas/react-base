@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import reducer from '..';
 import types from '../../types';
 
@@ -11,7 +11,7 @@ describe('Reducers', () => {
         type: types.LOGO_REQUEST
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('should return the state of Logo request fail', () => {
@@ -20,7 +20,7 @@ describe('Reducers', () => {
         type: types.LOGO_ERROR
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
   });
 });

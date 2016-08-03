@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import * as Actions from '../';
 import Types from '../../types';
 import { generateFetchTypes } from 'shared/TypeHelper';
@@ -15,7 +15,7 @@ describe('Actions', () => {
         request: LogoAPI.fetchLogo(params)
       };
 
-      expect(Actions.getLogo(params)).toEqual(expectedAction);
+      expect(Actions.getLogo(params)).to.deep.equal(expectedAction);
 
     });
 

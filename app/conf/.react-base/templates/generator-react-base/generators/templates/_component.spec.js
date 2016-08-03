@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import <%= name %> from '../';

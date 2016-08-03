@@ -25,7 +25,7 @@
     "react/require-render-return": 2,
     "react/no-is-mounted": 2,
     "react/wrap-multilines": 1,
-    "react/jsx-no-bind": 2,
+    "react/jsx-no-bind": 1,
     "jsx-quotes": [2, "prefer-double"],
     "react/jsx-curly-spacing": [2, "always"],
     "import/default": 0,
