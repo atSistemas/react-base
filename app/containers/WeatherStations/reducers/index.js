@@ -1,5 +1,5 @@
-import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
+import Types from '../types';
 import { WeatherStationsCollection } from '../models';
 
 function weatherStationsRequest ( state ) { return state; }

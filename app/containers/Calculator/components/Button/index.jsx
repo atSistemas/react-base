@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import styles from './styles.css';
 import Ink from 'react-ink';
+import styles from './styles.css';
 
 const propTypes = {
   type: PropTypes.string.isRequired,

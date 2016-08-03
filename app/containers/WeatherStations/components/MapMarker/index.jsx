@@ -4,7 +4,7 @@ import {
   stationStyle,
   stationCircleStyle, stationCircleStyleHover,
   stationStickStyle, stationStickStyleHover, stationStickStyleShadow,
-  stationInfoWindowStyleHover, stationInfoWindowStyle } from './styles.js';
+  stationInfoWindowStyleHover, stationInfoWindowStyle } from './stylesMarker';
 
 import MapInfoWindow from '../MapInfoWindow';
 
@@ -38,7 +38,7 @@ export default class MapMarker extends Component {
     return (
 
       <div style={ style }>
-        <div style={ stationStickStyleShadow }></div>
+        <div style={ stationStickStyleShadow } />
 
         <div style={ circleStyle } />
 

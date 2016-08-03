@@ -1,6 +1,6 @@
-import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
 import { CalculatorModel } from '../models';
+import Types from '../types';
 
 function inputOperator(state, action){
   return state

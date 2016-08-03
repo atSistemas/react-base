@@ -1,5 +1,5 @@
 import fs from 'fs';
-import ReactBaseError from './Errors.js';
+import ReactBaseError from './Errors';
 
 function fileExists(filename){
   try{

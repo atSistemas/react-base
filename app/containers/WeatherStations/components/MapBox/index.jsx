@@ -2,9 +2,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import * as Actions from '../../actions';
-
 import GoogleMap from 'google-map-react';
+import * as Actions from '../../actions';
 
 import styles from './styles.css';
 

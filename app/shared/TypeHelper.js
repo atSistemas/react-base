@@ -1,4 +1,4 @@
-import ReactBaseError from './Errors.js';
+import ReactBaseError from './Errors';
 import fetchTypes from '../types/FetchTypes';
 
 export function typeBuilder(types){

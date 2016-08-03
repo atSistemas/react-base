@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
-import styles from './styles.css';
 import Logo from 'components/Logo';
-import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
+
+import styles from './styles.css';
+import * as Actions from './actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,

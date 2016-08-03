@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-export const ForecastModel = new Record({
+const ForecastModel = new Record({
   clouds: 0,
   deg: 0,
   dt: 0,
@@ -10,3 +10,5 @@ export const ForecastModel = new Record({
   temp:{},
   weather: []
 });
+
+export default ForecastModel;

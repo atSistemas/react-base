@@ -1,6 +1,6 @@
+import { generateFetchTypes } from 'shared/TypeHelper';
 import Types from '../types';
 import api from '../api';
-import { generateFetchTypes } from 'shared/TypeHelper';
 
 export function getWeatherStations( { params } ){
   return {

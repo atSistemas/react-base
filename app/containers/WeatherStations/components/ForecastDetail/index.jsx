@@ -19,8 +19,7 @@ export class ForecastDetail extends Component {
     let Forecast = this.props.Forecast;
     if (this.props.StationSelected === -1 ){
       return (
-        <div>
-        </div>
+        <div />
       );
     }
 

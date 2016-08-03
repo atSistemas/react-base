@@ -1,7 +1,7 @@
 import { Record } from 'immutable';
 import React, { PropTypes } from 'react';
-import styles from './styles.css';
 import dateformat from 'dateformat';
+import styles from './styles.css';
 
 const propTypes = {
   selected: PropTypes.number,
