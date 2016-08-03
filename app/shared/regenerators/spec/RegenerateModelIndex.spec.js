@@ -23,7 +23,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
     it('Sould return the export line for models', () => {
 
       const procesedExport = RegenerateExportLine('Main');
-      const expectedExport = '\n\nexport const modelIndex = [Main];';
+      const expectedExport = '\n\nconst modelIndex = [Main];\n\nexport default { modelIndex };';
 
       expect(procesedExport).to.equal(expectedExport);
 

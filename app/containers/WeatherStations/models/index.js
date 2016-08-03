@@ -1,8 +1,8 @@
 import { generateImmutable } from 'shared/ModelHelper';
-import { WeatherStationsModel } from './WeatherStationsModel';
-import { ForecastModel } from './ForecastModel';
-import { WeatherStationDetailsModel } from './WeatherStationDetailsModel';
-import { WeatherStationsCollection } from './WeatherStationsCollection';
+import  WeatherStationsModel  from './WeatherStationsModel';
+import  ForecastModel from './ForecastModel';
+import  WeatherStationDetailsModel  from './WeatherStationDetailsModel';
+import  WeatherStationsCollection  from './WeatherStationsCollection';
 
 function setInitialState(initialState){
   return initialState.WeatherStations = new WeatherStationsCollection({
@@ -12,4 +12,4 @@ function setInitialState(initialState){
   });
 }
 
-export default { WeatherStationsModel, WeatherStationsCollection, ForecastModel, WeatherStationDetailsModel, setInitialState };
+export { WeatherStationsModel, WeatherStationsCollection, ForecastModel, WeatherStationDetailsModel, setInitialState };

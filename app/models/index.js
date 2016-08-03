@@ -4,4 +4,4 @@ import * as WeatherStationsModel from 'containers/WeatherStations/models';
 
 const modelIndex = [CalculatorModel,MainModel,WeatherStationsModel];
 
-export default modelIndex;
+export default { modelIndex };

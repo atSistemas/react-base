@@ -2,7 +2,7 @@ import path from 'path';
 import { symbols, color } from '../console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default modelIndex';
+const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex };';
 const importTpl = 'import * as @paramModel from \'containers/@param/models\';';
 
 function RegenerateImportLine(container){

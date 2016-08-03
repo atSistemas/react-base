@@ -7,7 +7,7 @@ import Logo from 'components/Logo';
 import fetchRequiredActions from 'shared/FetchData';
 
 import styles from './styles.css';
-import * as Actions from './actions';
+import  Actions from './actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,

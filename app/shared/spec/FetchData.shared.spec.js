@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import fetchRequiredActions from '../FetchData' ;
-import * as LogoActions from 'containers/Main/actions';
+import action from 'containers/Main/actions';
 import { LogoModel } from 'containers/Main/models';
 import { generateImmutable } from '../ModelHelper';
 
@@ -11,7 +11,7 @@ describe('shared', () => {
   describe('fetch data', () => {
 
     it('fetch client action', (done) => {
-      let requiredActions = [LogoActions.getLogo];
+      let requiredActions = [action.getLogo];
 
       function dispatch({ types }) {
         expect(types.length).to.equal(3);
@@ -34,7 +34,7 @@ describe('shared', () => {
     });
 
     it('fetch client action with data', () => {
-      let requiredActions = [LogoActions.getLogo];
+      let requiredActions = [action.getLogo];
 
       function dispatch({ types }) {
         expect(types.length).to.equal(3);
@@ -62,7 +62,7 @@ describe('shared', () => {
         done() ;
       }
 
-      let requiredActions = [LogoActions.getLogo];
+      let requiredActions = [action.getLogo];
       const components =  [[
         { displayName: 'Connect(Main)',
           WrappedComponent: {

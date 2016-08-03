@@ -12,8 +12,8 @@ export class ForecastDetail extends Component {
 
   constructor (props) {
     super(props);
-  }
 
+  }
 
   render () {
     let Forecast = this.props.Forecast;

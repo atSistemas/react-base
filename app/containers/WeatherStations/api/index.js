@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { generateMap } from 'shared/ModelHelper';
 import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
-import { config } from '../config';
+import  config  from '../config';
 
 export default {
 

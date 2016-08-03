@@ -11,7 +11,6 @@ function fetchServerData(dispatch, components, params) {
     }, prev);
 
   }, []);
-
   const requiredActions = actions.map(action => dispatch(action(params)));
   return Promise.all(requiredActions);
 }
