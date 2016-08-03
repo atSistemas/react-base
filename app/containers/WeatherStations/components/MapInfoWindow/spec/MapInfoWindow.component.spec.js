@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
@@ -28,17 +28,17 @@ describe('component ', () => {
   describe('MapInfoWindow', () => {
     it('should render correctly', () => {
       const { output } = setup(weatherStationsMock[0].last.main);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
 
      it('should render with data incomplete', () => {
       const { output } = setup(weatherStationsMock[1].last.main);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
 
     it('should render data not found', () => {
       const { output } = setup(weatherStationsMock[2].last.main);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
   });
 });

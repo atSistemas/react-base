@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import * as Actions from '../';
 import Types from '../../types';
 import { generateFetchTypes } from 'shared/TypeHelper';
@@ -15,7 +15,7 @@ describe('Actions', () => {
         request: api.fetchWeatherStations(params)
       };
 
-      expect(Actions.getWeatherStations(params)).toEqual(expectedAction);
+      expect(Actions.getWeatherStations(params)).to.deep.equal(expectedAction);
 
     });
 
@@ -27,7 +27,7 @@ describe('Actions', () => {
         id: id
       };
 
-      expect(Actions.weatherStationSelected(id)).toEqual(expectedAction);
+      expect(Actions.weatherStationSelected(id)).to.deep.equal(expectedAction);
 
     });
 
@@ -38,7 +38,7 @@ describe('Actions', () => {
         request: api.fetchWeatherStation(id)
       };
 
-      expect(Actions.getWeatherStation(id)).toEqual(expectedAction);
+      expect(Actions.getWeatherStation(id)).to.deep.equal(expectedAction);
 
     });
 
@@ -55,7 +55,7 @@ describe('Actions', () => {
         request: api.fetchWeather(params.lat, params.lng)
       };
 
-      expect(Actions.getWeather(params.lat, params.lng)).toEqual(expectedAction);
+      expect(Actions.getWeather(params.lat, params.lng)).to.deep.equal(expectedAction);
 
     });
 

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import reducer from '../';
 import types from '../../types';
 import weatherStationsMock from 'app/api/mocks/weatherStations.json';
@@ -19,7 +19,7 @@ describe('Reducers', () => {
         type: types.WEATHERSTATIONS_REQUEST
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('Should return the state WeatherStations updated request successfull', () => {
@@ -37,7 +37,7 @@ describe('Reducers', () => {
 
       let element = returnedData.keySeq().first();
 
-      expect(returnedData.get(element).id).toEqual(data[0].id );
+      expect(returnedData.get(element).id).to.deep.equal(data[0].id );
     });
 
 
@@ -47,7 +47,7 @@ describe('Reducers', () => {
         type: types.WEATHERSTATIONS_ERROR
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
 
@@ -57,7 +57,7 @@ describe('Reducers', () => {
         type: types.WEATHERSTATION_REQUEST
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('Should return the state WeatherStation updated request successfull', () => {
@@ -73,7 +73,7 @@ describe('Reducers', () => {
       const returnedData = reducer(model, action).get('weatherStationDetails');
 
 
-      expect(returnedData[0].id).toEqual(weatherStationMock.station.id );
+      expect(returnedData[0].id).to.deep.equal(weatherStationMock.station.id );
     });
 
 
@@ -83,7 +83,7 @@ describe('Reducers', () => {
         type: types.WEATHERSTATION_ERROR
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('Should return the initial state when request forecast ', () => {
@@ -92,7 +92,7 @@ describe('Reducers', () => {
         type: types.FORECAST_REQUEST
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('Should return the state forecast updated request successfull', () => {
@@ -106,7 +106,7 @@ describe('Reducers', () => {
       const returnedData = reducer(model, action).get('forecast');
       let element = returnedData.keySeq().first();
       
-      expect(returnedData.get(element).dt).toEqual(ForecastMock.list[0].dt);
+      expect(returnedData.get(element).dt).to.deep.equal(ForecastMock.list[0].dt);
     });
 
 
@@ -116,7 +116,7 @@ describe('Reducers', () => {
         type: types.FORECAST_ERROR
       };
 
-      expect(reducer([], action)).toEqual([]);
+      expect(reducer([], action)).to.deep.equal([]);
     });
 
     it('should return the state of station selected', () => {
@@ -130,7 +130,7 @@ describe('Reducers', () => {
 
       const returnedData = reducer(model, action).get('stationSelected');
 
-      expect(returnedData).toEqual(15);
+      expect(returnedData).to.deep.equal(15);
     });
 
 

@@ -9,8 +9,9 @@ import WeatherStations from 'containers/WeatherStations/';
 const routes = (
   <Route path="/" component={ App } >
     <IndexRoute component={ Main } />
-    <Route path="calculator" component={ Calculator } />
-    <Route path="main" component={ Main } />
+    <Route path="/calculator" component={ Calculator } />
+    <Route path="/main" component={ Main } />
+    <Route path="/weatherstations" component={ WeatherStations } />
   </Route>
 );
 

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import api from '../';
 import weatherStationMock from 'app/api/mocks/weatherStation.json';
 
@@ -26,7 +26,7 @@ describe('Actions', () => {
 
       const returnedData = api.getDataWeatherStation(obj);
 
-      expect(returnedData[0].id).toEqual(obj.station.id );
+      expect(returnedData[0].id).to.equal(obj.station.id );
 
     });
 

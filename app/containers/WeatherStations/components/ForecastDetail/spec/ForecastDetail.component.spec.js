@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
@@ -33,8 +33,8 @@ describe('component ', () => {
 
       const { output } = setup(props);
 
-      expect(output.type).toBe('div');
-      expect(output.props.children[1].size).toBe(8);
+      expect(output.type).to.equal('div');
+      expect(output.props.children[1].size).to.equal(8);
     });
 
     it('should render correctly station not selected', () => {
@@ -45,7 +45,7 @@ describe('component ', () => {
       };       
 
       const { output } = setup(props);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
 
   });

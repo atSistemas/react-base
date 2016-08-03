@@ -2,7 +2,7 @@
   "description": "",
   "main": "generators/index.js",
   "name": "generator-react-base",
-  "version": "0.4.0",
+  "version": "0.4.1",
 
   "keywords": [
     "yeoman-generator"
@@ -14,7 +14,7 @@
     "url": ""
   },
   "dependencies": {
-    "yeoman-generator": "^0.20.3",
+    "yeoman-generator": "^0.24.1",
     "fs":"*"
   }
 }

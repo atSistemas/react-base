@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
@@ -45,7 +45,7 @@ describe('containers', () => {
   describe('WeatherStations', () => {
     it('should render correctly', () => {
       const { output } = setup();
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
   });
 });

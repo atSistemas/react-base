@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
@@ -41,7 +41,7 @@ describe('component ', () => {
   describe('MapBox', () => {
     it('should render correctly', () => {
       const { output } = setup();
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
 
     it('should click function return valur', () => {
@@ -57,7 +57,7 @@ describe('component ', () => {
 
       const keyOutput = func.onChildClick(key, childProps);
 
-      expect(keyOutput).toBe(23333);
+      expect(keyOutput).to.equal(23333);
 
     });
   });

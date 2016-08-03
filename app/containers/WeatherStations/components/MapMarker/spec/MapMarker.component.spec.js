@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
@@ -31,7 +31,7 @@ describe('component ', () => {
         }; 
 
       const { output } = setup(props);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
 
 
@@ -43,7 +43,7 @@ describe('component ', () => {
         }; 
       
       const { output } = setup(props);
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
     });
   });
 });

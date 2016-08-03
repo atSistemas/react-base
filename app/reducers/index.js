@@ -6,5 +6,6 @@ import WeatherStations from 'containers/WeatherStations/reducers';
 
 export default combineReducers({
   Calculator,
-  Main
+  Main,
+  WeatherStations
 });
