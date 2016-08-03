@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import  { App } from '../';
@@ -24,11 +24,11 @@ describe('comtainers', () => {
     it('should render correctly', () => {
       const { output } = setup();
     
-      expect(output.type).toBe('div');
+      expect(output.type).to.equal('div');
 
       const main  = output.props.children;
 
-      expect(main.type).toBe('main');
+      expect(main.type).to.equal('main');
     });
   });
 });

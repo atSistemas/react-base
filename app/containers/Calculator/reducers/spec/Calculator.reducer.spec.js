@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import calculatorReducer from '../';
 import Types from '../../types';
 import { CalculatorModel } from '../../models/';
@@ -14,7 +14,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('operator');
 
-      expect(expectedData).toEqual(operator);
+      expect(expectedData).to.equal(operator);
 
     });
 
@@ -27,7 +27,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(number);
+      expect(expectedData).to.equal(number);
 
     });
 
@@ -41,7 +41,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(decimal);
+      expect(expectedData).to.equal(decimal);
 
     });
 
@@ -55,7 +55,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(555);
+      expect(expectedData).to.equal(555);
 
     });
 
@@ -69,7 +69,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(98);
+      expect(expectedData).to.equal(98);
 
     });
 
@@ -83,7 +83,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(3180);
+      expect(expectedData).to.equal(3180);
 
     });
 
@@ -97,7 +97,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(4);
+      expect(expectedData).to.equal(4);
 
     });
 
@@ -111,7 +111,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual(0);
+      expect(expectedData).to.equal(0);
 
     });
 
@@ -124,7 +124,7 @@ describe('Calculator', () => {
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
-      expect(expectedData).toEqual('-200');
+      expect(expectedData).to.equal(-200);
 
     });
 

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import fetchRequiredActions from '../FetchData' ;
 import * as LogoActions from 'containers/Main/actions';
 import { LogoModel } from 'containers/Main/models';
@@ -14,7 +14,7 @@ describe('shared', () => {
       let requiredActions = [LogoActions.getLogo];
 
       function dispatch({ types }) {
-        expect(types.length).toEqual(3);
+        expect(types.length).to.equal(3);
         done();
       }
 
@@ -37,7 +37,7 @@ describe('shared', () => {
       let requiredActions = [LogoActions.getLogo];
 
       function dispatch({ types }) {
-        expect(types.length).toEqual(3);
+        expect(types.length).to.equal(3);
       }
       const data = generateImmutable( mockData, LogoModel );
 
@@ -58,7 +58,7 @@ describe('shared', () => {
 
     it('fetch server action', (done) => {
       function dispatch({ types }) {
-        expect(types.length).toEqual(3);
+        expect(types.length).to.equal(3);
         done() ;
       }
 
