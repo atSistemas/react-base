@@ -18,7 +18,6 @@ describe('Calculator', () => {
 
     });
 
-
     it('Should input a Number', () => {
 
       const number = 2222;
@@ -30,7 +29,6 @@ describe('Calculator', () => {
       expect(expectedData).toEqual(number);
 
     });
-
 
     it('Should input a Decimal', () => {
 
@@ -45,7 +43,6 @@ describe('Calculator', () => {
 
     });
 
-
     it('Should Sum two numbers', () => {
 
       const numberA = 222;
@@ -58,7 +55,6 @@ describe('Calculator', () => {
       expect(expectedData).toEqual(555);
 
     });
-
 
     it('Should Substract numbers', () => {
 
@@ -73,7 +69,6 @@ describe('Calculator', () => {
 
     });
 
-
     it('Should Multiply numbers', () => {
 
       const numberA = 60;
@@ -86,7 +81,6 @@ describe('Calculator', () => {
       expect(expectedData).toEqual(3180);
 
     });
-
 
     it('Should Multiply numbers', () => {
 
@@ -101,7 +95,6 @@ describe('Calculator', () => {
 
     });
 
-
     it('Should reset Display', () => {
 
       const numberA = 200;
@@ -114,7 +107,6 @@ describe('Calculator', () => {
       expect(expectedData).toEqual(0);
 
     });
-
 
     it('Should convert to negative', () => {
 
