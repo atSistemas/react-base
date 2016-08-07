@@ -7,6 +7,7 @@ import styles from './styles.css';
 import Logo from 'components/Logo';
 import * as Actions from './actions';
 import fetchRequiredActions from 'shared/FetchData';
+import LinkButton from 'components/LinkButton';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -40,6 +41,8 @@ export class Main extends Component {
     return (
       <div className={ styles.Main }>
        { logoList }
+       <LinkButton location="/calculator" value="Simple Redux Calculator" />
+
       </div>
     );
   }

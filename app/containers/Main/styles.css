@@ -2,12 +2,11 @@
 
 .Main {
   width: var(--logoWidth);
-  height: 200px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  top: 100px;
+  bottom: 100px;
   margin: auto;
   max-width: 100%;
 }
