@@ -41,7 +41,7 @@ export class Main extends Component {
     return (
       <div className={ styles.Main }>
        { logoList }
-       <LinkButton location="/calculator" value="Simple Redux Calculator" />
+        <LinkButton location="/calculator" value="Simple Redux Calculator" />
 
       </div>
     );
