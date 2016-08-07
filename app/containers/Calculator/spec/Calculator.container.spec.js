@@ -85,7 +85,7 @@ describe('Containers', () => {
         expect(Display.text()).to.equal('35');
     });
 
-    it('Should display multiply result on clicking buttons', () => {
+    it('Should display multiply result on clicking buttons without result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
@@ -105,7 +105,7 @@ describe('Containers', () => {
           .simulate('click');
 
         component.find('Button')
-          .findWhere(n => n.props().value === '=')
+          .findWhere(n => n.props().value === 'x')
           .simulate('click');
 
         const Display = component.find('Display');

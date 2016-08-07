@@ -2,11 +2,13 @@ import { typeBuilder } from 'shared/TypeHelper';
 
 export default typeBuilder([
   'SUM',
-  'UNDO',
+  'CLEAN',
+  'RESULT',
   'DIVIDE',
+  'PERCENT',
   'MULTIPLY',
   'SUBSTRACT',
-  'CALCULATE',
+  'CHANGE_SIGN',
   'INPUT_NUMBER',
   'INPUT_DECIMAL',
   'INPUT_OPERATOR',
