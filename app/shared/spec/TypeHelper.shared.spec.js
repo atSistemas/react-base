@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { typeBuilder, generateFetchTypes } from '../TypeHelper';
 
 describe('shared / type-helper', () => {
@@ -10,8 +10,8 @@ describe('shared / type-helper', () => {
       let TypeExamples = ['typeExample', 'typeExample2'];
       let types = typeBuilder(TypeExamples);
 
-      expect(types.typeExample).toEqual('typeExample');
-      expect(types.typeExample2).toEqual('typeExample2');
+      expect(types.typeExample).to.equal('typeExample');
+      expect(types.typeExample2).to.equal('typeExample2');
 
     });
   });
@@ -24,10 +24,10 @@ describe('shared / type-helper', () => {
       let TypeExamples = 'TEST';
       let types = generateFetchTypes(TypeExamples);
 
-      expect(types.length).toEqual(3);
-      expect(types[0]).toEqual('TEST_REQUEST');
-      expect(types[1]).toEqual('TEST_SUCCESS');
-      expect(types[2]).toEqual('TEST_ERROR');
+      expect(types.length).to.equal(3);
+      expect(types[0]).to.equal('TEST_REQUEST');
+      expect(types[1]).to.equal('TEST_SUCCESS');
+      expect(types[2]).to.equal('TEST_ERROR');
 
     });
 

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import  configureStore  from '../ConfigureStore';
 
 describe('store / configureStore', () => {
@@ -11,7 +11,7 @@ describe('store / configureStore', () => {
 
       let type = typeof(output.dispatch);
 
-      expect(type).toBe('function');
+      expect(type).to.equal('function');
 
     });
   });

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import requestMiddleware from '../Request';
 import types from 'containers/Main/types';
 import logoAPI from 'containers/Main/api';
@@ -37,7 +37,7 @@ describe('middleware', () => {
         type: 'LOGO_REQUEST'
       };
 
-      expect(dispatchWithStoreOf({}, actions)).toEqual(expectedAction);
+      expect(dispatchWithStoreOf({}, actions)).to.deep.equal(expectedAction);
     });
 
 
@@ -47,7 +47,7 @@ describe('middleware', () => {
         types: generateFetchTypes(types.LOGO_REQUEST)
       };
 
-      expect(dispatchWithStoreOf({}, actions)).toEqual(actions);
+      expect(dispatchWithStoreOf({}, actions)).to.equal(actions);
     });
 
 

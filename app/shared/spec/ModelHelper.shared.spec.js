@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { LogoModel } from 'containers/Main/models';
 import { generateMap, generateImmutable } from '../ModelHelper';
 import { Map } from 'immutable';
@@ -30,7 +30,7 @@ describe('shared / model-helper', () => {
                             }, new Map()
                             );
 
-      expect(data).toEqual(expectedData);
+      expect(data).to.equal(expectedData);
 
     });
 
@@ -47,7 +47,7 @@ describe('shared / model-helper', () => {
                             );
 
 
-      expect(data).toEqual(expectedData);
+      expect(data).to.deep.equal(expectedData);
 
     });
 
@@ -66,7 +66,7 @@ describe('shared / model-helper', () => {
                             }, new Map()
                             );
 
-      expect(data).toEqual(expectedData);
+      expect(data).to.deep.equal(expectedData);
 
     });
 
@@ -81,7 +81,7 @@ describe('shared / model-helper', () => {
                             }, new Map()
                             );
 
-      expect(data).toEqual(expectedData);
+      expect(data).to.deep.equal(expectedData);
 
     });
 

@@ -1,17 +1,17 @@
 .Display{
-    display: flex;
-    padding-top: 40px;
-    flex: 2;
-    flex-direction: column;
-    background-color: #8C8787;
-    font-size: 42px;
-    color:white;
-    box-shadow: inset 1px 1px 0 0 #e3e7e9;
-    text-align: right;
-    padding: 0px 30px;
-    line-height: 100px;
-    height:100px;
-    font-family: Arial;
+  display: flex;
+  padding-top: 40px;
+  flex: 2;
+  flex-direction: column;
+  background-color: #8C8787;
+  font-size: 42px;
+  color: white;
+  box-shadow: inset 1px 1px 0 0 #e3e7e9;
+  text-align: right;
+  padding: 0px 30px;
+  line-height: 100px;
+  height: 100px;
+  font-family: Arial;
 }
 
 .Fade {
@@ -23,26 +23,26 @@
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
