@@ -6,8 +6,8 @@ import React, { Component, PropTypes } from 'react';
 import styles from './styles.css';
 import Logo from 'components/Logo';
 import * as Actions from './actions';
-import fetchRequiredActions from 'shared/FetchData';
 import LinkButton from 'components/LinkButton';
+import fetchRequiredActions from 'shared/FetchData';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -28,29 +28,26 @@ export class Main extends Component {
   }
 
   render () {
-    const MainModel = this.props.MainModel;
-    const logoList = MainModel.data.valueSeq().map( logo => {
-
-      return (<Logo
-        logo={ logo }
-        key={ logo.get('id') }
-      />);
-
-    });
+    const LogoData = this.props.MainModel;
 
     return (
       <div className={ styles.Main }>
-       { logoList }
-        <LinkButton location="/calculator" value="Simple Redux Calculator" />
-
+        <Logo
+          alt={ LogoData.alt }
+          width={ LogoData.width }
+          src={ LogoData.src }
+        />
+        <LinkButton
+          location="/calculator"
+          value="Simple Redux Calculator"
+        />
       </div>
     );
-  }
 
+  }
 }
 
 Main.propTypes = propTypes;
-
 
 export default connect(
   (state) => ({ MainModel: state.Main })
