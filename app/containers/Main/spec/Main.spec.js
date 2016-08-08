@@ -39,7 +39,7 @@ describe('Container', () => {
         </Provider>
       );
 
-      expect(component.find('LinkButton')).to.have.lengthOf(1);
+      expect(component.find('LinkButton')).to.have.lengthOf(2);
       //TODO Improve ajax testing
       setTimeout(() => {
         expect(component.find('Logo')).to.have.lengthOf(1);
