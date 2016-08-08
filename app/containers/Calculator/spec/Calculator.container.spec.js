@@ -1,14 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Calculator from '../';
-import { CalculatorModel } from '../../../models';
-import configureStore from 'shared/../store/ConfigureStore';;
+import configureStore from 'shared/../store/ConfigureStore';
 
 describe('Containers', () => {
-  describe('Calculator', () => {
+  describe('<Calculator />', () => {
 
     it('Should have display & buttonpannel', () => {
       const store = configureStore([]);
@@ -22,7 +21,7 @@ describe('Containers', () => {
     });
 
 
-    it('Should display sum result on clicking buttons', () => {
+    it('Should display sum result with result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
@@ -54,7 +53,7 @@ describe('Containers', () => {
     });
 
 
-    it('Should display substract result on clicking buttons', () => {
+    it('Should display substract result with result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
@@ -85,7 +84,7 @@ describe('Containers', () => {
         expect(Display.text()).to.equal('35');
     });
 
-    it('Should display multiply result on clicking buttons without result button', () => {
+    it('Should display multiply result without click result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
@@ -113,7 +112,7 @@ describe('Containers', () => {
     });
 
 
-    it('Should display divide result on clicking buttons', () => {
+    it('Should display divide and multiply result with result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
@@ -133,11 +132,19 @@ describe('Containers', () => {
           .simulate('click');
 
         component.find('Button')
+            .findWhere(n => n.props().value === 'x')
+            .simulate('click');
+
+        component.find('Button')
+          .findWhere(n => n.props().value === '2')
+          .simulate('click');
+
+        component.find('Button')
           .findWhere(n => n.props().value === '=')
           .simulate('click');
 
         const Display = component.find('Display');
-        expect(Display.text()).to.equal('3');
+        expect(Display.text()).to.equal('6');
     });
 
 

@@ -2,6 +2,25 @@ import Types from '../types';
 import CreateReducer from 'shared/CreateReducer';
 import { CalculatorModel } from '../models';
 
+function inputOperator(state, action){
+  const currentOperator = action.operator;
+  const prevOperator = state.get('operator');
+  const prevValue = state.get('prevValue');
+  const nextValue = state.get('nextValue');
+  const newValue = state.get('newValue');
+
+  const result = (newValue) ?
+  calculate(prevOperator, prevValue, nextValue) : prevValue;
+
+  return state
+    .set('nextValue', 0)
+    .set('newValue', true)
+    .set('display', result)
+    .set('prevValue', result)
+    .set('resetDisplay', true)
+    .set('operator', currentOperator);
+}
+
 function inputNumber( state, action) {
   const selectedValue = action.value;
   const newValue = state.get('newValue');
@@ -19,24 +38,6 @@ function inputNumber( state, action) {
       .set('prevValue', value)
       .set('resetDisplay', false);
   }
-}
-
-function inputOperator(state, action){
-  const operator = action.operator;
-  const prevValue = state.get('prevValue');
-  const nextValue = state.get('nextValue');
-  const newValue = state.get('newValue');
-
-  let result;
-  if(newValue) result = calculate(operator, prevValue, nextValue);
-  else result = prevValue;
-  return state
-    .set('nextValue', 0)
-    .set('newValue', true)
-    .set('display', result)
-    .set('prevValue', result)
-    .set('resetDisplay', true)
-    .set('operator', operator);
 }
 
 function inputDecimal( state ){
@@ -68,7 +69,8 @@ function inputOperation( state, action ) {
         .set('resetDisplay', true);
 
     case Types.CHANGE_SIGN:
-      value = (Math.sign(prevValue) === 1) ? -Math.abs(prevValue) : Math.abs(prevValue);
+      value = (Math.sign(prevValue) === 1) ?
+      -Math.abs(prevValue) : Math.abs(prevValue);
       return state
         .set('display', value)
         .set('prevValue', value);
@@ -113,7 +115,6 @@ function result(state){
 }
 
 const actionHandlers = {
-  [Types.CALCULATE]: calculate,
   [Types.RESULT]: result,
   [Types.INPUT_NUMBER]: inputNumber,
   [Types.INPUT_DECIMAL]: inputDecimal,
