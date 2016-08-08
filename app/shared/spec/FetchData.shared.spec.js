@@ -30,7 +30,7 @@ describe('shared', () => {
 
       let context ='client';
 
-      fetchRequiredActions(requiredActions, props, 'logo', context);
+      fetchRequiredActions(requiredActions, props, 'MainModel', context);
     });
 
     it('fetch client action with data', () => {
@@ -39,7 +39,7 @@ describe('shared', () => {
       function dispatch({ types }) {
         expect(types.length).to.equal(3);
       }
-      const data = generateImmutable( mockData, LogoModel );
+      const data = generateImmutable( mockData, MainModel );
 
       const props= {
         params:{
@@ -53,7 +53,7 @@ describe('shared', () => {
 
       let context ='client';
 
-      fetchRequiredActions(requiredActions, props, 'logo', context);
+      fetchRequiredActions(requiredActions, props, 'MainModel', context);
     });
 
     it('fetch server action', (done) => {

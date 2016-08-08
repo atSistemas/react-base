@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { generateMap } from 'shared/ModelHelper';
+import { MainModel } from '../models';
 
 import { LogoModel } from '../models';
 
@@ -9,8 +9,8 @@ export default {
 
   fetchLogo(){
     return fetch(url)
-    .then(req => req.json())
-    .then(data => generateMap(data, LogoModel));
+      .then(req => req.json())
+      .then(data => new MainModel(data));
   }
 
 };

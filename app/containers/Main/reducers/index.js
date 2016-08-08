@@ -1,13 +1,22 @@
 import CreateReducer from 'shared/CreateReducer';
 import Types from '../types';
-import { LogoCollection } from '../models';
+import { MainModel } from '../models';
 
 function logoRequest( state ){ return state; }
 
-function logoError( state ){ return state; }
+function logoError( state, error ){
+  console.log(error);
+  return state;
+}
 
 function logoSuccess(state, action) {
-  return state.update( 'data', () => action.result );
+  const data = action.result;
+  return state
+    .set('id', data.id)
+    .set('alt', data.alt)
+    .set('src', data.src)
+    .set('name', data.name)
+    .set('width', data.width);
 }
 
 const actionHandlers = {
@@ -16,4 +25,4 @@ const actionHandlers = {
   [Types.LOGO_ERROR]: logoError,
 };
 
-export default CreateReducer(actionHandlers, new LogoCollection());
+export default CreateReducer(actionHandlers, new MainModel());

@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
 import Ink from 'react-ink';
+import React, { PropTypes } from 'react';
+
 import styles from './styles.css';
 
 const propTypes = {

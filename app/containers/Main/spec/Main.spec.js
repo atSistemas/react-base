@@ -1,71 +1,51 @@
-import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import { generateMap } from 'shared/ModelHelper';
+import { spy } from 'sinon';
+import { expect } from 'chai';
+import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 
-import { LogoModel, setInitialState } from '../models';
-import { Main } from '..';
+import Main from '../';
+import { MainModel, setInitialState } from '../models';
+import configureStore from 'shared/../store/ConfigureStore';
 
-const mockData = [
-  {
-    "id": 1,
-    "alt": "React Base!",
-    "name": "ReactBaseLogo",
-    "width": 500,
-    "url": "/assets/images/react-base-logo.png"
-  }
-];
+describe('Container', () => {
 
-const mockDataImmutable2= generateMap(mockData,LogoModel );
+  describe('<Main />', () => {
 
-function setup() {
+    it('Should init Correctly', () => {
 
-  function dispatch() { }
-  let initialState = {
-      Main: {
-        data: mockData
-      }
-  };
+      spy(Main.prototype, 'componentDidMount');
 
-  let props = {
-    dispatch: dispatch,
-    MainModel: setInitialState(initialState)
-  };
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+            <Main />
+        </Provider>
+      );
 
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<Main {...props} />);
-  let output = renderer.getRenderOutput();
+      expect(Main.prototype.componentDidMount.calledOnce).to.equal(true);
 
-  return {
-    props,
-    output,
-    renderer
-  };
-}
-
-describe('containers', () => {
-  describe('Main', () => {
-    it('should render correctly', () => {
-      const { output } = setup();
-      expect(output.type).to.equal('div');
-
-      let logo2 = output.props.children.valueSeq().map( logo => {
-        let logoProps = logo.props.logo;
-
-        expect (logoProps.get("id")).to.equal(mockData[0].id);
-        expect (logoProps.get("alt")).to.equal(mockData[0].alt);
-        expect (logoProps.get("name")).to.equal(mockData[0].name);
-        expect (logoProps.get("width")).to.equal(mockData[0].width);
-        expect (logoProps.get("url")).to.equal(mockData[0].url);
-        return logoProps;
-      });
-
-      let expectedLogo = mockDataImmutable2.valueSeq().map( logo => {
-        return logo;
-      });
-
-      expect(logo2.size).to.equal(expectedLogo.size);
-      
     });
+
+    it('Should have Logo & LinkButton', () => {
+
+      setInitialState({});
+      const fakeStore = {};
+      fakeStore.Main = new MainModel({ id: 2222, src:'fakePath', alt:'aaaalt!', width:650 });
+      const store = configureStore([], fakeStore);
+      const component = mount(
+        <Provider store={ store }>
+            <Main />
+        </Provider>
+      );
+
+      expect(component.find('LinkButton')).to.have.lengthOf(1);
+      //TODO Improve ajax testing
+      setTimeout(() => {
+        expect(component.find('Logo')).to.have.lengthOf(1);
+        done();
+      }, 1000)
+    });
+
   });
 });

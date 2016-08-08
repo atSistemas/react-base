@@ -1,20 +1,15 @@
-import { Record, Map } from 'immutable';
-import { generateImmutable } from 'shared/ModelHelper';
+import { Record } from 'immutable';
 
-const LogoModel = new Record({
+const MainModel = new Record({
   id: 0,
+  src: '',
   alt: '',
   name: '',
   width: 0,
-  url: ''
 });
 
-const LogoCollection = new Record({ data: new Map() });
-
 function setInitialState(initialState){
-  return initialState.Main = new LogoCollection({
-    data: generateImmutable( initialState.Main.data, LogoModel )
-  });
+  return initialState.Main = new MainModel(initialState.Main);
 }
 
-export { LogoModel, LogoCollection, setInitialState };
+export { MainModel, setInitialState };

@@ -16,7 +16,7 @@ function fetchServerData(dispatch, components, params) {
 }
 
 function fetchClientData( actions, props, node, force = false){
-  const checkSize = props[node].data.size;
+  const checkSize = props[node];
   const { params, dispatch } = props;
   if(!checkSize || force) actions.map( action => dispatch(action(params)) );
 }

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
 import Logo from 'components/Logo';
+import LinkButton from 'components/LinkButton';
 import fetchRequiredActions from 'shared/FetchData';
 
 import styles from './styles.css';
@@ -28,27 +29,26 @@ export class Main extends Component {
   }
 
   render () {
-    const MainModel = this.props.MainModel;
-    const logoList = MainModel.data.valueSeq().map( logo => {
-
-      return (<Logo
-        logo={ logo }
-        key={ logo.get('id') }
-      />);
-
-    });
+    const LogoData = this.props.MainModel;
 
     return (
       <div className={ styles.Main }>
-       { logoList }
+        <Logo
+          alt={ LogoData.alt }
+          width={ LogoData.width }
+          src={ LogoData.src }
+        />
+        <LinkButton
+          location="/calculator"
+          value="Simple Redux Calculator"
+        />
       </div>
     );
-  }
 
+  }
 }
 
 Main.propTypes = propTypes;
-
 
 export default connect(
   (state) => ({ MainModel: state.Main })
