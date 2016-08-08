@@ -28,7 +28,7 @@
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js app --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
     "lint:css": "npm run logo && stylelint \"app/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
-    "test": "npm run logo && mocha --compilers js:babel-core/register --recursive \"./app/**/*.spec.js\" --require ignore-styles \"./src/shared/JsDomSetup.js\"",
+    "test": "npm run logo && mocha --compilers js:babel-core/register --recursive \"./app/**/*.spec.js\" --require ignore-styles \"./app/shared/JsDomSetup.js\"",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
