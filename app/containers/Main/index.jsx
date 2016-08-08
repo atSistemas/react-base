@@ -39,7 +39,7 @@ export class Main extends Component {
           src={ LogoData.src }
         />
         <div>
-          <span className={ styles.Examples}>Examples</span>
+          <span className={ styles.Examples }>Examples</span>
           <LinkButton
             location="/calculator"
             value="Simple Redux Calculator"
@@ -49,7 +49,7 @@ export class Main extends Component {
             value="GoogleMaps Wheater Stations"
           />
         </div>
-    </div>
+      </div>
     );
 
   }
