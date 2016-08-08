@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { LogoModel } from 'containers/Main/models';
+import { MainModel } from 'containers/Main/models';
 import { generateMap, generateImmutable } from '../ModelHelper';
 import { Map } from 'immutable';
 
@@ -21,12 +21,12 @@ describe('shared / model-helper', () => {
     it('should return empty immutable map', () => {
 
       const initialState = {};
-      const data = generateImmutable( initialState, LogoModel );
+      const data = generateImmutable( initialState, MainModel );
 
       const expectedData = Object.keys(initialState)
                             .reduce( (acc, key) => {
                               let item = initialState[key];
-                              return acc.set( item.id, new LogoModel(item) );
+                              return acc.set( item.id, new MainModel(item) );
                             }, new Map()
                             );
 
@@ -37,12 +37,12 @@ describe('shared / model-helper', () => {
     it('should return immutable map', () => {
 
       const initialState = mockData;
-      const data = generateImmutable( initialState, LogoModel );
+      const data = generateImmutable( initialState, MainModel );
 
       const expectedData = Object.keys(initialState)
                             .reduce( (acc, key) => {
                               let item = initialState[key];
-                              return acc.set( item.id, new LogoModel(item) );
+                              return acc.set( item.id, new MainModel(item) );
                             }, new Map()
                             );
 
@@ -57,12 +57,12 @@ describe('shared / model-helper', () => {
 
     it('should return  object', () => {
 
-      const initialState = generateImmutable( mockData, LogoModel );
-      const data = generateMap( initialState, LogoModel );
+      const initialState = generateImmutable( mockData, MainModel );
+      const data = generateMap( initialState, MainModel );
 
       const expectedData = initialState
                             .reduce((acc, item) => {
-                              return acc.set(item.id, new LogoModel(item));
+                              return acc.set(item.id, new MainModel(item));
                             }, new Map()
                             );
 
@@ -72,12 +72,12 @@ describe('shared / model-helper', () => {
 
     it('should return empty object', () => {
 
-      const initialState = generateImmutable( {}, LogoModel );
-      const data = generateMap( initialState, LogoModel );
+      const initialState = generateImmutable( {}, MainModel );
+      const data = generateMap( initialState, MainModel );
 
       const expectedData = initialState
                             .reduce((acc, item) => {
-                              return acc.set(item.id, new LogoModel(item));
+                              return acc.set(item.id, new MainModel(item));
                             }, new Map()
                             );
 
