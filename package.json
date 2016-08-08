@@ -1,6 +1,6 @@
 {
   "name": "ReactBase",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "React Base Isomorphic Redux",
   "author": "Pablo Magaz",
   "contributors": [
@@ -11,6 +11,10 @@
     {
       "name": "Rafael Bernad",
       "email": "rbernad@atsistemas.com"
+    },
+    {
+      "name": "Eduardo Perez",
+      "email": "eperez-bermejo@atsistemas.com"
     }
   ],
   "main": "client/client.js",
@@ -130,12 +134,20 @@
   "bugs": {
     "url": "https://github.com/atsistemas/react-base/issues"
   },
+  "license": "MIT",
   "keywords": [
-    "React",
-    "Redux",
-    "Isomorphic",
+    "react",
+    "redux",
+    "starter",
     "starterKit",
-    "Webpack"
-  ],
-  "license": "MIT"
+    "seed",
+    "isomorphic",
+    "universal",
+    "postcss",
+    "css-modules",
+    "webpack",
+    "enzyme",
+    "yeoman",
+    "istambul"
+  ]
 }
