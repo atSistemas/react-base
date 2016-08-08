@@ -104,6 +104,7 @@
     "postcss-modules-extract-imports": "^1.0.1",
     "postcss-url": "^5.1.2",
     "react-addons-test-utils": "~15.3.0",
+    "sinon": "^1.17.5",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.12.1",
