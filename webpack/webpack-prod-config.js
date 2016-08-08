@@ -35,7 +35,7 @@ export const prodEntries = {
     'redux',
     'react-dom',
     'immutable',
-    'classNames',
+    'classnames',
     'react-redux',
     'react-router',
     'isomorphic-fetch'
