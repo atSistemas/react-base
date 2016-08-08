@@ -38,11 +38,18 @@ export class Main extends Component {
           width={ LogoData.width }
           src={ LogoData.src }
         />
-        <LinkButton
-          location="/calculator"
-          value="Simple Redux Calculator"
-        />
-      </div>
+        <div>
+          <span className={ styles.Examples}>Examples</span>
+          <LinkButton
+            location="/calculator"
+            value="Simple Redux Calculator"
+          />
+          <LinkButton
+            location="/weatherstations"
+            value="GoogleMaps Wheater Stations"
+          />
+        </div>
+    </div>
     );
 
   }

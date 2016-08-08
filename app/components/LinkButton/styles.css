@@ -1,24 +1,21 @@
 .LinkButton{
   background: #47BBEA;
-  background-image: -ms-linear-gradient(top, #47BBEA, #008ACA);
-  background-image: -o-linear-gradient(top, #47BBEA, #008ACA);
-  background-image: linear-gradient(to bottom, #47BBEA, #008ACA);
-  -webkit-border-radius: 12;
-  -moz-border-radius: 12;
-  border-radius: 12px;
+  -webkit-border-radius: 4px;
+  border: 1px solid transparent;
+  -moz-border-radius: 4px ;
+  border-radius: 4px;
   font-family: Arial;
   color: #ffffff;
   font-size: 14px;
-  padding: 8px 16px 8px 16px;
+  padding: .5rem 1rem;
+  margin-left: 30px;
+  font-weight: 500;
   text-decoration: none;
 }
 
 .LinkButton:hover {
   background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #47BBEA);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #47BBEA);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #47BBEA);
-  background-image: -o-linear-gradient(top, #3cb0fd, #47BBEA);
-  background-image: linear-gradient(to bottom, #3cb0fd, #47BBEA);
   text-decoration: none;
+  border: 1px solid transparent;
+
 }
