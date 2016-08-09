@@ -22,7 +22,7 @@ export const prodPlugins = [
   function(){
     this.plugin("done", function(stats){
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
-        throw new Error(stats.compilation.errors);
+        console.log('[BASE] ' + color('error', symbols.error) + stats.compilation.errors);
       }
     });
   }
