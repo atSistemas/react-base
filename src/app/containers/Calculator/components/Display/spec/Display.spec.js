@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { mount, shallow } from 'enzyme';
 
 import Display from '../';
-import configureStore from 'shared/../store/ConfigureStore';
+import configureStore from 'store/ConfigureStore';
 import { CalculatorModel, setInitialState } from '../../../models';
 
 describe('Calculator / Components', () => {

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import Calculator from '../';
-import configureStore from 'shared/../store/ConfigureStore';
+import configureStore from 'store/ConfigureStore';
 
 describe('Containers', () => {
   describe('<Calculator />', () => {

@@ -4,12 +4,12 @@ const modelIndex = require('./regenerators/RegenerateModelIndex');
 const reducerIndex = require('./regenerators/RegenerateReducerIndex');
 const regenerateRoutes = require('./regenerators/RegenerateRoutes');
 
-const modelFilePath = path.resolve(__dirname, '..', 'models','index.js');
-const reducerFilePath = path.resolve(__dirname, '..', 'reducers','index.js');
+const modelFilePath = path.resolve(__dirname, '..', 'app', 'models','index.js');
+const reducerFilePath = path.resolve(__dirname, '..', 'app','reducers','index.js');
 
-const containersPath = path.resolve(__dirname, '..', 'containers');
+const containersPath = path.resolve(__dirname, '..', 'app', 'containers');
 const args = process.argv.slice(2);
-
+console.log(containersPath)
 if(~args.indexOf('--all')  || ~args.indexOf('--routes')){
   regenerateRoutes();
 }

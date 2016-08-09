@@ -3,11 +3,11 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'app', 'client/');
 
 export const devTool = 'eval';
 
-export const devContext = path.resolve(__dirname, '../app');
+export const devContext = path.resolve(__dirname, '../src/app');
 
 export const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),

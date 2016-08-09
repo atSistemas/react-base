@@ -3,9 +3,9 @@ import { match } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
-import ENV from 'shared/Env';
+import ENV from '../src/shared/Env';
 import applyEnvMiddleWare from './middleware';
-import { symbols, color } from '../app/shared/console';
+import { symbols, color } from 'shared/console';
 
 const port = 8000;
 const app = express();

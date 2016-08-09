@@ -1,6 +1,6 @@
 import { devTool, devContext, devPlugins, devEntries, devLoaders, devPostCss } from './webpack-dev-config';
 import { prodTool, prodContext, prodPlugins, prodEntries, prodLoaders, prodPostCss } from './webpack-prod-config';
-import ENV from '../app/shared/Env';
+import ENV from '../src/shared/Env';
 
 export default function getEnvConfig(){
   return {

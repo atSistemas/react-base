@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import Main from '../';
 import { MainModel, setInitialState } from '../models';
-import configureStore from 'shared/../store/ConfigureStore';
+import configureStore from 'store/ConfigureStore';
 
 describe('Container', () => {
 

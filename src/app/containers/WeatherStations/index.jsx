@@ -29,7 +29,8 @@ export class WeatherStations extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(WeatherStations.requiredActions, this.props, 'WeatherStationsModel');
+    const force = this.props['WeatherStationsModel'].get('data').size === 0;
+    fetchRequiredActions(WeatherStations.requiredActions, this.props, 'WeatherStationsModel', force);
   }
   
   shouldComponentUpdate = shouldPureComponentUpdate;

@@ -4,11 +4,11 @@ import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'app','client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'app','client/');
 
 export const prodTool = 'cheap-module-source-map';
 
-export const prodContext = path.resolve(__dirname, '../app');
+export const prodContext = path.resolve(__dirname, '../src/app');
 
 export const prodPlugins = [
   new webpack.NoErrorsPlugin(),
@@ -16,7 +16,7 @@ export const prodPlugins = [
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-  new copyWebpackPlugin([{ from: '../app/assets', to: 'assets' }]),
+  new copyWebpackPlugin([{ from: '../src/app/assets', to: 'assets' }]),
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   function(){
