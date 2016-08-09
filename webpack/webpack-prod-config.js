@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { symbols, color } from '../src/shared/console';
 
 const mainPath = path.resolve(__dirname, '..');
 const clientPath = path.resolve(__dirname, '..', 'src', 'app','client/');

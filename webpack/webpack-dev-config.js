@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { symbols, color } from '../src/shared/console';
 
 const mainPath = path.resolve(__dirname, '..');
 const clientPath = path.resolve(__dirname, '..', 'src', 'app', 'client/');
@@ -17,7 +18,7 @@ export const devPlugins = [
   function(){
     this.plugin("done", function(stats){
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
-        console.log('[BASE] ' + color('error', symbols.error) + stats.compilation.errors);
+        console.log('[BASE] ' + color('errpr', symbols.error) + stats.compilation.errors);
       }
     });
   }
