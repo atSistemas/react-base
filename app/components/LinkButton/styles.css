@@ -1,21 +1,23 @@
-.LinkButton{
-  background: #47BBEA;
-  -webkit-border-radius: 4px;
-  border: 1px solid transparent;
-  -moz-border-radius: 4px ;
-  border-radius: 4px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 14px;
-  padding: .5rem 1rem;
+.LinkButton:last-child {
   margin-left: 30px;
-  font-weight: 500;
-  text-decoration: none;
 }
 
-.LinkButton:hover {
-  background: #3cb0fd;
-  text-decoration: none;
+.LinkButton button {
+  background: #47BBEA;
+  border-radius: 4px;
   border: 1px solid transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  width: 100%;
+}
 
+.LinkButton button:hover {
+  background: #3cb0fd;
+  border: 1px solid transparent;
+  text-decoration: none;
 }
