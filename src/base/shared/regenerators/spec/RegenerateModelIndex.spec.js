@@ -35,7 +35,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
 
     it('Sould return an object with avaiable models', () => {
 
-      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const containersPath = path.resolve(__dirname, '..', '..', '..', '..', 'app', 'containers');
       const result = getContainerModels(containersPath);
 
       const containers = fs.readdirSync(containersPath);
@@ -59,7 +59,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
   describe('RegenerateModelIndex', () => {
 
     it('Sould write the model index file', () => {
-      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const containersPath = path.resolve(__dirname, '..', '..', '..', '..', 'app', 'containers');
       const fakeModelPath = path.resolve(__dirname, 'fake.js');
       const result = RegenerateModelIndex(containersPath, fakeModelPath);
 

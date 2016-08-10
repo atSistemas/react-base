@@ -35,7 +35,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
 
     it('Sould return an object with avaiable reducers for import', () => {
 
-      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const containersPath = path.resolve(__dirname, '..', '..', '..', '..', 'app', 'containers');
       const result = getContainerReducers(containersPath);
 
       const containers = fs.readdirSync(containersPath);
@@ -58,7 +58,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
   describe('RegenerateReducerIndex', () => {
 
     it('Sould write the reducer index file', () => {
-      const containersPath = path.resolve(__dirname, '..', '..', '..', 'containers');
+      const containersPath = path.resolve(__dirname, '..', '..', '..', '..', 'app', 'containers');
       const fakeReducerPath = path.resolve(__dirname, 'fake.js');
       const result = RegenerateReducerIndex(containersPath, fakeReducerPath);
 

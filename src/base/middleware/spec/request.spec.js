@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import requestMiddleware from '../Request';
 import types from 'containers/Main/types';
 import logoAPI from 'containers/Main/api';
-import { generateFetchTypes } from 'shared/TypeHelper';
+import { generateFetchTypes } from 'base/shared/TypeHelper';
 
 const createFakeStore = fakeData => ({
   getState() {

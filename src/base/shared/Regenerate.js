@@ -9,7 +9,6 @@ const reducerFilePath = path.resolve(__dirname, '..', '..', 'base','reducers','i
 
 const containersPath = path.resolve(__dirname, '..', '..', 'app', 'containers');
 const args = process.argv.slice(2);
-console.log(containersPath)
 if(~args.indexOf('--all')  || ~args.indexOf('--routes')){
   regenerateRoutes();
 }

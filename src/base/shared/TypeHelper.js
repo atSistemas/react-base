@@ -1,5 +1,5 @@
-import ReactBaseError from './Errors';
 import fetchTypes from 'base/types/FetchTypes';
+import ReactBaseError from './Errors';
 
 export function typeBuilder(types){
   const data = {};

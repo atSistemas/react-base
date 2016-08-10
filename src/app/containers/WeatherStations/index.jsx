@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-  import fetchRequiredActions from 'base/shared/FetchData';
+import fetchRequiredActions from 'base/shared/FetchData';
 
 import * as Actions from './actions';
 
