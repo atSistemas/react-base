@@ -10,16 +10,14 @@ const propTypes = {
 
 const LinkButton = ( props ) => {
   return (
-    <Link to={ props.location }>
-      <button
-        className={ styles.LinkButton }
-      >
+    <Link className={ styles.LinkButton } to={ props.location }>
+      <button>
       { props.value }
       </button>
     </Link>
   );
 };
 
-LinkButton.propTypes= propTypes;
+LinkButton.propTypes = propTypes;
 
 export default LinkButton;
