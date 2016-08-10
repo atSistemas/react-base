@@ -31,8 +31,10 @@ there must be some changes needed by the structure to fit your needs correctly
 - Hot Reload support for Js & Css
 - Container and component generators using [Yeoman](https://github.com/yeoman/yo)
 - Persistent data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
-- [Mocha](https://mochajs.org/) for unit testing
-- [nyc](https://github.com/bcoe/nyc) for code coverage
+- [Mocha](https://mochajs.org/) as testing framework
+- [Enzyme/JsDom](https://github.com/airbnb/enzyme) for unit/ui testing
+- [Nyc](https://github.com/bcoe/nyc) for code coverage
+- [CssModules](https://github.com/css-modules/css-modules) based
 - [PostCSS](http://postcss.org/) processing with isomorphic support.
 - CSS Vars using [Cssnext](http://cssnext.io/)
 - Code Linting using [Eslint](https://github.com/eslint/eslint)

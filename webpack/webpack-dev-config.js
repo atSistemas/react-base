@@ -1,13 +1,14 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { symbols, color } from '../src/base/shared/console';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'app', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'base', 'client/');
 
 export const devTool = 'eval';
 
-export const devContext = path.resolve(__dirname, '../app');
+export const devContext = path.resolve(__dirname, '..' ,'src' , 'app');
 
 export const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -17,7 +18,7 @@ export const devPlugins = [
   function(){
     this.plugin("done", function(stats){
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
-        throw new Error(stats.compilation.errors);
+        console.log('[BASE] ' + color('errpr', symbols.error) + stats.compilation.errors);
       }
     });
   }
