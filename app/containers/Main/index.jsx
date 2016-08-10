@@ -8,7 +8,7 @@ import LinkButton from 'components/LinkButton';
 import fetchRequiredActions from 'shared/FetchData';
 
 import styles from './styles.css';
-import  Actions from './actions';
+import Actions from './actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -33,25 +33,31 @@ export class Main extends Component {
 
     return (
       <div className={ styles.Main }>
-        <Logo
-          alt={ LogoData.alt }
-          width={ LogoData.width }
-          src={ LogoData.src }
-        />
         <div>
-          <span className={ styles.Examples }>Examples</span>
-          <LinkButton
-            location="/calculator"
-            value="Simple Redux Calculator"
+          <Logo
+            alt={ LogoData.alt }
+            width={ LogoData.width }
+            src={ LogoData.src }
           />
-          <LinkButton
-            location="/weatherstations"
-            value="GoogleMaps Wheater Stations"
-          />
+
+          <div>
+            <div className={ styles.Examples }>Examples</div>
+            
+            <div className={ styles.buttons }>
+              <LinkButton
+                location="/calculator"
+                value="Simple Redux Calculator"
+              />
+
+              <LinkButton
+                location="/weatherstations"
+                value="GoogleMaps Wheater Stations"
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
-
   }
 }
 

@@ -1,19 +1,33 @@
 @import '../../styles/base.css';
 
 .Main {
-  width: var(--logoWidth);
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 100px;
-  bottom: 100px;
-  margin: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
+.Main > div {
+  height: 330px;
+  width: var(--logoWidth);
+}
 
-.Examples{
-  font-weight: 600;
+.Examples {
   color: #333;
+  font-weight: 600;
   height: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons a {
+  width: 36%;
 }
