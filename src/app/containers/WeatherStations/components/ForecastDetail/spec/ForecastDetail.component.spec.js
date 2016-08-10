@@ -3,8 +3,8 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import { ForecastDetail }  from '../';
-import ForecastMock from 'app/api/mocks/forecast.json';
-import { generateMap } from 'shared/ModelHelper';
+import ForecastMock from 'mocks/forecast.json';
+import { generateMap } from 'base/shared/ModelHelper';
 import { ForecastModel } from '../../../models';
 
 function setup(props) {

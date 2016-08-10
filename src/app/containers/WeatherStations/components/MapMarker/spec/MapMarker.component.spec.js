@@ -3,7 +3,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import MapMarker  from '../';
-import weatherStationsMock from 'app/api/mocks/weatherStations.json';
+import weatherStationsMock from 'mocks/weatherStations.json';
 
 
 function setup(props) {

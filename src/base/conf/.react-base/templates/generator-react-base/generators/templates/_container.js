@@ -2,9 +2,9 @@ import Immutable from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
+import fetchRequiredActions from 'base/shared/FetchData';
 
 import * as Actions from './actions';
-import fetchRequiredActions from 'shared/FetchData';
 import <%= name %>Component from './components/';
 import styles from './styles.css';
 

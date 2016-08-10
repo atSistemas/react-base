@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import api from '../';
-import weatherStationMock from 'app/api/mocks/weatherStation.json';
+import weatherStationMock from 'mocks/weatherStation.json';
 
 
 describe('Actions', () => {

@@ -3,11 +3,11 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import WeatherStationDetails  from '../';
-import WeatherStationMock from 'app/api/mocks/weatherStation.json';
+import WeatherStationMock from 'mocks/weatherStation.json';
 
 import api from '../../../api'
 import { WeatherStationDetailsModel } from '../../../models';
-import { generateMap } from 'shared/ModelHelper';
+import { generateMap } from 'base/shared/ModelHelper';
 
 function setup(props) {
 

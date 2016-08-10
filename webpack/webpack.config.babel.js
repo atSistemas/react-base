@@ -30,10 +30,11 @@ const webpackConfig = {
     extensions: ['', '.js', '.jsx', '.css'],
     alias: {
       'app': path.resolve(__dirname, '../src/app'),
-      'components': path.resolve(__dirname, '../src/shared/components'),
+      'components': path.resolve(__dirname, '../src/base/shared/components'),
       'containers': path.resolve(__dirname, '../src/app/containers'),
-      'shared': path.resolve(__dirname, '../src/shared'),
-      'store': path.resolve(__dirname, '../src/app/store')
+      'base': path.resolve(__dirname, '../src/base'),
+      'store': path.resolve(__dirname, '../src/base/store'),
+      'mocks': path.resolve(__dirname, '../server/api/mocks')
     }
   }
 

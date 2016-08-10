@@ -1,5 +1,6 @@
+import CreateReducer from 'base/shared/CreateReducer';
+
 import Types from '../types';
-import CreateReducer from 'shared/CreateReducer';
 import { <%= name %>Collection } from '../models';
 
 function <%= nameLower %>Request ( state ) { return state; }

@@ -1,14 +1,14 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { symbols, color } from '../src/shared/console';
+import { symbols, color } from '../src/base/shared/console';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'src', 'app', 'client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'base', 'client/');
 
 export const devTool = 'eval';
 
-export const devContext = path.resolve(__dirname, '../src/app');
+export const devContext = path.resolve(__dirname, '..' ,'src' , 'app');
 
 export const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),

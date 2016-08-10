@@ -1,5 +1,5 @@
 import { Record, Map } from 'immutable';
-import { generateImmutable } from 'shared/ModelHelper';
+import { generateImmutable } from 'base/shared/ModelHelper';
 
 const <%= name %>Model = new Record({
   id: 0,

@@ -1,5 +1,5 @@
 require('babel-core/register');
-var ENV = require('../src/shared/Env');
+var ENV = require('../src/base/shared/Env');
 require('css-modules-require-hook')({
   generateScopedName: '[name]__[local]-[hash:base64:4]',
   mode: 'local',

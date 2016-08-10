@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
-import Logo from 'components/Logo';
-import LinkButton from 'components/LinkButton';
-import fetchRequiredActions from 'shared/FetchData';
+import Logo from '../../components/Logo';
+import LinkButton from '../../components/LinkButton';
+import fetchRequiredActions from 'base/shared/FetchData';
 
 import styles from './styles.css';
 import  Actions from './actions';

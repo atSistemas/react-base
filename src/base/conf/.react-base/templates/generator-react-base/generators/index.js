@@ -81,7 +81,7 @@ var typesDocument = {
   }
 }
 
-var baseRoute = 'app'
+var baseRoute = 'src/app';
 var sectionCopy;
 
 function section (route, name, config) {
@@ -183,7 +183,7 @@ module.exports = yeoman.Base.extend({
       name: 'name',
       type: 'input'
     }];
-    
+
     this._optionOrPrompt(promptsAll, function (answers) {
 
       this.props = answers;
@@ -211,7 +211,8 @@ module.exports = yeoman.Base.extend({
           return;
         }
      
-     
+         console.log("sale")
+
     }
   },
   end: function () {

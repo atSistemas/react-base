@@ -3,7 +3,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import { MapBox } from '../';
-import weatherStationsMock from 'app/api/mocks/weatherStations.json';
+import weatherStationsMock from 'mocks/weatherStations.json';
 import { WeatherStationsModel, setInitialState } from '../../../models';
 
 

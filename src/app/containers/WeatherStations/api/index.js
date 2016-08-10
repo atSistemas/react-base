@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { generateMap } from 'shared/ModelHelper';
+import { generateMap } from 'base/shared/ModelHelper';
 import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
 import  config  from '../config';
 

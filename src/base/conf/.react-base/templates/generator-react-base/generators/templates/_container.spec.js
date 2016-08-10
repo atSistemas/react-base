@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import { generateMap } from 'shared/ModelHelper';
+import { generateMap } from 'base/shared/ModelHelper';
 
 import { <%= name %>Model, setInitialState } from '../models';
 import { <%= name %> } from '..';

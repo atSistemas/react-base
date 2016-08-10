@@ -3,7 +3,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import ForecastDetailItem  from '../';
-import ForecastMock from 'app/api/mocks/forecast.json';
+import ForecastMock from 'mocks/forecast.json';
 
 function setup(props) {
 

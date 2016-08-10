@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import { <%= namePascal %>Model } from '../models';
-import { generateMap } from 'shared/ModelHelper';
+import { generateMap } from 'base/shared/ModelHelper';
 
 const url = 'http://localhost:8000/mocks/logo.json';
 

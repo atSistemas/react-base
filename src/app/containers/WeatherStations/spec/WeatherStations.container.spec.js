@@ -4,9 +4,9 @@ import TestUtils from 'react-addons-test-utils';
 
 import { WeatherStationsModel, setInitialState } from '../models';
 import { WeatherStations } from '..';
-import weatherStationsMock from 'app/api/mocks/weatherStations.json';
-import weatherStationMock from 'app/api/mocks/weatherStation.json';
-import forecastMock from 'app/api/mocks/forecast.json';
+import weatherStationsMock from 'mocks/weatherStations.json';
+import weatherStationMock from 'mocks/weatherStation.json';
+import forecastMock from 'mocks/forecast.json';
 
 import api from '../api';
 

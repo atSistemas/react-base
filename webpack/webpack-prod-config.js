@@ -2,14 +2,14 @@ import path from 'path';
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { symbols, color } from '../src/shared/console';
+import { symbols, color } from '../src/base/shared/console';
 
 const mainPath = path.resolve(__dirname, '..');
-const clientPath = path.resolve(__dirname, '..', 'src', 'app','client/');
+const clientPath = path.resolve(__dirname, '..', 'src', 'base','client/');
 
 export const prodTool = 'cheap-module-source-map';
 
-export const prodContext = path.resolve(__dirname, '../src/app');
+export const prodContext = path.resolve(__dirname, '..' ,'src' , 'app');
 
 export const prodPlugins = [
   new webpack.NoErrorsPlugin(),

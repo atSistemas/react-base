@@ -1,4 +1,4 @@
-import { generateImmutable } from 'shared/ModelHelper';
+import { generateImmutable } from 'base/shared/ModelHelper';
 import  WeatherStationsModel  from './WeatherStationsModel';
 import  ForecastModel from './ForecastModel';
 import  WeatherStationDetailsModel  from './WeatherStationDetailsModel';

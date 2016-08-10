@@ -1,4 +1,4 @@
-import { typeBuilder } from 'shared/TypeHelper';
+import { typeBuilder } from 'base/shared/TypeHelper';
 
 export default typeBuilder([
   'WEATHERSTATIONS_REQUEST',

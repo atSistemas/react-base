@@ -1,4 +1,4 @@
-import { generateFetchTypes } from 'shared/TypeHelper';
+import { generateFetchTypes } from 'base/shared/TypeHelper';
 import Types from '../types';
 import api from '../api';
 

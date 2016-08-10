@@ -1,6 +1,6 @@
 import Types from '../types';
 import api from '../api';
-import { generateFetchTypes } from 'shared/TypeHelper';
+import { generateFetchTypes } from 'base/shared/TypeHelper';
 
 export function get<%= namePascal %>( { params } ){
   return {

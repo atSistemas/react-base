@@ -1,4 +1,4 @@
-import CreateReducer from 'shared/CreateReducer';
+import CreateReducer from 'base/shared/CreateReducer';
 import { CalculatorModel } from '../models';
 import Types from '../types';
 

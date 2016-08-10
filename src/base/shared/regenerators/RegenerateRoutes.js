@@ -2,8 +2,8 @@ import path from 'path';
 import { symbols, color } from '../console';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
-const containersPath = path.resolve(__dirname, '..', '..', 'app', 'containers');
-const routerPath = path.resolve(__dirname, '..', '..', 'app',  'routes','index.js');
+const containersPath = path.resolve(__dirname, '..', '..', '..',  'app', 'containers');
+const routerPath = path.resolve(__dirname, '..', '..','..', 'base', 'routes','index.js');
 
 let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';';
 
