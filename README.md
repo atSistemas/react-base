@@ -1,4 +1,4 @@
-![React-Base logo](./app/assets/images/react-base-logo.png)
+![React-Base logo](./src/app/assets/images/react-base-logo.png)
 
 # React-Base
 
