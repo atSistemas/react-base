@@ -11,8 +11,9 @@ const propTypes = {
 
 const Button = ( props ) => {
   let style;
-  if(props.type === 'operator') style = styles.ButtonOperate;
-  else if(props.type === 'zero') style = styles.ButtonZero;
+  
+  if (props.type === 'operator') style = styles.ButtonOperate;
+  else if (props.type === 'zero') style = styles.ButtonZero;
   else style = styles.Button;
 
   return (
