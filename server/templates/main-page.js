@@ -7,6 +7,7 @@ export default function renderMainPage(ENV, view, store){
   <!doctype html>
 	<html lang="utf-8">
     <head>
+      <title>React Base</title>
       ${ style }
     </head>
     <body>
