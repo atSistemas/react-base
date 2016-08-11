@@ -41,7 +41,7 @@ export class Main extends Component {
           />
 
           <div>
-            <div className={ styles.Examples }>Examples</div>
+            <div className={ styles.txt }>Examples</div>
             
             <div className={ styles.buttons }>
               <LinkButton
@@ -53,6 +53,14 @@ export class Main extends Component {
                 location="/weatherstations"
                 value="GoogleMaps Wheater Stations"
               />
+            </div>
+          </div>
+
+          <div className={ styles.txt }>
+            <div>
+              <a href="https://github.com/atSistemas/react-base">
+                <img src="assets/images/github.svg" alt="Github" />
+              </a>
             </div>
           </div>
         </div>
