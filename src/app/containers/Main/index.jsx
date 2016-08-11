@@ -59,7 +59,7 @@ export class Main extends Component {
           <div className={ styles.txt }>
             <div>
               <a href="https://github.com/atSistemas/react-base">
-                <img src="assets/images/github.svg" alt="Github" />
+                <img src="assets/images/github.svg" alt="Github" width="40px" />
               </a>
             </div>
           </div>
