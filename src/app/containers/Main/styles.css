@@ -25,6 +25,11 @@
   width: 40px;
 }
 
+.txt a {
+  display: block;
+  margin-top: 90px;
+}
+
 .buttons {
   align-items: center;
   display: flex;
