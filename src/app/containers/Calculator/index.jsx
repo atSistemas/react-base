@@ -13,8 +13,10 @@ export class Calculator extends Component {
   render () {
     return (
       <div className={ styles.Calculator }>
-        <Display />
-        <ButtonPannel />
+        <div>
+          <Display />
+          <ButtonPannel />
+        </div>
       </div>
     );
   }
