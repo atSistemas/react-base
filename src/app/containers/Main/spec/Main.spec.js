@@ -31,7 +31,7 @@ describe('Container', () => {
 
       setInitialState({});
       const fakeStore = {};
-      fakeStore.Main = new MainModel({ id: 2222, src:'fakePath', alt:'aaaalt!', width:650 });
+      fakeStore.Main = new MainModel({ id: 2222, src:'fakePath', alt:'aaaalt!', width:500 });
       const store = configureStore([], fakeStore);
       const component = mount(
         <Provider store={ store }>

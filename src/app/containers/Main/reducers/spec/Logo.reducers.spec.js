@@ -19,7 +19,7 @@ describe('Reducers', () => {
           id: 1,
           alt: "React Base!",
           name: "ReactBaseLogo",
-          width: 650,
+          width: 500,
           src: "/assets/images/react-base-logo.png"
         };
       const action = {type: types.LOGO_SUCESS, result:data};
