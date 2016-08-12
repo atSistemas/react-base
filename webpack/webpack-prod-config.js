@@ -44,7 +44,7 @@ export const prodEntries = {
 };
 
 export const prodLoaders = [
-  { test: [/\.js$/, /\.jsx$/],loader: 'babel-loader',exclude: /node_modules/,include: mainPath, query: { presets: ["es2015", "stage-0", "react"] }},
+  { test: [/\.jsx?$/],loader: 'babel-loader',exclude: /node_modules/,include: mainPath, query: { presets: ["es2015", "stage-0", "react"] }},
   { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader')}
 ];
 
