@@ -72,7 +72,9 @@ Please note that `npm install` is only required on your first start, or in case 
 
 ### Initializing development server
 
-  Once all the dependencies are installed, you can run `$ npm run start` to initialize your development server using [webpack-dev-server](https://webpack.github.io/) middleware.
+  Once all the dependencies are installed, you can run `$ npm run start` to initialize your development server using [webpack-dev-server](https://webpack.github.io/) express middleware.
+
+  The dev server uses  [HMR](https://webpack.github.io/docs/hot-module-replacement.html) (Hot module replacement) that injects updated modules into the bundle in runtime. It's like LiveReload
 
 
 ## Architecture
@@ -103,7 +105,7 @@ To generate a new container run:
 
 `$ npm run generate:container`
 
-You'll be asked to provide a name for your container. After that, React-base will create all the necessary folder and file template structures you, and will rebuild the file indexes (reducers, models and routes), so you don't have to worry about including all the required imports.
+You'll be asked to provide a name for your container. After that, React-base will create all the necessary folder and file template structures you, and will rebuild the file indexes (routes, reducers, models, etc), so you don't have to worry about including all the required imports.
 
 After that, you can access to your container from http://localhost:8000/myContainer
 
@@ -132,6 +134,21 @@ You can generate a complete distribution source ready for production enviroments
 `$ npm run start:prod` will run production enviroment of your application serving content from dist directory.
 
 
+## Testing your application
+
+React base uses - [Enzyme](https://github.com/airbnb/enzyme) a testing utillity created by [Airbnb](https://github.com/airbnb/) for unit testing and Ui testing using [Airbnb](https://github.com/tmpvar/jsdom) so you can run your ui testing without a browser.
+
+You can write your tests normally using Mocha and Chai for assertions.
+
+### Running your tests
+
+`$ npm run test` will perform your unit testing, or npm test:coverage to run your tests and display a code coverage report.
+
+### Generating code coverage
+
+React base uses [Nyc](https://github.com/bcoe/nyc) for code coverage and you can generate reports in console or icov/html format.
+
+`$ npm run test` will perform your code coverage, generating an html report located in coverage/ folder.
 
 ## Contributing
 
