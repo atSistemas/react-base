@@ -12,7 +12,7 @@
 
 **A modular platform for Redux Isomorphic applications**
 
-This repository is a modular abstraction to build a [ReactJS](https://facebook.github.io/react/) web application based on Redux arquitecture.
+This repository is a modular abstraction to build a [ReactJS](https://facebook.github.io/react/) web application based on [Redux](http://redux.js.org/)  paradigm.
 You can use it to quickly scaffold your React web application projects and development environments for these projects.
 
 This seed should clarify how to wire up all the modules of your application, even when we understand that in some cases
@@ -69,25 +69,68 @@ This command will install all the required dependencies and start your developme
 
 Please note that `npm install` is only required on your first start, or in case of updated dependencies.
 
-### Initializing the development server
 
- Once all the dependencies are installed, you can run `npm start` to initialize your development environment.
+### Initializing development server
 
-### Testing your application
+  Once all the dependencies are installed, you can run `$ npm run start` to initialize your development server using [webpack-dev-server](https://webpack.github.io/) middleware.
 
-Run `npm test` to perform your unit testing, or `npm test:coverage` to run your tests and display a code coverage report.
 
-### Running development server
+## Architecture
 
-`npm run start` will run development enviroment of your application using [webpack-dev-server](https://webpack.github.io/) middleware.
+React-base is based on [Redux](http://redux.js.org/)  paradigm so you can find all the typical entities of an Redux project like [reducers](http://redux.js.org/docs/basics/Reducers.html) , [store](http://redux.js.org/docs/basics/Store.html), [actions](http://redux.js.org/docs/basics/Actions.html) , etc.
 
-### Running production server
+There are two main folders:
 
-`npm run start:prod` will run production enviroment of your application serving content from dist directory.
+* `src/base/` contains React-base platform bootstrapping code.
+
+* `src/app/` is the place where to put your application source code.
+
+React-base uses a "featured based" distribution, so all the necessary code for each page/features is located in its own folder inside containers folder as in `src/app/containers/myContainer`
+
+A container is a React Component who contains other components, Redux entities, functions. Each container is self-contained and represents a feature like "clients" or "products" and it contains all the necessary stuff.
+```
+actions/
+components/
+models/
+reducers/
+types/
+```
+### Generating a new container
+
+React-base uses Yeoman to generate new application containers or components.
+
+To generate a new container run:
+
+`$ npm run generate:container`
+
+You'll be asked to provide a name for your container. After that, React-base will create all the necessary folder and file template structures you, and will rebuild the file indexes (reducers, models and routes), so you don't have to worry about including all the required imports.
+
+After that, you can access to your container from http://localhost:8000/myContainer
+
+### Regenerating indexes
+
+You can rebuild the file indexes (reducers, models and routes) running `$ npm run regenerate`
+
+### Generating a new component
+
+As with containers, React-base can automate components creation for you. To create a new component, just type:
+
+`$ npm run generate:component`
+
+Same as before, you will be asked for a component name, and after that React-base will do the rest, placing a component template under `app/components`, and rebuilding all the indexes.
+
+## Distribution
+
+You can generate a complete distribution source ready for production enviroments.
 
 ### Building your application
 
-`npm run build` will create a minified version for your application, ready for production.
+`$ npm run build` will create a minified version for your application, ready for production.
+
+### Running production server
+
+`$ npm run start:prod` will run production enviroment of your application serving content from dist directory.
+
 
 
 ## Contributing
