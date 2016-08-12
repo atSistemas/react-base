@@ -7,8 +7,8 @@
   justify-content: center;
   position: absolute;
   width: 100%;
-}
-
-.Calculator > div {
-  width: 350px;
+  
+  > div {
+    width: 350px;
+  }
 }

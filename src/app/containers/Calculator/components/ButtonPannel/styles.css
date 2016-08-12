@@ -1,10 +1,10 @@
-.ButtonPanel{
+.ButtonPanel {
   flex: 5;
   display: flex;
   flex-direction: row;
 }
 
-.Row{
+.Row {
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -16,7 +16,7 @@
   flex-direction: column;
 }
 
-.clicked{
+.clicked {
   animation: doClick .5s ease-out 0s 1 alternate forwards;
 }
 
@@ -25,6 +25,7 @@
     transform: scale(1);
     opacity: .7;
   }
+
   100% {
     transform: scale(3);
     opacity: 0;

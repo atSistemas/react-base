@@ -1,4 +1,4 @@
-.ButtonCommon{
+.ButtonCommon {
   cursor: pointer;
   position: relative;
   margin: 0;
@@ -14,9 +14,11 @@
   font-family: Arial;
   outline: none;
 }
-.CommonAnimate{
+
+.CommonAnimate {
   animation: doClick .5s ease-out 0s 1 alternate forwards;
 }
+
 .Button {
   composes: ButtonCommon;
   box-shadow: inset 1px 1px 0 0 #e3e7e9;
@@ -24,13 +26,13 @@
   color: #979ca4;
 }
 
-.ButtonClicked{
+.ButtonClicked {
   composes: ButtonCommon;
   background-color: #fafafa;
   color: #979ca4;
 }
 
-.ButtonOperate{
+.ButtonOperate {
   composes: ButtonCommon;
   flex-basis: calc(25% - 1px);
   box-sizing: border-box;
@@ -41,13 +43,13 @@
   color: #fff;
 }
 
-.ButtonOperateClicked{
+.ButtonOperateClicked {
   composes: ButtonCommon;
   background-color: #fa722e;
   color: #fff;
 }
 
-.ButtonZero{
+.ButtonZero {
   composes: ButtonCommon;
   flex-grow: 2;
   flex-basis: 50%;
