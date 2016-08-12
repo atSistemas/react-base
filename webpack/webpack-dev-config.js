@@ -15,9 +15,10 @@ export const devPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
   new ExtractTextPlugin('bundle.css', { allChunks: true }),
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
-  function(){
-    this.plugin("done", function(stats){
-      if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
+
+  function() {
+    this.plugin("done", function(stats) {
+      if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
         console.log('[BASE] ' + color('errpr', symbols.error) + stats.compilation.errors);
       }
     });
@@ -37,10 +38,12 @@ export const devLoaders = [
 
 export const devPostCss = function (webpack) {
   return [
-    require("postcss-import")({ addDependencyTo: webpack }),
+    require('postcss-import')({ addDependencyTo: webpack }),
+
+    require('postcss-cssnext')(),
     require('postcss-modules-extract-imports'),
-    require("postcss-url")(),
-    require("postcss-cssnext")(),
-    require("postcss-reporter")()
+    require('postcss-nested')(),
+    require('postcss-reporter')(),
+    require('postcss-url')()
   ];
 };
