@@ -1,0 +1,38 @@
+{
+    "last": {
+        "dt": 1452416940,
+        "main": {
+            "humidity": 79,
+            "pressure": 1000,
+            "temp": 284.82
+        },
+        "rain": {
+            "today": 0
+        },
+        "wind": {
+            "deg": 14,
+            "speed": 14
+        },
+        "visibility": {
+
+        }
+    },
+    "params": [
+        "temp",
+        "pressure",
+        "humidity",
+        "wind",
+        "rain",
+        "visibility"
+    ],
+    "station": {
+        "coord": {
+            "lat": 42.8668,
+            "lon": -2.6793
+        },
+        "id": 120139,
+        "name": "EA2CQ-13",
+        "status": 20,
+        "type": 2
+    }
+}

@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import { symbols, color } from '../../app/shared/console';
+import { symbols, color } from '../../src/base/shared/console';
 
 const config = require('../../webpack/webpack.config.babel');
 const compiler = webpack(config);

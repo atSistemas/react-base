@@ -1,0 +1,25 @@
+.LinkButton {
+  &:last-child {
+    margin-left: 30px;
+  }
+
+  button {
+    background: #47BBEA;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    width: 100%;
+  
+    &:hover {
+      background: #3cb0fd;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+  }
+}

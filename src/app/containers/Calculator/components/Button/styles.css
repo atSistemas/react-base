@@ -1,0 +1,59 @@
+.ButtonCommon {
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 30px;
+  text-align: center;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 25%;
+  height: 70px;
+  font-family: Arial;
+  outline: none;
+}
+
+.CommonAnimate {
+  animation: doClick .5s ease-out 0s 1 alternate forwards;
+}
+
+.Button {
+  composes: ButtonCommon;
+  box-shadow: inset 1px 1px 0 0 #e3e7e9;
+  background-color: #fafafa;
+  color: #979ca4;
+}
+
+.ButtonClicked {
+  composes: ButtonCommon;
+  background-color: #fafafa;
+  color: #979ca4;
+}
+
+.ButtonOperate {
+  composes: ButtonCommon;
+  flex-basis: calc(25% - 1px);
+  box-sizing: border-box;
+  margin: 1px 0 0 1px;
+  background-color: #fa722e;
+  border-top: 1px solid #fa722e;
+  border-left: 1px solid #fa722e;
+  color: #fff;
+}
+
+.ButtonOperateClicked {
+  composes: ButtonCommon;
+  background-color: #fa722e;
+  color: #fff;
+}
+
+.ButtonZero {
+  composes: ButtonCommon;
+  flex-grow: 2;
+  flex-basis: 50%;
+  box-shadow: inset 1px 1px 0 0 #e3e7e9;
+  background-color: #fafafa;
+  color: #979ca4;
+}

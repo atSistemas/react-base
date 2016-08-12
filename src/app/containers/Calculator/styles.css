@@ -1,0 +1,14 @@
+@import '../../styles/base.css';
+
+.Calculator {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  
+  > div {
+    width: 350px;
+  }
+}

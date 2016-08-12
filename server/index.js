@@ -1,9 +1,9 @@
 require('babel-core/register');
-const ENV = require('../app/shared/Env');
+var ENV = require('../src/base/shared/Env');
 require('css-modules-require-hook')({
   generateScopedName: '[name]__[local]-[hash:base64:4]',
   mode: 'local',
-  rootDir: './app'
+  rootDir: './src/app'
 });
-console.log(`[BASE] Starting ${ENV.default} enviroment...`);
-require('./server.js');
+console.log('[BASE] Starting '+ ENV.default +' enviroment...');
+require("./server.js");

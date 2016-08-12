@@ -1,0 +1,19 @@
+.weatherDetailBox{  
+  border: 3px solid #FAB10A;
+  border-radius: 15px;
+  float: left;
+  margin: 10px 10px 10px 10px;
+  min-height: 200px;
+  min-width: 200px;
+  padding: 10px 10px 10px 10px;
+}
+
+.weatherDetailRow{
+
+  height: 40px;
+  width: 200px;
+}
+
+.clear{
+  clear: both;
+}
