@@ -12,7 +12,7 @@ var typesDocument = {
     template: '_action.js',
     nameFile: '/index.js',
     nameType: 'action'
-  },    
+  },
   action_spec:{
     folder: '/actions/spec/',
     template: '_action.spec.js',
@@ -24,25 +24,25 @@ var typesDocument = {
     template: '_api.js',
     nameFile: '/index.js',
     nameType: 'api'
-  }, 
+  },
   component:{
     folder: '/components/',
-    template: '_component.js',  
+    template: '_component.js',
     nameFile: '/index.jsx',
     nameType: 'component'
-  }, 
+  },
   component_spec:{
     folder: '/components/spec/',
-    template: '_component.spec.js',  
+    template: '_component.spec.js',
     nameFile: '.component.spec.js',
     nameType: 'component_spec'
-  },   
+  },
   container:{
     folder: '/',
     template: '_container.js',
     nameFile: '/index.jsx',
     nameType: 'container'
-  },  
+  },
   container_spec:{
     folder: '/spec/',
     template: '_container.spec.js',
@@ -54,19 +54,19 @@ var typesDocument = {
     template: '_models.js',
     nameFile: '/index.js',
     nameType: 'models'
-  }, 
+  },
   reducer:{
     folder: '/reducers/',
     template: '_reducer.js',
     nameFile: '/index.js',
     nameType: 'reducer'
-  },  
+  },
   reducer_spec:{
     folder: '/reducers/spec/',
     template: '_reducer.spec.js',
     nameFile: '.reducer.spec.js',
     nameType: 'reducer_spec'
-  }, 
+  },
   styles:{
     folder: '/',
     template: '_styles.css',
@@ -114,12 +114,13 @@ function sectionSpec(route, name, config){
 
 
 function createComponent(name){
-  let routeComponentName = baseRoute +'/components/' + name;
-  let namePascal = name.charAt(0).toUpperCase() + name.slice(1)
+  let routeComponentName = baseRoute +'/components/' + name + '/' ;
+  let namePascal = name.charAt(0).toUpperCase() + name.slice(1);
+
   /*COMPONENT*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.component.template),
-    this.destinationPath(routeComponentName, '/'), {
+    this.destinationPath(routeComponentName + typesDocument.component.nameFile , '/'), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
@@ -129,7 +130,7 @@ function createComponent(name){
   /*STYLES*/
   this.fs.copyTpl(
     this.templatePath(typesDocument.styles.template),
-    this.destinationPath(routeComponentName, '/'), {
+    this.destinationPath(routeComponentName  + typesDocument.styles.nameFile, '/'), {
       name: namePascal,
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
@@ -162,13 +163,13 @@ function createContainer(name){
   sectionCopy(route, namePascal, typesDocument.reducer);
   sectionSpec(route, namePascal, typesDocument.reducer_spec);
   sectionCopy(route, namePascal, typesDocument.styles);
-  sectionCopy(route, namePascal, typesDocument.types);  
+  sectionCopy(route, namePascal, typesDocument.types);
 
 }
 
 module.exports = yeoman.Base.extend({
   _optionOrPrompt: optionOrPrompt,
-  
+
   prompting: function () {
 
     var done = this.async();
@@ -201,7 +202,7 @@ module.exports = yeoman.Base.extend({
 
       createComponent = createComponent.bind(this);
       switch(this.props.option){
-          case 1: 
+          case 1:
             createContainer(this.props.name);
             break;
           case 2:
@@ -210,9 +211,6 @@ module.exports = yeoman.Base.extend({
           default:
           return;
         }
-     
-         console.log("sale")
-
     }
   },
   end: function () {
