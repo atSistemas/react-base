@@ -22,13 +22,13 @@ there must be some changes needed by the structure to fit your needs correctly
 
 **React-Base** makes use of the latest tools to improve your workflow, and enables you to create future ready applications:
 
-- Redux Based Architecture
+- [Redux](http://redux.js.org/) based architecture
 - Isomorphic / Universal Javascript Apps
 - Separate build configurations depending on target environment
 - [Webpack](https://webpack.github.io/) for the build toolchain  
 - Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
 - JSX and ES6 transpilation using [Babel](https://babeljs.io/)
-- Hot Reload support for Js & Css
+- Hot Reload/Live Reload support for Js & Css using  [Webpack HMR](https://webpack.github.io/docs/hot-module-replacement.html)
 - Container and component generators using [Yeoman](https://github.com/yeoman/yo)
 - Persistent data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
 - [Mocha](https://mochajs.org/) as testing framework
