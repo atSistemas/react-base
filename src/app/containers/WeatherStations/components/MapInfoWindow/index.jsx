@@ -11,8 +11,8 @@ const MapInfoWindow = ( props ) => {
 
   let temp, humidity, pressure;
 
-  if (main){
-    if ( main.temp ){
+  if (main) {
+    if ( main.temp ) {
       temp = Math.round(main.temp - 273.15 ) ;
     }
 
@@ -20,7 +20,7 @@ const MapInfoWindow = ( props ) => {
       humidity = main.humidity;
     }
 
-    if (main.pressure){
+    if (main.pressure) {
       pressure = main.pressure;
     }  
   }

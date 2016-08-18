@@ -9,14 +9,14 @@ const reducerFilePath = path.resolve(__dirname, '..', '..', 'base','reducers','i
 
 const containersPath = path.resolve(__dirname, '..', '..', 'app', 'containers');
 const args = process.argv.slice(2);
-if(~args.indexOf('--all')  || ~args.indexOf('--routes')){
+if (~args.indexOf('--all')  || ~args.indexOf('--routes')) {
   regenerateRoutes();
 }
 
-if(~args.indexOf('--all') || ~args.indexOf('--model')){
+if (~args.indexOf('--all') || ~args.indexOf('--model')) {
   modelIndex.RegenerateModelIndex(containersPath, modelFilePath);
 }
 
-if(~args.indexOf('--all')  || ~args.indexOf('--reducer')){
+if (~args.indexOf('--all')  || ~args.indexOf('--reducer')) {
   reducerIndex.RegenerateReducerIndex(containersPath, reducerFilePath);
 }

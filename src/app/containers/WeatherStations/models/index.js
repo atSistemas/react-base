@@ -4,7 +4,7 @@ import  ForecastModel from './ForecastModel';
 import  WeatherStationDetailsModel  from './WeatherStationDetailsModel';
 import  WeatherStationsCollection  from './WeatherStationsCollection';
 
-function setInitialState(initialState){
+function setInitialState(initialState) {
   return initialState.WeatherStations = new WeatherStationsCollection({
     data: generateImmutable( initialState.WeatherStations.data, WeatherStationsModel ),
     forecast: generateImmutable( initialState.WeatherStations.forecast, ForecastModel ),

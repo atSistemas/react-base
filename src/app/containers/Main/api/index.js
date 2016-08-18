@@ -5,7 +5,7 @@ const url = 'http://localhost:8000/mocks/logo.json';
 
 export default {
 
-  fetchLogo(){
+  fetchLogo() {
     return fetch(url)
       .then(req => req.json())
       .then(data => new MainModel(data));
