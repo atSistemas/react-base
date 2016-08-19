@@ -10,7 +10,7 @@ const CalculatorModel = new Record({
   resetDisplay: false,
 });
 
-function setInitialState(initialState){
+function setInitialState(initialState) {
   return initialState.Calculator = new CalculatorModel();
 }
 

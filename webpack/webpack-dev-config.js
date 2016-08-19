@@ -18,7 +18,7 @@ export const plugins = [
   function() {
     this.plugin('done', function(stats) {
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
-        console.log('[BASE] ' + color('errpr', symbols.error) + stats.compilation.errors);
+        console.log('[BASE] ' + color('error', symbols.error) + stats.compilation.errors);
       }
     });
   }

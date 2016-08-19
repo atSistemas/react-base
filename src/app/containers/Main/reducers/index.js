@@ -2,9 +2,9 @@ import CreateReducer from 'base/shared/CreateReducer';
 import Types from '../types';
 import { MainModel } from '../models';
 
-function logoRequest( state ){ return state; }
+function logoRequest( state ) { return state; }
 
-function logoError( state, error ){
+function logoError( state, error ) {
   console.log(error);
   return state;
 }

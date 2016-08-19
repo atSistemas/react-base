@@ -7,7 +7,7 @@ export class App extends Component {
     children: PropTypes.object.isRequired
   }
 
-  render(){
+  render() {
     const children = this.props.children;
     return (
       <div>

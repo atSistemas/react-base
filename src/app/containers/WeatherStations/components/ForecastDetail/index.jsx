@@ -17,7 +17,7 @@ export class ForecastDetail extends Component {
 
   render () {
     let Forecast = this.props.Forecast;
-    if (this.props.StationSelected === -1 ){
+    if (this.props.StationSelected === -1 ) {
       return (
         <div />
       );
@@ -30,7 +30,7 @@ export class ForecastDetail extends Component {
       return (<ForecastDetailItem key={ index } item={ weather } /> );
     });
 
-    return(
+    return (
       <div>
         <h3 className={ styles.title }> FORECAST </h3>
         { forecastList }

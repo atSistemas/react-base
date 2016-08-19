@@ -8,7 +8,7 @@ const MainModel = new Record({
   width: 0,
 });
 
-function setInitialState(initialState){
+function setInitialState(initialState) {
   return initialState.Main = new MainModel(initialState.Main);
 }
 

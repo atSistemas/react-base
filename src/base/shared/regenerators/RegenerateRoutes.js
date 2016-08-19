@@ -7,13 +7,13 @@ const routerPath = path.resolve(__dirname, '..', '..','..', 'base', 'routes','in
 
 let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';';
 
-function RegenerateRoutes(){
+function RegenerateRoutes() {
   const routes = getRoutes();
   let routesExports = '';
   let newRoutes = '';
 
-  routes.forEach(function(route, index){
-    if(route.import){
+  routes.forEach(function(route, index) {
+    if (route.import) {
       routesImports += (index === 0) ? route.import : '\n' + route.import;
       newRoutes += '    <Route path="/' + route.name.toLowerCase() + '" component={ ' + route.name +' } />\n';
     }
@@ -23,30 +23,30 @@ function RegenerateRoutes(){
   routesExports = generateRoutesExport(routesExports);
   let content = routesImports + newRoutes + routesExports;
 
-  try{
+  try {
     writeFile(routerPath, content);
     console.log('[BASE] ' + color('success', symbols.ok) + ' Routes regenerated correctly!');
     return true;
-  } catch(e){
+  } catch (e) {
     console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
     return false;
   }
 }
 
-function generateRoutes(newRoutes){
+function generateRoutes(newRoutes) {
   return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n';
 }
 
 
-function generateRoutesExport(){
+function generateRoutesExport() {
   return '\nexport default routes;';
 }
 
-function getRoutes(){
+function getRoutes() {
   const files = readDir(containersPath);
-  return files.map(function(container){
+  return files.map(function(container) {
     let containerPath = path.resolve(containersPath, container);
-    if(fileExists(containerPath) && container !== 'App'){
+    if (fileExists(containerPath) && container !== 'App') {
       return { name:container, import:'import ' + container + ' from \'containers/'+ container +'/\';' };
     } else {
       return { name: container, import: null };

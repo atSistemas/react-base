@@ -26,7 +26,7 @@ exports.color = function(type, str) {
     return String(str);
   }
 
-  if(!exports.colors[type]) {
+  if (!exports.colors[type]) {
     type = 'default';
   }
 
