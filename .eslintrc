@@ -43,7 +43,9 @@
     "no-alert": 0,
     "semi": 1,
     "no-var": 2,
-    "space-before-blocks": 1,
-    "keyword-spacing": 1
+    "space-before-blocks": 2,
+    "keyword-spacing": 2,
+    "no-global-assign": 0,
+    "no-unsafe-negation": 0
   }
 }

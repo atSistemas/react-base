@@ -1,4 +1,4 @@
-export default function fetchRequiredActions(...args){
+export default function fetchRequiredActions(...args) {
   const serverContext = !!~args.indexOf('server');
   return (serverContext) ?  fetchServerData.apply(this, args) : fetchClientData.apply(this, args);
 }
@@ -15,8 +15,8 @@ function fetchServerData(dispatch, components, params) {
   return Promise.all(requiredActions);
 }
 
-function fetchClientData( actions, props, node, force = false){
+function fetchClientData( actions, props, node, force = false) {
   const checkSize = props[node];
   const { params, dispatch } = props;
-  if(!checkSize || force) actions.map( action => dispatch(action(params)) );
+  if (!checkSize || force) actions.map( action => dispatch(action(params)) );
 }

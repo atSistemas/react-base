@@ -1,14 +1,18 @@
-import { devTool, devContext, devPlugins, devEntries, devLoaders, devPostCss } from './webpack-dev-config';
-import { prodTool, prodContext, prodPlugins, prodEntries, prodLoaders, prodPostCss } from './webpack-prod-config';
+import * as dev from './webpack-dev-config';
+import * as prod from './webpack-prod-config';
+
 import ENV from '../src/base/shared/Env';
 
-export default function getEnvConfig(){
-  return {
-    devTool : (ENV === 'development') ? devTool : prodTool,
-    context : (ENV === 'development') ? devContext : prodContext,
-    plugins : (ENV === 'development') ? devPlugins : prodPlugins,
-    entries : (ENV === 'development') ? devEntries : prodEntries,
-    loaders : (ENV === 'development') ? devLoaders : prodLoaders,
-    postCss : (ENV === 'development') ? devPostCss : prodPostCss
-  };
-}
+const objEnv = (ENV === 'development') ? dev : prod;
+
+const getEnvConfig = () => {
+  const envConfig = {};
+
+  for (const prop in objEnv) {
+    envConfig[prop] = objEnv[prop];
+  }
+
+  return envConfig;
+};
+
+export default getEnvConfig();

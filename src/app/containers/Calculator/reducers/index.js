@@ -2,7 +2,7 @@ import CreateReducer from 'base/shared/CreateReducer';
 import { CalculatorModel } from '../models';
 import Types from '../types';
 
-function inputOperator(state, action){
+function inputOperator(state, action) {
   const currentOperator = action.operator;
   const prevOperator = state.get('operator');
   const prevValue = state.get('prevValue');
@@ -27,7 +27,7 @@ function inputNumber( state, action) {
   const prevValue = (newValue) ? state.get('nextValue') : state.get('prevValue');
   const value = parseFloat(`${prevValue}${selectedValue}`);
 
-  if(newValue){
+  if (newValue) {
     return state
       .set('display', value)
       .set('nextValue', value)
@@ -40,7 +40,7 @@ function inputNumber( state, action) {
   }
 }
 
-function inputDecimal( state ){
+function inputDecimal( state ) {
   const value = `${state.get('prevValue')}.`;
   return state
     .set('display', value)
@@ -53,7 +53,7 @@ function inputOperation( state, action ) {
   const operation = action.value;
   const prevValue = state.get('prevValue');
 
-  switch(operation){
+  switch (operation) {
     case Types.PERCENT:
       value = prevValue / 100;
       return state
@@ -80,7 +80,7 @@ function inputOperation( state, action ) {
 function calculate( operator, prevValue, nextValue) {
   let result = 0;
 
-  switch(operator){
+  switch (operator) {
     case Types.SUM:
       result = prevValue + nextValue;
       break;
@@ -101,7 +101,7 @@ function calculate( operator, prevValue, nextValue) {
   return result;
 }
 
-function result(state){
+function result(state) {
   const operator = state.get('operator');
   const prevValue = state.get('prevValue');
   const nextValue = state.get('nextValue');

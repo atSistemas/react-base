@@ -8,7 +8,7 @@ function configureStore(history, initialState) {
 
   let middleware;
 
-  if(ENV === 'development'){
+  if (ENV === 'development') {
     middleware = applyMiddleware(
       requestMiddleware,
       createLogger({ level: 'info', collapsed: true })

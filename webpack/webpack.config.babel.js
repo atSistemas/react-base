@@ -1,7 +1,6 @@
 import path from 'path';
-import getEnvConfig from './env-config';
+import envConfig from './env-config';
 
-const envConfig = getEnvConfig();
 const buildPath = path.resolve(__dirname, '..', 'dist');
 
 const webpackConfig = {
