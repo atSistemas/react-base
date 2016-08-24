@@ -147,6 +147,7 @@
     "css-modules",
     "webpack",
     "enzyme",
+    "testing",
     "yeoman",
     "istambul"
   ]
