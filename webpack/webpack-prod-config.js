@@ -12,14 +12,14 @@ export const devTool = 'cheap-module-source-map';
 export const context = path.resolve(__dirname, '../src/app');
 
 export const plugins = [
+  new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
   new webpack.NoErrorsPlugin(),
   new ExtractTextPlugin('bundle.css'),
+  new webpack.optimize.OccurenceOrderPlugin(true),
   new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
   new copyWebpackPlugin([{ from: 'assets', to: 'assets' }]),
-  new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
-  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   function() {
     this.plugin('done', function(stats) {
       if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {

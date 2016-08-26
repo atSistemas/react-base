@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import compression from 'compression';
 
 const config = require('../../webpack/webpack.config.babel');
 const compiler = webpack(config);
@@ -10,7 +11,9 @@ compiler.plugin('done', function() {
 });
 
 const applyProdMiddleware = function(){
-  return [];
+  return [
+    compression()
+  ];
 };
 
 module.exports = applyProdMiddleware;

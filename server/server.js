@@ -1,5 +1,6 @@
 import express from 'express';
 import { match } from 'react-router';
+import compression from 'compression';
 import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
@@ -10,8 +11,8 @@ import { symbols, color } from '../src/base/shared/console';
 const port = 8000;
 const app = express();
 const context = 'server';
-const staticPaths = setStaticsPaths(statics);
 const envMiddleware = applyEnvMiddleWare(ENV, app);
+const staticPaths = setStaticsPaths(statics);
 const serverStore = applyMiddleware( requestMiddleware )( createStore );
 
 import routes from '../src/base/routes';
