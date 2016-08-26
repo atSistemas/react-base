@@ -17,7 +17,11 @@ const serverOptions = {
   progress: false,
   stats: { colors: true },
   publicPath: config.output.publicPath,
-  headers: { 'Access-Control-Allow-Origin': '*' }
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+    'Access-Control-Allow-Headers': 'X-Requested-With , Accept-Language, Content-type, Authorization'
+  }
 };
 
 const bundleStart = Date.now();
