@@ -53,6 +53,7 @@ export const postCss = (webpack) =>
     require('postcss-import')({ addDependencyTo: webpack }),
     require('postcss-modules-extract-imports'),
     require('postcss-url')(),
+    require('postcss-nested')(),
     require('postcss-cssnext')(),
     require('postcss-reporter')(),
     require('cssnano')({autoprefixer: false})
