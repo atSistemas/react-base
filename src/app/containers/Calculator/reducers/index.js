@@ -2,6 +2,14 @@ import CreateReducer from 'base/shared/CreateReducer';
 import { CalculatorModel } from '../models';
 import Types from '../types';
 
+const actionHandlers = {
+  [Types.RESULT]: result,
+  [Types.INPUT_NUMBER]: inputNumber,
+  [Types.INPUT_DECIMAL]: inputDecimal,
+  [Types.INPUT_OPERATOR]: inputOperator,
+  [Types.INPUT_OPERATION]: inputOperation
+};
+
 function inputOperator(state, action) {
   const currentOperator = action.operator;
   const prevOperator = state.get('operator');
@@ -78,27 +86,14 @@ function inputOperation( state, action ) {
 }
 
 function calculate( operator, prevValue, nextValue) {
-  let result = 0;
+  const result = {
+    [Types.SUM]: () => prevValue + nextValue,
+    [Types.DIVIDE]: () => prevValue / nextValue,
+    [Types.MULTIPLY]: () => prevValue * nextValue,
+    [Types.SUBSTRACT]: () => prevValue - nextValue
+  };
 
-  switch (operator) {
-    case Types.SUM:
-      result = prevValue + nextValue;
-      break;
-
-    case Types.SUBSTRACT:
-      result = prevValue - nextValue;
-      break;
-
-    case Types.MULTIPLY:
-      result = prevValue * nextValue;
-      break;
-
-    case Types.DIVIDE:
-      result = prevValue / nextValue;
-      break;
-  }
-
-  return result;
+  return result[operator]();
 }
 
 function result(state) {
@@ -113,13 +108,5 @@ function result(state) {
     .set('prevValue', result)
     .set('resetDisplay', true);
 }
-
-const actionHandlers = {
-  [Types.RESULT]: result,
-  [Types.INPUT_NUMBER]: inputNumber,
-  [Types.INPUT_DECIMAL]: inputDecimal,
-  [Types.INPUT_OPERATOR]: inputOperator,
-  [Types.INPUT_OPERATION]: inputOperation
-};
 
 export default CreateReducer(actionHandlers, new CalculatorModel());
