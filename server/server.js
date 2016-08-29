@@ -1,6 +1,5 @@
 import express from 'express';
 import { match } from 'react-router';
-import compression from 'compression';
 import { applyMiddleware, createStore } from 'redux';
 
 import statics from './statics';
