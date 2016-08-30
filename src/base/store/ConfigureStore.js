@@ -1,6 +1,6 @@
 import createLogger from 'redux-logger';
 import { createStore, compose, applyMiddleware } from 'redux';
-import ENV from 'base/shared/Env';
+import base from 'base/';
 import rootReducer from '../reducers';
 import requestMiddleware from '../middleware/Request';
 
@@ -8,7 +8,7 @@ function configureStore(history, initialState) {
 
   let middleware;
 
-  if (ENV === 'development') {
+  if (base.env === 'development') {
     middleware = applyMiddleware(
       requestMiddleware,
       createLogger({ level: 'info', collapsed: true })
@@ -25,13 +25,12 @@ function configureStore(history, initialState) {
   if (module.hot) {
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers');
-      
+
       store.replaceReducer(nextRootReducer);
     });
   }
 
   return store;
-
 }
 
 export default configureStore;

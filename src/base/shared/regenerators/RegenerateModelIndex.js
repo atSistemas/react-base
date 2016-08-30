@@ -1,5 +1,6 @@
 import path from 'path';
-import { symbols, color } from '../console';
+
+import base from '../../';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex };';
@@ -30,10 +31,10 @@ function RegenerateModelIndex(containersPath, modelFilePath) {
 
   try {
     writeFile(modelFilePath, content);
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Model index regenerated correctly!');
+    base.console.success(`Model index regenerated correctly!`);
     return true;
   } catch (e) {
-    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    base.console.error(`Model index error ${e.msg}`);
     return false;
   }
 }
