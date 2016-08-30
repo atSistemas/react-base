@@ -35,7 +35,7 @@ compiler.plugin('done', function() {
 
 const applyDevMiddleware = function(){
   return [
-    webpackHotMiddleware(compiler),
+    webpackHotMiddleware(compiler, { log:false, noInfo: true, quiet: true}),
     webpackDevMiddleware(compiler, serverOptions)
   ];
 };
