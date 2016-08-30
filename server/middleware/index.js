@@ -1,5 +1,4 @@
 import base from '../../src/base/';
-import ENV from '../../src/base/shared/Env';
 
 const envMiddleware = (base.env === 'development') ? require('./dev-middleware') : require('./prod-middleware');
 
