@@ -1,5 +1,6 @@
 import path from 'path';
-import { symbols, color } from '../console';
+
+import base from '../../';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const mainImportTpl = 'import { combineReducers } from \'redux\';\n';
@@ -31,10 +32,10 @@ function RegenerateReducerIndex(containersPath, reducerFilePath ) {
 
   try {
     writeFile(reducerFilePath, content);
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Reducer index regenerated correctly!');
+    base.console.success(`Reducer index regenerated correctly!`);
     return true;
   } catch (e) {
-    console.log('[BASE] ' + color('error', symbols.err)  + ' ' + e.msg);
+    base.console.error(`Reducer index error ${e.msg}`);
     return false;
   }
 }

@@ -1,2 +1,2 @@
-const ENV = process.env.NODE_ENV || 'development';
-export default ENV;
+const env = process.env.NODE_ENV || 'development';
+export default env;
