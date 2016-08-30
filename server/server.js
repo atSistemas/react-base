@@ -2,24 +2,21 @@ import express from 'express';
 import { match } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 
-import statics from './statics';
-import ENV from '../src/base/shared/Env';
-import applyEnvMiddleWare from './middleware';
-import { symbols, color } from '../src/base/shared/console';
+import base from '../src/base/';
+import routes from '../src/base/routes';
+import configureServer from './configure';
+import rootReducer from '../src/base/reducers/';
+import renderMainPage from './templates/main-page';
+import renderMainContainer from './containers/main-container';
+import requestMiddleware from '../src/base/middleware/Request';
+import fetchRequiredActions from '../src/base/shared/FetchData';
 
 const port = 8000;
 const app = express();
 const context = 'server';
-const envMiddleware = applyEnvMiddleWare(ENV, app);
-const staticPaths = setStaticsPaths(statics);
 const serverStore = applyMiddleware( requestMiddleware )( createStore );
 
-import routes from '../src/base/routes';
-import rootReducer from '../src/base/reducers/';
-import renderMainPage from './templates/main-page';
-import requestMiddleware from '../src/base/middleware/Request';
-import fetchRequiredActions from '../src/base/shared/FetchData';
-import renderMainContainer from './containers/main-container';
+configureServer(app);
 
 app.use(function (req, res) {
 
@@ -34,25 +31,17 @@ app.use(function (req, res) {
     fetchRequiredActions(store.dispatch, renderProps.components, renderProps.params, context)
       .then(() => {
         let mainView = renderMainContainer(store, renderProps);
-        return renderMainPage( ENV, mainView, store );
+        return renderMainPage(base.env, mainView, store );
       })
       .then( page => res.status(200).send(page) )
       .catch( err => res.end(err.message) );
   });
 });
 
-function setStaticsPaths(staticPaths){
-  staticPaths.map(function(staticPath){
-    app.use(staticPath.route, express.static(staticPath.dir));
-    console.log('[BASE] ' + color('success', symbols.ok) + ' Applied static path ' + staticPath.route);
-  });
-}
-
 app.listen(port, function (err) {
   if (err) {
-    console.log(err);
+    base.console.error(`${err}`);
     return;
   }
-  console.log('[BASE] ' + color('success', symbols.ok) + ' Server up on http://localhost:' +  port);
-
+  base.console.success(`Server up on http://localhost:${port}`);
 });

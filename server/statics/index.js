@@ -1,19 +1,27 @@
 import path from 'path';
-import ENV from '../../src/base/shared/Env';
+import express from 'express';
+
+import base from '../../src/base';
 
 const commonStatics = [
-  {route: '/mocks', dir: path.join(__dirname, '..', '..', 'server', 'api', 'mocks')}
+  {route: '/mocks', dir: path.join(__dirname, '../../server/api/mocks')}
 ];
 
 const devStatics = [
-  {route: '/', dir: path.join(__dirname, '..', '..', 'src', 'app')},
+  {route: '/', dir: path.join(__dirname, '../../src/app')},
 ];
 
 const prodStatics = [
-  {route: '/', dir: path.join(__dirname, '..', '..', 'dist')},
-  {route: '/assets', dir: path.join(__dirname, '..', '..', 'dist', 'assets')},
+  {route: '/', dir: path.join(__dirname, '../../dist')},
+  {route: '/assets', dir: path.join(__dirname, '../../dist/assets')},
 ];
 
-const envStatics = (ENV === 'development') ? commonStatics.concat(devStatics) : commonStatics.concat(prodStatics);
+const envStatics = (base.env === 'development') ? commonStatics.concat(devStatics) : commonStatics.concat(prodStatics);
 const statics = envStatics;
-export default statics;
+
+export default function applyStaticsPaths(app){
+  statics.map(function(staticPath){
+    app.use(staticPath.route, express.static(staticPath.dir));
+    base.console.success(`Applied static path ${staticPath.route}`);
+  });
+}

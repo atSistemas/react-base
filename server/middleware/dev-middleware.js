@@ -2,9 +2,10 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import { symbols, color } from '../../src/base/shared/console';
+import base from '../../src/base/';
 
 const config = require('../../webpack/webpack.config.babel');
+
 const compiler = webpack(config);
 
 const serverOptions = {
@@ -25,11 +26,11 @@ const serverOptions = {
 };
 
 const bundleStart = Date.now();
-console.log('[BASE] Bundling...');
+base.console.info(`Bundling...`);
 
 
 compiler.plugin('done', function() {
-  console.log('[BASE] ' + color('success', symbols.ok) + ' Bundled project in ' + (Date.now() - bundleStart) + 'ms!');
+  base.console.success(`Bundled project in ${Date.now() - bundleStart} ms!`);
 });
 
 const applyDevMiddleware = function(){
