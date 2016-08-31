@@ -1,5 +1,10 @@
 import path from 'path';
+import chalk from 'chalk';
+import webpack from 'webpack';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+
 import base from '../src/base/';
+import * as common from './webpack.common.config';
 
 export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const mainPath = path.resolve(__dirname, '..');
@@ -21,12 +26,34 @@ export const entry = {
   ]
 };
 
+export const plugins = [
+  new ProgressBarPlugin({
+    format: `[BASE] ${chalk.blue('i')} Bundling... [:bar] ${chalk.green(':percent')} (:elapsed seconds)`,
+    clear: true,
+    summary: false,
+  }),
+  new webpack.DllReferencePlugin({
+    context: path.join(__dirname, '...'),
+    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+  })
+];
+
 export const output = {
   path: buildPath,
+  library: "[name]",
   filename: '[name].js',
   chunkFilename: "[name].js",
   publicPath: '/'
 };
+
+export const postcss = [
+  require('postcss-import')({ addDependencyTo: webpack }),
+  require('postcss-cssnext')(),
+  require('postcss-modules-extract-imports'),
+  require('postcss-nested')(),
+  require('postcss-reporter')(),
+  require('postcss-url')()
+];
 
 export const resolve = {
   extensions: ['', '.js', '.jsx', '.css'],
