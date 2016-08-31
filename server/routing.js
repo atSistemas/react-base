@@ -13,7 +13,7 @@ const context = 'server';
 const serverStore = applyMiddleware( requestMiddleware )( createStore );
 const store = serverStore(rootReducer);
 
-export default function applyServerRouting(app, callback) {
+export default function applyServerRouting(app) {
   app.use(function (req, res) {
     match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
 
@@ -31,5 +31,5 @@ export default function applyServerRouting(app, callback) {
     });
   });
 
-  base.console.success(`Applied routes`);
+  base.console.success(`Routing up`);
 }
