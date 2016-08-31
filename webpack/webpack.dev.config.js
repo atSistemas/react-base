@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import * as common from './webpack-common-config';
+import * as common from './webpack.common.config';
 
 export const cache = true;
 

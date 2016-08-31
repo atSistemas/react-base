@@ -5,7 +5,7 @@ import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
-import * as common from './webpack-common-config';
+import * as common from './webpack.common.config';
 
 export const devtool = 'cheap-module-source-map';
 

@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
-import * as common from './webpack-common-config';
+import * as common from './webpack.common.config';
 
 export const entry = common.entry;
 
