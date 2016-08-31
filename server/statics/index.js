@@ -8,6 +8,7 @@ const commonStatics = [
 ];
 
 const devStatics = [
+  {route: '/dlls', dir: path.join(__dirname, '../../dist/')},
   {route: '/', dir: path.join(__dirname, '../../src/app')},
 ];
 

@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-
 import base from '../../src/base/';
 
 const config = require('../../webpack/webpack.config.babel');
@@ -26,17 +25,17 @@ const serverOptions = {
 };
 
 const bundleStart = Date.now();
-base.console.info(`Bundling...`);
+base.console.info(`Bundling proyect...`);
 
 
 compiler.plugin('done', function() {
   base.console.success(`Bundled project in ${Date.now() - bundleStart} ms!`);
 });
 
-const applyDevMiddleware = function(){
+const applyDevMiddleware = function() {
   return [
     webpackHotMiddleware(compiler, { log:false, noInfo: true, quiet: true}),
-    webpackDevMiddleware(compiler, serverOptions)
+    webpackDevMiddleware(compiler, serverOptions),
   ];
 };
 
