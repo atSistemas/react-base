@@ -36,9 +36,6 @@ export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
   new copyWebpackPlugin([{ from: 'app/assets', to: '../dist/assets' }]),
   new webpack.NoErrorsPlugin(),
-  new ExtractTextPlugin('bundle.css'),
-  new webpack.optimize.OccurenceOrderPlugin(true),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
   common.compileError
