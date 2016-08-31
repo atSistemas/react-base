@@ -2,7 +2,7 @@ require('babel-core/register');
 require('css-modules-require-hook')({
   generateScopedName: '[name]__[local]-[hash:base64:4]',
   mode: 'local',
-  rootDir: './src/app'
+  rootDir: './src/'
 });
 
 const base = require('../src/base').default;

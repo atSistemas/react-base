@@ -18,7 +18,7 @@ const allowCrossDomain = function(req, res, next) {
   next();
 };
 
-const applyProdMiddleware = function(){
+const applyProdMiddleware = function() {
   return [
     compression(),
     allowCrossDomain
