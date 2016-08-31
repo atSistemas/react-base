@@ -1,20 +1,36 @@
 import path from 'path';
 import base from '../src/base/';
 
-const buildPath = path.resolve(__dirname, '..', 'dist');
-
+export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const mainPath = path.resolve(__dirname, '..');
+export const basePath = path.resolve(__dirname, '../src/base');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
-export const context = path.resolve(__dirname, '../src/app');
+export const manifestPath = path.resolve(basePath, 'manifest');
+export const context = path.resolve(__dirname, '../src/');
+
+export const entry = {
+  vendor: [
+    'react',
+    'redux',
+    'react-dom',
+    'immutable',
+    'classnames',
+    'react-redux',
+    'react-router',
+    'isomorphic-fetch',
+  ]
+};
 
 export const output = {
   path: buildPath,
-  filename: 'bundle.js',
+  filename: '[name].js',
+  chunkFilename: "[name].js",
   publicPath: '/'
 };
 
 export const resolve = {
   extensions: ['', '.js', '.jsx', '.css'],
+  modulesDirectories: ['node_modules'],
   alias: {
     'app': path.resolve(__dirname, '../src/app'),
     'base': path.resolve(__dirname, '../src/base'),
