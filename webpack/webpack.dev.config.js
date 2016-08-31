@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -36,9 +35,7 @@ export const module = {
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
-  new webpack.optimize.OccurenceOrderPlugin(true),
   new webpack.HotModuleReplacementPlugin(),
-  new ExtractTextPlugin('bundle.css', { allChunks: true }),
   common.compileError
 ]
 .concat(common.plugins);

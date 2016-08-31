@@ -2,6 +2,7 @@ import path from 'path';
 import chalk from 'chalk';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import base from '../src/base/';
 import * as common from './webpack.common.config';
@@ -26,6 +27,14 @@ export const entry = {
   ]
 };
 
+export const output = {
+  path: buildPath,
+  library: "[name]",
+  filename: '[name].js',
+  chunkFilename: "[name].js",
+  publicPath: '/'
+};
+
 export const plugins = [
   new ProgressBarPlugin({
     format: `[BASE] ${chalk.blue('i')} Bundling... [:bar] ${chalk.green(':percent')} (:elapsed seconds)`,
@@ -35,16 +44,12 @@ export const plugins = [
   new webpack.DllReferencePlugin({
     context: path.join(__dirname, '...'),
     manifest: require(`${common.manifestPath}/vendor-manifest.json`)
-  })
+  }),
+  new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.OccurenceOrderPlugin(true),
+  new ExtractTextPlugin('bundle.css', { allChunks: true })
 ];
 
-export const output = {
-  path: buildPath,
-  library: "[name]",
-  filename: '[name].js',
-  chunkFilename: "[name].js",
-  publicPath: '/'
-};
 
 export const postcss = [
   require('postcss-import')({ addDependencyTo: webpack }),

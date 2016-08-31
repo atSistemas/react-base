@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -22,18 +21,15 @@ export const module = {
         cacheDirectory: true,
         presets: ['es2015', 'stage-0', 'react']
       }
-    },
-    { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader')}
+    }
   ]
 };
-
 
 export const plugins = [
   new webpack.DllPlugin({
     path: path.join(common.manifestPath, "[name]-manifest.json"),
     name: "[name]",
   }),
-  new webpack.optimize.OccurenceOrderPlugin(true),
-  new webpack.optimize.DedupePlugin(),
+  common.compileError
 ]
 .concat(common.plugins);
