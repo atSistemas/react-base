@@ -28,7 +28,10 @@ export const module = {
         presets: ['es2015', 'stage-0', 'react']
       }
     },
-    { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader',  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader')}
+    {
+      test: /\.css/,
+      loader: ExtractTextPlugin.extract('style-loader',  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader')
+    }
   ]
 };
 
