@@ -7,11 +7,11 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import base from '../src/base/';
 import * as common from './webpack.common.config';
 
-export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const mainPath = path.resolve(__dirname, '..');
+export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const basePath = path.resolve(__dirname, '../src/base');
-export const clientPath = path.resolve(__dirname, '../src/base/client/');
 export const manifestPath = path.resolve(basePath, 'manifest');
+export const clientPath = path.resolve(__dirname, '../src/base/client/');
 export const context = path.resolve(__dirname, '../src/');
 
 export const entry = {
