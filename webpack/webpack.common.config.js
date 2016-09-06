@@ -2,10 +2,8 @@ import path from 'path';
 import chalk from 'chalk';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import base from '../src/base/';
-import * as common from './webpack.common.config';
 
 export const mainPath = path.resolve(__dirname, '..');
 export const buildPath = path.resolve(__dirname, '..', 'dist');
@@ -43,11 +41,10 @@ export const plugins = [
   }),
   new webpack.DllReferencePlugin({
     context: path.join(__dirname, '...'),
-    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+    manifest: require(`${manifestPath}/vendor-manifest.json`)
   }),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(true),
-  new ExtractTextPlugin('bundle.css', { allChunks: true })
 ];
 
 

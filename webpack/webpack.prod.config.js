@@ -41,6 +41,7 @@ export const plugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+  new ExtractTextPlugin('bundle.css', { allChunks: true }),
   common.compileError
 ]
 .concat(common.plugins);
