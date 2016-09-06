@@ -16,7 +16,7 @@ export const module = {
       test: [/\.jsx?$/],
       include: [/src/],
       loader: 'babel-loader',
-      exclude: [/node_modules/, /webpack/, /dist/, /server/],
+      exclude: [/node_modules/, /dist/, /server/],
       query: {
         cacheDirectory: true,
         presets: ['es2015', 'stage-0', 'react']
