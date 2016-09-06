@@ -257,8 +257,9 @@
     "../node_modules/redux/lib/combineReducers.js": 254,
     "../node_modules/strict-uri-encode/index.js": 255,
     "../node_modules/symbol-observable/index.js": 256,
-    "../node_modules/symbol-observable/ponyfill.js": 257,
-    "../node_modules/warning/browser.js": 258,
-    "../node_modules/whatwg-fetch/fetch.js": 259
+    "../node_modules/symbol-observable/lib/index.js": 257,
+    "../node_modules/symbol-observable/lib/ponyfill.js": 258,
+    "../node_modules/warning/browser.js": 259,
+    "../node_modules/whatwg-fetch/fetch.js": 260
   }
 }
