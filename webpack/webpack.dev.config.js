@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import * as common from './webpack.common.config';
 
 export const cache = true;
-export const devtool = 'eval';
+export const devtool = 'source-map';
 export const output = common.output;
 export const context = common.context;
 export const resolve = common.resolve;
