@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
 const propTypes = {
-  props: PropTypes.object,
   main: PropTypes.object
 };
 
@@ -22,7 +21,7 @@ const MapInfoWindow = ( props ) => {
 
     if (main.pressure) {
       pressure = main.pressure;
-    }  
+    }
   }
 
   return (

@@ -1,18 +1,15 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import {
-  stationStyle,
+import { stationStyle,
   stationCircleStyle, stationCircleStyleHover,
   stationStickStyle, stationStickStyleHover, stationStickStyleShadow,
   stationInfoWindowStyleHover, stationInfoWindowStyle } from './stylesMarker';
 
 import MapInfoWindow from '../MapInfoWindow';
 
-
 export default class MapMarker extends Component {
- 
-  static propTypes = {
-    name: PropTypes.string,
+
+  propTypes = {
     zIndex: PropTypes.number,
     main: PropTypes.object,
     $hover: PropTypes.bool
@@ -44,12 +41,12 @@ export default class MapMarker extends Component {
 
         <div style={ stickStyle } />
 
-        <div style={ InfoWindowStyle }>        
-          <MapInfoWindow main={ main } />   
+        <div style={ InfoWindowStyle }>
+          <MapInfoWindow main={ main } />
         </div>
 
       </div>
     );
-  
+
   }
 }

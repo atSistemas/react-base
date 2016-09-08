@@ -3,16 +3,15 @@ import React, { Component, PropTypes } from 'react';
 import ForecastDetailItem from '../ForecastDetailItem';
 import styles from './styles.css';
 
-const propTypes = {
-  Forecast: PropTypes.object,
-  StationSelected: PropTypes.number.isRequired
-};
-
 export class ForecastDetail extends Component {
+
+  propTypes = {
+    Forecast: PropTypes.object,
+    StationSelected: PropTypes.number.isRequired
+  };
 
   constructor (props) {
     super(props);
-
   }
 
   render () {
@@ -36,14 +35,12 @@ export class ForecastDetail extends Component {
         { forecastList }
       </div>
       );
-    
+
   }}
 
-ForecastDetail.propTypes = propTypes;
-
 export default connect(
-  (state) => ({ 
-    Forecast: state.WeatherStations.forecast, 
-    StationSelected: state.WeatherStations.stationSelected 
+  (state) => ({
+    Forecast: state.WeatherStations.forecast,
+    StationSelected: state.WeatherStations.stationSelected
   })
 )(ForecastDetail);

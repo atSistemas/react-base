@@ -7,11 +7,11 @@ import Button from '../Button';
 import styles from './styles.css';
 import * as Actions from '../../actions';
 
-const propTypes = {
-  dispatch: PropTypes.func.isRequired
-};
-
 export class ButtonPannel extends Component {
+
+  propTypes = {
+    dispatch: PropTypes.func.isRequired
+  }
 
   constructor (props) {
     super(props);
@@ -58,7 +58,5 @@ export class ButtonPannel extends Component {
     );
   }
 }
-
-ButtonPannel.propTypes = propTypes;
 
 export default connect(null)(ButtonPannel);

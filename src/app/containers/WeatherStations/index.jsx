@@ -12,16 +12,16 @@ import styles from './styles.css';
 import ForecastDetail from './components/ForecastDetail';
 import WeatherStationDetails from './components/WeatherStationDetails';
 
-const propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record),
-  WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map),
-  StationSelected: React.PropTypes.number
-};
-
 export class WeatherStations extends Component {
 
   static requiredActions = [Actions.getWeatherStations];
+
+  propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record),
+    WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map),
+    StationSelected: React.PropTypes.number
+  };
 
   constructor (props) {
     super(props);
@@ -32,18 +32,18 @@ export class WeatherStations extends Component {
     const force = this.props['WeatherStationsModel'].get('data').size === 0;
     fetchRequiredActions(WeatherStations.requiredActions, this.props, 'WeatherStationsModel', force);
   }
-  
+
   shouldComponentUpdate = shouldPureComponentUpdate;
 
   render () {
     let props = this.props.WeatherStationsModel;
     const WeatherStationDetailsState = this.props.WeatherStationDetailsState;
     const stationList = WeatherStationDetailsState.valueSeq().map( station => {
-      
+
       return (<WeatherStationDetails
         key={ station.id }
-        selected={ this.props.StationSelected } 
-        details={ station } 
+        selected={ this.props.StationSelected }
+        details={ station }
       />);
 
     });
@@ -51,7 +51,7 @@ export class WeatherStations extends Component {
     props.name = 'WeatherStations';
     return (
       <div className={ styles.WeatherStations  }>
-        <MapBox name={ props.name } />        
+        <MapBox name={ props.name } />
         { stationList }
         <div className={ styles.clear } />
         <div>
@@ -63,12 +63,10 @@ export class WeatherStations extends Component {
 
 }
 
-WeatherStations.propTypes = propTypes;
-
 export default connect(
-  (state) => ({ 
-    WeatherStationsModel: state.WeatherStations, 
-    WeatherStationDetailsState:state.WeatherStations.weatherStationDetails, 
-    StationSelected: state.WeatherStations.stationSelected 
+  (state) => ({
+    WeatherStationsModel: state.WeatherStations,
+    WeatherStationDetailsState:state.WeatherStations.weatherStationDetails,
+    StationSelected: state.WeatherStations.stationSelected
   })
 )(WeatherStations);

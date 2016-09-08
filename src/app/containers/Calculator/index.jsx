@@ -4,10 +4,6 @@ import Display from './components/Display';
 import ButtonPannel from './components/ButtonPannel';
 import styles from './styles.css';
 
-const propTypes = {
-  Calculator: PropTypes.instanceOf(Record)
-};
-
 export class Calculator extends Component {
 
   render () {
@@ -22,6 +18,8 @@ export class Calculator extends Component {
   }
 }
 
-Calculator.propTypes = propTypes;
+Calculator.propTypes = {
+  Calculator: PropTypes.instanceOf(Record)
+};
 
 export default Calculator;

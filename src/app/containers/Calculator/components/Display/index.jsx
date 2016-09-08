@@ -5,13 +5,14 @@ import React, { Component, PropTypes } from 'react';
 
 import styles from './styles.css';
 
-const propTypes = {
-  Calculator: PropTypes.instanceOf(Record)
-};
-
 export class Display extends Component {
 
+  propTypes = {
+    Calculator: PropTypes.instanceOf(Record)
+  };
+
   render () {
+    /* eslint  react/jsx-no-bind: 0 */
     const cx = classNames.bind(styles);
     const display = this.props.Calculator.display;
 
@@ -25,8 +26,6 @@ export class Display extends Component {
       </div>
     );
   }}
-
-Display.propTypes = propTypes;
 
 export default connect(
   (state) => ({ Calculator: state.Calculator })
