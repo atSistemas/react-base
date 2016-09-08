@@ -65,7 +65,6 @@ export const resolve = {
   }
 };
 
-
 export const compileError = function() {
   this.plugin('done', function(stats) {
     if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
