@@ -9,7 +9,7 @@ import MapInfoWindow from '../MapInfoWindow';
 
 export default class MapMarker extends Component {
 
-  propTypes = {
+  static propTypes = {
     zIndex: PropTypes.number,
     main: PropTypes.object,
     $hover: PropTypes.bool

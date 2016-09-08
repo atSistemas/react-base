@@ -5,7 +5,7 @@ import styles from './styles.css';
 
 export class ForecastDetail extends Component {
 
-  propTypes = {
+  static propTypes = {
     Forecast: PropTypes.object,
     StationSelected: PropTypes.number.isRequired
   };

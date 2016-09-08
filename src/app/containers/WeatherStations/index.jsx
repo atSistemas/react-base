@@ -14,14 +14,14 @@ import WeatherStationDetails from './components/WeatherStationDetails';
 
 export class WeatherStations extends Component {
 
-  static requiredActions = [Actions.getWeatherStations];
-
-  propTypes = {
+  static propTypes = {
     dispatch: PropTypes.func.isRequired,
     WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record),
     WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map),
     StationSelected: React.PropTypes.number
   };
+
+  static requiredActions = [Actions.getWeatherStations];
 
   constructor (props) {
     super(props);
