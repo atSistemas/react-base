@@ -39,6 +39,10 @@ export const module = {
 export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
   new webpack.HotModuleReplacementPlugin(),
+  new webpack.DllReferencePlugin({
+    context: context,
+    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+  }),
   common.compileError
 ]
 .concat(common.plugins);

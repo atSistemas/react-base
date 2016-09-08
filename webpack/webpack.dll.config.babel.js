@@ -30,6 +30,10 @@ export const plugins = [
     path: path.join(common.manifestPath, "[name]-manifest.json"),
     name: "[name]",
   }),
+  new webpack.DllReferencePlugin({
+    context: context,
+    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+  }),
   common.compileError
 ]
 .concat(common.plugins);

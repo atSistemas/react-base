@@ -37,7 +37,7 @@ export const module = {
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
-  new copyWebpackPlugin([{ from: 'app/assets', to: '../dist/assets' }]),
+  new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
