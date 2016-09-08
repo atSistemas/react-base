@@ -9,22 +9,21 @@ import styles from './styles.css';
 
 import MapMarker from '../MapMarker';
 
-const propTypes = {
-  key: PropTypes.string.isRequired,
-  center: PropTypes.object,
-  zoom: PropTypes.number,
-  onChildClick: PropTypes.func,
-  dispatch: PropTypes.func.isRequired,
-  Stations: PropTypes.object,
-  StationSelected: PropTypes.number
-};
-
 export  class MapBox extends Component {
 
   static defaultProps = {
     key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
     center: { lat: 39.938043, lng: -4.337157 },
     zoom: 6
+  };
+
+  propTypes = {
+    key: PropTypes.string.isRequired,
+    center: PropTypes.object,
+    zoom: PropTypes.number,
+    dispatch: PropTypes.func.isRequired,
+    Stations: PropTypes.object,
+    StationSelected: PropTypes.number
   };
 
   constructor (props) {
@@ -35,12 +34,12 @@ export  class MapBox extends Component {
   shouldComponentUpdate = shouldPureComponentUpdate;
 
   onChildClick = (key, childProps) => {
-   
+
     this.actions.getWeather(childProps.lat, childProps.lng);
     this.actions.weatherStationSelected(parseInt(key));
     this.actions.getWeatherStation(parseInt(childProps.stationId));
 
-    return key;    
+    return key;
   }
 
   render () {
@@ -48,7 +47,7 @@ export  class MapBox extends Component {
     let StationSelected = this.props.StationSelected;
     const mapMarkerList = Stations.valueSeq().map( item => {
       return (
-        <MapMarker      
+        <MapMarker
           key={ item.get('id') }
           lat={ item.station.coord.lat }
           stationId={ item.stationId }
@@ -65,12 +64,12 @@ export  class MapBox extends Component {
 
     return (
       <div className={ styles.mapBox }>
-        <GoogleMap 
+        <GoogleMap
           id="map"
           bootstrapURLKeys={ { key:this.props.key } }
           defaultCenter={ this.props.center }
           onChildClick={ this.onChildClick }
-          defaultZoom={ this.props.zoom } 
+          defaultZoom={ this.props.zoom }
         >
             { mapMarkerList }
         </GoogleMap>
@@ -78,11 +77,9 @@ export  class MapBox extends Component {
     );
   }}
 
-MapBox.propTypes = propTypes;
-
 export default connect(
-  (state) => ({ 
-    Stations: state.WeatherStations.data, 
-    StationSelected: state.WeatherStations.stationSelected 
+  (state) => ({
+    Stations: state.WeatherStations.data,
+    StationSelected: state.WeatherStations.stationSelected
   })
 )(MapBox);

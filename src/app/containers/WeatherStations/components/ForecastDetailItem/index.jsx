@@ -3,7 +3,6 @@ import dateformat from 'dateformat';
 import styles from './styles.css';
 
 const propTypes = {
-  props: PropTypes.object,
   item: PropTypes.object
 };
 
