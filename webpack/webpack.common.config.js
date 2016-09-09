@@ -10,7 +10,7 @@ export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const basePath = path.resolve(__dirname, '../src/base');
 export const manifestPath = path.resolve(basePath, 'manifest');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
-export const context = path.resolve(__dirname, '../src/');
+export const context = path.resolve(__dirname, '../');
 
 export const entry = {
   vendor: [
@@ -39,14 +39,9 @@ export const plugins = [
     clear: true,
     summary: false,
   }),
-  new webpack.DllReferencePlugin({
-    context: path.join(__dirname, '...'),
-    manifest: require(`${manifestPath}/vendor-manifest.json`)
-  }),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(true),
 ];
-
 
 export const postcss = [
   require('postcss-import')({ addDependencyTo: webpack }),

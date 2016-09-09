@@ -9,7 +9,7 @@ import * as Actions from '../../actions';
 
 export class ButtonPannel extends Component {
 
-  propTypes = {
+  static propTypes = {
     dispatch: PropTypes.func.isRequired
   }
 

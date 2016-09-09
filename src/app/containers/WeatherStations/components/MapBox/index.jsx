@@ -11,19 +11,19 @@ import MapMarker from '../MapMarker';
 
 export  class MapBox extends Component {
 
-  static defaultProps = {
-    key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
-    center: { lat: 39.938043, lng: -4.337157 },
-    zoom: 6
-  };
-
-  propTypes = {
+  static propTypes = {
     key: PropTypes.string.isRequired,
     center: PropTypes.object,
     zoom: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
     Stations: PropTypes.object,
     StationSelected: PropTypes.number
+  };
+
+  static defaultProps = {
+    key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
+    center: { lat: 39.938043, lng: -4.337157 },
+    zoom: 6
   };
 
   constructor (props) {

@@ -7,7 +7,7 @@ import styles from './styles.css';
 
 export class Display extends Component {
 
-  propTypes = {
+  static propTypes = {
     Calculator: PropTypes.instanceOf(Record)
   };
 
