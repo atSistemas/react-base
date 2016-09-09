@@ -29,7 +29,7 @@
     "regenerate:routes": "node ./src/base/shared/Regenerate.js --routes",
     "regenerate:reducerIndex": "node ./src/base/shared/Regenerate.js --reducer",
     "regenerate": "npm run logo && node ./src/base/shared/Regenerate.js --all",
-    "generate:dll": "webpack --config webpack/webpack.dll.config.babel.js",
+    "generate:dll": "cross-env NODE_ENV=dll webpack --config webpack/webpack.dll.config.babel.js",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.config.babel.js",
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js src --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
