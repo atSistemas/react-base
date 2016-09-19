@@ -17,6 +17,7 @@
     "ecmaVersion": 6
   },
   "rules": {
+    "react/require-extension": "off",
     "react/jsx-filename-extension": 0,
     "react/jsx-pascal-case": 2,
     "react/prefer-stateless-function": 0,
