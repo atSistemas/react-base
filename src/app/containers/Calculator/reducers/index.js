@@ -92,8 +92,7 @@ function calculate( operator, prevValue, nextValue) {
     [Types.MULTIPLY]: () => prevValue * nextValue,
     [Types.SUBSTRACT]: () => prevValue - nextValue
   };
-
-  return result[operator]();
+  return operator ? result[operator]() : prevValue;
 }
 
 function result(state) {
