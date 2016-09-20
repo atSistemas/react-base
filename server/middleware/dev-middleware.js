@@ -27,7 +27,6 @@ const serverOptions = {
 let bundleStart = Date.now();
 
 compiler.plugin("compile", function() {
-  base.console.info(`Bundling project...`);
   bundleStart = Date.now();
 });
 

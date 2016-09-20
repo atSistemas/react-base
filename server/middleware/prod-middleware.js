@@ -6,7 +6,12 @@ import base from '../../src/base/';
 const config = require('../../webpack/index.babel.js');
 
 const compiler = webpack(config);
-const bundleStart = Date.now();
+let bundleStart = Date.now();
+
+compiler.plugin("compile", function() {
+  base.console.info(`Bundling project...`);
+  bundleStart = Date.now();
+});
 
 compiler.plugin('done', function() {
   base.console.success(`Bundled project in ${Date.now() - bundleStart} ms!`);
