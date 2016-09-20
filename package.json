@@ -42,7 +42,7 @@
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run yo && npm run test:coverage && npm run generate:dll"
+    "postinstall": "npm run yo && npm run generate:dll && npm run test:coverage"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
