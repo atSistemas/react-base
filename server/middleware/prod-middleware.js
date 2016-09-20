@@ -4,6 +4,7 @@ import compression from 'compression';
 import base from '../../src/base/';
 
 const config = require('../../webpack/index.babel.js');
+
 const compiler = webpack(config);
 const bundleStart = Date.now();
 
