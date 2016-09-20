@@ -6,11 +6,11 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import base from '../src/base/';
 
 export const mainPath = path.resolve(__dirname, '..');
+export const context = path.resolve(__dirname, '../');
 export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const basePath = path.resolve(__dirname, '../src/base');
-export const manifestPath = path.resolve(basePath, 'manifest');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
-export const context = path.resolve(__dirname, '../');
+export const manifestPath = buildPath;
 
 export const entry = {
   vendor: [
