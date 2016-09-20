@@ -21,7 +21,7 @@ const Button = ( props ) => {
       onClick={ props.onClick }
       className={ style }
     >
-    { props.value }
+      { props.value }
       <Ink
         radius={ 500 }
         opcatity={ 1 }
