@@ -3,7 +3,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import base from '../../src/base/';
 import routing from '../routing';
-const config = require('../../webpack/webpack.config.babel');
+const config = require('../../webpack/index.babel.js');
 
 const compiler = webpack(config);
 

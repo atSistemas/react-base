@@ -4,12 +4,12 @@
   "env": {
     "development": {
       "plugins": [
-        [ "babel-plugin-webpack-alias", { "config": "./webpack/webpack.config.babel.js" } ]
+        [ "babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ]
       ]
     },
     "production": {
       "plugins": [
-        [ "babel-plugin-webpack-alias", { "config": "./webpack/webpack.config.babel.js" } ]
+        [ "babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ]
       ]
     }
   }

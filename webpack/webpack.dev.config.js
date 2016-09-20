@@ -14,7 +14,7 @@ export const entry = {
     common.clientPath,
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client'
-  ]
+  ],
 };
 
 export const module = {

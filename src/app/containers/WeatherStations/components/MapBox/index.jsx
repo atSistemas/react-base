@@ -71,7 +71,7 @@ export  class MapBox extends Component {
           onChildClick={ this.onChildClick }
           defaultZoom={ this.props.zoom }
         >
-            { mapMarkerList }
+          { mapMarkerList }
         </GoogleMap>
       </div>
     );

@@ -7,6 +7,7 @@ export default function renderMainPage(ENV, view, store){
   <!doctype html>
 	<html lang="utf-8">
     <head>
+      <link rel="icon" href="assets/images/favicon.ico"/>
       <title>React Base</title>
       ${ style }
       ${ vendor }
