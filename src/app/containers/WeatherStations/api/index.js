@@ -12,10 +12,13 @@ export default {
        config.WEATHER_API_KEY;
     return fetch(urlApi)
     .then(req => req.json())
-    .then(data => {     
+    .then(data => {    
       for (let i = 0; i < data.length; i++) {
         data[i].id = i + 1;
         data[i].stationId = data[i].station.id;
+        if (data[i].station.coord.lng){
+          data[i].station.coord.lon = data[i].station.coord.lng;
+        }
       }
       return generateMap(data, WeatherStationsModel);
     });
