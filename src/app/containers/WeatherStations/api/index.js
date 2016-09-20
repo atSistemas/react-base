@@ -16,7 +16,7 @@ export default {
       for (let i = 0; i < data.length; i++) {
         data[i].id = i + 1;
         data[i].stationId = data[i].station.id;
-        if (data[i].station.coord.lng){
+        if (data[i].station.coord.lng) {
           data[i].station.coord.lon = data[i].station.coord.lng;
         }
       }
