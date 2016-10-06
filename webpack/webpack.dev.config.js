@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-
+import path from 'path';
 import * as common from './webpack.common.config';
 
 export const cache = true;
@@ -14,7 +14,7 @@ export const entry = {
     common.clientPath,
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client'
-  ],
+  ]
 };
 
 export const module = {
@@ -40,9 +40,8 @@ export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.DllReferencePlugin({
-    context: context,
+    context: common.context,
     manifest: require(`${common.manifestPath}/vendor-manifest.json`)
   }),
-  common.compileError
 ]
 .concat(common.plugins);

@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 
+import baseWpPlugins from '../src/base/wp-plugins';
 import * as common from './webpack.common.config';
 
 export const cache = true;
@@ -30,6 +31,9 @@ export const plugins = [
     path: path.join(common.manifestPath, "[name]-manifest.json"),
     name: "[name]",
   }),
-  common.compileError
+  new baseWpPlugins.fileHashPlugin({
+    path: common.buildPath,
+    fileName: 'vendor-hashes.json'
+  }),
 ]
 .concat(common.plugins);
