@@ -2,8 +2,7 @@ import path from 'path';
 import chalk from 'chalk';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-
-import base from '../src/base/';
+import baseWpPlugins from '../src/base/wp-plugins';
 
 export const mainPath = path.resolve(__dirname, '..');
 export const context = path.resolve(__dirname, '../');
@@ -28,7 +27,7 @@ export const entry = {
 export const output = {
   path: buildPath,
   library: "[name]",
-  filename: '[name].js',
+  filename: '[name].[hash].js',
   chunkFilename: "[name].js",
   publicPath: '/'
 };
@@ -41,6 +40,11 @@ export const plugins = [
   }),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(true),
+  new baseWpPlugins.fileHashPlugin({
+    path: buildPath,
+    fileName: 'output-hashes.json'
+  }),
+  new baseWpPlugins.compileInfoPlugin(),
 ];
 
 export const postcss = [
@@ -63,12 +67,4 @@ export const resolve = {
     'containers': path.resolve(__dirname, '../src/app/containers'),
     'components': path.resolve(__dirname, '../src/base/shared/components')
   }
-};
-
-export const compileError = function() {
-  this.plugin('done', function(stats) {
-    if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
-      base.console.error(stats.compilation.errors);
-    }
-  });
 };
