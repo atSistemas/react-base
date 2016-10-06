@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { expect } from 'chai';
-import { fileExists, readDir, writeFile } from '../FileSystem';
+import { fileExists, readDir, writeFile, readFile } from '../FileSystem';
 
 describe('shared / FileSystem', () => {
 
@@ -25,6 +25,22 @@ describe('shared / FileSystem', () => {
       const dir = path.resolve(__dirname, '..', '..', 'client');
       const files = readDir(dir);
       expect(files.length).to.equal(1);
+
+    });
+  });
+
+  describe('readFile', () => {
+
+    it('Sould write a file', () => {
+
+      const file = path.resolve(__dirname, 'test.js');
+      const content = 'Hello!';
+      writeFile(file,content);
+
+      const readed = readFile(file, 'utf8');
+
+      fs.unlink(file);
+      expect(readed).to.equal(content);
 
     });
   });

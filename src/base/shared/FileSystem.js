@@ -14,6 +14,10 @@ function readDir(path) {
   return fs.readdirSync(path);
 }
 
+function readFile(path, options) {
+  return fs.readFileSync(path, options);
+}
+
 function writeFile(file, content) {
   try {
     fs.writeFileSync(file, content, 'utf8');
@@ -23,4 +27,4 @@ function writeFile(file, content) {
   }
 }
 
-export { fileExists, readDir, writeFile };
+export { fileExists, readDir, readFile, writeFile };
