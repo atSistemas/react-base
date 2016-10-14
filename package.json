@@ -58,7 +58,7 @@
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
     "babel-cli": "^6.14.0",
-    "babel-eslint": "^6.1.2",
+    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -72,19 +72,19 @@
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^3.0.1",
     "coveralls": "^2.11.14",
-    "cross-env": "^2.0.1",
+    "cross-env": "^3.1.2",
     "css-loader": "^0.25.0",
     "css-modules-require-hook": "^4.0.2",
     "enzyme": "^2.4.1",
     "eslint": "3.7.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-loader": "^1.5.0",
-    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "generator-webapp": "^2.1.0",
-    "google-map-react": "^0.19.0",
+    "google-map-react": "^0.20.0",
     "ignore-styles": "^5.0.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
@@ -119,8 +119,9 @@
   },
   "nyc": {
     "exclude": [
+      "webpack/**",
       "**/*.spec.js",
-      "webpack/**"
+      "src/base/wp-plugins/**"
     ],
     "extension": [
       ".jsx",
