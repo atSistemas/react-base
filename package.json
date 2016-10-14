@@ -121,7 +121,7 @@
     "exclude": [
       "webpack/**",
       "**/*.spec.js",
-      "src/base/wp-plugins/**"
+      "src/base/wp-plugins/**/*.js"
     ],
     "extension": [
       ".jsx",
