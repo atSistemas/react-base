@@ -10,6 +10,7 @@ script:
     - npm run generate:dll
     - npm run regenerate
     - npm run test:coverage
+    - npm run coveralls
     - npm run lint:all
 notifications:
   slack:
