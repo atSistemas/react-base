@@ -9,8 +9,8 @@ import requestMiddleware from '../../src/base/middleware/Request';
 import fetchRequiredActions from '../../src/base/shared/FetchData';
 
 const context = 'server';
-const serverStore = applyMiddleware( requestMiddleware )( createStore );
-const store = serverStore(rootReducer);
+const configureStore = applyMiddleware( requestMiddleware )( createStore );
+const store = configureStore(rootReducer);
 
 export default function routingMiddleware(req, res, next) {
 
