@@ -7,8 +7,9 @@ function weatherStationsRequest ( state ) { return state; }
 function weatherStationsError ( state ) { return state; }
 
 function weatherStationsSuccess ( state, action ) {
-  state.set('stationSelected', -1);
-  return state.update ( 'data', () => action.result );
+  return state
+    .update ( 'data', () => action.result )
+    .set('stationSelected', -1);
 }
 
 function weatherStationSelected( state, action ) {

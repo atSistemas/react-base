@@ -48,7 +48,7 @@
         "station": {
             "coord": {
                 "lat": 40.5048,
-                "lon": -3.6668
+                "lng": -3.6668
             },
             "id": 42622,
             "name": "EA4ENR",

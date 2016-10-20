@@ -5,9 +5,9 @@ import weatherStationsMock from 'mocks/weatherStations.json';
 import weatherStationMock from 'mocks/weatherStation.json';
 import ForecastMock from 'mocks/forecast.json';
 
-import api from '../../api'
+import * as helpers from '../../helpers';
 
-import { WeatherStationsCollection, WeatherStationsModel, WeatherStationModel, ForecastModel } from '../../models';
+import { WeatherStationsCollection, WeatherStationsModel, ForecastModel } from '../../models';
 import { generateMap } from 'base/shared/ModelHelper';
 
 describe('Reducers', () => {
@@ -65,7 +65,7 @@ describe('Reducers', () => {
 
       const action = {
         type: types.WEATHERSTATION_SUCCESS,
-        result: api.getDataWeatherStation(weatherStationMock)
+        result: helpers.getDataWeatherStation(weatherStationMock)
       };
 
       const model = new WeatherStationsCollection();

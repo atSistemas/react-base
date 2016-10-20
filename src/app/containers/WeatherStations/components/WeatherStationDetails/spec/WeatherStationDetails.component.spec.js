@@ -5,7 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 import WeatherStationDetails  from '../';
 import WeatherStationMock from 'mocks/weatherStation.json';
 
-import api from '../../../api'
+import * as helpers from '../../../helpers';
 import { WeatherStationDetailsModel } from '../../../models';
 import { generateMap } from 'base/shared/ModelHelper';
 
@@ -28,7 +28,7 @@ describe('component ', () => {
   describe('WeatherStationDetails', () => {
     it('should render correctly', () => {
 
-      let item =  api.getDataWeatherStation(WeatherStationMock);
+      let item =  helpers.getDataWeatherStation(WeatherStationMock);
 
       let itemMap = generateMap(item, WeatherStationDetailsModel)
       
