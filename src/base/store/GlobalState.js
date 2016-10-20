@@ -1,5 +1,5 @@
 export default function setGlobalState(initialState, models) {
-  models.default.modelIndex.map(function(model) {
-    model.setInitialState(initialState);
+  return models.default.modelIndex.map(function(model) {
+    return model.setInitialState(initialState);
   });
 }
