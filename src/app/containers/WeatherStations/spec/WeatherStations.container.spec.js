@@ -8,7 +8,7 @@ import weatherStationsMock from 'mocks/weatherStations.json';
 import weatherStationMock from 'mocks/weatherStation.json';
 import forecastMock from 'mocks/forecast.json';
 
-import api from '../api';
+import * as helpers from '../helpers';
 
 function setup() {
 
@@ -17,7 +17,7 @@ function setup() {
       WeatherStations: {
         data: weatherStationsMock,
         forecast:forecastMock.list,
-        weatherStationDetails: api.getDataWeatherStation(weatherStationMock),
+        weatherStationDetails: helpers.getDataWeatherStation(weatherStationMock),
         StationSelected: 15
       }
   };
