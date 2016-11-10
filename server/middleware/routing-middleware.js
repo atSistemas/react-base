@@ -1,11 +1,9 @@
 import { match } from 'react-router';
-import { applyMiddleware, createStore } from 'redux';
 
 import store from '../lib/configureStore';
 import routes from '../../src/base/routes';
 import renderPage from '../lib/renderPage';
 import renderContainer from '../lib/renderContainer';
-import requestMiddleware from '../../src/base/middleware/Request';
 import fetchRequiredActions from '../../src/base/shared/FetchData';
 
 const context = 'server';

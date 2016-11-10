@@ -1,16 +1,20 @@
 export default function fetchRequiredActions(...args) {
-  const serverContext = !!~args.indexOf('server');
-  return (serverContext) ?  fetchServerData.apply(this, args) : fetchClientData.apply(this, args);
+  const serverContext = ~args.indexOf('server');
+  if (serverContext) {
+    return fetchServerData.apply(this, args);
+  } else {
+    return fetchClientData.apply(this, args);
+  }
 }
 
 function fetchServerData(dispatch, components, params) {
   const actions = components.reduce( (prev, current) => {
     return Object.keys(current).reduce( (acc, key) => {
-      return current[key].hasOwnProperty('requiredActions') ?
-      current[key].requiredActions.concat(acc) : acc;
+      const hasRequiredActions = current[key].hasOwnProperty('requiredActions');
+      return hasRequiredActions ? current[key].requiredActions.concat(acc) : acc;
     }, prev);
-
   }, []);
+
   const requiredActions = actions.map(action => dispatch(action(params)));
   return Promise.all(requiredActions);
 }
