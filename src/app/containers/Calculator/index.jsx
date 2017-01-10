@@ -6,6 +6,10 @@ import styles from './styles.css';
 
 export class Calculator extends Component {
 
+  static proptypes = {
+    Calculator: PropTypes.instanceOf(Record).isRequired
+  }
+
   render () {
     return (
       <div className={ styles.Calculator }>
@@ -17,9 +21,5 @@ export class Calculator extends Component {
     );
   }
 }
-
-Calculator.propTypes = {
-  Calculator: PropTypes.instanceOf(Record)
-};
 
 export default Calculator;

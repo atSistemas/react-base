@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
 const propTypes = {
-  main: PropTypes.object
+  main: PropTypes.object.isRequired
 };
 
 const MapInfoWindow = ( props ) => {

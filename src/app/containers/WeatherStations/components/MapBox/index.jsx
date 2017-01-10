@@ -16,8 +16,8 @@ export  class MapBox extends Component {
     center: PropTypes.object,
     zoom: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
-    Stations: PropTypes.object,
-    StationSelected: PropTypes.number
+    Stations: PropTypes.object.isRequired,
+    StationSelected: PropTypes.number.isRequired
   };
 
   static defaultProps = {
@@ -57,7 +57,7 @@ export  class MapBox extends Component {
           main={ item.last.main }
           station={ item.get('station') }
         />
-        );
+      );
 
     });
 

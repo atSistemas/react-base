@@ -3,7 +3,7 @@ import dateformat from 'dateformat';
 import styles from './styles.css';
 
 const propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object.isRequired
 };
 
 const WeatherDetailItem = ( props ) => {
