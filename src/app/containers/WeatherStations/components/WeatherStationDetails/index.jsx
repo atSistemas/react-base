@@ -4,7 +4,7 @@ import dateformat from 'dateformat';
 import styles from './styles.css';
 
 const propTypes = {
-  details: PropTypes.instanceOf(Record)
+  details: PropTypes.instanceOf(Record).isRequired
 };
 
 const WeatherStationDetails = ( props ) => {

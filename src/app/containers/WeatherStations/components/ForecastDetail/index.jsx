@@ -6,7 +6,7 @@ import styles from './styles.css';
 export class ForecastDetail extends Component {
 
   static propTypes = {
-    Forecast: PropTypes.object,
+    Forecast: PropTypes.object.isRequired,
     StationSelected: PropTypes.number.isRequired
   };
 
@@ -34,7 +34,7 @@ export class ForecastDetail extends Component {
         <h3 className={ styles.title }> FORECAST </h3>
         { forecastList }
       </div>
-      );
+    );
 
   }}
 

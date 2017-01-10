@@ -12,7 +12,7 @@ import Actions from './actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  MainModel: React.PropTypes.instanceOf(Immutable.Record)
+  MainModel: React.PropTypes.instanceOf(Immutable.Record).isRequired
 };
 
 export class Main extends Component {
@@ -42,7 +42,7 @@ export class Main extends Component {
 
           <div>
             <div className={ styles.txt }>Examples</div>
-            
+
             <div className={ styles.buttons }>
               <LinkButton
                 location="/calculator"

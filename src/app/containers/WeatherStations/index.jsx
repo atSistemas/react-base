@@ -16,9 +16,9 @@ export class WeatherStations extends Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record),
-    WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map),
-    StationSelected: React.PropTypes.number
+    WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record).isRequired,
+    WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map).isRequired,
+    StationSelected: React.PropTypes.number.isRequired
   };
 
   static requiredActions = [Actions.getWeatherStations];

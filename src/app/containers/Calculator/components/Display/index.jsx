@@ -8,7 +8,7 @@ import styles from './styles.css';
 export class Display extends Component {
 
   static propTypes = {
-    Calculator: PropTypes.instanceOf(Record)
+    Calculator: PropTypes.instanceOf(Record).isRequired
   };
 
   render () {
