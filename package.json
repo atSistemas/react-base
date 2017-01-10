@@ -39,8 +39,8 @@
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
-    "postYeomanGenerator": "npm run regenerate && npm run start",
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
+    "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "postinstall": "npm run yo && npm run generate:dll && npm run test:coverage"
   },
