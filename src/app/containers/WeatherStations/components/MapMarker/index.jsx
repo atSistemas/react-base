@@ -9,10 +9,11 @@ import MapInfoWindow from '../MapInfoWindow';
 
 export default class MapMarker extends Component {
 
+  /* eslint  react/require-default-props: 0 */
   static propTypes = {
-    zIndex: PropTypes.number.isRequired,
+    zIndex: PropTypes.number,
     main: PropTypes.object.isRequired,
-    $hover: PropTypes.bool.isRequired
+    $hover: PropTypes.bool
   };
 
   constructor(props) {
