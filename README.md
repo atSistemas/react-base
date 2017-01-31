@@ -6,8 +6,6 @@
 ![Build-Status](https://travis-ci.org/atSistemas/react-base.svg?branch=master)
 ![Build-Status](https://ci.appveyor.com/api/projects/status/github/atSistemas/react-base?branch=master&svg=true)
 ![Coverage](https://s3.amazonaws.com/assets.coveralls.io/badges/coveralls_91.svg)
-![Dependencies](https://david-dm.org/atSistemas/react-base.svg)
-![Dev-dependencies](https://david-dm.org/atSistemas/react-base/dev-status.svg)
 ![Npm-Version](https://img.shields.io/badge/npm-6.2.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
