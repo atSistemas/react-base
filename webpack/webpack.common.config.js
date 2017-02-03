@@ -1,7 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
 import webpack from 'webpack';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 import baseWpPlugins from '../src/base/wp-plugins';
 
 export const mainPath = path.resolve(__dirname, '..');
@@ -38,8 +38,6 @@ export const plugins = [
     clear: true,
     summary: false,
   }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurenceOrderPlugin(true),
   new baseWpPlugins.fileHashPlugin({
     path: buildPath,
     fileName: 'output-hashes.json'
@@ -57,8 +55,7 @@ export const postcss = [
 ];
 
 export const resolve = {
-  extensions: ['', '.js', '.jsx', '.css'],
-  modulesDirectories: ['node_modules'],
+  extensions: ['.js', '.jsx', '.css'],
   alias: {
     'app': path.resolve(__dirname, '../src/app'),
     'base': path.resolve(__dirname, '../src/base'),

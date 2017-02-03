@@ -15,6 +15,10 @@
     {
       "name": "Eduardo Perez",
       "email": "eperez-bermejo@atsistemas.com"
+    },
+    {
+      "name": "Sergio Alonso",
+      "email": "salonso@atsistemas.com"
     }
   ],
   "main": "client/client.js",
@@ -82,7 +86,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.2",
     "generator-webapp": "2.3.2",
     "google-map-react": "0.22.3",
     "ignore-styles": "5.0.1",
@@ -111,10 +115,13 @@
     "style-loader": "0.13.1",
     "stylelint": "7.7.1",
     "supports-color": "3.2.3",
-    "webpack": "1.14.0",
+    "webpack": "2.2.0",
+    "webpack-dashboard": "0.3.0",
     "webpack-dev-middleware": "1.9.0",
-    "webpack-dev-server": "1.16.2",
-    "webpack-hot-middleware": "2.15.0",
+    "webpack-dev-server": "2.2.0",
+    "webpack-hot-middleware": "2.16.0",
+    "webpack-merge": "2.6.1",
+    "webpack-node-externals": "1.5.4",
     "yeoman-option-or-prompt": "1.0.2",
     "yo": "^1.8.5"
   },

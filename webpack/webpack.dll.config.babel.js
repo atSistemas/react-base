@@ -1,5 +1,5 @@
-import path from 'path';
-import webpack from 'webpack';
+import * as path from 'path';
+const webpack = require('webpack');
 
 import baseWpPlugins from '../src/base/wp-plugins';
 import * as common from './webpack.common.config';
@@ -12,16 +12,20 @@ export const context = common.context;
 export const resolve = common.resolve;
 
 export const module = {
-  loaders: [
+  rules: [
     {
       test: [/\.jsx?$/],
       include: [/src/],
-      loader: 'babel-loader',
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            presets: ['es2015', 'stage-0', 'react']
+          }
+        }
+      ],
       exclude: [/node_modules/, /dist/, /server/],
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'stage-0', 'react']
-      }
     }
   ]
 };

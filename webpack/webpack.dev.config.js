@@ -7,7 +7,7 @@ export const devtool = 'cheap-source-map';
 export const output = common.output;
 export const context = common.context;
 export const resolve = common.resolve;
-export const postcss = (webpack) => common.postcss;
+export const postcss = common.postcss;
 
 export const entry = {
   app: [
@@ -18,20 +18,43 @@ export const entry = {
 };
 
 export const module = {
-  loaders: [
+  rules: [
     {
       test: [/\.jsx?$/],
       include: [/src/],
-      loader: 'babel-loader',
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            presets: ['react-hmre', 'es2015', 'stage-0', 'react']
+          }
+        }
+      ],
       exclude: [/node_modules/, /dist/, /server/],
-      query: {
-        cacheDirectory: true,
-        presets: ['react-hmre', 'es2015', 'stage-0', 'react']
-      }
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss-loader'
+      use: [
+        {
+          loader:"style-loader"
+        },
+        {
+          loader: "css-loader",
+          options:{
+            modules: true,
+            importLoaders: 1,
+            localIdentName: "[name]__[local]-[hash:base64:4]"
+          }
+        },
+        {
+          loader:"",
+          options: {
+            plugins: function () {
+              return postcss;
+            }
+          }
+      }]
     }
   ]
 };
