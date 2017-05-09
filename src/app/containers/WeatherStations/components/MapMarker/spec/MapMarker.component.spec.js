@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 
 import MapMarker  from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';

@@ -15,7 +15,5 @@ describe('Calculator / Components', () => {
 
     });
 
-
-
   });
 });
