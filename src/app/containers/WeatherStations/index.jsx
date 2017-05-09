@@ -1,7 +1,8 @@
 import Immutable from 'immutable';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import fetchRequiredActions from 'base/shared/FetchData';
 
@@ -16,9 +17,9 @@ export class WeatherStations extends Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    WeatherStationsModel: React.PropTypes.instanceOf(Immutable.Record).isRequired,
-    WeatherStationDetailsState: React.PropTypes.instanceOf(Immutable.Map).isRequired,
-    StationSelected: React.PropTypes.number.isRequired
+    WeatherStationsModel: PropTypes.instanceOf(Immutable.Record).isRequired,
+    WeatherStationDetailsState: PropTypes.instanceOf(Immutable.Map).isRequired,
+    StationSelected: PropTypes.number.isRequired
   };
 
   static requiredActions = [Actions.getWeatherStations];

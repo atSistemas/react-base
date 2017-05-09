@@ -1,4 +1,4 @@
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { createStore, compose, applyMiddleware } from 'redux';
 import base from 'base/';
 import rootReducer from '../reducers';

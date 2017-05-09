@@ -16,12 +16,6 @@ describe('Calculator / Components', () => {
     });
 
 
-    it('Should has Ink children', () => {
-
-      const component = shallow(<Button type="number" value="C" />);
-      expect(component.find('Ink')).to.have.lengthOf(1);
-
-    });
 
   });
 });
