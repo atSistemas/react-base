@@ -1,5 +1,6 @@
+import React  from 'react';
 import { Record } from 'immutable';
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'prop-types';
 import dateformat from 'dateformat';
 import styles from './styles.css';
 

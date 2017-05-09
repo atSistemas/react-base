@@ -1,7 +1,9 @@
 import Immutable from 'immutable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+
 import fetchRequiredActions from 'base/shared/FetchData';
 
 import * as Actions from './actions';
@@ -10,7 +12,7 @@ import styles from './styles.css';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  <%= name %>Model: React.PropTypes.instanceOf(Immutable.Record)
+  <%= name %>Model: PropTypes.instanceOf(Immutable.Record)
 };
 
 export class <%= name %> extends Component {

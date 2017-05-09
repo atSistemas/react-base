@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+
 import { Record } from 'immutable';
 import Display from './components/Display';
 import ButtonPannel from './components/ButtonPannel';
