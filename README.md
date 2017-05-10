@@ -80,21 +80,168 @@ Please note that `npm install` is only required on your first start, or in case 
 
 React-base is based on [Redux](http://redux.js.org/)  paradigm so you can find all the typical entities of an Redux project like [reducers](http://redux.js.org/docs/basics/Reducers.html) , [store](http://redux.js.org/docs/basics/Store.html), [actions](http://redux.js.org/docs/basics/Actions.html) , etc.
 
-There are two main folders:
+There are four main folders:
 
-* `src/base/` contains React-base platform bootstrapping code.
+* `server` contains React-Base development & production server based in express with Universal/Isomorphic support and custom middlewares like Gzip.
+
+```javascript
+server
+  api/ //Api mocks
+  lib/ //Universal rendering files
+  middleware/ //enviroment middleware
+  statics/ //definition of  statics path
+  templates/ //universal templates
+    server  //Server  
+    routing  //Routing middleware  
+```
+
+* `webpack` contains Angular2-Base Webpack2 configuration separated by enviroment that allows to use different plugins and loaders in each target enviroment.
+
+```javascript
+webpack
+  webpack.common.config/ //Common config
+  webpack.dev.config/ //Development config
+  webpack.prod.config/ //Production config
+  webpack.test.config/ //Testing config
+  webpack.dll.config/ //Dll config
+```
+
+* `src/base/` contains React-Base platform bootstrapping code.
+
+```javascript
+base
+  client/ //
+  conf/ //Configuration files and Yeoman templates
+  middleware/ //Redux Store middleware
+  components/ //base components
+  models/ //model index
+  reducers/  //reducer index
+  routes/ //routes index
+  shared/ // shared base folder
+    regenerators/ //index regenerators
+    ActionCreator  //Action Creator
+    CreateRecuer //Custom reducer creator
+    ENV //Env handler
+    Errors //Errors handler
+    FetchData //Isomorfic data handler
+    FileSystem //Filesystem manager
+    JsDomSetup //JsDom Configuration FileSystem
+    ModelHelper //Inmutable deserializators
+    Regenerate // Regenerate indexes
+  store/ //Store configuration and AppState definition
+  types/ //Action request Types
+  wp-plugins/ //Custom webpack plugins
+  ...
+```
 
 * `src/app/` is the place where to put your application source code.
 
-React-base uses a "featured based" distribution, so all the necessary code for each page/features is located in its own folder inside containers folder as in `src/app/containers/myContainer`
+Angular2-Base uses a "featured based" distribution, so all the necessary code for each page/features is located in its own folder inside containers folder as in `src/app/containers/myContainer`
 
-A container is a React Component who contains other components, Redux entities, functions. Each container is self-contained and represents a feature like "clients" or "products" and it contains all the necessary stuff.
+A container is an Angular2 Module who contains other components, Redux entities, functions and store subscriptions. Each container is self-contained and represents a feature like "clients" or "products" and it contains all the necessary stuff.
+```javascript
+app/
+  containers/
+    myContainer/
+      actionTypes/
+      actions/
+      components/
+      models/
+      reducers/
+      index.ts
+  ...
 ```
-actions/
-components/
-models/
-reducers/
-types/
+
+## Action Types
+ActionTypes it's a representation using constants of your possible actions:
+
+```javascript
+import { createActionType } from 'base';
+
+export const ActionTypes = createActionType([
+  'CLICK',
+  'MAIN_CONTAINER',
+  'MAIN_ERROR',
+  'MAIN_REQUEST',
+  'MAIN_SUCCESS',
+  'LAZY_CONTAINER',
+  'LOGIN',
+]);
+
+```
+
+## Actions
+Actions are payloads of information witch represent that something happend in your application and  send data from your application to your store:
+
+```javascript
+public clickHandler(id) {
+    return {
+      type: ActionTypes.USER_CLICK,
+      payload: {
+        id: id
+      }
+    };
+}
+
+//Dispatching an action...
+
+this.store.dispatch(this.mainActions.clickHandler(rowId));
+
+```
+
+Yo can wrap functions or service call into the payload of your actions.
+
+
+## Reducers
+Reducers describe how the state of your application changes in response to a new Action. Angular-2 uses a custom CreateReducer that allows to use separated reducers functions instead of "switch based" reducers.
+
+```javascript
+import { createReducer } from 'base';
+
+const click = (state, action) => {
+  return state.update('mainData', (value) => action.payload);
+};
+
+const request = (state, action) => {
+  return state;
+};
+
+const actionHandlers = {
+  [ActionTypes.CLICK]: click,
+  [ActionTypes.LOGIN]: login,
+  [ActionTypes.MAIN_REQUEST]: request,
+  [ActionTypes.MAIN_SUCCESS]: success,
+};
+
+export default CreateReducer(actionHandlers, new MainModel());
+
+export { MainReducer }
+```
+
+## Models
+Represents your model data using ImmutableJS Data Types and sets its initial state using setInitialState() function.
+
+
+```javascript
+import { Record } from 'immutable';
+
+const MainModel = new Record({
+  display:0,
+  operator:'',
+  operation:'',
+  prevValue: 0,
+  nextValue: 0,
+  newValue: false,
+  resetDisplay: false,
+});
+
+function setInitialState(initialState) {
+  return initialState.Maiin = new MainModel();
+}
+
+export { MainModel, setInitialState };
+
+
 ```
 ### Generating a new container
 
