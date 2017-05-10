@@ -1,6 +1,6 @@
-import CreateReducer from 'base/shared/CreateReducer';
-import Types from '../types';
+import { createReducer } from 'base';
 import { MainModel } from '../models';
+import ActionTypes from '../actionTypes';
 
 function logoRequest( state ) { return state; }
 
@@ -20,9 +20,9 @@ function logoSuccess(state, action) {
 }
 
 const actionHandlers = {
-  [Types.LOGO_REQUEST]: logoRequest,
-  [Types.LOGO_SUCCESS]: logoSuccess,
-  [Types.LOGO_ERROR]: logoError,
+  [ActionTypes.LOGO_REQUEST]: logoRequest,
+  [ActionTypes.LOGO_SUCCESS]: logoSuccess,
+  [ActionTypes.LOGO_ERROR]: logoError,
 };
 
-export default CreateReducer(actionHandlers, new MainModel());
+export default createReducer(actionHandlers, new MainModel());

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import reducer from '../';
-import types from '../../types';
+import ActionTypes from '../../actionTypes';
 import weatherStationsMock from 'mocks/weatherStations.json';
 import weatherStationMock from 'mocks/weatherStation.json';
 import ForecastMock from 'mocks/forecast.json';
@@ -16,7 +16,7 @@ describe('Reducers', () => {
     it('Should return the initial state', () => {
 
       const action = {
-        type: types.WEATHERSTATIONS_REQUEST
+        type: ActionTypes.WEATHERSTATIONS_REQUEST
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -27,7 +27,7 @@ describe('Reducers', () => {
       const data = [weatherStationsMock[0], weatherStationsMock[1]]
 
       const action = {
-        type: types.WEATHERSTATIONS_SUCCESS,
+        type: ActionTypes.WEATHERSTATIONS_SUCCESS,
         result: generateMap(data, WeatherStationsModel)
       };
 
@@ -44,7 +44,7 @@ describe('Reducers', () => {
     it('should return the state of WeatherStations request fail', () => {
 
       const action = {
-        type: types.WEATHERSTATIONS_ERROR
+        type: ActionTypes.WEATHERSTATIONS_ERROR
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -54,7 +54,7 @@ describe('Reducers', () => {
     it('Should return the initial state when request WeatherStation ', () => {
 
       const action = {
-        type: types.WEATHERSTATION_REQUEST
+        type: ActionTypes.WEATHERSTATION_REQUEST
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -64,7 +64,7 @@ describe('Reducers', () => {
 
 
       const action = {
-        type: types.WEATHERSTATION_SUCCESS,
+        type: ActionTypes.WEATHERSTATION_SUCCESS,
         result: helpers.getDataWeatherStation(weatherStationMock)
       };
 
@@ -80,7 +80,7 @@ describe('Reducers', () => {
     it('should return the state of WeatherStation request fail', () => {
 
       const action = {
-        type: types.WEATHERSTATION_ERROR
+        type: ActionTypes.WEATHERSTATION_ERROR
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -89,7 +89,7 @@ describe('Reducers', () => {
     it('Should return the initial state when request forecast ', () => {
 
       const action = {
-        type: types.FORECAST_REQUEST
+        type: ActionTypes.FORECAST_REQUEST
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -98,7 +98,7 @@ describe('Reducers', () => {
     it('Should return the state forecast updated request successfull', () => {
 
       const action = {
-        type: types.FORECAST_SUCCESS,
+        type: ActionTypes.FORECAST_SUCCESS,
         result: generateMap(ForecastMock.list, ForecastModel)
       };
       const model = new WeatherStationsCollection();
@@ -113,7 +113,7 @@ describe('Reducers', () => {
     it('should return the state of forecast request fail', () => {
 
       const action = {
-        type: types.FORECAST_ERROR
+        type: ActionTypes.FORECAST_ERROR
       };
 
       expect(reducer([], action)).to.deep.equal([]);
@@ -122,7 +122,7 @@ describe('Reducers', () => {
     it('should return the state of station selected', () => {
 
       const action = {
-        type: types.WEATHERSTATION_SELECTED,
+        type: ActionTypes.WEATHERSTATION_SELECTED,
         id: 15
       };
 

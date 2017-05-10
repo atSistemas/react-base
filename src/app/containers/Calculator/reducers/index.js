@@ -1,13 +1,13 @@
-import CreateReducer from 'base/shared/CreateReducer';
+import { createReducer } from 'base';
 import { CalculatorModel } from '../models';
-import Types from '../types';
+import ActionTypes from '../actionTypes';
 
 const actionHandlers = {
-  [Types.RESULT]: result,
-  [Types.INPUT_NUMBER]: inputNumber,
-  [Types.INPUT_DECIMAL]: inputDecimal,
-  [Types.INPUT_OPERATOR]: inputOperator,
-  [Types.INPUT_OPERATION]: inputOperation
+  [ActionTypes.RESULT]: result,
+  [ActionTypes.INPUT_NUMBER]: inputNumber,
+  [ActionTypes.INPUT_DECIMAL]: inputDecimal,
+  [ActionTypes.INPUT_OPERATOR]: inputOperator,
+  [ActionTypes.INPUT_OPERATION]: inputOperation
 };
 
 function inputOperator(state, action) {
@@ -62,13 +62,13 @@ function inputOperation( state, action ) {
   const prevValue = state.get('prevValue');
 
   switch (operation) {
-    case Types.PERCENT:
+    case ActionTypes.PERCENT:
       value = prevValue / 100;
       return state
         .set('display', value)
         .set('prevValue', value);
 
-    case Types.CLEAN:
+    case ActionTypes.CLEAN:
       value = 0;
       return state
         .set('display', value)
@@ -76,7 +76,7 @@ function inputOperation( state, action ) {
         .set('nextValue', value)
         .set('resetDisplay', true);
 
-    case Types.CHANGE_SIGN:
+    case ActionTypes.CHANGE_SIGN:
       value = (Math.sign(prevValue) === 1) ?
       -Math.abs(prevValue) : Math.abs(prevValue);
       return state
@@ -87,10 +87,10 @@ function inputOperation( state, action ) {
 
 function calculate( operator, prevValue, nextValue) {
   const result = {
-    [Types.SUM]: () => prevValue + nextValue,
-    [Types.DIVIDE]: () => prevValue / nextValue,
-    [Types.MULTIPLY]: () => prevValue * nextValue,
-    [Types.SUBSTRACT]: () => prevValue - nextValue
+    [ActionTypes.SUM]: () => prevValue + nextValue,
+    [ActionTypes.DIVIDE]: () => prevValue / nextValue,
+    [ActionTypes.MULTIPLY]: () => prevValue * nextValue,
+    [ActionTypes.SUBSTRACT]: () => prevValue - nextValue
   };
   return operator ? result[operator]() : prevValue;
 }
@@ -108,4 +108,4 @@ function result(state) {
     .set('resetDisplay', true);
 }
 
-export default CreateReducer(actionHandlers, new CalculatorModel());
+export default createReducer(actionHandlers, new CalculatorModel());

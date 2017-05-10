@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 
-import base from '../../src/base';
+import base from 'base';
 
 const commonStatics = [
   {route: '/mocks', dir: path.join(__dirname, '../../server/api/mocks')}

@@ -1,5 +1,6 @@
 import express from 'express';
-import base from '../src/base/';
+
+import base from 'base/';
 import applyServerRouting from './routing';
 import applyStaticsPaths from './statics';
 import applyEnvMiddleWare from './middleware';

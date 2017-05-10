@@ -1,5 +1,5 @@
-import CreateReducer from 'base/shared/CreateReducer';
-import Types from '../types';
+import { createReducer } from 'base';
+import ActionTypes from '../actionTypes';
 import { WeatherStationsCollection } from '../models';
 
 function weatherStationsRequest ( state ) { return state; }
@@ -33,16 +33,16 @@ function forecastSuccess ( state, action ) {
 }
 
 const actionHandlers = {
-  [Types.WEATHERSTATIONS_REQUEST]: weatherStationsRequest,
-  [Types.WEATHERSTATIONS_SUCCESS]: weatherStationsSuccess,
-  [Types.WEATHERSTATIONS_ERROR]: weatherStationsError,
-  [Types.WEATHERSTATION_REQUEST]: weatherStationRequest,
-  [Types.WEATHERSTATION_SUCCESS]: weatherStationSuccess,
-  [Types.WEATHERSTATION_ERROR]: weatherStationError,
-  [Types.WEATHERSTATION_SELECTED]: weatherStationSelected,  
-  [Types.FORECAST_REQUEST]: forecastRequest,
-  [Types.FORECAST_SUCCESS]: forecastSuccess,
-  [Types.FORECAST_ERROR]: forecastError,
+  [ActionTypes.WEATHERSTATIONS_REQUEST]: weatherStationsRequest,
+  [ActionTypes.WEATHERSTATIONS_SUCCESS]: weatherStationsSuccess,
+  [ActionTypes.WEATHERSTATIONS_ERROR]: weatherStationsError,
+  [ActionTypes.WEATHERSTATION_REQUEST]: weatherStationRequest,
+  [ActionTypes.WEATHERSTATION_SUCCESS]: weatherStationSuccess,
+  [ActionTypes.WEATHERSTATION_ERROR]: weatherStationError,
+  [ActionTypes.WEATHERSTATION_SELECTED]: weatherStationSelected,  
+  [ActionTypes.FORECAST_REQUEST]: forecastRequest,
+  [ActionTypes.FORECAST_SUCCESS]: forecastSuccess,
+  [ActionTypes.FORECAST_ERROR]: forecastError,
 };
 
-export default CreateReducer(actionHandlers, new WeatherStationsCollection());
+export default createReducer(actionHandlers, new WeatherStationsCollection());

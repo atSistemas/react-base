@@ -1,10 +1,10 @@
-import Types from '../types';
+import { generateFetchTypes } from 'base';
 import api from '../api';
-import { generateFetchTypes } from 'base/shared/TypeHelper';
+import ActionTypes from '../actionTypes';
 
-export function get<%= namePascal %>( { params } ){
+export function get<%= namePascal %>( { params } ) {
   return {
-    types: generateFetchTypes(Types.<%= nameUpper %>_REQUEST),
+    types: generateFetchTypes(ActionTypes.<%= nameUpper %>_REQUEST),
     request: api.fetch<%= namePascal %>(params)
   };
 }

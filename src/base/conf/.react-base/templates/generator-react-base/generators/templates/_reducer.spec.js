@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import reducer from '..';
-import types from '../../types';
 
 describe('Reducers', () => {
   describe('<%= name %> reducer', () => {

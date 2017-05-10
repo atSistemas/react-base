@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
 import mainReducer from '../';
-import types from '../../types';
+import ActionTypes from '../../actionTypes';
 import { MainModel } from '../../models/';
 
 describe('Reducers', () => {
@@ -9,7 +9,7 @@ describe('Reducers', () => {
 
     it('Should perform a request', () => {
 
-      const action = { type: types.LOGO_REQUEST };
+      const action = { type: ActionTypes.LOGO_REQUEST };
       expect(mainReducer([], action)).to.deep.equal([]);
     });
 
@@ -22,7 +22,7 @@ describe('Reducers', () => {
           width: 500,
           src: "/assets/images/react-base-logo.png"
         };
-      const action = {type: types.LOGO_SUCESS, result:data};
+      const action = {type: ActionTypes.LOGO_SUCESS, result:data};
       const model = new MainModel(data);
       const reducer = mainReducer(model, action);
       const src = reducer.get('src');
@@ -35,7 +35,7 @@ describe('Reducers', () => {
 
     it('should execute request fail', () => {
 
-      const action = { type: types.LOGO_ERROR };
+      const action = { type: ActionTypes.LOGO_ERROR };
       expect(mainReducer([], action)).to.deep.equal([]);
     });
   });

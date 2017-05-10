@@ -1,28 +1,28 @@
-import Types from '../types';
+import ActionTypes from '../actionTypes';
 
 export function inputNumber(value) {
   return {
-    type: Types.INPUT_NUMBER,
+    type: ActionTypes.INPUT_NUMBER,
     value
   };
 }
 
 export function inputOperation(value) {
   return {
-    type: Types.INPUT_OPERATION,
+    type: ActionTypes.INPUT_OPERATION,
     value
   };
 }
 
 export function inputDecimal() {
   return {
-    type: Types.INPUT_DECIMAL
+    type: ActionTypes.INPUT_DECIMAL
   };
 }
 
 export function inputOperator(operator) {
   return {
-    type: Types.INPUT_OPERATOR,
+    type: ActionTypes.INPUT_OPERATOR,
     operator
   };
 }
@@ -30,7 +30,7 @@ export function inputOperator(operator) {
 
 export function result(operator) {
   return {
-    type: Types.RESULT,
+    type: ActionTypes.RESULT,
     operator
   };
 }

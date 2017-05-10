@@ -1,5 +1,5 @@
 import { Record, Map } from 'immutable';
-import { generateImmutable } from 'base/shared/ModelHelper';
+import { generateImmutable } from 'base';
 
 const <%= name %>Model = new Record({
   id: 0,
@@ -11,7 +11,7 @@ const <%= name %>Model = new Record({
 
 const <%= name %>Collection = new Record({ data: new Map() });
 
-function setInitialState(initialState){
+function setInitialState(initialState) {
   return initialState.<%= name %> = new <%= name %>Collection({
     data: generateImmutable( initialState.<%= name %>.data, <%= name %>Model )
   });

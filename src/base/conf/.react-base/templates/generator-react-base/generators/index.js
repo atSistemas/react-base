@@ -74,10 +74,10 @@ var typesDocument = {
     nameType: 'styles'
   },
   types:{
-    folder: '/types/',
-    template: '_types.js',
+    folder: '/actionTypes/',
+    template: '_actionTypes.js',
     nameFile: '/index.js',
-    nameType: 'types'
+    nameType: 'actionTypes'
   }
 }
 

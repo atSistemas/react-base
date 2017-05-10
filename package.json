@@ -1,6 +1,6 @@
 {
   "name": "ReactBase",
-  "version": "0.9.8",
+  "version": "1.0.0",
   "description": "React Base Isomorphic Redux",
   "author": "Pablo Magaz",
   "contributors": [
@@ -83,7 +83,7 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
     "extract-text-webpack-plugin": "1.0.1",
-    "generator-webapp": "2.4.1",
+    "generator-webapp": "^2.1.0",
     "google-map-react": "0.24.0",
     "ignore-styles": "5.0.1",
     "immutable": "3.8.1",
@@ -115,8 +115,8 @@
     "webpack-dev-middleware": "1.10.2",
     "webpack-dev-server": "2.4.5",
     "webpack-hot-middleware": "2.18.0",
-    "yeoman-option-or-prompt": "2.0.0",
-    "yo": "^1.8.5"
+    "yeoman-option-or-prompt": "^1.0.2",
+    "yo": "1.8.5"
   },
   "nyc": {
     "exclude": [

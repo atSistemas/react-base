@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as Actions from '../';
-import Types from '../../types';
-import { generateFetchTypes } from 'base/shared/TypeHelper';
+import ActionTypes from '../../actionTypes';
+import { generateFetchTypes } from 'base';
 
 import api from '../../api';
 
@@ -11,7 +11,7 @@ describe('Actions', () => {
 
       const params = {};
       const expectedAction = {
-        types: generateFetchTypes(Types.WEATHERSTATIONS_REQUEST),
+        types: generateFetchTypes(ActionTypes.WEATHERSTATIONS_REQUEST),
         request: api.fetchWeatherStations(params)
       };
 
@@ -23,7 +23,7 @@ describe('Actions', () => {
 
       const id = 15;
       const expectedAction = {
-        type: Types.WEATHERSTATION_SELECTED,
+        type: ActionTypes.WEATHERSTATION_SELECTED,
         id: id
       };
 
@@ -34,7 +34,7 @@ describe('Actions', () => {
     it('Should create action getWeatherStation', () => {
       const id = 15;
       const expectedAction = {
-        types: generateFetchTypes(Types.WEATHERSTATION_REQUEST),
+        types: generateFetchTypes(ActionTypes.WEATHERSTATION_REQUEST),
         request: api.fetchWeatherStation(id)
       };
 
@@ -51,7 +51,7 @@ describe('Actions', () => {
       };
 
       const expectedAction = {
-        types: generateFetchTypes(Types.FORECAST_REQUEST),
+        types: generateFetchTypes(ActionTypes.FORECAST_REQUEST),
         request: api.fetchWeather(params.lat, params.lng)
       };
 

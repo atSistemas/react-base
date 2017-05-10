@@ -4,7 +4,7 @@ import store from '../lib/configureStore';
 import routes from '../../src/base/routes';
 import renderPage from '../lib/renderPage';
 import renderContainer from '../lib/renderContainer';
-import fetchRequiredActions from '../../src/base/shared/FetchData';
+import { fetchRequiredActions } from 'base';
 
 const context = 'server';
 
