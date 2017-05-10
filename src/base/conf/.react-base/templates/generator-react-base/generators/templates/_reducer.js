@@ -1,6 +1,5 @@
-import CreateReducer from 'base/shared/CreateReducer';
-
-import Types from '../types';
+import { createReducer } from 'base';
+import ActionTypes from '../actionTypes';
 import { <%= name %>Collection } from '../models';
 
 function <%= nameLower %>Request ( state ) { return state; }
@@ -12,9 +11,9 @@ function <%= nameLower %>Success ( state, action ) {
 }
 
 const actionHandlers = {
-  [Types.<%= nameUpper %>_REQUEST]: <%= nameLower %>Request,
-  [Types.<%= nameUpper %>_SUCCESS]: <%= nameLower %>Success,
-  [Types.<%= nameUpper %>_ERROR]: <%= nameLower %>Error
+  [ActionTypes.<%= nameUpper %>_REQUEST]: <%= nameLower %>Request,
+  [ActionTypes.<%= nameUpper %>_SUCCESS]: <%= nameLower %>Success,
+  [ActionTypes.<%= nameUpper %>_ERROR]: <%= nameLower %>Error
 };
 
-export default CreateReducer(actionHandlers, new <%= name %>Collection());
+export default createReducer(actionHandlers, new <%= name %>Collection());

@@ -4,11 +4,13 @@ import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
-import fetchRequiredActions from 'base/shared/FetchData';
+import { fetchRequiredActions } from 'base';
 
 import * as Actions from './actions';
 import <%= name %>Component from './components/';
 import styles from './styles.css';
+
+/* eslint  react/require-default-props: 0 */
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
