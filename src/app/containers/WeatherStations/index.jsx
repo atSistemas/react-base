@@ -4,14 +4,13 @@ import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import fetchRequiredActions from 'base/shared/FetchData';
 
+import { fetchRequiredActions } from 'base';
 import * as Actions from './actions';
-
 import MapBox from './components/MapBox';
-import styles from './styles.css';
 import ForecastDetail from './components/ForecastDetail';
 import WeatherStationDetails from './components/WeatherStationDetails';
+import styles from './styles.css';
 
 export class WeatherStations extends Component {
 

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import requestMiddleware from '../Request';
-import types from 'containers/Main/types';
+import ActionTypes from 'containers/Main/actionTypes';
 import logoAPI from 'containers/Main/api';
 import { generateFetchTypes } from 'base/shared/TypeHelper';
 
@@ -28,7 +28,7 @@ describe('middleware', () => {
       };
 
       const actions = {
-        types: generateFetchTypes(types.LOGO_REQUEST),
+        types: generateFetchTypes(ActionTypes.LOGO_REQUEST),
         request: logoAPI.fetchLogo(props.category)
       };
 
@@ -44,7 +44,7 @@ describe('middleware', () => {
     it('requestMiddleware without resquest action', () => {
 
       const actions = {
-        types: generateFetchTypes(types.LOGO_REQUEST)
+        types: generateFetchTypes(ActionTypes.LOGO_REQUEST)
       };
 
       expect(dispatchWithStoreOf({}, actions)).to.equal(actions);

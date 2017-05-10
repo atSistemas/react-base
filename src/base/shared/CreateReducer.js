@@ -1,4 +1,4 @@
-export default function createReducer (actionHandler, initialState) {
+export function createReducer (actionHandler, initialState) {
   return (state = initialState, action) => {
 
     const handler = actionHandler[action.type];
@@ -9,5 +9,5 @@ export default function createReducer (actionHandler, initialState) {
 
     return state;
   };
-  
+
 }

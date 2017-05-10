@@ -1,11 +1,11 @@
 import path from 'path';
 
-import ENV from '../../src/base/shared/Env';
+import base from 'base';
 import * as FileSystem from '../../src/base/shared/FileSystem';
 
 export default function getScripts(file) {
 
-  const scriptPath = (ENV === 'development' && file === 'vendor')
+  const scriptPath = (base.env === 'development' && file === 'vendor')
   ? path.resolve( __dirname, '../../dist/vendor-hashes.json')
   : path.resolve( __dirname, '../../dist/output-hashes.json');
 

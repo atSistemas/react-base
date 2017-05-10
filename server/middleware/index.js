@@ -1,4 +1,4 @@
-import base from '../../src/base/';
+import base from 'base'; 
 
 const envMiddleware = (base.env === 'development') ? require('./dev-middleware') : require('./prod-middleware');
 

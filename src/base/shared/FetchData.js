@@ -1,4 +1,4 @@
-export default function fetchRequiredActions(...args) {
+export function fetchRequiredActions(...args) {
   const serverContext = ~args.indexOf('server');
   if (serverContext) {
     return fetchServerData.apply(this, args);

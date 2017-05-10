@@ -1,15 +1,14 @@
 import Immutable from 'immutable';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import fetchRequiredActions from 'base/shared/FetchData';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { fetchRequiredActions } from 'base';
 
+import Actions from './actions';
 import Logo from '../../components/Logo';
 import LinkButton from '../../components/LinkButton';
-
 import styles from './styles.css';
-import Actions from './actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,

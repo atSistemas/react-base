@@ -1,11 +1,12 @@
-import { generateFetchTypes } from 'base/shared/TypeHelper';
-import Types from '../types';
+import { generateFetchTypes } from 'base';
+
 import LogoAPI from '../api';
+import ActionTypes from '../actionTypes';
 
 export default {
   getLogo( { params } ) {
     return {
-      types: generateFetchTypes(Types.LOGO_REQUEST),
+      types: generateFetchTypes(ActionTypes.LOGO_REQUEST),
       request: LogoAPI.fetchLogo(params)
     };
   }

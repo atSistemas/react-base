@@ -1,7 +1,7 @@
 import { expect }  from 'chai';
 import * as Actions from '../';
-import Types from '../../types';
-import { generateFetchTypes } from 'base/shared/TypeHelper';
+import ActionTypes from '../../actionTypes';
+import { generateFetchTypes } from 'base';
 
 describe('Calculator', () => {
 
@@ -12,19 +12,19 @@ describe('Calculator', () => {
       let expected;
 
       const inputNumber = Actions.inputNumber(3);
-      expected = {type: Types.INPUT_NUMBER, value: 3};
+      expected = {type: ActionTypes.INPUT_NUMBER, value: 3};
       expect(expected).to.deep.equal(inputNumber);
 
-      const inputOperation = Actions.inputOperation(Types.CLEAN);
-      expected = {type: Types.INPUT_OPERATION, value: Types.CLEAN};
+      const inputOperation = Actions.inputOperation(ActionTypes.CLEAN);
+      expected = {type: ActionTypes.INPUT_OPERATION, value: ActionTypes.CLEAN};
       expect(expected).to.deep.equal(inputOperation);
 
       const inputDecimal = Actions.inputDecimal();
-      expected = {type: Types.INPUT_DECIMAL}
+      expected = {type: ActionTypes.INPUT_DECIMAL}
       expect(expected).to.deep.equal(inputDecimal);
 
-      const inputOperator = Actions.inputOperator(Types.SUM);
-      expected = {type: Types.INPUT_OPERATOR, operator: Types.SUM};
+      const inputOperator = Actions.inputOperator(ActionTypes.SUM);
+      expected = {type: ActionTypes.INPUT_OPERATOR, operator: ActionTypes.SUM};
       expect(expected).to.deep.equal(inputOperator);
 
     });

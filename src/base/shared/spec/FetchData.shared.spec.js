@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import fetchRequiredActions from '../FetchData' ;
+import { fetchRequiredActions } from '../FetchData' ;
 import action from 'containers/Main/actions';
 import { MainModel } from 'containers/Main/models';
 import { generateImmutable } from '../ModelHelper';

@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import compression from 'compression';
 
-import base from '../../src/base/';
+import base from 'base';
 
 const config = require('../../webpack/index.babel.js');
 
