@@ -5,6 +5,7 @@
 
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import MediasetLogo from 'app/components/LogoMediaset/';
 //import custom default value
 import defaultValue from './modules/defaultValue';
 //import custom default function
@@ -26,8 +27,10 @@ export class Ecma6 extends Component {
   render () {
 
     return (
+      
       <div className={ Styles.Ecma6 }>
-        <h2>ECMA6 MODULES</h2>
+        <MediasetLogo />
+        <h3>ECMA6 MODULES</h3>
         <ul>
           <li>
             <b>defaultValue</b>: { defaultValue }
@@ -42,7 +45,19 @@ export class Ecma6 extends Component {
             <b>sayHi</b>: { sayHi('Peter') }
           </li>
         </ul>
-        <h2>ECMA6 ARROW FUNCTION</h2>
+        <h3>ECMA6 ARROW FUNCTION</h3>
+        <ul>
+          <li>
+            <b>isEven</b>: { isEven(5,2) } ;
+          </li>
+          <li>  
+            <b>regularFunction </b>: { regularFunction(22) }
+          </li>
+           <li>  
+            <b>arrowFunction </b>: { arrowFunction(22) }
+          </li>
+        </ul>
+          <h3>ECMA6 DESTRUCTURATION </h3>
         <ul>
           <li>
             <b>isEven</b>: { isEven(5,2) } ;
