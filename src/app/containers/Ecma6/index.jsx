@@ -60,13 +60,7 @@ export class Ecma6 extends Component {
           <h3>ECMA6 DESTRUCTURATION </h3>
         <ul>
           <li>
-            <b>isEven</b>: { isEven(5,2) } ;
-          </li>
-          <li>  
-            <b>regularFunction </b>: { regularFunction(22) }
-          </li>
-           <li>  
-            <b>arrowFunction </b>: { arrowFunction(22) }
+            <b>destructurating objects</b>: { isEven(5,2) } ;
           </li>
         </ul>
       </div>
