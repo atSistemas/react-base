@@ -16,7 +16,7 @@ import { valOne, sayHi } from './modules/severalValues';
 //import { valOne, sayHi, hi, bye } from './modules/shortcutsAndMix';
 import { isEven } from './modules/arrow';
 import { regularFunction, arrowFunction } from './modules/arrowThis';
-import { destructured, destructured2 } from './modules/destructuring';
+import { destructured } from './modules/destructuring';
 
 import * as Styles from './styles.css';
 
@@ -55,11 +55,11 @@ export class Ecma6 extends Component {
           <li>  
             <b>regularFunction </b>: { regularFunction(22) }
           </li>
-           <li>  
+          <li>  
             <b>arrowFunction </b>: { arrowFunction(22) }
           </li>
         </ul>
-          <h3>ECMA6 DESTRUCTURING </h3>
+        <h3>ECMA6 DESTRUCTURING </h3>
         <ul>
           <li>
             <b>Object destructuring</b>: { destructured }
