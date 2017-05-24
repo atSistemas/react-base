@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChildComponent from './childComponent';
+import ChildComponent from './ChildComponent';
 
 class ComunicatingComponents extends Component {
 
