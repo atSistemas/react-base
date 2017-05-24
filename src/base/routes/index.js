@@ -5,6 +5,7 @@ import App from 'containers/App/';
 import Calculator from 'containers/Calculator/';
 import Ecma6 from 'containers/Ecma6/';
 import Main from 'containers/Main/';
+import ReactCourse from 'containers/ReactCourse/';
 import WeatherStations from 'containers/WeatherStations/';
 
 const routes = (
@@ -13,6 +14,7 @@ const routes = (
     <Route path="/calculator" component={ Calculator } />
     <Route path="/ecma6" component={ Ecma6 } />
     <Route path="/main" component={ Main } />
+    <Route path="/reactcourse" component={ ReactCourse } />
     <Route path="/weatherstations" component={ WeatherStations } />
   </Route>
 );

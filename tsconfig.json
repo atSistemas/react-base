@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es6",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": false,
+    "noEmitHelpers": false,
+    "pretty": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "baseUrl": "./src",
+    "types": [
+      "chai",
+      "core-js",
+      "mocha",
+      "node",
+      "sinon",
+      "systemjs",
+      "webpack"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "compiled",
+    "src/app/index.aot.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}
