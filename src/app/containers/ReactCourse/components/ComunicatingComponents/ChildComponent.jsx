@@ -8,8 +8,9 @@ const propTypes= {
 
 const ChildComponent = ({ parentData, parentFunction }) => (
 
-  <div onClick={ () => parentFunction('updated parent data from child!') }>
-    { parentData }
+  <div>
+    <div>{ parentData }</div>
+    <a href="" onClick={ () => parentFunction('updated parent data from child!') }>click me!</a>
   </div>
 
 );
