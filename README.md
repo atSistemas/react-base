@@ -247,7 +247,11 @@ export { MainModel, setInitialState };
 
 React-base uses Yeoman to generate new application containers or components.
 
-To generate a new container run:
+Fist of all you need to link yo:
+
+`$ npm run yo`
+
+Then, you can generate a new container run:
 
 `$ npm run generate:container`
 
@@ -271,9 +275,9 @@ Same as before, you will be asked for a component name, and after that React-bas
 
 You can generate a complete distribution source ready for production enviroments.
 
-### Building your application
+### Building your production application
 
-`$ npm run build` will create a minified version for your application, ready for production.
+`$ npm run build:prod` will create a minified version for your application, ready for production.
 
 ### Running production server
 
