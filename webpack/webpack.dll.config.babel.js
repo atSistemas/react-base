@@ -2,7 +2,6 @@ import path from 'path';
 import webpack from 'webpack';
 import AssetsPlugin from 'assets-webpack-plugin';
 
-import baseWpPlugins from '../src/base/wp-plugins';
 import * as common from './webpack.common.config';
 
 export const cache = true;
@@ -35,12 +34,8 @@ export const module = {
 
 export const plugins = [
   new webpack.DllPlugin({
-    path: path.join(common.manifestPath, "[name]-manifest.json"),
+    path: path.join(common.dllPath, "[name]-manifest.json"),
     name: "[name]",
-  }),
-  new baseWpPlugins.fileHashPlugin({
-    path: common.buildPath,
-    fileName: 'vendor-hashes.json'
   }),
   new AssetsPlugin({
     path: common.buildPath,

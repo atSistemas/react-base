@@ -49,7 +49,7 @@ export const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.DllReferencePlugin({
     context: common.context,
-    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+    manifest: require(`${common.dllPath}/vendor-manifest.json`)
   }),
 ]
 .concat(common.plugins);

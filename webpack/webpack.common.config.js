@@ -9,6 +9,7 @@ export const mainPath = path.resolve(__dirname, '..');
 export const context = path.resolve(__dirname, '../');
 export const buildPath = path.resolve(__dirname, '..', 'dist');
 export const basePath = path.resolve(__dirname, '../src/base');
+export const dllPath = path.resolve(__dirname, '../dist/dlls');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
 export const manifestPath = buildPath;
 
@@ -33,10 +34,6 @@ export const plugins = [
   }),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(true),
-  new baseWpPlugins.fileHashPlugin({
-    path: buildPath,
-    fileName: 'output-hashes.json'
-  }),
   new AssetsPlugin({
     path: buildPath,
     filename: 'webpack-assets.json',
