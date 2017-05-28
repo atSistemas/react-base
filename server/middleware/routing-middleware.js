@@ -1,14 +1,20 @@
 import { match } from 'react-router';
 
-import store from '../lib/configureStore';
 import routes from '../../src/base/routes';
 import renderPage from '../lib/renderPage';
-import renderContainer from '../lib/renderContainer';
 import { fetchRequiredActions } from 'base';
+import renderContainer from '../lib/renderContainer';
+import configureServerStore from '../lib/configureStore';
+
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from '../../src/base/reducers/';
+import requestMiddleware from '../../src/base/middleware/Request';
 
 const context = 'server';
 
 export default function routingMiddleware(req, res, next) {
+  
+  const store = configureServerStore();
 
   match({ routes , location: req.url }, (error, redirectLocation, renderProps) => {
 

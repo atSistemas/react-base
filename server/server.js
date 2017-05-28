@@ -1,11 +1,11 @@
 import express from 'express';
 
 import base from 'base/';
+import envConf from './enviroment';
 import applyServerRouting from './routing';
 import applyStaticsPaths from './statics';
 import applyEnvMiddleWare from './middleware';
 
-const port = 8000;
 const app = express();
 
 function prepareServer() {
@@ -29,12 +29,12 @@ function prepareServer() {
 }
 
 function launchServer() {
-  app.listen(port, function (err) {
+  app.listen(envConf.port, function (err) {
     if (err) {
       base.console.error(`${err}`);
       return;
     }
-    base.console.success(`Server up on http://localhost:${port}`);
+    base.console.success(`Server up on http://localhost:${envConf.port}`);
   });
 }
 
