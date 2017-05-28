@@ -1,6 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
 import webpack from 'webpack';
+import AssetsPlugin from 'assets-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import baseWpPlugins from '../src/base/wp-plugins';
 
@@ -24,14 +25,6 @@ export const entry = {
   ]
 };
 
-export const output = {
-  path: buildPath,
-  library: "[name]",
-  filename: '[name].[hash].js',
-  chunkFilename: "[name].js",
-  publicPath: '/'
-};
-
 export const plugins = [
   new ProgressBarPlugin({
     format: `[BASE] ${chalk.blue('i')} Bundling... [:bar] ${chalk.green(':percent')} (:elapsed seconds)`,
@@ -43,6 +36,11 @@ export const plugins = [
   new baseWpPlugins.fileHashPlugin({
     path: buildPath,
     fileName: 'output-hashes.json'
+  }),
+  new AssetsPlugin({
+    path: buildPath,
+    filename: 'webpack-assets.json',
+    prettyPrint: true
   }),
   new baseWpPlugins.compileInfoPlugin(),
 ];
@@ -65,6 +63,6 @@ export const resolve = {
     'store': path.resolve(__dirname, '../src/base/store'),
     'mocks': path.resolve(__dirname, '../server/api/mocks'),
     'containers': path.resolve(__dirname, '../src/app/containers'),
-    'components': path.resolve(__dirname, '../src/base/shared/components')
+    'components': path.resolve(__dirname, '../src/app/components')
   }
 };

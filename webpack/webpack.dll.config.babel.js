@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import AssetsPlugin from 'assets-webpack-plugin';
 
 import baseWpPlugins from '../src/base/wp-plugins';
 import * as common from './webpack.common.config';
@@ -7,9 +8,15 @@ import * as common from './webpack.common.config';
 export const cache = true;
 export const devtool = 'eval';
 export const entry = common.entry;
-export const output = common.output;
 export const context = common.context;
 export const resolve = common.resolve;
+
+export const output =  {
+  path: common.buildPath,
+  publicPath: '/',
+  library: '[name]',
+  filename: '[name].dll.js',
+};
 
 export const module = {
   loaders: [
@@ -34,6 +41,11 @@ export const plugins = [
   new baseWpPlugins.fileHashPlugin({
     path: common.buildPath,
     fileName: 'vendor-hashes.json'
+  }),
+  new AssetsPlugin({
+    path: common.buildPath,
+    filename: 'webpack-dll-assets.json',
+    prettyPrint: true
   }),
 ]
 .concat(common.plugins);
