@@ -4,7 +4,6 @@ import * as common from './webpack.common.config';
 
 export const cache = true;
 export const devtool = 'cheap-source-map';
-export const output = common.output;
 export const context = common.context;
 export const resolve = common.resolve;
 export const postcss = (webpack) => common.postcss;
@@ -14,7 +13,16 @@ export const entry = {
     common.clientPath,
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client'
-  ]
+  ],
+};
+
+export const output = {
+  path: common.buildPath,
+  publicPath: '/',
+  library: '[name]',
+  filename: '[name].js',
+  sourceMapFilename: '[name].map',
+  chunkFilename: '[name].chunk.js',
 };
 
 export const module = {
@@ -41,7 +49,7 @@ export const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.DllReferencePlugin({
     context: common.context,
-    manifest: require(`${common.manifestPath}/vendor-manifest.json`)
+    manifest: require(`${common.dllPath}/vendor-manifest.json`)
   }),
 ]
 .concat(common.plugins);

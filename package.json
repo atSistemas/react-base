@@ -31,18 +31,19 @@
     "regenerate:reducerIndex": "node ./src/base/shared/Regenerate.js --reducer",
     "regenerate": "npm run logo && node ./src/base/shared/Regenerate.js --all",
     "generate:dll": "cross-env NODE_ENV=dll webpack --config webpack/webpack.dll.config.babel.js",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/index.babel.js",
+    "build": "cross-env NODE_ENV=development webpack --config webpack/index.babel.js",
+    "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/index.babel.js",
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js src --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
     "test": "npm run logo && mocha --compilers js:babel-core/register --recursive \"./src/**/*.spec.js\" --require ignore-styles \"./src/base/shared/JsDomSetup.js\"",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
-    "start:prod": "npm run build && cross-env NODE_ENV=production node server/",
+    "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server/",
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run yo && npm run generate:dll && npm run test:coverage"
+    "postinstall": "npm run generate:dll && npm run test:coverage"
   },
   "dependencies": {
     "babel-core": "6.24.1",

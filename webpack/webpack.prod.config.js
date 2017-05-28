@@ -6,7 +6,6 @@ import * as common from './webpack.common.config';
 
 export const cache = true;
 export const devtool = 'cheap-module-source-map';
-export const output = common.output;
 export const context = common.context;
 export const resolve = common.resolve;
 export const postcss = (webpack) => common.postcss;
@@ -15,6 +14,16 @@ export const entry = {
   app: common.clientPath,
   vendor: common.entry.vendor
 };
+
+export const output = {
+  path: common.buildPath,
+  publicPath: '/',
+  library: '[name]',
+  filename: '[name].[hash].js',
+  sourceMapFilename: '[name].map',
+  chunkFilename: '[name].[hash].chunk.js',
+};
+
 
 export const module = {
   loaders: [
@@ -36,7 +45,7 @@ export const module = {
 };
 
 export const plugins = [
-  new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
+  new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify('production')}}),
   new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),

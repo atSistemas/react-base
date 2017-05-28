@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 
 export function generateMap( data, model ) {
   return data.reduce((acc, item) => {
@@ -7,6 +7,13 @@ export function generateMap( data, model ) {
   );
 }
 
+export function generateList( data, model ) {
+  const arr = data.map((item) => {
+    return new model(item);
+  }
+ );
+  return new List(arr);
+}
 
 export function generateImmutable( data, model ) {
   return Object.keys(data).reduce( (acc, key) => {
