@@ -32,8 +32,6 @@ export const plugins = [
     clear: true,
     summary: false,
   }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurenceOrderPlugin(true),
   new AssetsPlugin({
     path: buildPath,
     filename: 'webpack-assets.json',
@@ -52,8 +50,8 @@ export const postcss = [
 ];
 
 export const resolve = {
-  extensions: ['', '.js', '.jsx', '.css'],
-  modulesDirectories: ['node_modules'],
+  extensions: ['.js', '.jsx', '.css'],
+  modules: ['node_modules'],
   alias: {
     'app': path.resolve(__dirname, '../src/app'),
     'base': path.resolve(__dirname, '../src/base'),
