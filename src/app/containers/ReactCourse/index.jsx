@@ -5,7 +5,7 @@ import MyFirstReactComponent from './components/MyFirstReactComponent';
 import ComponentWithState from './components/ComponentWithState';
 import ComponentPropTypes from './components/ComponentPropTypes';
 import ComunicatingComponents from './components/ComunicatingComponents';
-
+import ComponentLifeCycle from './components/ComponentLifeCycle';
 import styles from './styles.css';
 
 class ReactCourse extends Component {
@@ -27,6 +27,8 @@ class ReactCourse extends Component {
         <ComponentPropTypes myProp="hola" myObj={ obj } />
         <h3>Comunicating components</h3>
         <ComunicatingComponents />
+        <h3>Component Life Cycle Events</h3>
+        <ComponentLifeCycle />
       </div>
     );
   }

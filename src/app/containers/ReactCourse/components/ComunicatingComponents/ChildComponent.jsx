@@ -10,7 +10,7 @@ const ChildComponent = ({ parentData, parentFunction }) => (
 
   <div>
     <div>{ parentData }</div>
-    <a href="" onClick={ () => parentFunction('updated parent data from child!') }>click me!</a>
+    <span onClick={ () => parentFunction('updated parent data from child!') }>click me!</span>
   </div>
 
 );
