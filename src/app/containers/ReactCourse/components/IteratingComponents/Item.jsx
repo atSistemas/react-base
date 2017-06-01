@@ -1,11 +1,9 @@
 import React  from 'react';
-import { PropTypes, shape } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 const propTypes= {
-  data: shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  }).isRequired
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 const Item = ( data ) => (
