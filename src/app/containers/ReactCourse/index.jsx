@@ -6,6 +6,7 @@ import ComponentWithState from './components/ComponentWithState';
 import ComponentPropTypes from './components/ComponentPropTypes';
 import ComunicatingComponents from './components/ComunicatingComponents';
 import ComponentLifeCycle from './components/ComponentLifeCycle';
+import StatelessComponent from './components/StatelessComponent';
 import styles from './styles.css';
 
 class ReactCourse extends Component {
@@ -29,6 +30,8 @@ class ReactCourse extends Component {
         <ComunicatingComponents />
         <h3>Component Life Cycle Events</h3>
         <ComponentLifeCycle />
+        <h3>Stateless Component</h3>
+        <StatelessComponent name="Jhon"/>
       </div>
     );
   }
