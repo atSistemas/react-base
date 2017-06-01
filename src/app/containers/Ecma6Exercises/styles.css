@@ -1,5 +1,6 @@
-.Ecma6 {
-  width: 650px;
+.Ecma6Exercises {
+  width: 750px;
+  height: 200px;
   position: absolute;
   left: 0;
   right: 0;
@@ -10,7 +11,4 @@
   font-size: 32px;
   font-family: Arial;
   color: #9E9E9E ;
-}
-h3 {
-  color: #1BA7DB;
 }

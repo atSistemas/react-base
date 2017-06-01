@@ -40,6 +40,6 @@ export const plugins = [
   new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
-  new ExtractTextPlugin('bundle.css', { allChunks: true }),
+  new ExtractTextPlugin('bundle.css', { fallback: 'style-loader', use: 'css-loader' }),
 ]
 .concat(common.plugins);

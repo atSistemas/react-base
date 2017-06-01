@@ -115,7 +115,8 @@
     "webpack-dev-middleware": "1.10.2",
     "webpack-dev-server": "2.4.5",
     "webpack-hot-middleware": "2.18.0",
-    "yeoman-option-or-prompt": "^1.0.2"
+    "yeoman-option-or-prompt": "^1.0.2",
+    "yo": "^1.8.5"
   },
   "nyc": {
     "exclude": [
