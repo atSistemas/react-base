@@ -39,7 +39,7 @@ export const plugins = [
   }),
   new AssetsPlugin({
     path: common.buildPath,
-    filename: 'webpack-dll-assets.json',
+    filename: 'webpack-assets.json',
     prettyPrint: true
   }),
 ]
