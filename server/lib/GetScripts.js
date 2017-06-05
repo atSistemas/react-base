@@ -1,19 +1,21 @@
-import path from 'path';
+import * as path from 'path';
 
-import base from 'base';
+import { env } from '../../src/base/';
 import * as FileSystem from '../../src/base/shared/FileSystem';
 
+let JsFiles;
+
+if ( env === 'development') {
+  JsFiles = {
+    app: { js: '/app.js' },
+    vendor: { js: '/dlls/vendor.dll.js' },
+  };
+} else {
+  const assetsManifest = path.resolve( __dirname, '../../dist/webpack-assets.json');
+  JsFiles = JSON.parse(FileSystem.readFile(assetsManifest, 'utf8'));
+}
+
 export default function getScripts(file) {
-
-  const scriptPath = (base.env === 'development' && file === 'vendor')
-  ? path.resolve( __dirname, '../../dist/vendor-hashes.json')
-  : path.resolve( __dirname, '../../dist/output-hashes.json');
-
-  try {
-    const content = JSON.parse(FileSystem.readFile(scriptPath, 'utf8'));
-    const node = content.files[file];
-    return (node instanceof Array ) ? `<script src="/${node[0]}"></script>` : `<script src="/dlls/${node}"></script>`;
-    } catch (e) {
-      console.error(e);
-    }
+  const scriptPath = JsFiles[file].js;
+  return `<script src="${scriptPath}"></script>`;
 }

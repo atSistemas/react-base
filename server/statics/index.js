@@ -20,8 +20,8 @@ const prodStatics = [
 const envStatics = (base.env === 'development') ? commonStatics.concat(devStatics) : commonStatics.concat(prodStatics);
 const statics = envStatics;
 
-export default function applyStaticsPaths(app){
-  statics.map(function(staticPath){
+export default function applyStaticsPaths(app) {
+  statics.map(function(staticPath) {
     app.use(staticPath.route, express.static(staticPath.dir));
     base.console.success(`Applied static path ${staticPath.route}`);
   });

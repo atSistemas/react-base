@@ -9,13 +9,17 @@
       "email": "lmartinez.marina@atsistemas.com"
     },
     {
+      "name": "Santiago Fernandez Blanco",
+      "email": "sfernandez.blanco@atsistemas.com"
+    },
+    {
       "name": "Rafael Bernad",
       "email": "rbernad@atsistemas.com"
     },
     {
       "name": "Gastón Messeri",
       "email": "gemesseri@atsistemas.com"
-    }
+    }    
   ],
   "main": "client/client.js",
   "scripts": {
@@ -31,6 +35,7 @@
     "regenerate:reducerIndex": "node ./src/base/shared/Regenerate.js --reducer",
     "regenerate": "npm run logo && node ./src/base/shared/Regenerate.js --all",
     "generate:dll": "cross-env NODE_ENV=dll webpack --config webpack/webpack.dll.config.babel.js",
+    "build": "cross-env NODE_ENV=development webpack --config webpack/index.babel.js",
     "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/index.babel.js",
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js src --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
@@ -82,7 +87,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "2.1.0",
     "generator-webapp": "^2.1.0",
     "google-map-react": "0.24.0",
     "ignore-styles": "5.0.1",
@@ -111,12 +116,12 @@
     "style-loader": "0.17.0",
     "stylelint": "7.10.1",
     "supports-color": "3.2.3",
-    "webpack": "1.14.0",
+    "webpack": "2.6.1",
     "webpack-dev-middleware": "1.10.2",
     "webpack-dev-server": "2.4.5",
     "webpack-hot-middleware": "2.18.0",
     "yeoman-option-or-prompt": "^1.0.2",
-    "yo": "^1.8.5"
+    "yo": "1.8.5"
   },
   "nyc": {
     "exclude": [
