@@ -15,7 +15,7 @@
     {
       "name": "Gastón Messeri",
       "email": "gemesseri@atsistemas.com"
-    }
+    }    
   ],
   "main": "client/client.js",
   "scripts": {
@@ -83,7 +83,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "2.1.0",
     "generator-webapp": "^2.1.0",
     "google-map-react": "0.24.0",
     "ignore-styles": "5.0.1",
@@ -112,7 +112,7 @@
     "style-loader": "0.17.0",
     "stylelint": "7.10.1",
     "supports-color": "3.2.3",
-    "webpack": "1.14.0",
+    "webpack": "2.6.1",
     "webpack-dev-middleware": "1.10.2",
     "webpack-dev-server": "2.4.5",
     "webpack-hot-middleware": "2.18.0",
