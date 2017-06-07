@@ -3,11 +3,7 @@ import MediasetLogo from 'app/components/LogoMediaset/';
 
 import * as styles from './styles.css';
 
-export class ReactExercises1 extends Component {
-
-  constructor (props) {
-    super(props);
-  }
+export class ReactExercises extends Component {
 
   render () {
     return (
@@ -24,4 +20,4 @@ export class ReactExercises1 extends Component {
 
 }
 
-export default ReactExercises1;
+export default ReactExercises;
