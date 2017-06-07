@@ -64,7 +64,7 @@ describe('shared / Generators / RegenerateReducerIndex', () => {
 
       expect(result).to.equal(true);
       expect(fileExists(fakeReducerPath)).to.equal(true);
-      fs.unlink(fakeReducerPath);
+      fs.unlinkSync(fakeReducerPath);
 
     });
   });

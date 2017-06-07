@@ -9,7 +9,7 @@ describe('Calculator / Components', () => {
 
     it('Should has properties', () => {
 
-      const component = mount(<Button type="number" value="C" />);
+      const component = mount(<Button type="number" value="C" onClick={()=>{}} />);
       expect(component.props().type).to.equal("number");
       expect(component.props().value).to.equal("C");
 

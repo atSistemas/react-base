@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
+
 import { generateMap } from 'base/shared/ModelHelper';
 
 import { <%= name %>Model, setInitialState } from '../models';
@@ -16,7 +17,7 @@ const mockData = [
   }
 ];
 
-const mockDataImmutable2= generateMap(mockData,<%= name %>Model );
+const mockDataImmutable2 = generateMap(mockData,<%= name %>Model);
 
 function setup() {
 
@@ -25,30 +26,30 @@ function setup() {
       <%= name %>: {
         data: mockData
       }
-  };
+};
 
-  let props = {
-    dispatch: dispatch,
+let props = {
+  dispatch: dispatch,
     <%= name %>Model: setInitialState(initialState)
   };
 
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<<%= name %> {...props} />);
-  let output = renderer.getRenderOutput();
+let renderer = new ReactShallowRenderer();
+renderer.render(<<%= name %> { ...props } />);
+let output = renderer.getRenderOutput();
 
-  return {
-    props,
-    output,
-    renderer
-  };
+return {
+  props,
+  output,
+  renderer
+};
 }
 
 describe('containers', () => {
   describe('<%= name %>', () => {
-   /* it('should render correctly', () => {
-      const { output } = setup();
-       expect(output.props.name).toBe('<%= name %>');
-
-    });*/
+    /* it('should render correctly', () => {
+       const { output } = setup();
+        expect(output.props.name).toBe('<%= name %>');
+ 
+     });*/
   });
 });

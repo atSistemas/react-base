@@ -65,7 +65,7 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
 
       expect(result).to.equal(true);
       expect(fileExists(fakeModelPath)).to.equal(true);
-      fs.unlink(fakeModelPath);
+      fs.unlinkSync(fakeModelPath);
 
     });
   });
