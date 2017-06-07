@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-import { ForecastDetail }  from '../';
+import { ForecastDetail } from '../';
 import ForecastMock from 'mocks/forecast.json';
 import { generateMap } from 'base/shared/ModelHelper';
 import { ForecastModel } from '../../../models';
@@ -11,8 +11,8 @@ function setup(props) {
 
   function dispatch() { }
 
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<ForecastDetail { ...props }  />);
+  let renderer = new ReactShallowRenderer();
+  renderer.render(<ForecastDetail { ...props } />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -26,10 +26,10 @@ describe('component ', () => {
   describe('ForecastDetail', () => {
     it('should render correctly', () => {
 
-      let props ={
+      let props = {
         Forecast: generateMap(ForecastMock.list, ForecastModel),
         StationSelected: 14
-      };       
+      };
 
       const { output } = setup(props);
 
@@ -39,10 +39,10 @@ describe('component ', () => {
 
     it('should render correctly station not selected', () => {
 
-      let props ={
+      let props = {
         Forecast: generateMap(ForecastMock.list, ForecastModel),
         StationSelected: -1
-      };       
+      };
 
       const { output } = setup(props);
       expect(output.type).to.equal('div');

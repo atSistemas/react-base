@@ -33,6 +33,9 @@
         "last": {
             "dt": 1469991990,
             "main": {
+                "humidity": 37.5,
+                "pressure": 1019.49,
+                "temp": 300.05
             },
             "rain": {
                 "1h": 0,
@@ -71,6 +74,11 @@
                 }
             ],
             "dt": 1470033000,
+             "main": {
+                "humidity": 29,
+                "pressure": 1014,
+                "temp": 307.59
+            },
             "visibility": {
                 "distance": 10000,
                 "prefix": 1

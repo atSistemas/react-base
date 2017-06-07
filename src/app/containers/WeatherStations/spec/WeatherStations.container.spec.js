@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 
 import { WeatherStationsModel, setInitialState } from '../models';
 import { WeatherStations } from '..';
@@ -14,12 +14,12 @@ function setup() {
 
   function dispatch() { }
   let initialState = {
-      WeatherStations: {
-        data: weatherStationsMock,
-        forecast:forecastMock.list,
-        weatherStationDetails: helpers.getDataWeatherStation(weatherStationMock),
-        StationSelected: 15
-      }
+    WeatherStations: {
+      data: weatherStationsMock,
+      forecast: forecastMock.list,
+      weatherStationDetails: helpers.getDataWeatherStation(weatherStationMock),
+      StationSelected: 15
+    }
   };
 
   let initialStateProps = setInitialState(initialState);
@@ -27,11 +27,12 @@ function setup() {
   let props = {
     dispatch: dispatch,
     WeatherStationsModel: initialStateProps,
-    WeatherStationDetailsState : initialStateProps.weatherStationDetails,
+    WeatherStationDetailsState: initialStateProps.weatherStationDetails,
     StationSelected: initialStateProps.stationSelected
   };
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<WeatherStations {...props}  />);
+
+  let renderer = new ReactShallowRenderer();
+  renderer.render(<WeatherStations {...props} />);
   let output = renderer.getRenderOutput();
 
   return {

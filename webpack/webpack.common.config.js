@@ -19,6 +19,7 @@ export const entry = {
     'redux',
     'react-dom',
     'immutable',
+    'prop-types',
     'classnames',
     'react-redux',
     'react-router',

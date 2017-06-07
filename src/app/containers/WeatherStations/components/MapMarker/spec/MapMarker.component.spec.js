@@ -1,17 +1,17 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-import MapMarker  from '../';
+import MapMarker from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
 
 
 function setup(props) {
 
   function dispatch() { }
-  
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<MapMarker { ...props }  />);
+
+  let renderer = new ReactShallowRenderer();
+  renderer.render(<MapMarker { ...props } />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -24,11 +24,11 @@ function setup(props) {
 describe('component ', () => {
   describe('MapMarker', () => {
     it('should render correctly', () => {
-      let props ={
-          main: weatherStationsMock[0].last.main,
-          zIndex: 2,
-          $hover: true
-        }; 
+      let props = {
+        main: weatherStationsMock[0].last.main,
+        zIndex: 2,
+        $hover: true
+      };
 
       const { output } = setup(props);
       expect(output.type).to.equal('div');
@@ -36,12 +36,12 @@ describe('component ', () => {
 
 
     it('should render correctly hover false', () => {
-      let props ={
-          main: weatherStationsMock[0].last.main,
-          zIndex: 2,
-          $hover: false
-        }; 
-      
+      let props = {
+        main: weatherStationsMock[0].last.main,
+        zIndex: 2,
+        $hover: false
+      };
+
       const { output } = setup(props);
       expect(output.type).to.equal('div');
     });

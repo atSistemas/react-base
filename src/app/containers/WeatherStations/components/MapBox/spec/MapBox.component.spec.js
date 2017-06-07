@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 
 import { MapBox } from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
@@ -11,12 +11,12 @@ function setup() {
 
   function dispatch() { }
   let initialState = {
-      WeatherStations: {
-        data: weatherStationsMock,
-        StationSelected: 15,
-        forecast:{},
-        weatherStationDetails:{}
-      }
+    WeatherStations: {
+      data: weatherStationsMock,
+      StationSelected: 15,
+      forecast: {},
+      weatherStationDetails: {}
+    }
   };
   let initialStateProps = setInitialState(initialState);
 
@@ -26,8 +26,8 @@ function setup() {
     StationSelected: initialStateProps.stationSelected
   };
 
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<MapBox {...props}  />);
+  let renderer = new ReactShallowRenderer();
+  renderer.render(<MapBox {...props} />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -46,7 +46,7 @@ describe('component ', () => {
 
     it('should click function return valur', () => {
       const key = 23333;
-      
+
       const childProps = {
         lat: 2222,
         lng: 2222,
