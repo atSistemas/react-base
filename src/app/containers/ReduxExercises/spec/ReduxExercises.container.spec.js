@@ -3,8 +3,8 @@ import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import { generateMap } from 'base/shared/ModelHelper';
 
-import { ImmutableCourseModel, setInitialState } from '../models';
-import { ImmutableCourse } from '..';
+import { ReduxExercisesModel, setInitialState } from '../models';
+import { ReduxExercises } from '..';
 
 const mockData = [
   {
@@ -16,24 +16,24 @@ const mockData = [
   }
 ];
 
-const mockDataImmutable2= generateMap(mockData,ImmutableCourseModel );
+const mockDataImmutable2= generateMap(mockData,ReduxExercisesModel );
 
 function setup() {
 
   function dispatch() { }
   let initialState = {
-      ImmutableCourse: {
+      ReduxExercises: {
         data: mockData
       }
   };
 
   let props = {
     dispatch: dispatch,
-    ImmutableCourseModel: setInitialState(initialState)
+    ReduxExercisesModel: setInitialState(initialState)
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<ImmutableCourse {...props} />);
+  renderer.render(<ReduxExercises {...props} />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -44,10 +44,10 @@ function setup() {
 }
 
 describe('containers', () => {
-  describe('ImmutableCourse', () => {
+  describe('ReduxExercises', () => {
    /* it('should render correctly', () => {
       const { output } = setup();
-       expect(output.props.name).toBe('ImmutableCourse');
+       expect(output.props.name).toBe('ReduxExercises');
 
     });*/
   });

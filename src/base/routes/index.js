@@ -7,6 +7,7 @@ import Ecma6 from 'containers/Ecma6/';
 import Ecma6Exercises from 'containers/Ecma6Exercises/';
 import ImmutableCourse from 'containers/ImmutableCourse/';
 import ImmutableExercises from 'containers/ImmutableExercises/';
+import ReduxExercises from 'containers/ReduxExercises/';
 import Main from 'containers/Main/';
 import ReactCourse from 'containers/ReactCourse/';
 import TestingExercises from 'containers/TestingExercises/';
@@ -24,6 +25,7 @@ const routes = (
     <Route path="/calculator" component={ Calculator } />
     <Route path="/ecma6" component={ Ecma6 } />
     <Route path="/ecma6exercises" component={ Ecma6Exercises } />
+    <Route path="/reduxExercises" component={ ReduxExercises } />
     <Route path="/immutablecourse" component={ ImmutableCourse } />
     <Route path="/immutableexercises" component={ ImmutableExercises } />
     <Route path="/main" component={ Main } />

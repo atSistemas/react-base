@@ -1,0 +1,14 @@
+.ReduxExercises {
+  width: 450px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  font-size: 32px;
+  font-family: Arial;
+  color: #9E9E9E ;
+}

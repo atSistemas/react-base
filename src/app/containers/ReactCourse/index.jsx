@@ -12,10 +12,6 @@ import styles from './styles.css';
 
 class ReactCourse extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const obj = {id: 22};
     return (

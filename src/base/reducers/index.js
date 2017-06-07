@@ -8,6 +8,7 @@ import ImmutableExercises from 'containers/ImmutableExercises/reducers';
 import Main from 'containers/Main/reducers';
 import ReactCourse from 'containers/ReactCourse/reducers';
 import ReactExercises from 'containers/ReactExercises/reducers';
+import ReduxExercises from 'containers/ReduxExercises/reducers';
 import TestingExercises from 'containers/TestingExercises/reducers';
 import WeatherStations from 'containers/WeatherStations/reducers';
 
@@ -20,6 +21,7 @@ export default combineReducers({
   Main,
   ReactCourse,
   ReactExercises,
+  ReduxExercises,
   TestingExercises,
   WeatherStations
 });

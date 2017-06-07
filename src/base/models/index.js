@@ -6,9 +6,10 @@ import * as ImmutableExercisesModel from 'containers/ImmutableExercises/models';
 import * as MainModel from 'containers/Main/models';
 import * as ReactCourseModel from 'containers/ReactCourse/models';
 import * as ReactExercisesModel from 'containers/ReactExercises/models';
+import * as ReduxExercisesModel from 'containers/ReduxExercises/models';
 import * as TestingExercisesModel from 'containers/TestingExercises/models';
 import * as WeatherStationsModel from 'containers/WeatherStations/models';
 
-const modelIndex = [CalculatorModel,Ecma6Model,Ecma6ExercisesModel,ImmutableCourseModel,ImmutableExercisesModel,MainModel,ReactCourseModel,ReactExercisesModel,TestingExercisesModel,WeatherStationsModel];
+const modelIndex = [CalculatorModel,Ecma6Model,Ecma6ExercisesModel,ImmutableCourseModel,ImmutableExercisesModel,MainModel,ReactCourseModel,ReactExercisesModel,ReduxExercisesModel,TestingExercisesModel,WeatherStationsModel];
 
 export default { modelIndex };
