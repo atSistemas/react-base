@@ -12,12 +12,12 @@ import styles from './styles.css';
 
 /* eslint  react/require-default-props: 0 */
 
-const propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  <%= name %>Model: PropTypes.instanceOf(Immutable.Record)
-};
-
 export class <%= name %> extends Component {
+
+  static  propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    <%= name %>Model: PropTypes.instanceOf(Immutable.Record)
+  };
 
   static requiredActions = [Actions.get<%= name %>];
 
@@ -43,9 +43,6 @@ export class <%= name %> extends Component {
   }
 
 }
-
-<%= name %>.propTypes = propTypes;
-
 
 export default connect(
   (state) => ({ <%= name %>Model: state.<%= name %> })
