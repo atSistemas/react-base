@@ -19,7 +19,7 @@
     {
       "name": "Gastón Messeri",
       "email": "gemesseri@atsistemas.com"
-    }    
+    }
   ],
   "main": "client/client.js",
   "scripts": {
@@ -47,7 +47,7 @@
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run generate:dll && npm run test:coverage"
+    "postinstall": "npm run generate:dll"
   },
   "dependencies": {
     "babel-core": "6.24.1",

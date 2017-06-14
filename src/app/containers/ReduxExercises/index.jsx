@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
@@ -21,6 +20,4 @@ export class ReduxExercises extends Component {
   }
 }
 
-export default connect(
-  (state) => ({ counter: state.ReduxExercises})
-)(ReduxExercises);
+export default ReduxExercises;
