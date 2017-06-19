@@ -5,10 +5,6 @@ import styles from './styles.css';
 
 export class ReduxExercises extends Component {
 
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-  }
-
   render () {
     return (
       <div className={ styles.ReduxExercises  }>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MediasetLogo from 'app/components/LogoMediaset/';
 
 import styles from './styles.css';
 

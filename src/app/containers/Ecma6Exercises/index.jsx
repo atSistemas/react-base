@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import * as styles from './styles.css';
 
 export class Ecma6Exercises extends Component {
