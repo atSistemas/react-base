@@ -12,6 +12,7 @@
 **A modular platform for Redux Isomorphic applications**
 
 This repository is a modular abstraction to build a [ReactJS](https://facebook.github.io/react/) web application based on [Redux](http://redux.js.org/)  paradigm.
+
 You can use it to quickly scaffold your React web application projects and development environments for these projects.
 
 This seed should clarify how to wire up all the modules of your application, even when we understand that in some cases
