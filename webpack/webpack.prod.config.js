@@ -24,7 +24,7 @@ export const output = {
 
 
 export const module = {
-  rules: [
+  rules: common.module.rules.concat([
     {
       test: [/\.jsx?$/],
       include: [/src/],
@@ -39,27 +39,27 @@ export const module = {
       test: /\.css/,
       exclude: /node_modules/,
      
-    use: ExtractTextPlugin.extract({
+      use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: '[name]__[local]-[hash:base64:4]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: (loader) => common.postcss
-              }
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[name]__[local]-[hash:base64:4]'
             }
-          ]
-       })
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: (loader) => common.postcss
+            }
+          }
+        ]
+      })
     }
-  ]
+  ])
 };
 
 export const plugins = [

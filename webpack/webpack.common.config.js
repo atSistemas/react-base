@@ -24,6 +24,16 @@ export const entry = {
     'react-redux',
     'react-router',
     'isomorphic-fetch',
+    'html-react-parser',
+    'react-infinite-scroller',
+  ]
+};
+
+export const module = {
+  rules: [
+    { test: /\.json$/, loader: 'json-loader', include: [mainPath] },
+    { test: /\.html/, loader: 'raw-loader', include: [mainPath] },
+    { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
   ]
 };
 
@@ -55,6 +65,7 @@ export const resolve = {
   modules: ['node_modules'],
   alias: {
     'app': path.resolve(__dirname, '../src/app'),
+    'server': path.resolve(__dirname, '../server'),
     'base': path.resolve(__dirname, '../src/base'),
     'store': path.resolve(__dirname, '../src/base/store'),
     'mocks': path.resolve(__dirname, '../server/api/mocks'),
