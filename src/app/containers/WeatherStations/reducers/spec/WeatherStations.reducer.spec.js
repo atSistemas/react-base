@@ -28,7 +28,7 @@ describe('Reducers', () => {
 
       const action = {
         type: ActionTypes.WEATHERSTATIONS_SUCCESS,
-        result: generateMap(data, WeatherStationsModel)
+        payload: generateMap(data, WeatherStationsModel)
       };
 
       const model = new WeatherStationsCollection();
@@ -65,7 +65,7 @@ describe('Reducers', () => {
 
       const action = {
         type: ActionTypes.WEATHERSTATION_SUCCESS,
-        result: helpers.getDataWeatherStation(weatherStationMock)
+        payload: helpers.getDataWeatherStation(weatherStationMock)
       };
 
       const model = new WeatherStationsCollection();
@@ -99,7 +99,7 @@ describe('Reducers', () => {
 
       const action = {
         type: ActionTypes.FORECAST_SUCCESS,
-        result: generateMap(ForecastMock.list, ForecastModel)
+        payload: generateMap(ForecastMock.list, ForecastModel)
       };
       const model = new WeatherStationsCollection();
 

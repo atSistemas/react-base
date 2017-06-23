@@ -15,8 +15,5 @@ global.navigator = {
   userAgent: 'node.js'
 };
 
-process.on('unhandledRejection', () => {
-   
-});
 
 export default global;

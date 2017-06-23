@@ -1,13 +1,11 @@
-import { generateFetchTypes } from 'base';
-
 import LogoAPI from '../api';
 import ActionTypes from '../actionTypes';
 
 export default {
-  getLogo( { params } ) {
+  getLogo( url ) {
     return {
-      types: generateFetchTypes(ActionTypes.LOGO_REQUEST),
-      request: LogoAPI.fetchLogo(params)
+      type: ActionTypes.LOGO_REQUEST,
+      request: LogoAPI.fetchLogo(url)
     };
   }
 };

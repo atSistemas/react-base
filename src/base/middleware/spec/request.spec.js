@@ -1,56 +1,38 @@
 import { expect } from 'chai';
 import requestMiddleware from '../Request';
-import ActionTypes from 'containers/Main/actionTypes';
 import logoAPI from 'containers/Main/api';
-import { generateFetchTypes } from 'base/shared/TypeHelper';
+import ActionTypes from 'containers/Main/actionTypes';
+import { browserHistory } from 'react-router';
+import ConfigureStore from 'store/ConfigureStore';
 
-const createFakeStore = fakeData => ({
-  getState() {
-    return fakeData;
-  }
-});
-
-const dispatchWithStoreOf = (storeData, action) => {
-  let dispatched = null;
-  const dispatch = requestMiddleware(createFakeStore(storeData))(actionAttempt => dispatched = actionAttempt);
-  dispatch(action);
-  return dispatched;
-};
+const store = ConfigureStore(browserHistory, {});
 
 describe('middleware', () => {
 
-  describe('request', () => {
+  describe('Request', () => {
 
-    it('requestMiddleware with request', () => {
+    it('should return a resolved ERROR action', () => {
 
-      const props= {
-        category: 'news'
+      const action = {
+        type: ActionTypes.LOGO_REQUEST,
+        request: logoAPI.fetchLogo(true)
       };
 
-      const actions = {
-        types: generateFetchTypes(ActionTypes.LOGO_REQUEST),
-        request: logoAPI.fetchLogo(props.category)
-      };
-
-
-      const expectedAction = {
-        type: 'LOGO_REQUEST'
-      };
-
-      expect(dispatchWithStoreOf({}, actions)).to.deep.equal(expectedAction);
+      store.dispatch(action)
+      .then(a => expect(a.type).to.equal('LOGO_ERROR'));
     });
 
-
+/*
     it('requestMiddleware without resquest action', () => {
 
       const actions = {
-        types: generateFetchTypes(ActionTypes.LOGO_REQUEST)
+        type: ActionTypes.LOGO_REQUEST
       };
 
       expect(dispatchWithStoreOf({}, actions)).to.equal(actions);
     });
 
-
+*/
   });
 
 });
