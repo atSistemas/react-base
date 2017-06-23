@@ -39,7 +39,7 @@ describe('shared / FileSystem', () => {
 
       const readed = readFile(file, 'utf8');
 
-      fs.unlinkSync(file);
+      fs.unlink(file);
       expect(readed).to.equal(content);
 
     });
@@ -54,7 +54,7 @@ describe('shared / FileSystem', () => {
       writeFile(file,content);
 
       const wrote  = fs.readFileSync(file, "utf8");
-      fs.unlinkSync(file);
+      fs.unlink(file);
 
       expect(wrote).to.equal(content);
 

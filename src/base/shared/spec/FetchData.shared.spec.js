@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { fetchRequiredActions } from '../FetchData' ;
 import action from 'containers/Main/actions';
+import actionTypes from 'containers/Main/actionTypes';
 import { MainModel } from 'containers/Main/models';
 import { generateImmutable } from '../ModelHelper';
 
@@ -13,8 +14,8 @@ describe('shared', () => {
     it('fetch client action', (done) => {
       let requiredActions = [action.getLogo];
 
-      function dispatch({ types }) {
-        expect(types.length).to.equal(3);
+      function dispatch({type}) {
+        expect(type).to.equal(actionTypes.LOGO_REQUEST);
         done();
       }
 
@@ -36,8 +37,8 @@ describe('shared', () => {
     it('fetch client action with data', () => {
       let requiredActions = [action.getLogo];
 
-      function dispatch({ types }) {
-        expect(types.length).to.equal(3);
+      function dispatch({ type }) {
+        expect(type).to.equal(actionTypes.LOGO_REQUEST);
       }
       const data = generateImmutable( mockData, MainModel );
 
@@ -57,8 +58,8 @@ describe('shared', () => {
     });
 
     it('fetch server action', (done) => {
-      function dispatch({ types }) {
-        expect(types.length).to.equal(3);
+      function dispatch({ type }) {
+        expect(type).to.equal(actionTypes.LOGO_REQUEST);
         done() ;
       }
 

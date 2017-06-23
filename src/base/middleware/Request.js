@@ -1,16 +1,16 @@
-export default function requestMiddleware(  ) {
+import resolveRequestAction from '../shared/ResolveRequestAction';
 
-  return (next) => (action) => {
-    const { request, types, ...rest } = action;
+const requestMiddleware = store => next => action => {
+  const { request, type, ...rest } = action;
 
-    if (!request) return next(action);
+  if (!request) return next(action);
 
-    const [REQUEST, SUCCESS, ERROR] = types;
+  store.dispatch({ type, ...rest });
 
-    next({ ...rest, type: REQUEST });
-    return request.then(
-      (result) => next({ ...rest, result, type: SUCCESS }),
-      (error) => next({ ...rest, error, type: ERROR })
-    );
-  };
-}
+  return request.then(
+    res => store.dispatch(resolveRequestAction(action, res, 'SUCCESS')),
+    err => store.dispatch(resolveRequestAction(action, err, 'ERROR'))
+  );
+};
+
+export default requestMiddleware;
