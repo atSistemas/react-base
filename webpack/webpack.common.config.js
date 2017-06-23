@@ -24,8 +24,6 @@ export const entry = {
     'react-redux',
     'react-router',
     'isomorphic-fetch',
-    'html-react-parser',
-    'react-infinite-scroller',
   ]
 };
 
