@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { PropTypes, shape } from 'prop-types';
-
+  
 class ComponentPropTypes extends Component {
 
   static propTypes = {
     myProp: PropTypes.string.isRequired,
     myObj: shape({
-      id: PropTypes.number.isRequired
+      id: PropTypes.number.isRequired,
+      numbers: PropTypes.arrayOf(PropTypes.number),
     }).isRequired
   }
 
   constructor(props) {
     super(props);
+    console.log(this.props);
+
   }
 
   render() {

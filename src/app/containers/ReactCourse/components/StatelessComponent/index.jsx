@@ -5,12 +5,12 @@ const propTypes= {
   name: PropTypes.string.isRequired
 };
 
-const StatelessComponent = ( props ) => (
+const StatelessComponent = ({ name }) => (
 
   <div>
     Hello stateless component !
     <div>
-      { props.name }
+      { name }
     </div>
   </div>
 );

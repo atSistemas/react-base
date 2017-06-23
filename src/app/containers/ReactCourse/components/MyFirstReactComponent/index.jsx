@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class MyFirstReactComponent extends Component {
 
   constructor(props) {
-    super(props);
+    super();
   }
   
   render() {

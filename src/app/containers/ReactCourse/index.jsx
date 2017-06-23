@@ -8,12 +8,17 @@ import ComunicatingComponents from './components/ComunicatingComponents';
 import ComponentLifeCycle from './components/ComponentLifeCycle';
 import StatelessComponent from './components/StatelessComponent';
 import List from './components/IteratingComponents/List';
+import ListWithFilters from './components/IteratingWithFilters/ListWithFilters';
+import Services from './components/Services';
+
 import styles from './styles.css';
 
 class ReactCourse extends Component {
 
   render() {
     const obj = {id: 22};
+
+    const num = 555;
     return (
       <div className={ styles.ReactCourse } >
         <MediasetLogo />
@@ -22,7 +27,7 @@ class ReactCourse extends Component {
         <h3>Component With State</h3>
         <ComponentWithState />
         <h3>Component PropTypes</h3>
-        <ComponentPropTypes myProp="hola" myObj={ obj } />
+        <ComponentPropTypes myProp="aaaa" myObj={ obj } />
         <h3>Component Life Cycle Events</h3>
         <ComponentLifeCycle />
         <h3>Stateless Component</h3>
@@ -31,6 +36,10 @@ class ReactCourse extends Component {
         <ComunicatingComponents />
         <h3>Iterating Components</h3>
         <List />
+        <h3>Iterating Components With filters</h3>
+        <ListWithFilters />
+        <h3>Services</h3>
+        <Services />
       </div>
     );
   }

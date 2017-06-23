@@ -5,19 +5,18 @@ class ComponentLifeCycle extends Component {
 
   constructor(props) {
     super(props);
-    console.log(777777);
-  }
-
-  componentWillMount() {
     console.log(111111);
   }
 
+  componentWillMount() {
+    console.log(22222222);
+  }
+
   componentDidMount() {
-    console.log(22222);
+    console.log(33333333);
   }
 
   render() {
-    console.log(3343);
     return (
       <div>
         Life Cicle Events

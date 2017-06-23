@@ -6,20 +6,20 @@ class ComunicatingComponents extends Component {
   constructor(props) {
     super(props);
     this.state = { parent: 'parent Data' };
-    this.clickHandler = this.clickHandler.bind(this);
+    //this.clickHandler = this.clickHandler.bind(this);
   }
 
-  clickHandler(data) {
+  clickHandler = (data) => {
     this.setState({parent: data});
   }
 
   render() {
     return (
       <div>
-        <ChildComponent
+         <ChildComponent
           parentData={ this.state.parent }
           parentFunction={ this.clickHandler }
-        />
+          />
       </div>
     );
   }

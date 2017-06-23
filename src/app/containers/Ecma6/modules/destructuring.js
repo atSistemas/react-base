@@ -1,5 +1,5 @@
 //Destructurating and object
-const obj = { name: 'Peter', surname: 'Weller' }; 
+const obj = { name: 'Peter', surname: 'Weller', age: 33, birthdate: '22-10-1999' }; 
 
 //DESTRUCTURING PARAMS
 const arrowFunction = ({ name, surname }) => {

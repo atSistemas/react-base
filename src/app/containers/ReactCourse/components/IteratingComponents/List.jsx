@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
+
 import Item from './Item';
 
 export class List extends Component {
@@ -10,31 +11,33 @@ export class List extends Component {
       items: [
         {
           id: 1,
-          name: 'First item'
+          name: 'First item',
         },
         {
           id: 2,
-          name: 'Second item'
+          name: 'Second item',
         },
         {
           id: 3,
-          name: 'Third item'
+          name: 'Third item',
         },
       ]};
   }
 
   render () {
+
     const items = this.state.items;
-    const ItemsList = items.map( item => (
+    
+    const itemList = items.map(item => (
       <Item
-        key={ item.id }
-        { ...item }
+      key={ item.id }
+      { ...item }
       />
-    )
-  );
+    ))
+
     return (
       <div>
-        { ItemsList }
+      { itemList }
       </div>
     );
   }

@@ -1,3 +1,4 @@
+
 import React  from 'react';
 import { PropTypes } from 'prop-types';
 
@@ -6,10 +7,10 @@ const propTypes= {
   name: PropTypes.string.isRequired
 };
 
-const Item = ( data ) => (
+const Item = (props) => (
   <div>
-    <span>{ data.id }</span>
-    <span>{ data.name }</span>
+    <span>{ props.id }</span>
+    <span>{ props.name }</span>
   </div>
 );
 

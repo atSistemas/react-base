@@ -17,7 +17,8 @@ import { valOne, sayHi } from './modules/severalValues';
 import { isEven } from './modules/arrow';
 import { regularFunction, arrowFunction } from './modules/arrowThis';
 import { destructured } from './modules/destructuring';
-
+import upperCaseStrings from './modules/map';
+import averageAges from './modules/reduce';
 import * as Styles from './styles.css';
 
 export class Ecma6 extends Component {
@@ -63,6 +64,18 @@ export class Ecma6 extends Component {
         <ul>
           <li>
             <b>Object destructuring</b>: { destructured }
+          </li>
+        </ul>
+        <h3>JavaScript Map</h3>
+        <ul>
+          <li>
+           { upperCaseStrings }
+          </li>
+        </ul>
+        <h3>JavaScript Reduce</h3>
+        <ul>
+          <li>
+           { averageAges }
           </li>
         </ul>
       </div>

@@ -3,6 +3,7 @@ function RegularFunction() {
   this.foo = 'accesing pseudo this';
   const self = this;
   return function( ) {
+    console.log(1111,this);
     return self.foo;
   };
 }
