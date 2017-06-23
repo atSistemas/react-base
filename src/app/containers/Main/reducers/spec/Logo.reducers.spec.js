@@ -22,7 +22,7 @@ describe('Reducers', () => {
         width: 500,
         src: "/assets/images/react-base-logo.png"
       };
-      const action = { type: ActionTypes.LOGO_SUCESS, result: data };
+      const action = { type: ActionTypes.LOGO_SUCESS, payload: data };
       const model = new MainModel(data);
       const reducer = mainReducer(model, action);
       const src = reducer.get('src');

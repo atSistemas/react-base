@@ -8,7 +8,7 @@ function weatherStationsError ( state ) { return state; }
 
 function weatherStationsSuccess ( state, action ) {
   return state
-    .update ( 'data', () => action.result )
+    .update ( 'data', () => action.payload )
     .set('stationSelected', -1);
 }
 
@@ -21,7 +21,7 @@ function weatherStationRequest ( state ) { return state; }
 function weatherStationError ( state ) { return state; }
 
 function weatherStationSuccess ( state, action ) {
-  return state.update ( 'weatherStationDetails', () =>  action.result);
+  return state.update ( 'weatherStationDetails', () =>  action.payload);
 }
 
 function forecastRequest ( state ) { return state; }
@@ -29,7 +29,7 @@ function forecastRequest ( state ) { return state; }
 function forecastError ( state ) { return state; }
 
 function forecastSuccess ( state, action ) {
-  return state.update ( 'forecast', () => action.result );
+  return state.update ( 'forecast', () => action.payload );
 }
 
 const actionHandlers = {

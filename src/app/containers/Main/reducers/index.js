@@ -10,7 +10,7 @@ function logoError( state, error ) {
 }
 
 function logoSuccess(state, action) {
-  const data = action.result;
+  const data = action.payload;
   return state
     .set('id', data.id)
     .set('alt', data.alt)
