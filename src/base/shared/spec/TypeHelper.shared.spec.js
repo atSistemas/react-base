@@ -1,14 +1,14 @@
 import { expect } from 'chai';
-import { typeBuilder, generateFetchTypes } from '../TypeHelper';
+import { createActionType, generateFetchTypes } from '../CreateActionType';
 
 describe('shared / type-helper', () => {
 
-  describe('typeBuilder', () => {
+  describe('createActionType', () => {
 
     it('should return type builder object', () => {
 
       let TypeExamples = ['typeExample', 'typeExample2'];
-      let types = typeBuilder(TypeExamples);
+      let types = createActionType(TypeExamples);
 
       expect(types.typeExample).to.equal('typeExample');
       expect(types.typeExample2).to.equal('typeExample2');
@@ -19,7 +19,7 @@ describe('shared / type-helper', () => {
   describe('generateFetchTypes', () => {
 
 
-    it('should return fetch tyspes', () => {
+    it('should return fetch types', () => {
 
       let TypeExamples = 'TEST';
       let types = generateFetchTypes(TypeExamples);

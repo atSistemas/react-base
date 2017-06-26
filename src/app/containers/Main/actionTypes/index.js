@@ -1,5 +1,5 @@
-import { typeBuilder } from 'base';
+import { createActionType } from 'base';
 
-export default typeBuilder([
+export default createActionType([
   'LOGO_REQUEST','LOGO_SUCCESS','LOGO_ERROR',
 ]);

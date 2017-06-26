@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-const MainModel = new Record({
+const MainModel = Record({
   id: 0,
   src: '',
   alt: '',

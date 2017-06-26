@@ -23,19 +23,18 @@ there must be some changes needed by the structure to fit your needs correctly
 
 - [Redux](http://redux.js.org/) based architecture
 - Isomorphic / Universal Javascript Apps
-- Separate build configurations depending on target environment
-- [Webpack](https://webpack.github.io/) for the build toolchain  
+- [Webpack 3](https://webpack.github.io/) build configuration depending on enviroment 
+- Immutable data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
+- Store middleware to handle request actions. 
 - Development & Production server using [express](https://github.com/expressjs/express) and [webpack-dev-server](https://webpack.github.io/)
-- JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - Hot Reload/Live Reload support for Js & Css using  [Webpack HMR](https://webpack.github.io/docs/hot-module-replacement.html)
 - Container and component generators using [Yeoman](https://github.com/yeoman/yo)
-- Persistent data modeling using [ImmutableJS](https://facebook.github.io/immutable-js/)
+- JSX and ES6 transpilation using [Babel](https://babeljs.io/)
 - [Mocha](https://mochajs.org/) as testing framework
 - [Enzyme/JsDom](https://github.com/airbnb/enzyme) for unit/ui testing
 - [Nyc](https://github.com/bcoe/nyc) for code coverage
-- [CssModules](https://github.com/css-modules/css-modules) based
 - [PostCSS](http://postcss.org/) processing with isomorphic support.
-- CSS Vars using [Cssnext](http://cssnext.io/)
+- [CssModules](https://github.com/css-modules/css-modules) based
 - Code Linting using [Eslint](https://github.com/eslint/eslint)
 - Css Linting using [CssLint](https://github.com/stylelint/stylelint)
 - [Airbnb](https://github.com/airbnb/javascript/tree/master/react) React Style Guide
@@ -47,7 +46,7 @@ To get you started, you need to meet the prerequisites, and then follow the inst
 
 ### Prerequisites
 
-React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 5.0.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org](node).
+React-Base makes use a number of NodeJS tools to initialize and test React-Base. You must have node.js 6.2.0 at least, and its package manager (npm) installed. You can get it from [nodejs.org](node).
 
 ### Installing
 
@@ -95,7 +94,7 @@ server
     routing  //Routing middleware  
 ```
 
-* `webpack` contains Angular2-Base Webpack2 configuration separated by enviroment that allows to use different plugins and loaders in each target enviroment.
+* `webpack` contains React-Base Webpack configuration separated by enviroment that allows to use different plugins and loaders in each target enviroment.
 
 ```javascript
 webpack
@@ -110,7 +109,7 @@ webpack
 
 ```javascript
 base
-  client/ //
+  client/ //client bootstrap
   conf/ //Configuration files and Yeoman templates
   middleware/ //Redux Store middleware
   components/ //base components
@@ -120,7 +119,8 @@ base
   shared/ // shared base folder
     regenerators/ //index regenerators
     ActionCreator  //Action Creator
-    CreateRecuer //Custom reducer creator
+    CreateActionType //Custom action type creator
+    CreateReducer //Custom reducer creator
     ENV //Env handler
     Errors //Errors handler
     FetchData //Isomorfic data handler
@@ -136,19 +136,20 @@ base
 
 * `src/app/` is the place where to put your application source code.
 
-Angular2-Base uses a "featured based" distribution, so all the necessary code for each page/features is located in its own folder inside containers folder as in `src/app/containers/myContainer`
+React-Base uses a "featured based" distribution, so all the necessary code for each page/features is located in its own folder inside containers folder as in `src/app/containers/myContainer`
 
-A container is an Angular2 Module who contains other components, Redux entities, functions and store subscriptions. Each container is self-contained and represents a feature like "clients" or "products" and it contains all the necessary stuff.
+A container is a React component who contains other components, Redux entities, functions and store subscriptions. Each container is self-contained and represents a feature like "clients" or "products" and it contains all the necessary stuff.
 ```javascript
 app/
   containers/
     myContainer/
-      actionTypes/
-      actions/
-      components/
-      models/
-      reducers/
-      index.ts
+      api/ //api calls
+      actionTypes/ //action types definition
+      actions/ //action creators
+      components/ //container components
+      models/ //containers models using immutable
+      reducers/ //container reducers
+      index.ts //container component
   ...
 ```
 
@@ -174,7 +175,7 @@ export const ActionTypes = createActionType([
 Actions are payloads of information witch represent that something happend in your application and  send data from your application to your store:
 
 ```javascript
-public clickHandler(id) {
+clickHandler(id) {
     return {
       type: ActionTypes.USER_CLICK,
       payload: {
@@ -183,17 +184,37 @@ public clickHandler(id) {
     };
 }
 
-//Dispatching an action...
+```
 
-this.store.dispatch(this.mainActions.clickHandler(rowId));
+React-Base include a Redux Store middleware to handle actions with service calls more easyly.  You can define in the api folder of your container, an api call based in a fetch call:
+
+```javascript
+
+  fetchUsers() {
+    return fetch(url)
+      .then(req => req.json())
+      .then(data => data)
+      .catch(err => err) 
+  },
 
 ```
 
-Yo can wrap functions or service call into the payload of your actions.
+Then, in your action you can attach this service call in your action using the request param:
 
+```javascript
+export function getPosts() {
+  return {
+    type: ActionTypes.USERS_REQUEST,
+    request: api.fetchUsers()
+  };
+}
+```
+
+The request middleware will resolve the request param 
+ and dispatch a new action with "ACTION_SUCCESS" or "ACTION_ERROR" with the response of the request in the payload. 
 
 ## Reducers
-Reducers describe how the state of your application changes in response to a new Action. Angular-2 uses a custom CreateReducer that allows to use separated reducers functions instead of "switch based" reducers.
+Reducers describe how the state of your application changes in response to a new Action. React-Base uses a custom CreateReducer that allows to use separated reducers functions instead of "switch based" reducers.
 
 ```javascript
 import { createReducer } from 'base';
@@ -215,7 +236,6 @@ const actionHandlers = {
 
 export default CreateReducer(actionHandlers, new MainModel());
 
-export { MainReducer }
 ```
 
 ## Models

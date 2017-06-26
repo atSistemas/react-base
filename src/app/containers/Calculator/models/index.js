@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-const CalculatorModel = new Record({
+const CalculatorModel = Record({
   display:0,
   operator:'',
   operation:'',

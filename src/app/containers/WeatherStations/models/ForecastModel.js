@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-const ForecastModel = new Record({
+const ForecastModel = Record({
   clouds: 0,
   deg: 0,
   dt: 0,

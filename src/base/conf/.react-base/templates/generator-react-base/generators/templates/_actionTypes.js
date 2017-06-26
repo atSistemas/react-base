@@ -1,5 +1,5 @@
-import { typeBuilder } from 'base';
+import { createActionType } from 'base';
 
-export default typeBuilder([
+export default createActionType([
   '<%= nameUpper %>_REQUEST','<%= nameUpper %>_SUCCESS','<%= nameUpper %>_ERROR',
 ]);
