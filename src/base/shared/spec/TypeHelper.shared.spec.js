@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { createActionType, generateFetchTypes } from '../createActionType';
+import { createActionType, generateFetchTypes } from '../CreateActionType';
 
 describe('shared / type-helper', () => {
 
