@@ -9,4 +9,4 @@ export { actionCreator } from './shared/ActionCreator';
 export { createReducer } from './shared/CreateReducer';
 export { generateImmutable } from './shared/ModelHelper';
 export { fetchRequiredActions } from './shared/FetchData';
-export { createActionType } from './shared/createActionType';
+export { createActionType } from './shared/CreateActionType';
