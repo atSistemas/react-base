@@ -1,7 +1,7 @@
 import fetchTypes from 'base/types/FetchTypes';
 import ReactBaseError from './Errors';
 
-export function typeBuilder(types) {
+export function createActionType(types) {
   const data = {};
   types.map(function(type) {
     data[type] = type;

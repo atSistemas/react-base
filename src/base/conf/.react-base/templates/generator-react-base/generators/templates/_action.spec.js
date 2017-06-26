@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as Actions from '../';
-import { generateFetchTypes } from 'base/shared/TypeHelper';
+import { generateFetchTypes } from 'base/shared/CreateActionType';
 
 import api from '../../api';
 

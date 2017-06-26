@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-const WeatherStationsModel = new Record({
+const WeatherStationsModel = Record({
   id:0,
   stationId: 0,
   distance: 0,

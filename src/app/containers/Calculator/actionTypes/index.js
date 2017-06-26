@@ -1,6 +1,6 @@
-import { typeBuilder } from 'base';
+import { createActionType } from 'base';
 
-export default typeBuilder([
+export default createActionType([
   'SUM',
   'CLEAN',
   'RESULT',
