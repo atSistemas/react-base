@@ -1,10 +1,21 @@
 import { Record, Map } from 'immutable';
 
-const ReduxExercisesModel = {counter: 0};
+const ReduxCourse = Record({
+  counter: 0,
+  sum: 0,
+  anotherProp: Map({
+    id:22,
+    name: 'John',
+    other: Map({
+      eo: true
+    })
+  }),
+});
 
 const ReduxExercisesCollection = new Record({ data: new Map() });
 
 function setInitialState(initialState) {
+  return initialState.ReduxCourse = new ReduxCourse();
 }
 
-export { ReduxExercisesModel, ReduxExercisesCollection, setInitialState };
+export { ReduxCourse, ReduxExercisesCollection, setInitialState };

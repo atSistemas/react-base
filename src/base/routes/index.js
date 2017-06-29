@@ -25,7 +25,7 @@ const routes = (
     <Route path="/calculator" component={ Calculator } />
     <Route path="/ecma6" component={ Ecma6 } />
     <Route path="/ecma6exercises" component={ Ecma6Exercises } />
-    <Route path="/reduxCourse" component={ ReduxCourse } />
+    <Route path="/reduxCourse/" component={ ReduxCourse } />
     <Route path="/reduxExercises" component={ ReduxExercises } />
     <Route path="/immutablecourse" component={ ImmutableCourse } />
     <Route path="/immutableexercises" component={ ImmutableExercises } />
