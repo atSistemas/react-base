@@ -2,9 +2,9 @@ import { createReducer } from 'base';
 import { MainModel } from '../models';
 import ActionTypes from '../actionTypes';
 
-function logoRequest( state ) { return state; }
+function logoRequest(state) { return state; }
 
-function logoError( state, error ) {
+function logoError(state, error) {
   console.log(error);
   return state;
 }

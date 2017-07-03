@@ -27,7 +27,7 @@ export  class MapBox extends Component {
     zoom: 6
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.actions = bindActionCreators(Actions, props.dispatch);
   }
@@ -46,7 +46,7 @@ export  class MapBox extends Component {
   render () {
     let Stations = this.props.Stations;
     let StationSelected = this.props.StationSelected;
-    const mapMarkerList = Stations.valueSeq().map( item => {
+    const mapMarkerList = Stations.valueSeq().map(item => {
       return (
         <MapMarker
           key={ item.get('id') }

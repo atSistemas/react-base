@@ -10,7 +10,7 @@ const propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-const Button = ( props ) => {
+const Button = props => {
   let style;
 
   if (props.type === 'operator') style = styles.ButtonOperate;

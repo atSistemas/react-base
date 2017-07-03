@@ -29,7 +29,7 @@ function inputOperator(state, action) {
     .set('operator', currentOperator);
 }
 
-function inputNumber( state, action) {
+function inputNumber(state, action) {
   const selectedValue = action.value;
   const newValue = state.get('newValue');
   const prevValue = (newValue) ? state.get('nextValue') : state.get('prevValue');
@@ -48,7 +48,7 @@ function inputNumber( state, action) {
   }
 }
 
-function inputDecimal( state ) {
+function inputDecimal(state) {
   const value = `${state.get('prevValue')}.`;
   return state
     .set('display', value)
@@ -56,7 +56,7 @@ function inputDecimal( state ) {
     .set('prevValue', value);
 }
 
-function inputOperation( state, action ) {
+function inputOperation(state, action) {
   let value = 0;
   const operation = action.value;
   const prevValue = state.get('prevValue');
@@ -85,7 +85,7 @@ function inputOperation( state, action ) {
   }
 }
 
-function calculate( operator, prevValue, nextValue) {
+function calculate(operator, prevValue, nextValue) {
   const result = {
     [ActionTypes.SUM]: () => prevValue + nextValue,
     [ActionTypes.DIVIDE]: () => prevValue / nextValue,

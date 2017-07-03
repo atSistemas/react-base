@@ -8,7 +8,7 @@ const propTypes = {
   location: PropTypes.string.isRequired,
 };
 
-const LinkButton = ( props ) => {
+const LinkButton = props => {
   return (
     <Link className={ styles.LinkButton } to={ props.location }>
       <button>

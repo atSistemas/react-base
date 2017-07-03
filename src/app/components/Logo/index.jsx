@@ -8,7 +8,7 @@ const propTypes= {
   width: PropTypes.number.isRequired
 };
 
-const ReactBaseLogo = ( props ) => (
+const ReactBaseLogo = props => (
 
   <Link to="/main">
     <img alt={ props.alt } src={ props.src } width={ props.width } />
