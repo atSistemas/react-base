@@ -8,23 +8,7 @@ const propTypes = {
 };
 
 const MapInfoWindow = props => {
-  const main = props.main;
-
-  let temp, humidity, pressure;
-
-  if (main) {
-    if (main.temp) {
-      temp = Math.round(main.temp - 273.15) ;
-    }
-
-    if (main.humidity) {
-      humidity = main.humidity;
-    }
-
-    if (main.pressure) {
-      pressure = main.pressure;
-    }
-  }
+  const { temp, humidity, pressure } = props.main;
 
   return (
     <div className={ styles.infoWindowBox } >
