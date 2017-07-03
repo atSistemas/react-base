@@ -7,7 +7,7 @@ const propTypes = {
   item: PropTypes.object.isRequired
 };
 
-const WeatherDetailItem = ( props ) => {
+const WeatherDetailItem = props => {
   const item = props.item;
 
   const d =  new Date(item.dt*1000);

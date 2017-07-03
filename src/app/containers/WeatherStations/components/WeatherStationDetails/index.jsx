@@ -8,7 +8,7 @@ const propTypes = {
   details: PropTypes.instanceOf(Record).isRequired
 };
 
-const WeatherStationDetails = ( props ) => {
+const WeatherStationDetails = props => {
   const { details } = props;
 
   const windDirections = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];

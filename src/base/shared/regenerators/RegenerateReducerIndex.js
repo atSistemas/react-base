@@ -15,7 +15,7 @@ function RegenerateExportLine(reducerExports) {
   return exportTpl.replace('@param', reducerExports);
 }
 
-function RegenerateReducerIndex(containersPath, reducerFilePath ) {
+function RegenerateReducerIndex(containersPath, reducerFilePath) {
   let reducerImports = mainImportTpl;
   let reducerExports = '';
   const containerReducers = getContainerReducers(containersPath);

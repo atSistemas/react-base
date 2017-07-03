@@ -7,14 +7,14 @@ const propTypes = {
   main: PropTypes.object.isRequired
 };
 
-const MapInfoWindow = ( props ) => {
+const MapInfoWindow = props => {
   const main = props.main;
 
   let temp, humidity, pressure;
 
   if (main) {
-    if ( main.temp ) {
-      temp = Math.round(main.temp - 273.15 ) ;
+    if (main.temp) {
+      temp = Math.round(main.temp - 273.15) ;
     }
 
     if (main.humidity) {

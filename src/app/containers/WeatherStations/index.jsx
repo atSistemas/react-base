@@ -38,7 +38,7 @@ export class WeatherStations extends Component {
   render () {
     let props = this.props.WeatherStationsModel;
     const WeatherStationDetailsState = this.props.WeatherStationDetailsState;
-    const stationList = WeatherStationDetailsState.valueSeq().map( station => {
+    const stationList = WeatherStationDetailsState.valueSeq().map(station => {
 
       return (<WeatherStationDetails
         key={ station.id }

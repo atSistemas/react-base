@@ -11,13 +11,13 @@ export class ForecastDetail extends Component {
     StationSelected: PropTypes.number.isRequired
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
-  render () {
+  render() {
     let Forecast = this.props.Forecast;
-    if (this.props.StationSelected === -1 ) {
+    if (this.props.StationSelected === -1) {
       return (
         <div />
       );
@@ -25,9 +25,11 @@ export class ForecastDetail extends Component {
 
     let index = 0;
 
-    const forecastList = Forecast.valueSeq().map( weather => {
+    const forecastList = Forecast.valueSeq().map(weather => {
       index++;
-      return (<ForecastDetailItem key={ index } item={ weather } /> );
+      return (
+        <ForecastDetailItem key={ index } item={ weather } />
+      );
     });
 
     return (

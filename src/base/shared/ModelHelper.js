@@ -1,6 +1,6 @@
 import { Map, List } from 'immutable';
 
-export function generateMap( data, model ) {
+export function generateMap(data, model) {
   return data.reduce((acc, item) => {
     return acc.set(item.id, new model(item));
   }, new Map()
@@ -8,7 +8,7 @@ export function generateMap( data, model ) {
 }
 
 
-export function generateList( data, model ) {
+export function generateList(data, model) {
   const arr = data.map((item) => {
     return new model(item);
   }
@@ -16,7 +16,7 @@ export function generateList( data, model ) {
   return new List(arr);
 }
 
-export function generateListWithSummary( data, model ) {
+export function generateListWithSummary(data, model) {
   const arr = data.map((item) => {
     let i = 0;
     let max = 30;
@@ -33,10 +33,10 @@ export function generateListWithSummary( data, model ) {
   return new List(arr);
 }
 
-export function generateImmutable( data, model ) {
-  return Object.keys(data).reduce( (acc, key) => {
+export function generateImmutable(data, model) {
+  return Object.keys(data).reduce((acc, key) => {
     let item = data[key];
-    return acc.set( item.id, new model(item) );
+    return acc.set(item.id, new model(item));
   }, new Map()
   );
 }

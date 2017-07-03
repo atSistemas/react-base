@@ -6,9 +6,9 @@ import  WeatherStationsCollection  from './WeatherStationsCollection';
 
 function setInitialState(initialState) {
   return initialState.WeatherStations = new WeatherStationsCollection({
-    data: generateImmutable( initialState.WeatherStations.data, WeatherStationsModel ),
-    forecast: generateImmutable( initialState.WeatherStations.forecast, ForecastModel ),
-    weatherStationDetails: generateImmutable( initialState.WeatherStations.weatherStationDetails, WeatherStationDetailsModel )
+    data: generateImmutable(initialState.WeatherStations.data, WeatherStationsModel),
+    forecast: generateImmutable(initialState.WeatherStations.forecast, ForecastModel),
+    weatherStationDetails: generateImmutable(initialState.WeatherStations.weatherStationDetails, WeatherStationDetailsModel)
   });
 }
 

@@ -8,8 +8,8 @@ export function fetchRequiredActions(...args) {
 }
 
 function fetchServerData(dispatch, components, params) {
-  const actions = components.reduce( (prev, current) => {
-    return Object.keys(current).reduce( (acc, key) => {
+  const actions = components.reduce((prev, current) => {
+    return Object.keys(current).reduce((acc, key) => {
       const hasRequiredActions = current[key].hasOwnProperty('requiredActions');
       return hasRequiredActions ? current[key].requiredActions.concat(acc) : acc;
     }, prev);
@@ -18,8 +18,8 @@ function fetchServerData(dispatch, components, params) {
   return Promise.all(requiredActions);
 }
 
-function fetchClientData( actions, props, node, force = false) {
+function fetchClientData(actions, props, node, force = false) {
   const checkSize = props[node];
   const { params, dispatch } = props;
-  if (!checkSize || force) actions.map( action => dispatch(action(params)) );
+  if (!checkSize || force) actions.map(action => dispatch(action(params)));
 }
