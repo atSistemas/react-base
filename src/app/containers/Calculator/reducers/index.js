@@ -2,15 +2,7 @@ import { createReducer } from 'base';
 import { CalculatorModel } from '../models';
 import ActionTypes from '../actionTypes';
 
-const actionHandlers = {
-  [ActionTypes.RESULT]: result,
-  [ActionTypes.INPUT_NUMBER]: inputNumber,
-  [ActionTypes.INPUT_DECIMAL]: inputDecimal,
-  [ActionTypes.INPUT_OPERATOR]: inputOperator,
-  [ActionTypes.INPUT_OPERATION]: inputOperation
-};
-
-function inputOperator(state, action) {
+const inputOperator = (state, action) => {
   const currentOperator = action.operator;
   const prevOperator = state.get('operator');
   const prevValue = state.get('prevValue');
@@ -27,9 +19,9 @@ function inputOperator(state, action) {
     .set('prevValue', result)
     .set('resetDisplay', true)
     .set('operator', currentOperator);
-}
+};
 
-function inputNumber(state, action) {
+const inputNumber = (state, action) => {
   const selectedValue = action.value;
   const newValue = state.get('newValue');
   const prevValue = (newValue) ? state.get('nextValue') : state.get('prevValue');
@@ -46,17 +38,17 @@ function inputNumber(state, action) {
       .set('prevValue', value)
       .set('resetDisplay', false);
   }
-}
+};
 
-function inputDecimal(state) {
+const inputDecimal = (state) => {
   const value = `${state.get('prevValue')}.`;
   return state
     .set('display', value)
     .set('newValue', false)
     .set('prevValue', value);
-}
+};
 
-function inputOperation(state, action) {
+const inputOperation = (state, action) => {
   let value = 0;
   const operation = action.value;
   const prevValue = state.get('prevValue');
@@ -83,9 +75,9 @@ function inputOperation(state, action) {
         .set('display', value)
         .set('prevValue', value);
   }
-}
+};
 
-function calculate(operator, prevValue, nextValue) {
+const calculate = (operator, prevValue, nextValue) => {
   const result = {
     [ActionTypes.SUM]: () => prevValue + nextValue,
     [ActionTypes.DIVIDE]: () => prevValue / nextValue,
@@ -93,9 +85,9 @@ function calculate(operator, prevValue, nextValue) {
     [ActionTypes.SUBSTRACT]: () => prevValue - nextValue
   };
   return operator ? result[operator]() : prevValue;
-}
+};
 
-function result(state) {
+const result = (state) => {
   const operator = state.get('operator');
   const prevValue = state.get('prevValue');
   const nextValue = state.get('nextValue');
@@ -106,6 +98,14 @@ function result(state) {
     .set('display', result)
     .set('prevValue', result)
     .set('resetDisplay', true);
-}
+};
+
+const actionHandlers = {
+  [ActionTypes.RESULT]: result,
+  [ActionTypes.INPUT_NUMBER]: inputNumber,
+  [ActionTypes.INPUT_DECIMAL]: inputDecimal,
+  [ActionTypes.INPUT_OPERATOR]: inputOperator,
+  [ActionTypes.INPUT_OPERATION]: inputOperation
+};
 
 export default createReducer(actionHandlers, new CalculatorModel());

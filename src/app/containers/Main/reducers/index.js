@@ -2,14 +2,11 @@ import { createReducer } from 'base';
 import { MainModel } from '../models';
 import ActionTypes from '../actionTypes';
 
-function logoRequest(state) { return state; }
+const logoRequest = state => state;
 
-function logoError(state, error) {
-  console.log(error);
-  return state;
-}
+const logoError = (state) => state;
 
-function logoSuccess(state, action) {
+const logoSuccess = (state, action) => {
   const data = action.payload;
   return state
     .set('id', data.id)
@@ -17,7 +14,7 @@ function logoSuccess(state, action) {
     .set('src', data.src)
     .set('name', data.name)
     .set('width', data.width);
-}
+};
 
 const actionHandlers = {
   [ActionTypes.LOGO_REQUEST]: logoRequest,
