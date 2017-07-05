@@ -10,7 +10,7 @@ describe('Calculator', () => {
 
       const model = new CalculatorModel();
       const operator = 'MULTIPLY';
-      const action = {type:ActionTypes.INPUT_OPERATOR, operator: operator};
+      const action = {type:ActionTypes.INPUT_OPERATOR, payload:{operator: operator}};
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('operator');
 
@@ -22,7 +22,7 @@ describe('Calculator', () => {
 
       const number = 2222;
       const model = new CalculatorModel();
-      const action = { type: ActionTypes.INPUT_NUMBER, value: number };
+      const action = { type: ActionTypes.INPUT_NUMBER, payload: {value: number }};
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
@@ -100,7 +100,7 @@ describe('Calculator', () => {
       const numberA = 200;
       const numberB = 50;
       const model = new CalculatorModel({ prevValue: numberA, nextValue: numberB, operator: ActionTypes.DIVIDE });
-      const action = {type: ActionTypes.INPUT_OPERATION, value:ActionTypes.CLEAN };
+      const action = {type: ActionTypes.INPUT_OPERATION, payload:{value:ActionTypes.CLEAN }};
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 
@@ -112,7 +112,7 @@ describe('Calculator', () => {
 
       const numberA = 200;
       const model = new CalculatorModel({ prevValue: numberA, operator: ActionTypes.DIVIDE });
-      const action = {type: ActionTypes.INPUT_OPERATION, value:ActionTypes.CHANGE_SIGN };
+      const action = {type: ActionTypes.INPUT_OPERATION, payload:{value:ActionTypes.CHANGE_SIGN }};
       const reducer = calculatorReducer(model, action);
       const expectedData = reducer.get('display');
 

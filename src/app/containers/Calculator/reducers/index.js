@@ -3,7 +3,7 @@ import { CalculatorModel } from '../models';
 import ActionTypes from '../actionTypes';
 
 const inputOperator = (state, action) => {
-  const currentOperator = action.operator;
+  const currentOperator = action.payload.operator;
   const prevOperator = state.get('operator');
   const prevValue = state.get('prevValue');
   const nextValue = state.get('nextValue');
@@ -22,7 +22,7 @@ const inputOperator = (state, action) => {
 };
 
 const inputNumber = (state, action) => {
-  const selectedValue = action.value;
+  const selectedValue = action.payload.value;
   const newValue = state.get('newValue');
   const prevValue = (newValue) ? state.get('nextValue') : state.get('prevValue');
   const value = parseFloat(`${prevValue}${selectedValue}`);
@@ -50,7 +50,7 @@ const inputDecimal = (state) => {
 
 const inputOperation = (state, action) => {
   let value = 0;
-  const operation = action.value;
+  const operation = action.payload.value;
   const prevValue = state.get('prevValue');
 
   switch (operation) {
