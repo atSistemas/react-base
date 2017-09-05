@@ -52,7 +52,6 @@
   "dependencies": {
     "babel-core": "6.24.1",
     "compression": "1.6.2",
-    "create-reduxreducer": "1.0.0",
     "css-modules-require-hook": "4.0.6",
     "express": "4.15.2",
     "react": "15.6.1",
@@ -79,6 +78,7 @@
     "classnames": "2.2.5",
     "copy-webpack-plugin": "4.0.1",
     "coveralls": "2.13.1",
+    "create-reduxreducer": "^1.0.0",
     "cross-env": "4.0.0",
     "css-loader": "^0.28.1",
     "css-modules-require-hook": "4.0.6",
