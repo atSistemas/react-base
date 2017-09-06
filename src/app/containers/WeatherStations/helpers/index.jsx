@@ -2,14 +2,6 @@ import { generateMap } from 'base/shared/ModelHelper';
 import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
 
 export function parseWeatherStations(data) {
-  for (let i = 0; i < data.length; i++) {
-    data[i].id = i + 1;
-    data[i].stationId = data[i].station.id;
-
-    if (data[i].station.coord.lng) {
-      data[i].station.coord.lon = data[i].station.coord.lng;
-    }
-  }
   return generateMap(data, WeatherStationsModel);
 }
 

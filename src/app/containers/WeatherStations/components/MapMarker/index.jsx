@@ -37,18 +37,13 @@ export default class MapMarker extends Component {
     const InfoWindowStyle = this.props.$hover ? stationInfoWindowStyleHover : stationInfoWindowStyle;
 
     return (
-
       <div style={ style }>
         <div style={ stationStickStyleShadow } />
-
         <div style={ circleStyle } />
-
         <div style={ stickStyle } />
-
         <div style={ InfoWindowStyle }>
           <MapInfoWindow main={ main } />
         </div>
-
       </div>
     );
 

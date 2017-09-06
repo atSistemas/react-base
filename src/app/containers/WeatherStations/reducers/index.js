@@ -2,35 +2,35 @@ import { createReducer } from 'base';
 import ActionTypes from '../actionTypes';
 import { WeatherStationsCollection } from '../models';
 
-function weatherStationsRequest (state) { return state; }
+const weatherStationsRequest = state => state; 
 
-function weatherStationsError (state) { return state; }
+const weatherStationsError = state => state;
 
-function weatherStationsSuccess (state, action) {
-  return state
+const weatherStationsSuccess = (state, action) => (
+  state
     .update ('data', () => action.payload)
-    .set('stationSelected', -1);
-}
+    .set('stationSelected', -1)
+);
 
-function weatherStationSelected(state, action) {
-  return state.set('stationSelected', action.id);
-}
+const weatherStationSelected = (state, action) => (
+  state.set('stationSelected', action.id)
+);
 
-function weatherStationRequest (state) { return state; }
+const weatherStationRequest = state => state;
 
-function weatherStationError (state) { return state; }
+const weatherStationError = state => state;
 
-function weatherStationSuccess (state, action) {
-  return state.update ('weatherStationDetails', () =>  action.payload);
-}
+const weatherStationSuccess = (state, action) => (
+  state.update ('weatherStationDetails', () =>  action.payload)
+);
 
-function forecastRequest (state) { return state; }
+const forecastRequest = state => state;
 
-function forecastError (state) { return state; }
+const forecastError = state => state;
 
-function forecastSuccess (state, action) {
-  return state.update ('forecast', () => action.payload);
-}
+const forecastSuccess = (state, action) => (
+  state.update ('forecast', () => action.payload)
+);
 
 const actionHandlers = {
   [ActionTypes.WEATHERSTATIONS_REQUEST]: weatherStationsRequest,

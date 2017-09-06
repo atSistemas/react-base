@@ -12,11 +12,11 @@ describe('Calculator', () => {
       let expected;
 
       const inputNumber = Actions.inputNumber(3);
-      expected = {type: ActionTypes.INPUT_NUMBER, value: 3};
+      expected = {type: ActionTypes.INPUT_NUMBER, payload: {value: 3 }};
       expect(expected).to.deep.equal(inputNumber);
 
       const inputOperation = Actions.inputOperation(ActionTypes.CLEAN);
-      expected = {type: ActionTypes.INPUT_OPERATION, value: ActionTypes.CLEAN};
+      expected = {type: ActionTypes.INPUT_OPERATION, payload: {value: ActionTypes.CLEAN}};
       expect(expected).to.deep.equal(inputOperation);
 
       const inputDecimal = Actions.inputDecimal();
@@ -24,7 +24,7 @@ describe('Calculator', () => {
       expect(expected).to.deep.equal(inputDecimal);
 
       const inputOperator = Actions.inputOperator(ActionTypes.SUM);
-      expected = {type: ActionTypes.INPUT_OPERATOR, operator: ActionTypes.SUM};
+      expected = {type: ActionTypes.INPUT_OPERATOR, payload: {operator: ActionTypes.SUM}};
       expect(expected).to.deep.equal(inputOperator);
 
     });

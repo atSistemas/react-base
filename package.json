@@ -47,7 +47,7 @@
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run generate:dll && npm run test:coverage"
+    "postinstall": "npm run generate:dll"
   },
   "dependencies": {
     "babel-core": "6.24.1",
@@ -78,6 +78,7 @@
     "classnames": "2.2.5",
     "copy-webpack-plugin": "4.0.1",
     "coveralls": "2.13.1",
+    "create-reduxreducer": "^1.0.0",
     "cross-env": "4.0.0",
     "css-loader": "^0.28.1",
     "css-modules-require-hook": "4.0.6",

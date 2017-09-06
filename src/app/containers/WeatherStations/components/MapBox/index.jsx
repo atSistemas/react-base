@@ -23,7 +23,7 @@ export  class MapBox extends Component {
 
   static defaultProps = {
     key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
-    center: { lat: 39.938043, lng: -4.337157 },
+    center: { lat: 40.4047789, lng: -3.653974 },
     zoom: 6
   };
 
@@ -50,13 +50,11 @@ export  class MapBox extends Component {
       return (
         <MapMarker
           key={ item.get('id') }
-          lat={ item.station.coord.lat }
+          lat={ item.coord.Lat }
           stationId={ item.stationId }
-          lng={ item.station.coord.lon }
+          lng={ item.coord.Lon }
           selected={ StationSelected }
-          distance={ item.get('distance') }
-          main={ item.last.main }
-          station={ item.get('station') }
+          main={ item.main }
         />
       );
 
