@@ -5,7 +5,8 @@ import env from './shared/Env';
 
 export { env };
 export default { console, env };
-export { createReducer }; 
+export { createReducer };
+export { context } from './shared/Context';
 export { generateMap } from './shared/ModelHelper';
 export { generateList } from './shared/ModelHelper';
 export { actionCreator } from './shared/ActionCreator';

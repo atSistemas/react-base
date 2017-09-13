@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
-import { App } from '../';
+import App from '../';
 
 function setup() {
   let props = {
@@ -9,7 +9,7 @@ function setup() {
   };
 
   let renderer = new ReactShallowRenderer();
-  renderer.render(<App {...props} />);
+  renderer.render(<App { ...props } />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -26,7 +26,7 @@ describe('comtainers', () => {
       expect(output.type).to.equal('div');
 
       const main = output.props.children;
-
+      console.log;
       expect(main.type).to.equal('main');
     });
   });

@@ -1,32 +1,23 @@
 import api from '../api';
 import ActionTypes from '../actionTypes';
 
-export function getWeatherStations({ params }) {
-  return {
-    type: ActionTypes.WEATHERSTATIONS_REQUEST,
-    request: api.fetchWeatherStations(params)
-  };
-}
+export const getWeatherStations = ({ params }) => ({
+  type: ActionTypes.WEATHERSTATIONS_REQUEST,
+  request: api.fetchWeatherStations(params)
+});
 
-export function weatherStationSelected(id) {
-  return {
-    type: ActionTypes.WEATHERSTATION_SELECTED,
-    id: id
-  };
-}
+export const weatherStationSelected = id => ({
+  type: ActionTypes.WEATHERSTATION_SELECTED,
+  id: id
+});
 
-export function getWeatherStation(id) {
-  return {
-    type: ActionTypes.WEATHERSTATION_REQUEST,
-    request: api.fetchWeatherStation(id)
-  };
-}
+export const getWeatherStation = id => ({
+  type: ActionTypes.WEATHERSTATION_REQUEST,
+  request: api.fetchWeatherStation(id)
+});
 
-
-export function getWeather(lat, lng) {
-  return {
-    type: ActionTypes.FORECAST_REQUEST,
-    request: api.fetchWeather(lat, lng)
-  };
-}
+export const getWeather = (lat, lng) => ({
+  type: ActionTypes.FORECAST_REQUEST,
+  request: api.fetchWeather(lat, lng)
+});
 

@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-const CalculatorModel = Record({
+export const CalculatorModel = Record({
   display:0,
   operator:'',
   operation:'',
@@ -10,8 +10,6 @@ const CalculatorModel = Record({
   resetDisplay: false,
 });
 
-function setInitialState(initialState) {
-  return initialState.Calculator = new CalculatorModel();
-}
-
-export { CalculatorModel, setInitialState };
+export const setInitialState = initialState => (
+  initialState.Calculator = new CalculatorModel()
+);

@@ -25,7 +25,7 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    fetchRequiredActions(Main.requiredActions, this.props, 'MainModel');
+    fetchRequiredActions(Main.requiredActions, this.props, 'Main', true);
   }
 
   render () {

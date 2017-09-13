@@ -6,7 +6,7 @@ import Display from './components/Display';
 import ButtonPannel from './components/ButtonPannel';
 import styles from './styles.css';
 
-export class Calculator extends Component {
+class Calculator extends Component {
 
   static proptypes = {
     Calculator: PropTypes.instanceOf(Record).isRequired
