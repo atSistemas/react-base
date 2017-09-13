@@ -32,7 +32,7 @@ function setup() {
   };
 
   let renderer = new ReactShallowRenderer();
-  renderer.render(<WeatherStations {...props} />);
+  renderer.render(<WeatherStations { ...props } />);
   let output = renderer.getRenderOutput();
 
   return {

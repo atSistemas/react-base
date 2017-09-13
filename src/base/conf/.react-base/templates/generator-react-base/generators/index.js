@@ -13,12 +13,6 @@ var typesDocument = {
     nameFile: '/index.js',
     nameType: 'action'
   },
-  action_spec:{
-    folder: '/actions/spec/',
-    template: '_action.spec.js',
-    nameFile: '.action.spec.js',
-    nameType: 'actionSpec'
-  },
   api:{
     folder: '/api/',
     template: '_api.js',
@@ -31,23 +25,11 @@ var typesDocument = {
     nameFile: '/index.jsx',
     nameType: 'component'
   },
-  component_spec:{
-    folder: '/components/spec/',
-    template: '_component.spec.js',
-    nameFile: '.component.spec.js',
-    nameType: 'component_spec'
-  },
   container:{
     folder: '/',
     template: '_container.js',
     nameFile: '/index.jsx',
     nameType: 'container'
-  },
-  container_spec:{
-    folder: '/spec/',
-    template: '_container.spec.js',
-    nameFile: '.container.spec.js',
-    nameType: 'container_spec'
   },
   models:{
     folder: '/models/',
@@ -60,12 +42,6 @@ var typesDocument = {
     template: '_reducer.js',
     nameFile: '/index.js',
     nameType: 'reducer'
-  },
-  reducer_spec:{
-    folder: '/reducers/spec/',
-    template: '_reducer.spec.js',
-    nameFile: '.reducer.spec.js',
-    nameType: 'reducer_spec'
   },
   styles:{
     folder: '/',
@@ -153,15 +129,11 @@ function createContainer(name){
   let route = baseRoute + '/containers/'
   let namePascal = name.charAt(0).toUpperCase() + name.slice(1)
   sectionCopy(route, namePascal, typesDocument.action);
-  sectionSpec(route, namePascal, typesDocument.action_spec);
   sectionCopy(route, namePascal, typesDocument.api);
   sectionCopy(route, namePascal, typesDocument.component);
-  sectionSpec(route, namePascal, typesDocument.component_spec);
   sectionCopy(route, namePascal, typesDocument.container);
-  sectionSpec(route, namePascal, typesDocument.container_spec);
   sectionCopy(route, namePascal, typesDocument.models);
   sectionCopy(route, namePascal, typesDocument.reducer);
-  sectionSpec(route, namePascal, typesDocument.reducer_spec);
   sectionCopy(route, namePascal, typesDocument.styles);
   sectionCopy(route, namePascal, typesDocument.types);
 
@@ -197,8 +169,6 @@ module.exports = yeoman.Base.extend({
   writing: {
     config: function () {
       sectionCopy = section.bind(this);
-
-      sectionSpec = sectionSpec.bind(this);
 
       createComponent = createComponent.bind(this);
       switch(this.props.option){

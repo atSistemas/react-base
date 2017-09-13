@@ -1,23 +1,23 @@
 import { generateMap } from 'base/shared/ModelHelper';
 import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
 
-export function parseWeatherStations(data) {
-  return generateMap(data, WeatherStationsModel);
-}
+export const parseWeatherStations = data => (
+  generateMap(data, WeatherStationsModel)
+);
 
-export function parseWeatherStation(data) {
+export const parseWeatherStation = data => {
   const dataParsed = getDataWeatherStation(data);
   return generateMap(dataParsed, WeatherStationDetailsModel);
-}
+};
 
-export function parseWeather(data) {     
+export const parseWeather = data => {     
   for (let i=0; i<data.list.length; i++) {
     data.list[i].id = i + 1;
   }
   return generateMap(data.list, ForecastModel);
-}
+};
 
-export function getDataWeatherStation(data) {
+export const getDataWeatherStation = data => {
   let obj = {};
   if (data.params.indexOf('temp') > -1) {
     obj.temp = data.last.main.temp;
@@ -50,4 +50,4 @@ export function getDataWeatherStation(data) {
 
   return list;
 
-}
+};

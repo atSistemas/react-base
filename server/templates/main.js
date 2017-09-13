@@ -1,6 +1,8 @@
 
 export default function main(params) {
 
+  const state = JSON.stringify(params.state);
+
   return `
   <!doctype html>
 	<html lang="utf-8">
@@ -12,7 +14,7 @@ export default function main(params) {
     </head>
     <body>
     <div id="root">${ params.container }</div>
-      <script>window.$REACTBASE_STATE = ${ params.state }</script>
+      <script>window.$REACTBASE_STATE = ${ state }</script>
       ${ params.appScript }
     </body>
   </html>

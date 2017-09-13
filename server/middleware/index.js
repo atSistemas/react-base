@@ -6,7 +6,7 @@ export default function applyEnvMiddleWare(app) {
 
   base.console.info(`Checking Env middlewares...`);
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     let serverUp = false;
 
     envMiddleware().forEach(function(middleware) {

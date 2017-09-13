@@ -1,6 +1,8 @@
 
 export default function calculator(params) {
 
+  const state = JSON.stringify(params.state);
+
   return `
   <!doctype html>
 	<html lang="utf-8">
@@ -12,8 +14,8 @@ export default function calculator(params) {
     </head>
     <body>
     <div id="root">${ params.container }</div>
-      <script>window.$REACTBASE_STATE = ${ params.state }</script>
-      ${ params.appScript }
+    <script>window.$REACTBASE_STATE = ${ state }</script>
+    ${ params.appScript }
     </body>
   </html>
   `;
