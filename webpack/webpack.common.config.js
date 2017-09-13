@@ -7,9 +7,10 @@ import baseWpPlugins from '../src/base/wp-plugins';
 
 export const mainPath = path.resolve(__dirname, '..');
 export const context = path.resolve(__dirname, '../');
-export const buildPath = path.resolve(__dirname, '..', 'dist');
+export const buildPath = path.resolve(__dirname, '../dist');
 export const basePath = path.resolve(__dirname, '../src/base');
 export const dllPath = path.resolve(__dirname, '../dist/dlls');
+export const assetsPath = path.resolve(__dirname, '../dist/assets');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
 export const manifestPath = buildPath;
 
@@ -50,12 +51,13 @@ export const plugins = [
 ];
 
 export const postcss = [
-  require('postcss-import')({ addDependencyTo: webpack }),
-  require('postcss-cssnext')(),
+  require('postcss-import')(),
+  require('postcss-url')(),
   require('postcss-modules-extract-imports'),
   require('postcss-nested')(),
   require('postcss-reporter')(),
-  require('postcss-url')()
+  require('precss')(),
+  require('postcss-mixins')(),
 ];
 
 export const resolve = {
