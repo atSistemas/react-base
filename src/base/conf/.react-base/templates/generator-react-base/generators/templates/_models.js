@@ -9,7 +9,7 @@ const <%= name %>Collection = Record({ data: Map() });
 
 const setInitialState = initialState => (
   initialState.<%= name %> = new <%= name %>Collection({
-    data: generateImmutable( initialState.<%= name %>.data, <%= name %>Model )
+    data: generateImmutable(initialState.<%= name %>.data, <%= name %>Model)
   })
 );
 
