@@ -4,13 +4,11 @@ import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
-import { fetchRequiredActions } from 'base';
-
 import * as Actions from './actions';
 import <%= name %>Component from './components/';
 import styles from './styles.css';
 
-export class <%= name %> extends Component {
+class <%= name %> extends Component {
   
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
