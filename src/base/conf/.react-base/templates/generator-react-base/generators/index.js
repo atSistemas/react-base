@@ -112,8 +112,7 @@ function createComponent(name){
       nameLower: name.toLowerCase()
     }
   );
-
-  /*SPEC*/
+/*
   this.fs.copyTpl(
     this.templatePath(typesDocument.component_spec.template),
     this.destinationPath(routeComponentName + '/spec/' + name + typesDocument.component_spec.nameFile), {
@@ -121,7 +120,7 @@ function createComponent(name){
       nameUpper: name.toUpperCase(),
       nameLower: name.toLowerCase()
     }
-  );
+  );*/
 
 }
 
