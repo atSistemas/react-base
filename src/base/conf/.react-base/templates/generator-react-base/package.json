@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "main": "generators/index.js",
+  "name": "generator-react-base",
+  "version": "0.6.0",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": {
+    "name": "Luis Martinez Marina",
+    "email": "lmartinez.marina@atsistemas.com",
+    "url": ""
+  },
+  "dependencies": {
+    "yeoman-generator": "^0.20.1"
+  }
+}
