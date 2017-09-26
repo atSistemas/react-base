@@ -112,17 +112,6 @@ function createComponent(name){
       nameLower: name.toLowerCase()
     }
   );
-
-  /*SPEC*/
-  this.fs.copyTpl(
-    this.templatePath(typesDocument.component_spec.template),
-    this.destinationPath(routeComponentName + '/spec/' + name + typesDocument.component_spec.nameFile), {
-      name: namePascal,
-      nameUpper: name.toUpperCase(),
-      nameLower: name.toLowerCase()
-    }
-  );
-
 }
 
 function createContainer(name){
