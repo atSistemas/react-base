@@ -2,6 +2,7 @@ import { Record, Map } from 'immutable';
 
 const <%= name %>Model = Record({
   id: -1,
+  name: '<%= name %>'
 });
 
 const <%= name %>Collection = Record({ data: Map() });

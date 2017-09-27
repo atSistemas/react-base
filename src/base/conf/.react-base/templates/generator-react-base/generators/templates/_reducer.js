@@ -1,6 +1,6 @@
 import { createReducer } from 'base';
 import ActionTypes from '../actionTypes';
-import { <%= name %>Collection } from '../models';
+import { <%= name %>Model } from '../models';
 
 const <%= nameLower %>Request = (state) => state;
 
@@ -16,4 +16,4 @@ const actionHandlers = {
   [ActionTypes.<%= nameUpper %>_ERROR]: <%= nameLower %>Error
 };
 
-export default createReducer(actionHandlers, new <%= name %>Collection());
+export default createReducer(actionHandlers, new <%= name %>Model());

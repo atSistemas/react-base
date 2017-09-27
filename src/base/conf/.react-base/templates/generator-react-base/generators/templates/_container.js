@@ -23,18 +23,16 @@ class <%= name %> extends Component {
   }
 
   render () {
-    let props = this.props.<%= name  %>Model; 
-    props.name = '<%= name  %>';
+    const { <%= name  %>Model } = this.props;
 
     return (
       <div className={ styles.<%= name %>  }>
-        <<%= name %>Component name={ props.name } />
+        <<%= name %>Component name={ <%= name  %>Model.name } />
       </div>
     );
   }
-
 }
 
-export default connect(
-  (state) => ({ <%= name %>Model: state.<%= name %> })
-)(<%= name %>);
+export default connect(state => ({
+  <%= name %>Model: state.<%= name %> 
+}))(<%= name %>);
