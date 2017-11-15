@@ -12,7 +12,7 @@ export function generateList(data, model) {
   const arr = data.map((item) => {
     return new model(item);
   }
- );
+  );
   return new List(arr);
 }
 
@@ -29,7 +29,7 @@ export function generateListWithSummary(data, model) {
     item.html = null;
     return new model(item);
   }
- );
+  );
   return new List(arr);
 }
 
