@@ -25,7 +25,6 @@ describe('component ', () => {
     it('should render correctly', () => {
 
       const parsedWeatherStation = helpers.parseWeatherStations(weatherStationsMock);
-      console.log("qweqwe: =>", parsedWeatherStation.toJS());
 
       let props = {
         stations: parsedWeatherStation,
