@@ -2,16 +2,15 @@ import { expect } from 'chai';
 import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-import MapMarker from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
 
+import { MapBox } from '../';
+import * as helpers from '../../../helpers';
 
-function setup(props) {
-
-  function dispatch() { }
+const setup = props => {
 
   let renderer = new ReactShallowRenderer();
-  renderer.render(<MapMarker { ...props } />);
+  renderer.render(<MapBox { ...props } />);
   let output = renderer.getRenderOutput();
 
   return {
@@ -19,31 +18,24 @@ function setup(props) {
     output,
     renderer
   };
-}
+};
 
 describe('component ', () => {
-  describe('MapMarker', () => {
+  describe('MapBox', () => {
     it('should render correctly', () => {
+
+      const parsedWeatherStation = helpers.parseWeatherStations(weatherStationsMock);
+      console.log("qweqwe: =>", parsedWeatherStation.toJS());
+
       let props = {
-        main: weatherStationsMock[0].main,
-        zIndex: 2,
-        $hover: true
+        stations: parsedWeatherStation,
+        stationSelected: 14
       };
 
       const { output } = setup(props);
+
       expect(output.type).to.equal('div');
     });
 
-
-    it('should render correctly hover false', () => {
-      let props = {
-        main: weatherStationsMock[0].main,
-        zIndex: 2,
-        $hover: false
-      };
-
-      const { output } = setup(props);
-      expect(output.type).to.equal('div');
-    });
   });
 });

@@ -25,6 +25,7 @@ export const entry = {
     'react-redux',
     'react-router',
     'isomorphic-fetch',
+    'google-map-react'
   ]
 };
 
