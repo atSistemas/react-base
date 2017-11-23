@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import Calculator from '../';
 import configureStore from 'store/ConfigureStore';
+import Calculator from '../';
 
 describe('Containers', () => {
   describe('<Calculator />', () => {
@@ -13,11 +13,11 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
-        expect(component.find('Display')).to.have.lengthOf(1);
-        expect(component.find('ButtonPannel')).to.have.lengthOf(1);
+      expect(component.find('Display')).to.have.lengthOf(1);
+      expect(component.find('ButtonPannel')).to.have.lengthOf(1);
     });
 
 
@@ -25,31 +25,31 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
         .findWhere(n => n.props().value === '1')
         .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '2')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '2')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '+')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '+')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '3')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '3')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '=')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '=')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('15');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('15');
     });
 
 
@@ -57,7 +57,7 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
@@ -68,47 +68,47 @@ describe('Containers', () => {
         .findWhere(n => n.props().value === '0')
         .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '-')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '-')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '5')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '5')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '=')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '=')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('35');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('35');
     });
 
     it('Should display multiply result without click result button', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
         .findWhere(n => n.props().value === '6')
         .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === 'x')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === 'x')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '7')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '7')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === 'x')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === 'x')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('42');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('42');
     });
 
 
@@ -116,35 +116,35 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
         .findWhere(n => n.props().value === '9')
         .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '÷')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '÷')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '3')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '3')
+        .simulate('click');
 
-        component.find('Button')
-            .findWhere(n => n.props().value === 'x')
-            .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === 'x')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '2')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '2')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '=')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '=')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('6');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('6');
     });
 
 
@@ -152,7 +152,7 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
@@ -160,16 +160,16 @@ describe('Containers', () => {
         .simulate('click');
 
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '4')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '4')
+        .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === '+/-')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === '+/-')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('-94');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('-94');
     });
 
 
@@ -178,19 +178,19 @@ describe('Containers', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <Calculator />
+          <Calculator />
         </Provider>);
 
       component.find('Button')
         .findWhere(n => n.props().value === '1')
         .simulate('click');
 
-        component.find('Button')
-          .findWhere(n => n.props().value === 'C')
-          .simulate('click');
+      component.find('Button')
+        .findWhere(n => n.props().value === 'C')
+        .simulate('click');
 
-        const Display = component.find('Display');
-        expect(Display.text()).to.equal('0');
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('0');
     });
 
 

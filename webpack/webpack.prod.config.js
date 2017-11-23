@@ -39,7 +39,7 @@ export const module = {
     {
       test: /\.css/,
       exclude: /node_modules/,
-     
+
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -55,6 +55,7 @@ export const module = {
             loader: 'postcss-loader',
             options: {
               plugins: () => common.postcss.concat(
+                require('postcss-clean')(),
                 require('autoprefixer')()
               )
             }
