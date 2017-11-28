@@ -27,8 +27,6 @@ describe('component ', () => {
   describe('MapInfoWindow', () => {
     it('should render correctly', () => {
       const { output } = setup(weatherStationsMock[0].main);
-      console.log('output', output);
-      console.log('type', output.type);
       expect(output.type).to.equal('div');
     });
 
