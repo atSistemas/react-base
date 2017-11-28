@@ -8,7 +8,7 @@ const propTypes = {
   main: PropTypes.object.isRequired
 };
 
-const MapInfoWindow = props => {
+export const MapInfoWindow = props => {
   const { temp, humidity, pressure } = props.main;
 
   return (
