@@ -14,16 +14,6 @@ export default {
       .then(data => helpers.parseWeatherStations(data.list));
   },
 
-  fetchWeatherStation(id) {
-    const urlApi = config.WEATHER_API_URL +
-      '/station?id=' + id + '&units=metric&appid=' +
-       config.WEATHER_API_KEY;
-
-    return fetch(urlApi)
-      .then(req => req.json())
-      .then(data => helpers.parseWeatherStation(data));
-  },
-
   fetchWeather(lat, lng) {
 
     let urlCall = config.WEATHER_API_URL +

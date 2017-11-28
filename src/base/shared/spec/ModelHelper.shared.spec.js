@@ -95,14 +95,9 @@ describe('shared / model-helper', () => {
       const initialState = [mockData];
       const data = ModelHelper.generateList(initialState, MainModel);
 
-      console.log('initialState', initialState);
-
       const expectedData = new List(
         initialState.map(item => new MainModel(item))
       );
-
-      console.log('data', data);
-      console.log('expectedData', expectedData);
       expect(data).to.deep.equal(expectedData);
 
     });

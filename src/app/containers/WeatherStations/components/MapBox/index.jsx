@@ -1,76 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { pure } from 'recompose';
 
 import GoogleMap from 'google-map-react';
-import * as Actions from '../../actions';
 
 import styles from './styles.css';
 
 import MapMarker from '../MapMarker';
 
-export class MapBox extends Component {
+const propTypes = {
+  key: PropTypes.string.isRequired,
+  center: PropTypes.object,
+  zoom: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
+  stations: PropTypes.object.isRequired
+};
 
-  static propTypes = {
-    key: PropTypes.string.isRequired,
-    center: PropTypes.object,
-    zoom: PropTypes.number,
-    dispatch: PropTypes.func.isRequired,
-    stations: PropTypes.object.isRequired,
-    stationSelected: PropTypes.number.isRequired
-  };
+const defaultProps = {
+  key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
+  center: { lat: 40.4047789, lng: -3.653974 },
+  zoom: 6
+};
 
-  static defaultProps = {
-    key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
-    center: { lat: 40.4047789, lng: -3.653974 },
-    zoom: 6
-  };
+export const MapBox = props => {
+  const mapMarkerList = props.stations.valueSeq().map(item => (
+    <MapMarker
+      key={ item.get('id') }
+      lat={ item.get('coord').Lat }
+      stationId={ item.get('stationId') }
+      lng={ item.get('coord').Lon }
+      main={ item.get('main') }
+    />
+  ));
 
-  constructor(props) {
-    super(props);
-    this.actions = bindActionCreators(Actions, props.dispatch);
-    this.onChildClick = this.onChildClick.bind(this);
-  }
+  return (
+    <div className={ styles.mapBox }>
+      <GoogleMap
+        id="map"
+        bootstrapURLKeys={ { key: props.key } }
+        defaultCenter={ props.center }
+        defaultZoom={ props.zoom }
+        onChildClick={ props.onClick }
+      >
+        { mapMarkerList }
+      </GoogleMap>
+    </div>
+  );
+};
 
-  onChildClick(key, childProps) {
-    this.actions.getWeather(childProps.lat, childProps.lng);
-    this.actions.weatherStationSelected(parseInt(key));
-    this.actions.getWeatherStation(parseInt(childProps.stationId));
-    return key;
-  }
+MapBox.propTypes = propTypes;
+MapBox.defaultProps = defaultProps;
 
-  render () {
-    const { stations, stationSelected } = this.props;
-    const mapMarkerList = stations.valueSeq().map(item => (
-      <MapMarker
-        key={ item.get('id') }
-        lat={ item.coord.Lat }
-        stationId={ item.stationId }
-        lng={ item.coord.Lon }
-        selected={ stationSelected }
-        main={ item.main }
-      />
-    ));
-
-    return (
-      <div className={ styles.mapBox }>
-        <GoogleMap
-          id="map"
-          bootstrapURLKeys={ { key: this.props.key } }
-          defaultCenter={ this.props.center }
-          onChildClick={ this.onChildClick }
-          defaultZoom={ this.props.zoom }
-        >
-          { mapMarkerList }
-        </GoogleMap>
-      </div>
-    );
-  }}
-
-export default connect(
-  state => ({
-    stations: state.WeatherStations.data,
-    stationSelected: state.WeatherStations.stationSelected
-  })
-)(MapBox);
+export default pure(MapBox);
