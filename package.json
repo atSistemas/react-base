@@ -19,6 +19,10 @@
     {
       "name": "Gastón Messeri",
       "email": "gemesseri@atsistemas.com"
+    },
+    {
+      "name": "Fernando Ramos González",
+      "email": "framos@atsistemas.com"
     }
   ],
   "main": "client/client.js",
