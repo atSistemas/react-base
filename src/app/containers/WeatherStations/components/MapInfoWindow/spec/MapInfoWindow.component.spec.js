@@ -1,28 +1,27 @@
 import { expect } from 'chai';
 import React from 'react';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 
-import MapInfoWindow from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
 
-function setup(data) {
+import { MapInfoWindow } from '../';
 
-  function dispatch() { }
+const setup = data => {
 
-  let props = {
+  const props = {
     main: data
   };
 
-  let renderer = new ReactShallowRenderer();
+  const renderer = new ShallowRenderer();
   renderer.render(<MapInfoWindow { ...props } />);
-  let output = renderer.getRenderOutput();
+  const output = renderer.getRenderOutput();
 
   return {
     props,
     output,
     renderer
   };
-}
+};
 
 describe('component ', () => {
   describe('MapInfoWindow', () => {
@@ -31,7 +30,7 @@ describe('component ', () => {
       expect(output.type).to.equal('div');
     });
 
-    it('should render with data incomplete', () => {
+    it('should render with data incompconste', () => {
       const { output } = setup(weatherStationsMock[1].main);
       expect(output.type).to.equal('div');
     });

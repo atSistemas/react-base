@@ -7,6 +7,7 @@ import rootReducer from '../reducers';
 
 function configureStore(history, initialState) {
 
+  let composeEnhancer = compose;
   let middleware;
 
   if (base.env === 'development') {
@@ -14,13 +15,14 @@ function configureStore(history, initialState) {
       createLogger({ level: 'info', collapsed: true }),
       reduxReqMiddleware(),
     );
+    composeEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   } else {
     middleware = applyMiddleware(
       reduxReqMiddleware()
     );
   }
 
-  const enhancer = compose(middleware);
+  const enhancer = composeEnhancer(middleware);
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {

@@ -26,7 +26,6 @@ describe('comtainers', () => {
       expect(output.type).to.equal('div');
 
       const main = output.props.children;
-      console.log;
       expect(main.type).to.equal('main');
     });
   });

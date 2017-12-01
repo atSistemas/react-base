@@ -19,6 +19,10 @@
     {
       "name": "Gastón Messeri",
       "email": "gemesseri@atsistemas.com"
+    },
+    {
+      "name": "Fernando Ramos González",
+      "email": "framos@atsistemas.com"
     }
   ],
   "main": "client/client.js",
@@ -59,6 +63,7 @@
     "react-dom": "16.1.1",
     "react-redux": "5.0.6",
     "react-router": "3.2.0",
+    "recompose": "0.26.0",
     "redux": "3.7.2",
     "redux-req-middleware": "1.0.4"
   },

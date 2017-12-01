@@ -31,19 +31,6 @@ describe('Actions', () => {
 
     });
 
-    it('Should create action getWeatherStation', () => {
-      const id = 15;
-      const expectedAction = {
-        type: ActionTypes.WEATHERSTATION_REQUEST,
-        request: api.fetchWeatherStation(id)
-      };
-
-      expect(JSON.parse(JSON.stringify(Actions.getWeatherStation(id))))
-        .to.deep.equal(JSON.parse(JSON.stringify(expectedAction)));
-
-    });
-
-
     it('Should create action getWeather', () => {
 
       const params= {

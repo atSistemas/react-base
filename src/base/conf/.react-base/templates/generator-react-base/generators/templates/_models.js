@@ -5,10 +5,8 @@ const <%= name %>Model = Record({
   name: '<%= name %>'
 });
 
-const <%= name %>Collection = Record({ data: Map() });
-
 const setInitialState = initialState => (
-  initialState.<%= name %> = new <%= name %>Model()
+  initialState.<%= name %> = new <%= name %>Model(initialState.<%= name %>)
 );
 
-export { <%= name %>Model, <%= name %>Collection, setInitialState };
+export { <%= name %>Model, setInitialState };
