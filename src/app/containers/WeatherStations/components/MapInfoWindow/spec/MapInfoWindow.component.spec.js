@@ -27,17 +27,17 @@ function setup(data) {
 describe('component ', () => {
   describe('MapInfoWindow', () => {
     it('should render correctly', () => {
-      const { output } = setup(weatherStationsMock[0].last.main);
+      const { output } = setup(weatherStationsMock[0].main);
       expect(output.type).to.equal('div');
     });
 
     it('should render with data incomplete', () => {
-      const { output } = setup(weatherStationsMock[1].last.main);
+      const { output } = setup(weatherStationsMock[1].main);
       expect(output.type).to.equal('div');
     });
 
     it('should render data not found', () => {
-      const { output } = setup(weatherStationsMock[2].last.main);
+      const { output } = setup(weatherStationsMock[2].main);
       expect(output.type).to.equal('div');
     });
   });

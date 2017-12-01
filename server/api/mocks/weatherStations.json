@@ -3,22 +3,20 @@
         "id": 1,
         "stationId": 1442829648,
         "distance": 9.168,
-        "last": {
-            "calc": {
-                "dewpoint": 11.1833
-            },
-            "dt": 1470034503,
-            "main": {
-                "humidity": 37.5,
-                "pressure": 1019.49,
-                "temp": 300.05
-            }
+        "calc": {
+          "dewpoint": 11.1833
+        },
+        "dt": 1470034503,
+        "main": {
+          "humidity": 37.5,
+          "pressure": 1019.49,
+          "temp": 300.05
+        },
+        "coord": {
+          "Lat": 40.495,
+          "Lon": -3.655
         },
         "station": {
-            "coord": {
-                "lat": 40.495,
-                "lon": -3.655
-            },
             "id": 1442829648,
             "name": "pirates",
             "status": 20,
@@ -30,29 +28,27 @@
         "id": 2,
         "stationId": 42622,
         "distance": 9.839,
-        "last": {
-            "dt": 1469991990,
-            "main": {
-                "humidity": 37.5,
-                "pressure": 1019.49,
-                "temp": 300.05
-            },
-            "rain": {
-                "1h": 0,
-                "24h": 0,
-                "today": 0
-            },
-            "wind": {
-                "deg": 11,
-                "gust": 1.54,
-                "speed": 0.51
-            }
+        "dt": 1469991990,
+        "main": {
+            "humidity": 37.5,
+            "pressure": 1019.49,
+            "temp": 300.05
+        },
+        "rain": {
+            "1h": 0,
+            "24h": 0,
+            "today": 0
+        },
+        "wind": {
+            "deg": 11,
+            "gust": 1.54,
+            "speed": 0.51
+        },
+        "coord": {
+          "lat": 40.5048,
+          "lng": -3.6668
         },
         "station": {
-            "coord": {
-                "lat": 40.5048,
-                "lng": -3.6668
-            },
             "id": 42622,
             "name": "EA4ENR",
             "status": 20,
@@ -63,38 +59,27 @@
         "id": 3,
         "stationId": 5488,
         "distance": 13.928,
-        "last": {
-            "calc": {
-                "dewpoint": 285.15,
-                "humidex": 296.35
-            },
-            "clouds": [
-                {
-                    "condition": "CAVOK"
-                }
-            ],
-            "dt": 1470033000,
-             "main": {
-                "humidity": 29,
-                "pressure": 1014,
-                "temp": 307.59
-            },
-            "visibility": {
-                "distance": 10000,
-                "prefix": 1
-            },
-            "wind": {
-                "deg": 10,
-                "speed": 3.1,
-                "var_beg": 340,
-                "var_end": 40
-            }
+        "dt": 1470033000,
+        "main": {
+           "humidity": 29,
+           "pressure": 1014,
+           "temp": 307.59
+       },
+       "visibility": {
+           "distance": 10000,
+           "prefix": 1
+       },
+       "wind": {
+           "deg": 10,
+           "speed": 3.1,
+           "var_beg": 340,
+           "var_end": 40
+       },
+        "coord": {
+          "lat": 40.4936,
+          "lon": -3.5668
         },
         "station": {
-            "coord": {
-                "lat": 40.4936,
-                "lon": -3.5668
-            },
             "id": 5488,
             "name": "LEMD",
             "status": 50,
@@ -105,29 +90,27 @@
         "id": 4,
         "stationId": 187956,
         "distance": 20.445,
-        "last": {
-            "dt": 1469793737,
-            "main": {
-                "humidity": 29,
-                "pressure": 1014,
-                "temp": 307.59
-            },
-            "rain": {
-                "1h": 0,
-                "24h": 0,
-                "today": 0
-            },
-            "wind": {
-                "deg": 172,
-                "gust": 0,
-                "speed": 0
-            }
+        "dt": 1469793737,
+        "main": {
+            "humidity": 29,
+            "pressure": 1014,
+            "temp": 307.59
+        },
+        "rain": {
+            "1h": 0,
+            "24h": 0,
+            "today": 0
+        },
+        "wind": {
+            "deg": 172,
+            "gust": 0,
+            "speed": 0
+        },
+        "coord": {
+          "lat": 40.4467,
+          "lon": -3.461
         },
         "station": {
-            "coord": {
-                "lat": 40.4467,
-                "lon": -3.461
-            },
             "id": 187956,
             "name": "EA4CQL-11",
             "status": 20,
@@ -138,29 +121,27 @@
         "id": 5,
         "stationId": 120400,
         "distance": 20.445,
-        "last": {
-            "dt": 1452255851,
-            "main": {
-                "humidity": 66,
-                "pressure": 1003,
-                "temp": 288.15
-            },
-            "rain": {
-                "1h": 0,
-                "24h": 0.508,
-                "today": 7.62
-            },
-            "wind": {
-                "deg": 154,
-                "gust": 0.51,
-                "speed": 0
-            }
+        "dt": 1452255851,
+        "main": {
+            "humidity": 66,
+            "pressure": 1003,
+            "temp": 288.15
+        },
+        "rain": {
+            "1h": 0,
+            "24h": 0.508,
+            "today": 7.62
+        },
+        "wind": {
+            "deg": 154,
+            "gust": 0.51,
+            "speed": 0
+        },
+        "coord": {
+          "lat": 40.4467,
+          "lon": -3.461
         },
         "station": {
-            "coord": {
-                "lat": 40.4467,
-                "lon": -3.461
-            },
             "id": 120400,
             "name": "EA4CQL-11",
             "status": 20,
