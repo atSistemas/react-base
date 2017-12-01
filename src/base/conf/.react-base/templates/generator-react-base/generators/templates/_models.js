@@ -6,7 +6,7 @@ const <%= name %>Model = Record({
 });
 
 const setInitialState = initialState => (
-  initialState.<%= name %> = new <%= name %>Model(initialState.<%= name %=>)
+  initialState.<%= name %> = new <%= name %>Model(initialState.<%= name %>)
 );
 
-export { <%= name %>Model, <%= name %>Collection, setInitialState };
+export { <%= name %>Model, setInitialState };
