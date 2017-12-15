@@ -42,5 +42,4 @@ export const plugins = [
     filename: 'webpack-assets.json',
     prettyPrint: true
   }),
-]
-.concat(common.plugins);
+].concat(common.plugins);

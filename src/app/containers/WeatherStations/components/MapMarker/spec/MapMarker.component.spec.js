@@ -2,30 +2,28 @@ import { expect } from 'chai';
 import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 
-import MapMarker from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
+import { MapMarker } from '../';
 
 
-function setup(props) {
+const setup = props => {
 
-  function dispatch() { }
-
-  let renderer = new ReactShallowRenderer();
+  const renderer = new ReactShallowRenderer();
   renderer.render(<MapMarker { ...props } />);
-  let output = renderer.getRenderOutput();
+  const output = renderer.getRenderOutput();
 
   return {
     props,
     output,
     renderer
   };
-}
+};
 
 describe('component ', () => {
   describe('MapMarker', () => {
     it('should render correctly', () => {
-      let props = {
-        main: weatherStationsMock[0].last.main,
+      const props = {
+        main: weatherStationsMock[0].main,
         zIndex: 2,
         $hover: true
       };
@@ -36,8 +34,8 @@ describe('component ', () => {
 
 
     it('should render correctly hover false', () => {
-      let props = {
-        main: weatherStationsMock[0].last.main,
+      const props = {
+        main: weatherStationsMock[0].main,
         zIndex: 2,
         $hover: false
       };

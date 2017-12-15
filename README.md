@@ -293,7 +293,9 @@ Same as before, you will be asked for a component name, and after that React-bas
 
 ## Distribution
 
-You can generate a complete distribution source ready for production enviroments.
+You can generate a complete distribution source ready for production enviroments.  
+React base uses PM2 to manage running the server in multiple cores at the same time when in production, thus increasing the performance.  
+By default, the PM2 will spawn an instance in all cores except one, which will be left to the OS.
 
 ### Building your production application
 
@@ -301,8 +303,8 @@ You can generate a complete distribution source ready for production enviroments
 
 ### Running production server
 
-`$ npm run start:prod` will run production enviroment of your application serving content from dist directory.
-
+`$ npm run start:prod` will run production environment of your application serving content from dist directory. This will run the server in multiple cores.  
+`$ npm run start:prod:single` will run production environment of your application but running in a **single** core.  
 
 ## Testing your application
 

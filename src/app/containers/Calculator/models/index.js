@@ -11,5 +11,5 @@ export const CalculatorModel = Record({
 });
 
 export const setInitialState = initialState => (
-  initialState.Calculator = new CalculatorModel()
+  initialState.Calculator = new CalculatorModel(initialState.Calculator)
 );

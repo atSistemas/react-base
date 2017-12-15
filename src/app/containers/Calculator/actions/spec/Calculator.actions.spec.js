@@ -1,7 +1,6 @@
 import { expect }  from 'chai';
 import * as Actions from '../';
 import ActionTypes from '../../actionTypes';
-import { generateFetchTypes } from 'base';
 
 describe('Calculator', () => {
 
@@ -20,7 +19,7 @@ describe('Calculator', () => {
       expect(expected).to.deep.equal(inputOperation);
 
       const inputDecimal = Actions.inputDecimal();
-      expected = {type: ActionTypes.INPUT_DECIMAL}
+      expected = {type: ActionTypes.INPUT_DECIMAL};
       expect(expected).to.deep.equal(inputDecimal);
 
       const inputOperator = Actions.inputOperator(ActionTypes.SUM);

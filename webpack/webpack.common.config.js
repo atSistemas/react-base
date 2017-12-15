@@ -25,6 +25,7 @@ export const entry = {
     'react-redux',
     'react-router',
     'isomorphic-fetch',
+    'google-map-react'
   ]
 };
 
@@ -32,7 +33,7 @@ export const module = {
   rules: [
     { test: /\.json$/, loader: 'json-loader', include: [mainPath] },
     { test: /\.html/, loader: 'raw-loader', include: [mainPath] },
-    { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+    { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000&name=assets/images/[name].[ext]' },
   ]
 };
 
@@ -68,6 +69,7 @@ export const resolve = {
     'server': path.resolve(__dirname, '../server'),
     'base': path.resolve(__dirname, '../src/base'),
     'store': path.resolve(__dirname, '../src/base/store'),
+    'styles': path.resolve(__dirname, '../src/app/styles'),
     'mocks': path.resolve(__dirname, '../server/api/mocks'),
     'containers': path.resolve(__dirname, '../src/app/containers'),
     'components': path.resolve(__dirname, '../src/app/components')
