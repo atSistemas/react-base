@@ -10,7 +10,7 @@ const inputOperator = (state, action) => {
   const newValue = state.get('newValue');
 
   const result = (newValue) ?
-  calculate(prevOperator, prevValue, nextValue) : prevValue;
+    calculate(prevOperator, prevValue, nextValue) : prevValue;
 
   return state
     .set('nextValue', 0)
@@ -70,7 +70,7 @@ const inputOperation = (state, action) => {
 
     case ActionTypes.CHANGE_SIGN:
       value = (Math.sign(prevValue) === 1) ?
-      -Math.abs(prevValue) : Math.abs(prevValue);
+        -Math.abs(prevValue) : Math.abs(prevValue);
       return state
         .set('display', value)
         .set('prevValue', value);

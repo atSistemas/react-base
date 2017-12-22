@@ -1,43 +1,42 @@
 import { expect } from 'chai';
 import React from 'react';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 
-import MapInfoWindow from '../';
 import weatherStationsMock from 'mocks/weatherStations.json';
 
-function setup(data) {
+import { MapInfoWindow } from '../';
 
-  function dispatch() { }
+const setup = data => {
 
-  let props = {
+  const props = {
     main: data
   };
 
-  let renderer = new ReactShallowRenderer();
+  const renderer = new ShallowRenderer();
   renderer.render(<MapInfoWindow { ...props } />);
-  let output = renderer.getRenderOutput();
+  const output = renderer.getRenderOutput();
 
   return {
     props,
     output,
     renderer
   };
-}
+};
 
 describe('component ', () => {
   describe('MapInfoWindow', () => {
     it('should render correctly', () => {
-      const { output } = setup(weatherStationsMock[0].last.main);
+      const { output } = setup(weatherStationsMock[0].main);
       expect(output.type).to.equal('div');
     });
 
-    it('should render with data incomplete', () => {
-      const { output } = setup(weatherStationsMock[1].last.main);
+    it('should render with data incompconste', () => {
+      const { output } = setup(weatherStationsMock[1].main);
       expect(output.type).to.equal('div');
     });
 
     it('should render data not found', () => {
-      const { output } = setup(weatherStationsMock[2].last.main);
+      const { output } = setup(weatherStationsMock[2].main);
       expect(output.type).to.equal('div');
     });
   });

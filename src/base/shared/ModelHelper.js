@@ -1,42 +1,17 @@
 import { Map, List } from 'immutable';
 
-export function generateMap(data, model) {
-  return data.reduce((acc, item) => {
-    return acc.set(item.id, new model(item));
-  }, new Map()
-  );
-}
+export const generateMap = (data, Model) => (
+  data.reduce((acc, item) => (
+    acc.set(item.id, new Model(item))
+  ), new Map())
+);
 
+export const generateList = (data, Model) => (
+  new List(data.map(item => new Model(item)))
+);
 
-export function generateList(data, model) {
-  const arr = data.map((item) => {
-    return new model(item);
-  }
- );
-  return new List(arr);
-}
-
-export function generateListWithSummary(data, model) {
-  const arr = data.map((item) => {
-    let i = 0;
-    let max = 30;
-    const words = item.html.split(' ');
-    item.summary = '';
-    for (i; i <= max ; i++) {
-      item.summary += `${words[i]} `;
-    }
-    item.summary += '...</p>';
-    item.html = null;
-    return new model(item);
-  }
- );
-  return new List(arr);
-}
-
-export function generateImmutable(data, model) {
-  return Object.keys(data).reduce((acc, key) => {
-    let item = data[key];
-    return acc.set(item.id, new model(item));
-  }, new Map()
-  );
-}
+export const generateImmutable = (data, Model) => (
+  Object.keys(data).reduce((acc, key) => (
+    acc.set(data[key].id, new Model(data[key]))
+  ), new Map())
+);

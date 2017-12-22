@@ -118,7 +118,6 @@ base
   routes/ //routes index
   shared/ // shared base folder
     regenerators/ //index regenerators
-    ActionCreator  //Action Creator
     CreateActionType //Custom action type creator
     CreateReducer //Custom reducer creator
     ENV //Env handler

@@ -1,14 +1,14 @@
 import { createReducer } from 'base';
 import ActionTypes from '../actionTypes';
-import { <%= name %>Collection } from '../models';
+import { <%= name %>Model } from '../models';
 
-function <%= nameLower %>Request ( state ) { return state; }
+const <%= nameLower %>Request = (state) => state;
 
-function <%= nameLower %>Error ( state ) { return state; }
+const <%= nameLower %>Error = (state) => state;
 
-function <%= nameLower %>Success ( state, action ) {
-  return state.update ( 'data', () => action.payload );
-}
+const <%= nameLower %>Success = (state, action) => (
+  state.update ('data', () => action.payload)
+);
 
 const actionHandlers = {
   [ActionTypes.<%= nameUpper %>_REQUEST]: <%= nameLower %>Request,
@@ -16,4 +16,4 @@ const actionHandlers = {
   [ActionTypes.<%= nameUpper %>_ERROR]: <%= nameLower %>Error
 };
 
-export default createReducer(actionHandlers, new <%= name %>Collection());
+export default createReducer(actionHandlers, new <%= name %>Model());

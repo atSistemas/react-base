@@ -9,8 +9,6 @@ import { ForecastModel } from '../../../models';
 
 function setup(props) {
 
-  function dispatch() { }
-
   let renderer = new ReactShallowRenderer();
   renderer.render(<ForecastDetail { ...props } />);
   let output = renderer.getRenderOutput();
@@ -27,8 +25,7 @@ describe('component ', () => {
     it('should render correctly', () => {
 
       let props = {
-        Forecast: generateMap(ForecastMock.list, ForecastModel),
-        StationSelected: 14
+        forecast: generateMap(ForecastMock.list, ForecastModel)
       };
 
       const { output } = setup(props);
@@ -40,8 +37,7 @@ describe('component ', () => {
     it('should render correctly station not selected', () => {
 
       let props = {
-        Forecast: generateMap(ForecastMock.list, ForecastModel),
-        StationSelected: -1
+        forecast: generateMap(ForecastMock.list, ForecastModel)
       };
 
       const { output } = setup(props);

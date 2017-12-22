@@ -1,49 +1,34 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import { Map } from 'immutable';
 import { PropTypes } from 'prop-types';
+
 import ForecastDetailItem from '../ForecastDetailItem';
+
 import styles from './styles.css';
 
-export class ForecastDetail extends Component {
+const propTypes = {
+  forecast: PropTypes.instanceOf(Map).isRequired
+};
 
-  static propTypes = {
-    Forecast: PropTypes.object.isRequired,
-    StationSelected: PropTypes.number.isRequired
-  };
+export const ForecastDetail = ({ forecast }) => {
 
-  constructor(props) {
-    super(props);
-  }
+  const forecastList = forecast.valueSeq().map((weather, i) => (
+    <ForecastDetailItem key={ i } item={ weather } />
+  ));
 
-  render() {
-    let Forecast = this.props.Forecast;
-    if (this.props.StationSelected === -1) {
-      return (
-        <div />
-      );
-    }
+  return (
+    <div>
+      <h3 className={ styles.title }> FORECAST </h3>
+      { forecastList }
+    </div>
+  );
+};
 
-    let index = 0;
-
-    const forecastList = Forecast.valueSeq().map(weather => {
-      index++;
-      return (
-        <ForecastDetailItem key={ index } item={ weather } />
-      );
-    });
-
-    return (
-      <div>
-        <h3 className={ styles.title }> FORECAST </h3>
-        { forecastList }
-      </div>
-    );
-
-  }}
+ForecastDetail.propTypes = propTypes;
 
 export default connect(
-  (state) => ({
-    Forecast: state.WeatherStations.forecast,
-    StationSelected: state.WeatherStations.stationSelected
+  state => ({
+    forecast: state.WeatherStations.get('forecast')
   })
 )(ForecastDetail);

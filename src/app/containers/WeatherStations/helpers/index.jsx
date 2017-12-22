@@ -1,8 +1,8 @@
-import { generateMap } from 'base/shared/ModelHelper';
+import { generateMap, generateImmutable } from 'base/shared/ModelHelper';
 import { WeatherStationsModel, ForecastModel, WeatherStationDetailsModel } from '../models';
 
 export const parseWeatherStations = data => (
-  generateMap(data, WeatherStationsModel)
+  generateImmutable(data, WeatherStationsModel)
 );
 
 export const parseWeatherStation = data => {
@@ -10,7 +10,7 @@ export const parseWeatherStation = data => {
   return generateMap(dataParsed, WeatherStationDetailsModel);
 };
 
-export const parseWeather = data => {     
+export const parseWeather = data => {
   for (let i=0; i<data.list.length; i++) {
     data.list[i].id = i + 1;
   }
@@ -25,15 +25,15 @@ export const getDataWeatherStation = data => {
 
   if (data.params.indexOf('humidity') > -1) {
     obj.humidity = data.last.main.humidity;
-  }  
-  
+  }
+
   if (data.params.indexOf('pressure') > -1) {
     obj.pressure = data.last.main.pressure;
-  }  
-  
+  }
+
   if (data.params.indexOf('wind') > -1) {
     obj.wind = data.last.wind;
-  }  
+  }
 
   if (data.params.indexOf('visibility') > -1) {
     obj.visibility = data.last.visibility;

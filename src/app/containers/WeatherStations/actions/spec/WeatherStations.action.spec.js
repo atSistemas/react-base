@@ -14,7 +14,8 @@ describe('Actions', () => {
         request: api.fetchWeatherStations(params)
       };
 
-      expect(Actions.getWeatherStations(params)).to.deep.equal(expectedAction);
+      expect(JSON.parse(JSON.stringify(Actions.getWeatherStations(params))))
+        .to.deep.equal(JSON.parse(JSON.stringify(expectedAction)));
 
     });
 
@@ -30,18 +31,6 @@ describe('Actions', () => {
 
     });
 
-    it('Should create action getWeatherStation', () => {
-      const id = 15;
-      const expectedAction = {
-        type: ActionTypes.WEATHERSTATION_REQUEST,
-        request: api.fetchWeatherStation(id)
-      };
-
-      expect(Actions.getWeatherStation(id)).to.deep.equal(expectedAction);
-
-    });
-
-
     it('Should create action getWeather', () => {
 
       const params= {
@@ -54,7 +43,8 @@ describe('Actions', () => {
         request: api.fetchWeather(params.lat, params.lng)
       };
 
-      expect(Actions.getWeather(params.lat, params.lng)).to.deep.equal(expectedAction);
+      expect(JSON.parse(JSON.stringify(Actions.getWeather(params.lat, params.lng))))
+        .to.deep.equal(JSON.parse(JSON.stringify(expectedAction)));
 
     });
 
