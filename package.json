@@ -38,6 +38,7 @@
     "build": "cross-env NODE_ENV=development webpack --config webpack/index.babel.js",
     "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/index.babel.js",
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js src --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
+    "lint:fix": "npm run logo && node node_modules/eslint/bin/eslint.js --fix --ignore-pattern **/*.spec.js  --ext .js --ext .jsx",
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
     "test": "npm run logo && mocha --compilers js:babel-core/register --recursive \"./src/**/*.spec.js\" --require ignore-styles \"./src/base/shared/JsDomSetup.js\"",
@@ -47,7 +48,8 @@
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run generate:dll && npm run test:coverage"
+    "postinstall": "npm run generate:dll && npm run test:coverage",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "babel-core": "6.24.1",
@@ -82,20 +84,25 @@
     "css-loader": "^0.28.1",
     "css-modules-require-hook": "4.0.6",
     "enzyme": "2.8.2",
-    "eslint": "3.19.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-loader": "1.7.1",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
+    "eslint": "4.18.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "2.1.0",
     "generator-webapp": "^2.1.0",
     "google-map-react": "0.24.0",
+    "husky": "^0.14.3",
     "ignore-styles": "5.0.1",
     "immutable": "3.8.1",
     "isomorphic-fetch": "2.2.1",
     "istanbul": "0.4.5",
     "jsdom": "9.9.1",
+    "lint-staged": "^7.0.0",
     "mocha": "^3.4.2",
     "nyc": "10.3.0",
     "postcss-browser-reporter": "0.5.0",
@@ -160,5 +167,8 @@
     "testing",
     "yeoman",
     "istambul"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": ["yarn eslint --fix", "git add"]
+  }
 }
