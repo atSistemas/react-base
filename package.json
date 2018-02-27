@@ -157,7 +157,7 @@
     "istambul",
     "immutablejs",
     "mocha",
-    "chai"
+    "chai",
     "postcss"
   ]
 }
