@@ -6,7 +6,7 @@ before_script:
 env:
   - NODE_ENV=development
 script:
-    - npm run build
+    - npm run build:prod
     - npm run generate:dll
     - npm run regenerate
     - npm run test:coverage

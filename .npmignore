@@ -1,0 +1,16 @@
+src
+spec
+coverage
+examples
+.babelrc
+.eslintrc.js
+.nyc_output
+.travis.yml
+.appveyor.yml
+.nycrc
+mocha.opts
+tsconfig.json
+tslint.json
+*.swp
+*.log
+.coveralls.yml

@@ -1,7 +1,7 @@
 
 environment:
   matrix:
-    - nodejs_version: 6.2.0
+    - nodejs_version: 8.9.1
 
 version: "{build}"
 build: off
@@ -14,7 +14,7 @@ install:
   - npm install
 
 test_script:
-  - npm run build
-  - npm run regenerate
+  - npm run build:prod
+  - npm run generate:dll
   - npm run test:coverage
   - npm run lint:all

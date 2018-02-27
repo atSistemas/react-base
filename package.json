@@ -1,7 +1,7 @@
 {
-  "name": "react-base",
-  "version": "1.1.1",
-  "description": "React Base Isomorphic Redux",
+  "name": "react-base-starter",
+  "version": "1.1.2",
+  "description": "React Base React/Redux Isomorphic Starter",
   "author": "Pablo Magaz",
   "contributors": [
     {
@@ -11,10 +11,6 @@
     {
       "name": "Santiago Fernandez Blanco",
       "email": "sfernandez.blanco@atsistemas.com"
-    },
-    {
-      "name": "Rafael Bernad",
-      "email": "rbernad@atsistemas.com"
     },
     {
       "name": "Gastón Messeri",
@@ -51,7 +47,9 @@
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "npm run generate:dll"
+    "postinstall": "npm run generate:dll",
+    "prepublishOnly": "npm run lint && npm run test:coverage && npm run build"
+
   },
   "dependencies": {
     "babel-core": "6.26.0",
@@ -134,18 +132,6 @@
     "yeoman-option-or-prompt": "1.0.2",
     "yo": "1.8.5"
   },
-  "nyc": {
-    "exclude": [
-      "webpack/**",
-      "**/*.spec.js",
-      "src/base/wp-plugins/**"
-    ],
-    "extension": [
-      ".jsx",
-      ".es6",
-      "js"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/atsistemas/react-base"
@@ -168,6 +154,9 @@
     "enzyme",
     "testing",
     "yeoman",
-    "istambul"
+    "istambul",
+    "immutablejs",
+    "mocha",
+    "chai"
   ]
 }

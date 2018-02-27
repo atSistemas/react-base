@@ -1,0 +1,12 @@
+{
+    "exclude": [
+      "webpack/**",
+      "**/*.spec.js",
+      "src/base/wp-plugins/**"
+    ],
+    "extension": [
+      ".jsx",
+      ".es6",
+      "js"
+    ]
+}
