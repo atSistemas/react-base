@@ -1,4 +1,4 @@
-import { createActionType } from 'base';
+import { createActionType } from 'base'
 
 export default createActionType([
   'WEATHERSTATIONS_REQUEST',
@@ -8,4 +8,4 @@ export default createActionType([
   'FORECAST_REQUEST',
   'FORECAST_SUCCESS',
   'FORECAST_ERROR'
-]);
+])

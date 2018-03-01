@@ -1,12 +1,12 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import { pure } from 'recompose';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import { pure } from 'recompose'
 
-import GoogleMap from 'google-map-react';
+import GoogleMap from 'google-map-react'
 
-import styles from './styles.css';
+import styles from './styles.css'
 
-import MapMarker from '../MapMarker';
+import MapMarker from '../MapMarker'
 
 const propTypes = {
   key: PropTypes.string.isRequired,
@@ -14,13 +14,13 @@ const propTypes = {
   zoom: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   stations: PropTypes.object.isRequired
-};
+}
 
 const defaultProps = {
   key: 'AIzaSyAUrK9ZaUL0Ga-RZYYFukBuTNm0qO3GbNI',
   center: { lat: 40.4047789, lng: -3.653974 },
   zoom: 6
-};
+}
 
 export const MapBox = props => {
   const mapMarkerList = props.stations.valueSeq().map(item => (
@@ -31,7 +31,7 @@ export const MapBox = props => {
       lng={ item.get('coord').Lon }
       main={ item.get('main') }
     />
-  ));
+  ))
 
   return (
     <div className={ styles.mapBox }>
@@ -45,10 +45,10 @@ export const MapBox = props => {
         { mapMarkerList }
       </GoogleMap>
     </div>
-  );
-};
+  )
+}
 
-MapBox.propTypes = propTypes;
-MapBox.defaultProps = defaultProps;
+MapBox.propTypes = propTypes
+MapBox.defaultProps = defaultProps
 
-export default pure(MapBox);
+export default pure(MapBox)

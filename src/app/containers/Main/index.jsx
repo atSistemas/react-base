@@ -1,39 +1,38 @@
-import Immutable from 'immutable';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { fetchRequiredActions } from 'base';
+import Immutable from 'immutable'
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { fetchRequiredActions } from 'base'
 
-import Actions from './actions';
-import Logo from '../../components/Logo';
-import LinkButton from '../../components/LinkButton';
-import styles from './styles.css';
+import Actions from './actions'
+import Logo from '../../components/Logo'
+import LinkButton from '../../components/LinkButton'
+import styles from './styles.css'
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
   MainModel: PropTypes.instanceOf(Immutable.Record).isRequired
-};
+}
 
 export class Main extends Component {
-
   static requiredActions = [Actions.getLogo];
 
   constructor (props) {
-    super(props);
-    this.actions = bindActionCreators(Actions, props.dispatch);
+    super(props)
+    this.actions = bindActionCreators(Actions, props.dispatch)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     fetchRequiredActions(
       Main.requiredActions,
       this.props,
       !this.props.MainModel.name
-    );
+    )
   }
 
   render () {
-    const LogoData = this.props.MainModel;
+    const LogoData = this.props.MainModel
 
     return (
       <div className={ styles.Main }>
@@ -69,12 +68,12 @@ export class Main extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-Main.propTypes = propTypes;
+Main.propTypes = propTypes
 
 export default connect(
   (state) => ({ MainModel: state.Main })
-)(Main);
+)(Main)

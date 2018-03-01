@@ -1,10 +1,10 @@
-import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import React from 'react'
+import { Route, IndexRoute } from 'react-router'
 
-import App from 'containers/App/';
-import Calculator from 'containers/Calculator/';
-import Main from 'containers/Main/';
-import WeatherStations from 'containers/WeatherStations/';
+import App from 'containers/App/'
+import Calculator from 'containers/Calculator/'
+import Main from 'containers/Main/'
+import WeatherStations from 'containers/WeatherStations/'
 
 const routes = (
   <Route path="/" component={ App } >
@@ -13,6 +13,6 @@ const routes = (
     <Route path="/main" component={ Main } />
     <Route path="/weatherstations" component={ WeatherStations } />
   </Route>
-);
+)
 
-export default routes;
+export default routes
