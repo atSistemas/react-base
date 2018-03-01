@@ -3,8 +3,8 @@ import path from 'path'
 import base from '../../'
 import { fileExists, readDir, writeFile } from '../FileSystem'
 
-const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex };'
-const importTpl = 'import * as @paramModel from \'containers/@param/models\';'
+const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex }'
+const importTpl = 'import * as @paramModel from \'containers/@param/models\''
 
 function RegenerateImportLine (container) {
   return importTpl.replace(/@param/g, container)

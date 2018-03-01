@@ -3,9 +3,9 @@ import path from 'path'
 import base from '../../'
 import { fileExists, readDir, writeFile } from '../FileSystem'
 
-const mainImportTpl = 'import { combineReducers } from \'redux\';\n'
-const exportTpl = '\n\nexport default combineReducers({\n@param\n});'
-const importTpl = 'import @param from \'containers/@param/reducers\';'
+const mainImportTpl = 'import { combineReducers } from \'redux\'\n'
+const exportTpl = '\n\nexport default combineReducers({\n@param\n})'
+const importTpl = 'import @param from \'containers/@param/reducers\''
 
 function RegenerateImportLine (container) {
   return importTpl.replace(/@param/g, container)

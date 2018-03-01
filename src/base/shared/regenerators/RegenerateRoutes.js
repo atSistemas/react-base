@@ -6,7 +6,7 @@ import { fileExists, readDir, writeFile } from '../FileSystem'
 const containersPath = path.resolve(__dirname, '..', '..', '..', 'app', 'containers')
 const routerPath = path.resolve(__dirname, '..', '..', '..', 'base', 'routes', 'index.js')
 
-let routesImports = 'import React from \'react\';\nimport { Route, IndexRoute } from \'react-router\';\n\nimport App from \'containers/App/\';'
+let routesImports = 'import React from \'react\'\nimport { Route, IndexRoute } from \'react-router\'\n\nimport App from \'containers/App/\''
 
 function RegenerateRoutes () {
   const routes = getRoutes()
@@ -35,11 +35,11 @@ function RegenerateRoutes () {
 }
 
 function generateRoutes (newRoutes) {
-  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n);\n'
+  return '\n\nconst routes = (\n  <Route path="/" component={ App } >\n    <IndexRoute component={ Main } />\n' + newRoutes + '  </Route>\n)\n'
 }
 
 function generateRoutesExport () {
-  return '\nexport default routes;'
+  return '\nexport default routes'
 }
 
 function getRoutes () {
@@ -47,7 +47,7 @@ function getRoutes () {
   return files.map(function (container) {
     let containerPath = path.resolve(containersPath, container)
     if (fileExists(containerPath) && container !== 'App') {
-      return { name: container, import: 'import ' + container + ' from \'containers/' + container + '/\';' }
+      return { name: container, import: 'import ' + container + ' from \'containers/' + container + '/\'' }
     } else {
       return { name: container, import: null }
     }

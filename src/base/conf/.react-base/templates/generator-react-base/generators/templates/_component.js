@@ -1,9 +1,9 @@
-import React  from 'react';
-import { PropTypes } from 'prop-types';
+import React  from 'react'
+import { PropTypes } from 'prop-types'
 
 const propTypes= {
   name: PropTypes.string.isRequired
-};
+}
 
 const <%= name %> = ({ name }) => {
 
@@ -11,9 +11,9 @@ const <%= name %> = ({ name }) => {
     <div>
       Hello { name } Container !
     </div>
-  );
-};
+  )
+}
 
-<%= name %>.propTypes = propTypes;
+<%= name %>.propTypes = propTypes
 
-export default <%= name %>;
+export default <%= name %>
