@@ -39,7 +39,7 @@ function generateRoutes (newRoutes) {
 }
 
 function generateRoutesExport () {
-  return '\nexport default routes'
+  return '\nexport default routes\n'
 }
 
 function getRoutes () {

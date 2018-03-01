@@ -3,7 +3,7 @@ import path from 'path'
 import base from '../../'
 import { fileExists, readDir, writeFile } from '../FileSystem'
 
-const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex }'
+const exportTpl = '\n\nconst modelIndex = [@param]\n\nexport default { modelIndex }'
 const importTpl = 'import * as @paramModel from \'containers/@param/models\''
 
 function RegenerateImportLine (container) {
@@ -23,11 +23,11 @@ function RegenerateModelIndex (containersPath, modelFilePath) {
     if (model.import) {
       modelImports += (index === 1) ? model.import : '\n' + model.import
       modelExports += model.name + 'Model'
-      modelExports += (index < containerModels.length - 1) ? ',' : ''
+      modelExports += (index < containerModels.length - 1) ? ', ' : ''
     }
   })
 
-  const content = modelImports + RegenerateExportLine(modelExports)
+  const content = modelImports + RegenerateExportLine(modelExports) + '\n'
 
   try {
     writeFile(modelFilePath, content)

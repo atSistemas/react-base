@@ -7,7 +7,7 @@ const <%= nameLower %>Request = (state) => state
 const <%= nameLower %>Error = (state) => state
 
 const <%= nameLower %>Success = (state, action) => (
-  state.update ('data', () => action.payload)
+  state.update('data', () => action.payload)
 )
 
 const actionHandlers = {

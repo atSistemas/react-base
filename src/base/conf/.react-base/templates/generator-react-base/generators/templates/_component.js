@@ -1,12 +1,11 @@
-import React  from 'react'
+import React from 'react'
 import { PropTypes } from 'prop-types'
 
-const propTypes= {
+const propTypes = {
   name: PropTypes.string.isRequired
 }
 
 const <%= name %> = ({ name }) => {
-
   return (
     <div>
       Hello { name } Container !

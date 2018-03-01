@@ -9,7 +9,6 @@ import <%= name %>Component from './components/'
 import styles from './styles.css'
 
 class <%= name %> extends Component {
-
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     <%= name %>Model: PropTypes.instanceOf(Immutable.Record)
@@ -26,7 +25,7 @@ class <%= name %> extends Component {
     const { <%= name  %>Model } = this.props
 
     return (
-      <div className={ styles.<%= name %>  }>
+      <div className={ styles.<%= name %> }>
         <<%= name %>Component name={ <%= name  %>Model.name } />
       </div>
     )

@@ -24,11 +24,11 @@ function RegenerateReducerIndex (containersPath, reducerFilePath) {
     if (reducer.import) {
       reducerImports += (index === 0) ? reducer.import : '\n' + reducer.import
       reducerExports += '  ' + reducer.name
-      reducerExports += (index < containerReducers.length - 1) ? ',\n' : ''
+      reducerExports += (index < containerReducers.length - 1) ? ',\n' : '\n'
     }
   })
 
-  const content = reducerImports + RegenerateExportLine(reducerExports)
+  const content = reducerImports + RegenerateExportLine(reducerExports) + '\n'
 
   try {
     writeFile(reducerFilePath, content)

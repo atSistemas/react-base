@@ -1,4 +1,4 @@
-import { Record, Map } from 'immutable'
+import { Record } from 'immutable'
 
 const <%= name %>Model = Record({
   id: -1,
