@@ -1,11 +1,11 @@
-import { Record } from 'immutable';
+import { Record } from 'immutable'
 
 const WeatherStationsModel = Record({
-  id:0,
+  id: 0,
   stationId: 0,
   distance: 0,
   last: null,
-  station:null
-});
+  station: null
+})
 
-export default WeatherStationsModel;
+export default WeatherStationsModel

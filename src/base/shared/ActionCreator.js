@@ -1,12 +1,11 @@
-function createAction(type, ...argNames) {
-  return function(...args) {
-    let action = { type };
+function createAction (type, ...argNames) {
+  return function (...args) {
+    let action = { type }
     argNames.forEach((arg, index) => {
-      action[argNames[index]] = args[index];
-    });
-    return action;
-  };
-
+      action[argNames[index]] = args[index]
+    })
+    return action
+  }
 }
 
-export default createAction;
+export default createAction

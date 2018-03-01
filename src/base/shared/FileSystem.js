@@ -1,30 +1,30 @@
-import fs from 'fs';
-import ReactBaseError from './Errors';
+import fs from 'fs'
+import ReactBaseError from './Errors'
 
-function fileExists(filename) {
+function fileExists (filename) {
   try {
-    fs.accessSync(filename);
-    return true;
+    fs.accessSync(filename)
+    return true
   } catch (e) {
-    return false;
+    return false
   }
 }
 
-function readDir(path) {
-  return fs.readdirSync(path);
+function readDir (path) {
+  return fs.readdirSync(path)
 }
 
-function readFile(path, options) {
-  return fs.readFileSync(path, options);
+function readFile (path, options) {
+  return fs.readFileSync(path, options)
 }
 
-function writeFile(file, content) {
+function writeFile (file, content) {
   try {
-    fs.writeFileSync(file, content, 'utf8');
-    return true;
+    fs.writeFileSync(file, content, 'utf8')
+    return true
   } catch (e) {
-    throw new ReactBaseError(e);
+    throw new ReactBaseError(e)
   }
 }
 
-export { fileExists, readDir, readFile, writeFile };
+export { fileExists, readDir, readFile, writeFile }

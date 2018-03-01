@@ -1,15 +1,16 @@
-import { Record } from 'immutable';
+import { Record } from 'immutable'
 
 const MainModel = Record({
   id: 0,
   src: '',
   alt: '',
   name: '',
-  width: 0,
-});
+  width: 0
+})
 
-function setInitialState(initialState) {
-  return initialState.Main = new MainModel(initialState.Main);
+function setInitialState (initialState) {
+  initialState.Main = new MainModel(initialState.Main)
+  return initialState.Main
 }
 
-export { MainModel, setInitialState };
+export { MainModel, setInitialState }

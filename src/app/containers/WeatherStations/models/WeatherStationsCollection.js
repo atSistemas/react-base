@@ -1,10 +1,10 @@
-import { Record, Map } from 'immutable';
+import { Record, Map } from 'immutable'
 
-const WeatherStationsCollection = Record({ 
-  data: Map(), 
-  stationSelected:-1, 
-  forecast: Map(), 
+const WeatherStationsCollection = Record({
+  data: Map(),
+  stationSelected: -1,
+  forecast: Map(),
   weatherStationDetails: Map()
-});
+})
 
-export default WeatherStationsCollection;
+export default WeatherStationsCollection

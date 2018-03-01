@@ -1,11 +1,11 @@
-import LogoAPI from '../api';
-import ActionTypes from '../actionTypes';
+import LogoAPI from '../api'
+import ActionTypes from '../actionTypes'
 
 export default {
-  getLogo(url) {
+  getLogo (url) {
     return {
       type: ActionTypes.LOGO_REQUEST,
       request: LogoAPI.fetchLogo(url)
-    };
+    }
   }
-};
+}

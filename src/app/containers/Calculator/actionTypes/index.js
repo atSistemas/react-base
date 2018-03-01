@@ -1,4 +1,4 @@
-import { createActionType } from 'base';
+import { createActionType } from 'base'
 
 export default createActionType([
   'SUM',
@@ -13,4 +13,4 @@ export default createActionType([
   'INPUT_DECIMAL',
   'INPUT_OPERATOR',
   'INPUT_OPERATION'
-]);
+])

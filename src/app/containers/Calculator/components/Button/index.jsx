@@ -1,21 +1,21 @@
-import Ink from 'react-ink';
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import Ink from 'react-ink'
+import React from 'react'
+import { PropTypes } from 'prop-types'
 
-import styles from './styles.css';
+import styles from './styles.css'
 
 const propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
-};
+}
 
 const Button = props => {
-  let style;
+  let style
 
-  if (props.type === 'operator') style = styles.ButtonOperate;
-  else if (props.type === 'zero') style = styles.ButtonZero;
-  else style = styles.Button;
+  if (props.type === 'operator') style = styles.ButtonOperate
+  else if (props.type === 'zero') style = styles.ButtonZero
+  else style = styles.Button
 
   return (
     <button
@@ -29,9 +29,9 @@ const Button = props => {
         recenter={ false }
       />
     </button>
-  );
-};
+  )
+}
 
-Button.propTypes= propTypes;
+Button.propTypes = propTypes
 
-export default Button;
+export default Button

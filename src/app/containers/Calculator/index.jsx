@@ -1,13 +1,12 @@
-import { PropTypes } from 'prop-types';
-import React, { Component } from 'react';
+import { PropTypes } from 'prop-types'
+import React, { Component } from 'react'
 
-import { Record } from 'immutable';
-import Display from './components/Display';
-import ButtonPannel from './components/ButtonPannel';
-import styles from './styles.css';
+import { Record } from 'immutable'
+import Display from './components/Display'
+import ButtonPannel from './components/ButtonPannel'
+import styles from './styles.css'
 
 export class Calculator extends Component {
-
   static proptypes = {
     Calculator: PropTypes.instanceOf(Record).isRequired
   }
@@ -20,8 +19,8 @@ export class Calculator extends Component {
           <ButtonPannel />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Calculator;
+export default Calculator
