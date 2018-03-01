@@ -4,7 +4,6 @@ import { Route, IndexRoute } from 'react-router'
 import App from 'containers/App/'
 import Calculator from 'containers/Calculator/'
 import Main from 'containers/Main/'
-import Todo from 'containers/Todo/'
 import WeatherStations from 'containers/WeatherStations/'
 
 const routes = (
@@ -12,7 +11,6 @@ const routes = (
     <IndexRoute component={ Main } />
     <Route path="/calculator" component={ Calculator } />
     <Route path="/main" component={ Main } />
-    <Route path="/todo" component={ Todo } />
     <Route path="/weatherstations" component={ WeatherStations } />
   </Route>
 )
