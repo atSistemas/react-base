@@ -169,7 +169,7 @@
   ],
   "lint-staged": {
     "*.{js,jsx}": [
-      "yarn eslint --fix",
+      "node node_modules/eslint/bin/eslint.js --fix",
       "git add"
     ]
   }
