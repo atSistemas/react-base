@@ -1,11 +1,11 @@
-import { expect } from 'chai';
-import React from 'react';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
+import { expect } from 'chai'
+import React from 'react'
+import ReactShallowRenderer from 'react-test-renderer/shallow'
 
-import { generateMap } from 'base/shared/ModelHelper';
+import { generateMap } from 'base/shared/ModelHelper'
 
-import { <%= name %>Model, setInitialState } from '../models';
-import { <%= name %> } from '..';
+import { <%= name %>Model, setInitialState } from '../models'
+import { <%= name %> } from '..'
 
 const mockData = [
   {
@@ -15,9 +15,9 @@ const mockData = [
     "width": 500,
     "url": "/assets/images/react-base-logo.png"
   }
-];
+]
 
-const mockDataImmutable2 = generateMap(mockData,<%= name %>Model);
+const mockDataImmutable2 = generateMap(mockData,<%= name %>Model)
 
 function setup() {
 
@@ -26,30 +26,30 @@ function setup() {
       <%= name %>: {
         data: mockData
       }
-};
+}
 
 let props = {
   dispatch: dispatch,
     <%= name %>Model: setInitialState(initialState)
-  };
+  }
 
-let renderer = new ReactShallowRenderer();
-renderer.render(<<%= name %> { ...props } />);
-let output = renderer.getRenderOutput();
+let renderer = new ReactShallowRenderer()
+renderer.render(<<%= name %> { ...props } />)
+let output = renderer.getRenderOutput()
 
 return {
   props,
   output,
   renderer
-};
+}
 }
 
 describe('containers', () => {
   describe('<%= name %>', () => {
     /* it('should render correctly', () => {
-       const { output } = setup();
-        expect(output.props.name).toBe('<%= name %>');
- 
-     });*/
-  });
-});
+       const { output } = setup()
+        expect(output.props.name).toBe('<%= name %>')
+
+     })*/
+  })
+})

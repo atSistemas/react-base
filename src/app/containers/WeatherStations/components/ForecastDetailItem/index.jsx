@@ -1,39 +1,39 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import dateformat from 'dateformat';
-import styles from './styles.css';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import dateformat from 'dateformat'
+import styles from './styles.css'
 
 const propTypes = {
   item: PropTypes.object.isRequired
-};
+}
 
 const WeatherDetailItem = ({ item }) => (
 
   <div className={ styles.weatherDetailRow } >
     <span className={ styles.dayBox }>
-      { dateformat(new Date(item.dt*1000), 'dd/mm/yyyy') }
+      { dateformat(new Date(item.dt * 1000), 'dd/mm/yyyy') }
     </span>
     <span className={ styles.rowItem }>
-      Day Temperature: <b>{ `${ item.temp.day } ºC` }</b>
+      Day Temperature: <b>{ `${item.temp.day} ºC` }</b>
     </span>
     <span className={ styles.rowItem }>
-      Min Daily Temperature: <b>{ `${ item.temp.min } ºC` }</b>
+      Min Daily Temperature: <b>{ `${item.temp.min} ºC` }</b>
     </span>
     <span className={ styles.rowItem }>
-      Max Daily Temperature: <b>{ `${ item.temp.max } ºC` }</b>
+      Max Daily Temperature: <b>{ `${item.temp.max} ºC` }</b>
     </span>
     <span className={ styles.rowItem }>
-      Night Temperature: <b>{ `${ item.temp.night } ºC` }</b>
+      Night Temperature: <b>{ `${item.temp.night} ºC` }</b>
     </span>
     <span className={ styles.rowItem }>
-      Evening Daily Temperature: <b>{ `${ item.temp.eve } ºC` }</b>
+      Evening Daily Temperature: <b>{ `${item.temp.eve} ºC` }</b>
     </span>
     <span className={ styles.rowItem }>
-      Morning Daily Temperature: <b>{ `${ item.temp.morn } ºC` }</b>
+      Morning Daily Temperature: <b>{ `${item.temp.morn} ºC` }</b>
     </span>
   </div>
-);
+)
 
-WeatherDetailItem.propTypes= propTypes;
+WeatherDetailItem.propTypes = propTypes
 
-export default WeatherDetailItem;
+export default WeatherDetailItem

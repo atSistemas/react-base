@@ -48,13 +48,14 @@
     "postYeomanGenerator": "npm run regenerate && npm run start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "postinstall": "npm run generate:dll",
-    "prepublishOnly": "npm run lint && npm run test:coverage && npm run build"
-
+    "prepublishOnly": "npm run lint && npm run test:coverage && npm run build",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "babel-core": "6.26.0",
     "compression": "1.7.1",
     "express": "4.16.2",
+    "generator-react-base": "./src/base/conf/.react-base/templates/generator-react-base/",
     "google-map-react": "0.25.0",
     "helmet": "3.9.0",
     "react": "16.1.1",
@@ -88,19 +89,25 @@
     "css-modules-require-hook": "4.2.2",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.0",
-    "eslint": "4.11.0",
+    "eslint": "4.18.1",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-loader": "1.9.0",
-    "eslint-plugin-import": "2.8.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "2.0.0",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "3.0.2",
     "generator-webapp": "3.0.1",
+    "husky": "^0.14.3",
     "ignore-styles": "5.0.1",
     "immutable": "3.8.2",
     "isomorphic-fetch": "2.2.1",
     "istanbul": "0.4.5",
     "jsdom": "11.4.0",
+    "lint-staged": "^7.0.0",
     "mocha": "4.0.1",
     "nyc": "11.3.0",
     "postcss-browser-reporter": "0.5.0",
@@ -159,5 +166,11 @@
     "mocha",
     "chai",
     "postcss"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "node node_modules/eslint/bin/eslint.js --fix",
+      "git add"
+    ]
+  }
 }

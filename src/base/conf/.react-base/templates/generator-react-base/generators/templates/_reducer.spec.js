@@ -1,17 +1,17 @@
-import { expect } from 'chai';
-import reducer from '..';
+import { expect } from 'chai'
+import reducer from '..'
 
 describe('Reducers', () => {
   describe('<%= name %> reducer', () => {
 
-   /* it('Should return the initial state', () => {
+    /* it('Should return the initial state', () => {
 
       const action = {
         type: types.<%= nameUpper %>_REQUEST
       };
 
       expect(reducer([], action)).toEqual([]);
-    });*/
+    }); */
 
   /*  it('should return the state of <%= name %> request fail', () => {
 
@@ -20,6 +20,6 @@ describe('Reducers', () => {
       };
 
       expect(reducer([], action)).toEqual([]);
-    });*/
-  });
-});
+    }); */
+  })
+})
