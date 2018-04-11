@@ -1,7 +1,7 @@
 import * as templates from '../templates/';
 import { getScripts, getStyles } from '../lib/files';
 
-export default function renderPage(routeMatch, container, store) {
+export default function renderPage(routeMatch, container, store, client) {
 
   const params = {
     title: params,
@@ -10,7 +10,8 @@ export default function renderPage(routeMatch, container, store) {
     state: store.getState(),
     style: getStyles('app'),
     appScript: getScripts('app'),
-    vendorScript: getScripts('vendor')
+    vendorScript: getScripts('vendor'),
+    apolloClient: client
   };
 
   let template;
@@ -23,5 +24,4 @@ export default function renderPage(routeMatch, container, store) {
 
   if (routeMatch === '/' || !template) return templates.main(params);
   else return template(params);
-
 }

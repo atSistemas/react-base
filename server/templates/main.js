@@ -2,6 +2,7 @@
 export default function main(params) {
 
   const state = JSON.stringify(params.state);
+  const apolloState = JSON.stringify(params.apolloClient.extract());
 
   return `
   <!doctype html>
@@ -15,6 +16,7 @@ export default function main(params) {
     <body>
     <div id="root">${ params.container }</div>
       <script>window.$REACTBASE_STATE = ${ state }</script>
+      <script>window.__APOLLO_STATE__ = ${ apolloState }</script>
       ${ params.appScript }
     </body>
   </html>

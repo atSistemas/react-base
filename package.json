@@ -51,8 +51,12 @@
     "prepublishOnly": "npm run lint && npm run test:coverage && npm run build"
   },
   "dependencies": {
-    "apollo-boost": "^0.1.4",
+    "apollo-cache-inmemory": "^1.1.12",
+    "apollo-client": "^2.2.8",
     "apollo-client-preset": "^1.0.8",
+    "apollo-link": "^1.2.1",
+    "apollo-link-error": "^1.0.7",
+    "apollo-link-http": "^1.5.3",
     "babel-core": "6.26.0",
     "compression": "1.7.1",
     "express": "4.16.2",

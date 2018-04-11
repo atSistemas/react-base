@@ -15,6 +15,8 @@ import routes from '../routes';
 const apolloClient = initApollo();
 const store = ConfigureStore(browserHistory, InitialState);
 
+console.log('apolloclient', apolloClient);
+
 hydrate(
   <Provider store={ store }>
     <ApolloProvider client={ apolloClient }>
