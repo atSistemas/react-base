@@ -1,17 +1,19 @@
+import config from "base/conf/site";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
-export function generateConfig({ initialState = {}, uri, headers, options }) {
-  const cache = new InMemoryCache().restore(initialState);
+const initialState =
+  typeof window !== "undefined" ? window.__APOLLO_STATE__ : {};
 
-  return {
-    cache,
-    link: new HttpLink({
-      uri,
-      credentials: 'same-origin',
-      headers
-    }),
-    ssrForceFetchDelay: 100,
-    ...options
-  };
-}
+export default {
+  initialState,
+  cache: new InMemoryCache().restore(initialState),
+  link: new HttpLink({
+    uri: config.graphql.endpoint,
+    credentials: "same-origin",
+    headers: {
+      Authorization: `Bearer ${config.graphql.authToken}`
+    }
+  }),
+  ssrForceFetchDelay: 100
+};
