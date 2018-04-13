@@ -1,8 +1,8 @@
 import env from "base/shared/Env";
-import common from "./site.common";
 
-const config = (env === "development"
-  ? require("./site.dev").default
-  : require("./site.prod").default);
+const isBrowser = typeof window !== "undefined";
 
-export default Object.assign(common, config);
+const modeConfig = env === "development" ? require("./site.dev").default : require("./site.prod").default;
+const environmentConfig = isBrowser ? require("./site.browser").default : require("./site.server").default;
+
+export default Object.assign(modeConfig, environmentConfig);
