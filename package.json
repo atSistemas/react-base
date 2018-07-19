@@ -128,8 +128,8 @@
     "webpack-dev-middleware": "1.12.1",
     "webpack-dev-server": "2.9.4",
     "webpack-hot-middleware": "2.20.0",
-    "yeoman-option-or-prompt": "2.0.0",
-    "yo": "2.0.4"
+    "yeoman-option-or-prompt": "1.0.2",
+    "yo": "1.8.5"
   },
   "repository": {
     "type": "git",
