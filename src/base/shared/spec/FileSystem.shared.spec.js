@@ -29,22 +29,6 @@ describe('shared / FileSystem', () => {
     });
   });
 
-  describe('readFile', () => {
-
-    it('Sould write a file', () => {
-
-      const file = path.resolve(__dirname, 'test.js');
-      const content = 'Hello!';
-      writeFile(file,content);
-
-      const readed = readFile(file, 'utf8');
-
-      fs.unlink(file);
-      expect(readed).to.equal(content);
-
-    });
-  });
-
   describe('writeFile', () => {
 
     it('Sould write a file', () => {

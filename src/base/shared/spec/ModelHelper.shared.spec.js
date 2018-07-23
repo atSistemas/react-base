@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Map, List, Record } from 'immutable';
+import { Map, List } from 'immutable';
 
 import { MainModel } from 'containers/Main/models';
 import * as ModelHelper from '../ModelHelper';
