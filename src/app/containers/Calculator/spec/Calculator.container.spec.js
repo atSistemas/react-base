@@ -20,6 +20,44 @@ describe('Containers', () => {
       expect(component.find('ButtonPannel')).to.have.lengthOf(1);
     });
 
+    it('Should display float result with result button', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+          <Calculator />
+        </Provider>);
+      
+      component.find('Button')
+        .findWhere(n => n.props().value === '.')
+        .simulate('click');
+
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('0.');
+    });
+
+    it('Should display module result with result button', () => {
+      const store = configureStore([]);
+      const component = mount(
+        <Provider store={ store }>
+          <Calculator />
+        </Provider>);
+      
+      component.find('Button')
+        .findWhere(n => n.props().value === '8')
+        .simulate('click');
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '9')
+        .simulate('click');
+
+      component.find('Button')
+        .findWhere(n => n.props().value === '%')
+        .simulate('click');
+
+      const Display = component.find('Display');
+      expect(Display.text()).to.equal('0.89');
+    });
+
 
     it('Should display sum result with result button', () => {
       const store = configureStore([]);
