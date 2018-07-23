@@ -29,6 +29,19 @@ describe('shared / FileSystem', () => {
     });
   });
 
+  describe('readFile', () => {
+
+    it('Sould write a file', () => {
+
+      const file = path.resolve(__dirname, '..', 'FileSystem.js');
+
+      const readed = readFile(file, 'utf8');
+
+      expect(readed).to.have.string('import');
+
+    });
+  });
+
   describe('writeFile', () => {
 
     it('Sould write a file', () => {
