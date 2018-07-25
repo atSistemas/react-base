@@ -1,6 +1,6 @@
 import path from 'path';
 
-import base from '../../';
+import base from '../..';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex };';

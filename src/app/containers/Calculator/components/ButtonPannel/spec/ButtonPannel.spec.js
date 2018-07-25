@@ -1,10 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-import ButtonPannel from '../';
 import configureStore from 'store/ConfigureStore';
+import ButtonPannel from '..';
 
 describe('Calculator / Components', () => {
 
@@ -14,10 +14,10 @@ describe('Calculator / Components', () => {
       const store = configureStore([]);
       const component = mount(
         <Provider store={ store }>
-            <ButtonPannel />
+          <ButtonPannel />
         </Provider>);
 
-        expect(component.find('Button')).to.have.lengthOf(19);
+      expect(component.find('Button')).to.have.lengthOf(19);
     });
 
   });
