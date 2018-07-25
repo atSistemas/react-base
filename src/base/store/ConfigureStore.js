@@ -11,10 +11,16 @@ function configureStore(history, initialState) {
   let middleware;
 
   if (base.env === 'development') {
-    middleware = applyMiddleware(
-      createLogger({ level: 'info', collapsed: true }),
-      reduxReqMiddleware(),
-    );
+    if (process.env.TASK === 'testing') {
+      middleware = applyMiddleware(
+        reduxReqMiddleware()
+      );
+    } else {
+      middleware = applyMiddleware(
+        createLogger({ level: 'info', collapsed: true }),
+        reduxReqMiddleware(),
+      );
+    }
     composeEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   } else {
     middleware = applyMiddleware(

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import base from '../../';
+import base from '../..';
 import { fileExists, readDir, writeFile } from '../FileSystem';
 
 const containersPath = path.resolve(__dirname, '..', '..', '..',  'app', 'containers');

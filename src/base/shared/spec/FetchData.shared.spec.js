@@ -40,7 +40,7 @@ describe('shared', () => {
       function dispatch({ type }) {
         expect(type).to.equal(actionTypes.LOGO_REQUEST);
       }
-      const data = generateImmutable( mockData, MainModel );
+      const data = generateImmutable(mockData, MainModel);
 
       const props= {
         params:{

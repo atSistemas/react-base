@@ -1,4 +1,4 @@
-import console from '../../../src/base/shared/console';
+import console from '../shared/console';
 
 export default class compileInfoPlugin {
 

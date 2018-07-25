@@ -1,10 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
-import { Record } from 'immutable';
 import { Provider } from 'react-redux';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-import Display from '../';
+import Display from '..';
 import configureStore from 'store/ConfigureStore';
 import { CalculatorModel, setInitialState } from '../../../models';
 
@@ -20,7 +19,7 @@ describe('Calculator / Components', () => {
       const store = configureStore([], fakeStore);
       const component = mount(
         <Provider store={ store }>
-            <Display />
+          <Display />
         </Provider>
       );
 

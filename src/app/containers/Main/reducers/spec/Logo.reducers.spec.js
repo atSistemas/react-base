@@ -33,11 +33,8 @@ describe('Reducers', () => {
     });
 
     it('should execute request fail', () => {
-      var logg = console.log;
-      console.log = function (m) { };
       const action = { type: ActionTypes.LOGO_ERROR };
       expect(mainReducer([], action)).to.deep.equal([]);
-      console.log = logg;
     });
    
   });
