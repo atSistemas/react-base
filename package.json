@@ -2,25 +2,7 @@
   "name": "ReactBase",
   "version": "1.1.1",
   "description": "React Base Isomorphic Redux",
-  "author": "Pablo Magaz",
-  "contributors": [
-    {
-      "name": "Luis Martinez Marina",
-      "email": "lmartinez.marina@atsistemas.com"
-    },
-    {
-      "name": "Santiago Fernandez Blanco",
-      "email": "sfernandez.blanco@atsistemas.com"
-    },
-    {
-      "name": "Rafael Bernad",
-      "email": "rbernad@atsistemas.com"
-    },
-    {
-      "name": "Gastón Messeri",
-      "email": "gemesseri@atsistemas.com"
-    }
-  ],
+  "author": "AT Sistemas",
   "main": "client/client.js",
   "scripts": {
     "logo": "node ./src/base/conf/.react-base/logo.js",
@@ -50,10 +32,9 @@
     "postinstall": "npm run generate:dll"
   },
   "dependencies": {
-    "babel-core": "6.24.1",
-    "compression": "1.6.2",
-    "css-modules-require-hook": "4.0.6",
-    "express": "4.15.2",
+    "babel-core": "^6.26.3",
+    "compression": "^1.7.4",
+    "express": "^4.16.4",
     "helmet": "^3.8.1",
     "react": "15.6.1",
     "react-dom": "15.5.4",
@@ -64,7 +45,7 @@
   },
   "devDependencies": {
     "assets-webpack-plugin": "3.5.1",
-    "babel-cli": "6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -74,7 +55,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.24.1",
-    "babel-register": "6.24.1",
+    "babel-register": "^6.26.0",
     "chai": "3.5.0",
     "classnames": "2.2.5",
     "copy-webpack-plugin": "4.0.1",
@@ -82,12 +63,12 @@
     "create-reduxreducer": "^1.0.0",
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.1",
-    "css-modules-require-hook": "4.0.6",
+    "css-modules-require-hook": "^4.2.3",
     "enzyme": "2.8.2",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-loader": "1.7.1",
-    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
     "extract-text-webpack-plugin": "2.1.0",
