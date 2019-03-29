@@ -6,7 +6,7 @@
 * add package.lock for use npm audit
 * Fix 388 low vulnerabilities third dependencies
 * Fix 288 moderate vulnerabilities third dependencies
-
+* Change version configuration webpack
 
 X.X.X / XXXXX
 ==================
