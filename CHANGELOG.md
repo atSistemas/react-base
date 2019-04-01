@@ -7,7 +7,6 @@
 * Fix 388 low vulnerabilities third dependencies
 * Fix 288 moderate vulnerabilities third dependencies
 * Change version configuration webpack
-* Update react and react-dom to 16
 
 X.X.X / XXXXX
 ==================
