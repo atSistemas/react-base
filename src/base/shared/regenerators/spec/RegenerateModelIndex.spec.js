@@ -65,7 +65,13 @@ describe('shared / Regenerators / RegenerateModelIndex', () => {
 
       expect(result).to.equal(true);
       expect(fileExists(fakeModelPath)).to.equal(true);
-      fs.unlink(fakeModelPath);
+      fs.unlink(fakeModelPath, (err) => {
+        if (err) {
+          console.log("failed to delete local file:"+err);
+        } else {
+          console.log('successfully deleted local file');
+        }
+      });
 
     });
   });
