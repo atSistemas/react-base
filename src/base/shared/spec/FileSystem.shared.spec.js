@@ -39,7 +39,13 @@ describe('shared / FileSystem', () => {
 
       const readed = readFile(file, 'utf8');
 
-      fs.unlink(file);
+      fs.unlink(file, (err) => {
+        if (err) {
+          console.log("failed to delete local file:"+err);
+        } else {
+          console.log('successfully deleted local file');
+        }
+      });
       expect(readed).to.equal(content);
 
     });
@@ -54,7 +60,13 @@ describe('shared / FileSystem', () => {
       writeFile(file,content);
 
       const wrote  = fs.readFileSync(file, "utf8");
-      fs.unlink(file);
+      fs.unlink(file, (err) => {
+        if (err) {
+          console.log("failed to delete local file:"+err);
+        } else {
+          console.log('successfully deleted local file');
+        }
+      });
 
       expect(wrote).to.equal(content);
 
